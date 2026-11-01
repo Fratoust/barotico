@@ -505,19 +505,19 @@ function dailyGap(){
 }
 
 /* v26: the barometer's verdict = promise-o-meter (measured) + sarcastic synthesis of the whole card. Same rules for every party. */
-Object.assign(T.en,{verdict_h:"The barometer's verdict",prom_h:"Promise-o-meter",prom_detail:"The promises, one by one",
+Object.assign(T.en,{verdict_h:"The barometer's verdict",prom_h:"Promise-o-meter",prom_detail:"A sample of promises, one by one",
  pst:{kept:"Kept",partial:"Partly kept",broken:"Broken",untested:"Never tested"},
  bands:[["Words, words, words","Most checked promises were broken."],["Campaign talk","More broken than kept."],["Elastic word","Some kept, some stretched."],["Word of honour","Most checked promises were kept."]],
  untested_all:["Take its word for it","Never in a position to keep or break these promises. Impossible to check, which is convenient."],
  prom_note:"3 to 4 concrete promises from its latest programme, each checked against an official act or an independent tracker. “Partly” also covers a promise the party pushed but others blocked. A promise that needs power the party never held cannot be tested.",
  prom_count:(k,p,b,u)=>`${k} kept · ${p} partly · ${b} broken · ${u} never tested`});
-Object.assign(T.fr,{verdict_h:"Le verdict du baromètre",prom_h:"Promesse-o-mètre",prom_detail:"Les promesses, une par une",
+Object.assign(T.fr,{verdict_h:"Le verdict du baromètre",prom_h:"Promesse-o-mètre",prom_detail:"Un éventail de promesses, une par une",
  pst:{kept:"Tenue",partial:"En partie",broken:"Rompue",untested:"Jamais testée"},
  bands:[["Paroles, paroles","La plupart des promesses vérifiées ont été rompues."],["Discours de campagne","Plus de promesses rompues que tenues."],["Parole élastique","Certaines tenues, d'autres étirées."],["Parole d'honneur","La plupart des promesses vérifiées ont été tenues."]],
  untested_all:["Croyez-le sur parole","Jamais en position de tenir ou rompre ces promesses. Impossible à vérifier, c'est pratique."],
  prom_note:"3 ou 4 promesses concrètes tirées de son dernier programme, chacune vérifiée sur un acte officiel ou un compteur indépendant. « En partie » couvre aussi une promesse portée par le parti mais bloquée par d'autres. Une promesse qui exige un pouvoir que le parti n'a jamais eu ne peut pas être testée.",
  prom_count:(k,p,b,u)=>`${k} tenue${k>1?"s":""} · ${p} en partie · ${b} rompue${b>1?"s":""} · ${u} jamais testée${u>1?"s":""}`});
-Object.assign(T.es,{verdict_h:"El veredicto del barómetro",prom_h:"Promesómetro",prom_detail:"Las promesas, una a una",
+Object.assign(T.es,{verdict_h:"El veredicto del barómetro",prom_h:"Promesómetro",prom_detail:"Una muestra de promesas, una a una",
  pst:{kept:"Cumplida",partial:"En parte",broken:"Incumplida",untested:"Nunca probada"},
  bands:[["Palabras, palabras","La mayoría de las promesas comprobadas se incumplieron."],["Discurso de campaña","Más incumplidas que cumplidas."],["Palabra elástica","Algunas cumplidas, otras estiradas."],["Palabra de honor","La mayoría de las promesas comprobadas se cumplieron."]],
  untested_all:["Créaselo","Nunca ha estado en posición de cumplir o incumplir estas promesas. Imposible de comprobar, qué práctico."],
@@ -561,7 +561,7 @@ function verdictBlock(k,p){
     meter=`<div class="pmeter"><div class="pm-head"><b>${t("prom_h")}</b><span class="pm-band">${bh}</span></div>
       <div class="pm-bar" role="img" aria-label="${T[lang].prom_count(n.kept,n.token,n.partial,n.broken,n.untested)}">${seg}</div>
       <p class="pm-count mono">${T[lang].prom_count(n.kept,n.token,n.partial,n.broken,n.untested).split(" · ").map(x=>`<span>${x}</span>`).join("")}</p><p class="explain">${bp}</p>
-      <details><summary>${t("prom_detail")}</summary><ul class="casier">${prom.map(([x,s,u,e])=>`<li><span class="stamp ${PSCLS[s]}">${s==="kept"&&!e?t("kept0"):t("pst")[s]}</span> ${u?`<a href="${u}" target="_blank" rel="noopener">${esc(tr(x))}</a>`:esc(tr(x))}${s==="kept"&&e?` <a href="${e}" target="_blank" rel="noopener" class="src-a">${t("effect")}</a>`:""}</li>`).join("")}</ul><p class="sources">${t("prom_note")}</p></details></div>`;
+      <details><summary>${t("prom_detail")}</summary><ul class="casier promlist">${prom.map(([x,s,u,e])=>`<li><span class="stamp ${PSCLS[s]}">${s==="kept"&&!e?t("kept0"):t("pst")[s]}</span> <span class="ptxt">${esc(tr(x))}${u?` <a href="${u}" target="_blank" rel="noopener" class="src-a">${t("source")}</a>`:""}${s==="kept"&&e?` · <a href="${e}" target="_blank" rel="noopener" class="src-a">${t("effect")}</a>`:""}</span></li>`).join("")}</ul><p class="sources">${t("prom_note")}</p></details></div>`;
   }
   const ed=isEdge(p);
   return `<div class="verdict${ed?" edge":""}"><p class="eyebrow">${t("verdict_h")}${ed?` · <span class="edge-tag">${p.pos<0?t("fl"):t("fr_")}</span>`:""}</p>${meter}${v?`<blockquote class="chute">${tr(v).split(/\n\n+/).map(x=>`<p>${esc(x)}</p>`).join("")}</blockquote>`:""}</div>`;
@@ -838,7 +838,7 @@ function pairsBlock(k,p){
    <details class="pblock alsoblk"><summary><b>${t("also_h")}</b></summary>${faitList()}</details>`;
 }
 function bornLine(p){const b=p.born;if(!b)return "";const nw=new Date(),age=nw.getFullYear()-b.y-(b.m&&nw.getMonth()+1<b.m?1:0),tag=age<5?"young":age>=25?"old":"";
-  return `<div><dt>${t("f_born")}</dt><dd>${b.y} · <b>${T[lang].born_age(age)}</b>${tag?` <span class="bchip ${tag}">${t("born_tag")[tag]}</span>`:""}${b.old?`<small>${esc(T[lang].born_was(b.old,b.re))}</small>`:""}${b.u?` <a class="src-a" href="${b.u}" target="_blank" rel="noopener">${t("source")}</a>`:""}</dd></div><div><dt>${t("f_gov")}</dt><dd><span class="bchip g-${b.gov}">${t("born_gov")[b.gov]}</span></dd></div>`}
+  return `<div><dt>${t("f_born")}</dt><dd>${b.y} · <b>${T[lang].born_age(age)}</b>${b.u?`<a class="src-a fsrc" href="${b.u}" target="_blank" rel="noopener">${t("source")}</a>`:""}${b.old?`<small>${esc(T[lang].born_was(b.old,b.re))}</small>`:""}</dd></div><div><dt>${t("f_gov")}</dt><dd>${t("born_gov")[b.gov]}</dd></div>${tag?`<div class="ftag"><span class="bchip ${tag}">${t("born_tag")[tag]}</span></div>`:""}`}
 function partyCard(k,c,p){
   const hl=HOUSING_L[k];
   const vote=hl&&p.vote?`<div class="pblock"><b>${t("housing_v")}</b><div class="votes">${hl.map(([h,d],i)=>`<span class="vote v-${p.vote[i]}">${esc(tr(h))} <small>${tr(d)}</small> · ${p.vote[i]==="pour"?t("vote_for"):t("vote_against")}</span>`).join("")}</div></div>`:"";
@@ -877,13 +877,13 @@ function countryPage(k){
     const ref=m.ref?` · <a href="${m.ref.u}" target="_blank" rel="noopener">${esc(t("ref_l")+": "+m.ref.full)}</a>`:"";
     return `<div class="g r-${m.rate}"><span class="lbl">${esc(tr(MTX[mk].n))}</span><span class="val">${m.main}${m.unit?` <small>${m.unit}</small>`:""}</span><span class="ms">${m.sub}</span><span class="rdot r-${m.rate}">${tr(RL[m.rate])}</span><span class="src">${esc(tr(MTX[mk].w))}</span>${badge(b)}<span class="src">${sl(s)}${ref}</span></div>`}).join("");
   const onAxis=plist?plist.filter(p=>p.axis!=="na"):[];
-  const parties=plist?`<div class="par-top"><div class="par-intro"><p class="lead">${t("par_intro")}</p><details class="howto"><summary>${t("par_how")}</summary><p>${onAxis.length?t("pos_note"):t("axis_na_country")}</p>${c.progNote?`<p>${esc(tr(c.progNote))}</p>`:""}</details></div>
+  const parties=plist?`<div class="par-top"><div class="par-intro"><p class="lead">${t("par_intro")}</p></div>
     ${onAxis.length?`<div class="par-spec"><p class="eyebrow">${t("spec_h")}</p><div class="spectrum">
       <div class="spec-line"></div>
       ${[...onAxis].sort((a,b)=>a.pos-b.pos).map((p,i)=>`<a class="spec-dot" href="#${k}-${p.id}" style="left:${Math.min(91,Math.max(9,50+p.pos/2*46))}%;top:${(i%4)*26}px">${esc(p.name)}</a>`).join("")}
       <div class="spec-lbl"><span>${t("left")}</span><span>${t("centre")}</span><span>${t("right")}</span></div>
     </div>
-    </div>`:""}</div>
+    </div>`:""}</div><details class="howto"><summary>${t("par_how")}</summary><p>${onAxis.length?t("pos_note"):t("axis_na_country")}</p>${c.progNote?`<p>${esc(tr(c.progNote))}</p>`:""}</details>
     <div class="pgrid">${plist.map(p=>partyCard(k,c,p)).join("")}</div>`
     :`<p class="pending">${t("fin_pending")}</p>`;
   const voteCard=c.turnout?`<div class="votecard"><p class="eyebrow">${t("vote_eye")}</p><h3>${t("vote_h")}</h3><p>${esc(tr(c.turnout.how))}</p><p class="vlast"><b>${t("turnout_last")}</b> ${esc(tr(c.turnout.last))} <a class="src-a" href="${c.turnout.src}" target="_blank" rel="noopener">${t("source")}</a></p></div>`:"";
