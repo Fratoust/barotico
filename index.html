@@ -524,6 +524,14 @@ section.legal p{max-width:75ch}
 .btable .tablewrap{overflow-x:auto}.btable table{border-collapse:collapse;font-size:.75rem;white-space:nowrap}.btable th,.btable td{padding:3px 6px;border-bottom:1px solid var(--line);text-align:right}.btable th:first-child,.btable td:first-child{text-align:left}
 .budget h3 .dinfo-b{margin-left:6px;vertical-align:middle}
 
+.pborn{margin:6px 0 0;font-size:.82rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}.pborn b{color:var(--ink)}
+.bchip{display:inline-block;font-size:.72rem;line-height:1.3;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--ink);background:var(--surface)}
+.bchip.young{border-color:var(--warn);color:var(--ink);background:color-mix(in srgb,var(--warn) 14%,var(--surface))}
+.bchip.g-never{border-style:dashed}
+.bmob{display:none;font-size:.8rem;color:var(--muted);border-left:3px solid var(--line);padding-left:8px}
+@media (max-width:640px){.bmob{display:block}}
+.bminig{display:grid;grid-template-columns:1fr 1fr;gap:4px 28px}@media (max-width:640px){.bminig{grid-template-columns:1fr}}.bmh .mono{white-space:nowrap}
+.budget.mini{margin-top:18px}
 .pnote{font-size:.82rem;line-height:1.45;color:var(--muted);margin:0 0 12px}
 .alsoblk summary{cursor:pointer;list-style:revert}
 .alsoblk summary b{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
