@@ -638,6 +638,24 @@ section.legal p{max-width:75ch}
 .pcard .verdict .explain,.pcard .verdict details>summary,.pcard .verdict blockquote.chute,.pcard .verdict .promlist li{font-size:var(--fs-s);line-height:1.55}
 .pcard .verdict .promlist .src-a{font-size:var(--fs-xs);color:var(--muted);text-decoration:underline}
 .pcard .verdict blockquote.chute p:first-child:not(:only-child){font-weight:600}
+
+/* v102: party facts as label/value rows; party cards fold (accordion) */
+.pfacts{grid-template-columns:auto 1fr;gap:9px 16px;align-items:baseline}
+.pfacts>div{display:contents}
+.pfacts dt{margin:0;white-space:nowrap}
+.pfacts dd small{display:block;margin-top:3px}
+.pfacts dd small .src-a{font-family:var(--f-body);font-size:var(--fs-xs);color:var(--muted);text-decoration:underline}
+.pfacts .bchip{margin:2px 0 0 4px;vertical-align:1px}
+@media (max-width:420px){.pfacts{grid-template-columns:auto 1fr}}
+.pcard:not(.open)>:not(.phead):not(.ptoggle),.pcard:not(.open)>.ptoggle.pend{display:none}
+.ptoggle{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin:14px 0 0;padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:var(--tint);color:var(--ink);font:600 var(--fs-s)/1.2 var(--f-body);cursor:pointer}
+.ptoggle::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg)}
+.pcard.open>.ptoggle:not(.pend)::after,.ptoggle.pend::after{transform:translateY(2px) rotate(-135deg)}
+.ptoggle:hover{border-color:var(--ink)}
+.ptoggle:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.pcard.open>.ptoggle:not(.pend){margin-bottom:6px}
+.pcard>.phead{margin-bottom:0;padding-bottom:0}
+.pcard>.ptoggle{margin-top:4px}
 </style>
 
 <header class="top" id="top">
