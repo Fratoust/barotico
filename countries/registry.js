@@ -1,0 +1,23 @@
+/* Barotico: country registry. Loaded first. Country files call BAROTICO.add(key, data); meta.js fills BAROTICO.meta for the landing page. */
+var L3=function(en,fr,es){return{en:en,fr:fr,es:es}};
+var BAROTICO={
+  meta:{}, full:{}, loading:{},
+  add:function(k,d){this.full[k]=d;if(typeof window!=="undefined"&&window.__baroticoLoaded)window.__baroticoLoaded(k)},
+  /* Countries announced on the site, ready or not: [key, ISO, continent, name] */
+  planned:[
+    ["france","FR","europe",L3("France","France","Francia")],["espagne","ES","europe",L3("Spain","Espagne","España")],["belgique","BE","europe",L3("Belgium","Belgique","Bélgica")],
+    ["germany","DE","europe",L3("Germany","Allemagne","Alemania")],["italy","IT","europe",L3("Italy","Italie","Italia")],["uk","GB","europe",L3("United Kingdom","Royaume-Uni","Reino Unido")],
+    ["ireland","IE","europe",L3("Ireland","Irlande","Irlanda")],["portugal","PT","europe",L3("Portugal","Portugal","Portugal")],["greece","GR","europe",L3("Greece","Grèce","Grecia")],
+    ["netherlands","NL","europe",L3("Netherlands","Pays-Bas","Países Bajos")],["russia","RU","europe",L3("Russia","Russie","Rusia")],
+    ["turkey","TR","europe",L3("Turkey","Turquie","Turquía")],["ukraine","UA","europe",L3("Ukraine","Ukraine","Ucrania")],["poland","PL","europe",L3("Poland","Pologne","Polonia")],["romania","RO","europe",L3("Romania","Roumanie","Rumanía")],["czechia","CZ","europe",L3("Czechia","Tchéquie","Chequia")],["sweden","SE","europe",L3("Sweden","Suède","Suecia")],["azerbaijan","AZ","europe",L3("Azerbaijan","Azerbaïdjan","Azerbaiyán")],["hungary","HU","europe",L3("Hungary","Hongrie","Hungría")],["belarus","BY","europe",L3("Belarus","Biélorussie","Bielorrusia")],["austria","AT","europe",L3("Austria","Autriche","Austria")],["switzerland","CH","europe",L3("Switzerland","Suisse","Suiza")],["serbia","RS","europe",L3("Serbia","Serbie","Serbia")],["bulgaria","BG","europe",L3("Bulgaria","Bulgarie","Bulgaria")],["denmark","DK","europe",L3("Denmark","Danemark","Dinamarca")],["finland","FI","europe",L3("Finland","Finlande","Finlandia")],["norway","NO","europe",L3("Norway","Norvège","Noruega")],["slovakia","SK","europe",L3("Slovakia","Slovaquie","Eslovaquia")],["croatia","HR","europe",L3("Croatia","Croatie","Croacia")],["georgia","GE","europe",L3("Georgia","Géorgie","Georgia")],["bosnia","BA","europe",L3("Bosnia and Herzegovina","Bosnie-Herzégovine","Bosnia y Herzegovina")],["armenia","AM","europe",L3("Armenia","Arménie","Armenia")],["lithuania","LT","europe",L3("Lithuania","Lituanie","Lituania")],["albania","AL","europe",L3("Albania","Albanie","Albania")],["moldova","MD","europe",L3("Moldova","Moldavie","Moldavia")],["slovenia","SI","europe",L3("Slovenia","Slovénie","Eslovenia")],["latvia","LV","europe",L3("Latvia","Lettonie","Letonia")],["northmacedonia","MK","europe",L3("North Macedonia","Macédoine du Nord","Macedonia del Norte")],["kosovo","XK","europe",L3("Kosovo","Kosovo","Kosovo")],["estonia","EE","europe",L3("Estonia","Estonie","Estonia")],["cyprus","CY","europe",L3("Cyprus","Chypre","Chipre")],["luxembourg","LU","europe",L3("Luxembourg","Luxembourg","Luxemburgo")],["montenegro","ME","europe",L3("Montenegro","Monténégro","Montenegro")],["malta","MT","europe",L3("Malta","Malte","Malta")],["iceland","IS","europe",L3("Iceland","Islande","Islandia")],
+    ["usa","US","americas",L3("United States","États-Unis","Estados Unidos")],["colombia","CO","americas",L3("Colombia","Colombie","Colombia")],["brazil","BR","americas",L3("Brazil","Brésil","Brasil")],
+    ["venezuela","VE","americas",L3("Venezuela","Venezuela","Venezuela")],["argentina","AR","americas",L3("Argentina","Argentine","Argentina")],
+    ["morocco","MA","africa",L3("Morocco","Maroc","Marruecos")],["tunisia","TN","africa",L3("Tunisia","Tunisie","Túnez")],["egypt","EG","africa",L3("Egypt","Égypte","Egipto")],
+    ["senegal","SN","africa",L3("Senegal","Sénégal","Senegal")],["benin","BJ","africa",L3("Benin","Bénin","Benín")],["drcongo","CD","africa",L3("DR Congo","RD Congo","RD Congo")],
+    ["southafrica","ZA","africa",L3("South Africa","Afrique du Sud","Sudáfrica")],
+    ["china","CN","asia",L3("China","Chine","China")],
+    ["australia","AU","oceania",L3("Australia","Australie","Australia")],["newzealand","NZ","oceania",L3("New Zealand","Nouvelle-Zélande","Nueva Zelanda")]
+  ],
+  /* approximate position on the world tile map: [column, row] on a 16 x 8 grid */
+  pos:{us:[2,2],co:[3,5],ve:[4,5],br:[5,6],ar:[4,8],ie:[7,1],gb:[8,1],nl:[9,1],de:[10,1],ru:[12,1],fr:[8,2],be:[9,2],pt:[7,3],es:[8,3],it:[10,3],gr:[11,3],ma:[8,4],tn:[10,4],eg:[11,4],sn:[7,5],bj:[9,5],cd:[10,6],za:[10,8],cn:[14,3],au:[15,7],nz:[16,8]}
+};
