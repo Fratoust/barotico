@@ -753,6 +753,6 @@ section .disc{margin-top:8px}
 @media (min-width:821px){
  #lang-sw{display:none}
  .top .wrap{flex-wrap:nowrap}
- .top-right{flex-direction:column;align-items:flex-end;gap:6px;flex-wrap:nowrap}
- .top-right .coffee{padding:3px 10px;font-size:.78rem}
+ .top-right{flex-direction:row;align-items:center;gap:8px;flex-wrap:nowrap}
+ .top-right .coffee{display:none}
 }
