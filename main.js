@@ -10,6 +10,7 @@ function langName(l){try{const n=new Intl.DisplayNames([l],{type:"language"}).of
   browserLang=nav[0]||"en";
   const saved=store("barotico-lang");
   if(saved==="en"){lang="en";return}
+  if(saved==="fr"||saved==="es"){lang=saved;useBrowser=true;return}
   if(saved==="browser"){useBrowser=browserLang!=="en";lang=LANGS.includes(browserLang)?browserLang:"en";return}
   if(browserLang!=="en"){useBrowser=true;autoLang=true;lang=LANGS.includes(browserLang)?browserLang:"en"}
 })();
@@ -20,7 +21,8 @@ const slugify=x=>String(x).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLow
 function pathLangNow(){const m=location.pathname.match(/^\/(en|fr|es)(\/|$)/);return m?m[1]:"en"}
 if(PATHMODE){const um=location.pathname.match(/^\/([a-z]{2})(\/.*)?$/);if(um&&!LANGS.includes(um[1]))location.replace("/en"+(um[2]||"/")+location.hash);}
 if(PATHMODE){const pl=pathLangNow(),sv=store("barotico-lang");
-  if(pl==="en"&&sv!=="en"&&sv!=="browser-ok"&&LANGS.includes(browserLang)&&browserLang!=="en"&&!/[?&]nolang/.test(location.search)){try{sessionStorage.setItem("barotico-auto","1")}catch(e){}location.replace("/"+browserLang+location.pathname.replace(/^\/en(?=\/|$)/,"")+location.hash)}
+  const want=(sv==="fr"||sv==="es")?sv:(!sv&&LANGS.includes(browserLang)&&browserLang!=="en")?browserLang:null;
+  if(pl==="en"&&want&&sv!=="en"&&!/[?&]nolang/.test(location.search)){if(!sv)try{sessionStorage.setItem("barotico-auto","1")}catch(e){}location.replace("/"+want+location.pathname.replace(/^\/en(?=\/|$)/,"")+location.hash)}
   lang=pl;useBrowser=lang!=="en";autoLang=false;
   try{if(sessionStorage.getItem("barotico-auto")==="1"&&lang!=="en"){autoLang=true;sessionStorage.removeItem("barotico-auto")}}catch(e){}
   if(lang==="en"&&!LANGS.includes(browserLang)&&browserLang!=="en"&&!sv){autoLang=true;useBrowser=true}}
@@ -428,7 +430,7 @@ function ingest(k){
 window.__baroticoLoaded=k=>{ingest(k)};
 function loadCountry(k){
   if(REG.loading[k])return;REG.loading[k]=1;
-  const s=document.createElement("script");s.src=`countries/${k}.js?v=1793951939`;
+  const s=document.createElement("script");s.src=`countries/${k}.js?v=1793952272`;
   s.onload=()=>{ingest(k);render()};
   s.onerror=()=>{REG.loading[k]=0;document.getElementById("view").innerHTML=`<p class="pending" style="padding:48px 0">${t("load_err")}</p>`};
   document.head.appendChild(s);
@@ -637,7 +639,7 @@ function homeExample(){
   return `<div class="hex" id="hex"><p class="hex-who"><b>${esc(p.name)}</b> · ${esc(tr(C[k].name))}</p>
    <ol class="hex-row"><li><span class="eyebrow">${c[0]}</span><p>${esc(tr(d))}</p></li><li><span class="eyebrow">${c[1]}</span><p>${esc(tr(f))}</p></li><li class="prow ps-${st}"><span class="eyebrow">${c[2]}</span><div class="pf"><span class="ptag">${t("ptag")[st]||""}</span><a href="${u}" target="_blank" rel="noopener">${t("ex_src")} ↗</a></div></li></ol>
    <div class="hex-foot"><a class="btn" href="#${k}-${p.id}">${t("ex_more")}</a><button class="btn ghost" type="button" id="hex-other">${t("ex_other")}</button></div></div>`}
-function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1793951939`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
+function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1793952272`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
 function bindExample(){preloadSome(2);const b=document.getElementById("hex-other");if(b)b.addEventListener("click",()=>{const h=document.getElementById("hex");h.outerHTML=homeExample();pathLinks(document.getElementById("hex"));bindExample()})}
 function guideBlock(){
   const st=t("g_steps"),path=t("g_path"),pk=readyKeys().map(k=>[k,tr((C[k]||REG.meta[k]).name)]).sort((a,b)=>a[1].localeCompare(b[1],lang));
@@ -1046,6 +1048,8 @@ function chrome(){
   const opts=[["en","English"]];
   if(browserLang!=="en")opts.push(["browser",LANGS.includes(browserLang)?langName(browserLang):T.en.browser_tr(langName(browserLang))]);
   if(PATHMODE){opts.length=0;opts.push(["en","English"]);if(browserLang!=="en"&&LANGS.includes(browserLang))opts.push([browserLang,langName(browserLang)]);else if(browserLang!=="en")opts.push(["browser",T.en.browser_tr(langName(browserLang))]);if(lang!=="en"&&!opts.some(o=>o[0]===lang))opts.push([lang,langName(lang)])}
+  const sw=LANGS.map(L=>{const cur=L===lang;return `<a class="lsw${cur?" on":""}" href="${PATHMODE?pathFor(curRaw(),L):"#"}" data-lang="${L}" hreflang="${L}" lang="${L}" title="${LANG_NAMES[L]}" aria-label="${LANG_NAMES[L]}"${cur?' aria-current="true"':""}>${L.toUpperCase()}</a>`}).join("");
+  ["lang-sw","lang-sw-m"].forEach(id=>{const e=document.getElementById(id);if(e)e.innerHTML=sw});
   ["lang-select","lang-select-m"].forEach(id=>{const s=document.getElementById(id);if(!s)return;s.innerHTML=opts.map(([v,n])=>`<option value="${v}">${esc(n)}</option>`).join("");s.value=PATHMODE?(lang==="en"&&useBrowser&&opts.some(o=>o[0]==="browser")?"browser":lang):useBrowser?"browser":"en";s.hidden=opts.length<2});
   document.getElementById("dd-pays").innerHTML=countriesMenu(false);document.getElementById("sheet-pays").innerHTML=countriesMenu(true);
   const ll=document.getElementById("legal-links");if(ll)ll.innerHTML=[["mentions",LEG.sections[0][1]],["charter",LEG.charterLink],["corrections",LEG.report],["privacy",LEG.sections[3][1]],["ai",LEG.sections[4][1]]].map(([id,l])=>`<a href="#legal-${id}">${esc(tr(l))}</a>`).join(" · ");
@@ -1099,8 +1103,9 @@ function renderView(){
   const target=party&&document.getElementById("party-"+party);
   if(target){selectTab("t-par");openCard(target,true);target.scrollIntoView({block:"start"})}else window.scrollTo(0,0);
 }
-function setLang(v){if(PATHMODE){const L=v==="browser"?browserLang:v;store("barotico-lang",L==="en"?"en":"browser-ok");location.assign(pathFor(curRaw(),LANGS.includes(L)?L:"en")+(L==="en"?"?nolang":""));return}useBrowser=v==="browser";lang=useBrowser&&LANGS.includes(browserLang)?browserLang:"en";autoLang=useBrowser&&!LANGS.includes(browserLang);store("barotico-lang",v);picked=new Set(picked);render()}
-["lang-select","lang-select-m"].forEach(id=>document.getElementById(id).addEventListener("change",e=>setLang(e.target.value)));
+function setLang(v){if(LANGS.includes(v)&&!PATHMODE){lang=v;useBrowser=v!=="en";autoLang=false;store("barotico-lang",v);picked=new Set(picked);render();return}if(PATHMODE){const L=v==="browser"?browserLang:v;store("barotico-lang",LANGS.includes(L)?L:"en");location.assign(pathFor(curRaw(),LANGS.includes(L)?L:"en")+(L==="en"?"?nolang":""));return}useBrowser=v==="browser";lang=useBrowser&&LANGS.includes(browserLang)?browserLang:"en";autoLang=useBrowser&&!LANGS.includes(browserLang);store("barotico-lang",v);picked=new Set(picked);render()}
+["lang-select","lang-select-m"].forEach(id=>{const e=document.getElementById(id);if(e)e.addEventListener("change",ev=>setLang(ev.target.value))});
+document.addEventListener("click",e=>{const a=e.target.closest&&e.target.closest("a[data-lang]");if(!a)return;e.preventDefault();e.stopPropagation();const L=a.dataset.lang;if(L===lang)return;setLang(L)},true);
 (function menu(){
   const sheet=document.getElementById("sheet"),btn=document.getElementById("menubtn");
   const open=()=>{sheet.hidden=false;btn.setAttribute("aria-expanded","true");sheet.querySelector(".sheet-x").focus()};
@@ -1117,7 +1122,7 @@ function setLang(v){if(PATHMODE){const L=v==="browser"?browserLang:v;store("baro
   window.addEventListener("scroll",()=>{const y=window.scrollY;if(window.innerWidth<=820&&y>80&&y>last+4)top.classList.add("hide");else if(y<last-4||y<=80)top.classList.remove("hide");last=y},{passive:true});
 })();
 document.getElementById("lb-en").addEventListener("click",()=>setLang("en"));
-document.getElementById("lb-ok").addEventListener("click",()=>{autoLang=false;store("barotico-lang",PATHMODE?(lang==="en"?"en":"browser-ok"):(useBrowser?"browser":"en"));document.getElementById("langbanner").hidden=true});
+document.getElementById("lb-ok").addEventListener("click",()=>{autoLang=false;store("barotico-lang",PATHMODE?lang:(useBrowser?(LANGS.includes(lang)?lang:"browser"):"en"));document.getElementById("langbanner").hidden=true});
 if(PATHMODE){
   document.addEventListener("click",e=>{const a=e.target.closest&&e.target.closest("a[href]");if(!a||e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey||a.target==="_blank")return;const u=new URL(a.href,location.href);if(u.origin!==location.origin||!/^\/(en|fr|es)\//.test(u.pathname))return;e.preventDefault();if(u.pathname===location.pathname&&u.hash){history.pushState(null,"",u.pathname+u.hash);render();return}history.pushState(null,"",u.pathname+u.hash);render()});
   window.addEventListener("popstate",render);window.addEventListener("hashchange",render);
