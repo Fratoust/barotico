@@ -430,7 +430,7 @@ function ingest(k){
 window.__baroticoLoaded=k=>{ingest(k)};
 function loadCountry(k){
   if(REG.loading[k])return;REG.loading[k]=1;
-  const s=document.createElement("script");s.src=`countries/${k}.js?v=1793965432`;
+  const s=document.createElement("script");s.src=`countries/${k}.js?v=1793968113`;
   s.onload=()=>{ingest(k);render()};
   s.onerror=()=>{REG.loading[k]=0;document.getElementById("view").innerHTML=`<p class="pending" style="padding:48px 0">${t("load_err")}</p>`};
   document.head.appendChild(s);
@@ -639,7 +639,7 @@ function homeExample(){
   return `<div class="hex" id="hex"><p class="hex-who"><b>${esc(p.name)}</b> · ${esc(tr(C[k].name))}</p>
    <ol class="hex-row"><li><span class="eyebrow">${c[0]}</span><p>${esc(tr(d))}</p></li><li><span class="eyebrow">${c[1]}</span><p>${esc(tr(f))}</p></li><li class="prow ps-${st}"><span class="eyebrow">${c[2]}</span><div class="pf"><span class="ptag">${t("ptag")[st]||""}</span><a href="${u}" target="_blank" rel="noopener">${t("ex_src")} ↗</a></div></li></ol>
    <div class="hex-foot"><a class="btn" href="#${k}-${p.id}">${t("ex_more")}</a><button class="btn ghost" type="button" id="hex-other">${t("ex_other")}</button></div></div>`}
-function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1793965432`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
+function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1793968113`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
 function bindExample(){preloadSome(2);const b=document.getElementById("hex-other");if(b)b.addEventListener("click",()=>{const h=document.getElementById("hex");h.outerHTML=homeExample();pathLinks(document.getElementById("hex"));bindExample()})}
 function guideBlock(){
   const st=t("g_steps"),path=t("g_path"),pk=readyKeys().map(k=>[k,tr((C[k]||REG.meta[k]).name)]).sort((a,b)=>a[1].localeCompare(b[1],lang));
@@ -874,7 +874,7 @@ function demoBlock(k,p){
   const vp=d.vp||{},vpNote=vp.n&&vp.n!==p.name?` ${T[lang].demo_as(vp.n)}`:"";
   return `<div class="demo"><p class="eyebrow">${t("demo_h")}</p>
    ${row("reg",t("demo_reg"),d.reg?num(String(d.reg.v).replace(".",","))+" %":null,d.reg?T[lang].demo_reg_t(ev(d.reg)):t("demo_reg_na"),d.reg?d.reg.v:0,d.reg&&d.reg.u,"dk-reg")}
-   ${row("rej",t("demo_rej"),d.rej?d.rej.v+" %":null,d.rej?T[lang].demo_rej_t(ev(d.rej)):t("demo_rej_na"),d.rej?d.rej.v:0,d.rej&&d.rej.u,"dk-rej")}
+   ${row("rej",t("demo_rej"),d.rej?String(d.rej.v).replace(".",lang==="en"?".":",")+" %":null,d.rej?(d.rej.l?esc(tr(d.rej.l))+".":T[lang].demo_rej_t(ev(d.rej))):t("demo_rej_na"),d.rej?d.rej.v:0,d.rej&&d.rej.u,"dk-rej")}
    ${row("ap",t("demo_ap"),vp.ap!=null?Math.round((1-vp.ap)*100)+" / 100":null,vp.ap!=null?T[lang].demo_vp_t(vp.y)+vpNote:t("demo_vp_na"),vp.ap!=null?Math.round((1-vp.ap)*100):0,vp.ap!=null?DEMO_SRC.vparty:"",vp.ap!=null?lvl(vp.ap):"")}
    ${row("pol",t("demo_pol"),vp.pol!=null?vp.pol+" / 100":null,vp.pol!=null?T[lang].demo_vp_t(vp.y)+vpNote:t("demo_vp_na"),vp.pol||0,vp.pol!=null?DEMO_SRC.vparty:"",vp.pol!=null?lvl(vp.pol/100):"")}
    <p class="sources">${t("demo_note")}</p></div>`;
