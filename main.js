@@ -600,6 +600,28 @@ function comparePage(){
   <section class="cmp-page" style="border-top:0;padding-top:8px">${cmpTable("europe")}
     <p class="sources">${t("sources")} : ${["hdi","fh","rsfFR","ti","homFR"].map(srcLink).join(" · ")}. ${t("cmp_note")}</p></section>`;
 }
+Object.assign(T.en,{c_hn:n=>`${n} countries, one method`});Object.assign(T.fr,{c_hn:n=>`${n} pays, une seule méthode`});Object.assign(T.es,{c_hn:n=>`${n} países, un mismo método`});
+Object.assign(T.en,{"hero_lead": "Pick a country to discover its political system, examine its parties and set their promises against their actions. Check the sources, explore your own values and make up your own mind. Barotico does not recommend any vote.", "promise_h": "Understand politics, country by country", "g_eye": "How to use Barotico", "g_path": ["Choose a country", "Understand and compare", "Make up your own mind"], "g_steps": [["Choose a country", "Discover its political system, its government and the upcoming elections.", "Choose a country"], ["Explore the parties", "Compare their programmes, promises and votes, with sources you can check.", "Compare the parties"], ["Make up your own mind", "Use the values mirror to see which leanings match the values you picked. It recommends no party and doesn't tell you who to vote for.", "Explore my values"]], "g_pick": "Pick a country…", "g_pick_l": "Country", "ex_eye": "A worked example", "ex_h": "Promise, action, verifiable result", "ex_note": "An illustration of the method, drawn at random from the available profiles. It is not a voting recommendation.", "ex_cols": ["The promise", "The vote or action", "Verifiable result"], "ex_more": "See the full profile and its sources", "ex_other": "Another example", "ex_src": "Check the source", "news_eye": "News and elections", "news_h": "The next votes", "mm_eye": "Method, sources and editorial independence"});
+Object.assign(T.fr,{"hero_lead": "Choisissez un pays pour découvrir son système politique, examiner les partis et confronter leurs promesses à leurs actes. Consultez les sources, explorez vos propres valeurs et formez-vous votre opinion. Barotico ne recommande aucun vote.", "promise_h": "Comprendre la politique, pays par pays", "g_eye": "Comment utiliser Barotico", "g_path": ["Choisir un pays", "Comprendre et comparer", "Se faire sa propre opinion"], "g_steps": [["Choisissez un pays", "Découvrez son système politique, son gouvernement et les prochaines échéances électorales.", "Choisir un pays"], ["Explorez les partis", "Comparez leurs programmes, leurs promesses et leurs votes à partir de sources consultables.", "Comparer les partis"], ["Formez-vous votre propre opinion", "Explorez le miroir de valeurs pour voir quelles tendances correspondent aux valeurs que vous avez choisies. Il ne recommande aucun parti et ne vous dit pas pour qui voter.", "Explorer mes valeurs"]], "g_pick": "Choisir un pays…", "g_pick_l": "Pays", "ex_eye": "Exemple de comparaison", "ex_h": "Promesse, action, résultat vérifiable", "ex_note": "Illustration de la méthode, tirée au hasard parmi les fiches disponibles. Ce n'est pas une recommandation de vote.", "ex_cols": ["La promesse", "Le vote ou l'action", "Résultat vérifiable"], "ex_more": "Voir la fiche complète et ses sources", "ex_other": "Un autre exemple", "ex_src": "Vérifier la source", "news_eye": "Actualités et échéances", "news_h": "Les prochains votes", "mm_eye": "Méthode, sources et indépendance éditoriale"});
+Object.assign(T.es,{"hero_lead": "Elige un país para descubrir su sistema político, examinar los partidos y contrastar sus promesas con sus actos. Consulta las fuentes, explora tus propios valores y fórmate tu propia opinión. Barotico no recomienda ningún voto.", "promise_h": "Entender la política, país por país", "g_eye": "Cómo usar Barotico", "g_path": ["Elegir un país", "Entender y comparar", "Formarse una opinión propia"], "g_steps": [["Elige un país", "Descubre su sistema político, su gobierno y las próximas citas electorales.", "Elegir un país"], ["Explora los partidos", "Compara sus programas, sus promesas y sus votos a partir de fuentes consultables.", "Comparar los partidos"], ["Fórmate tu propia opinión", "Explora el espejo de valores para ver qué tendencias corresponden a los valores que has elegido. No recomienda ningún partido ni te dice a quién votar.", "Explorar mis valores"]], "g_pick": "Elegir un país…", "g_pick_l": "País", "ex_eye": "Ejemplo de comparación", "ex_h": "Promesa, acción, resultado verificable", "ex_note": "Una ilustración del método, elegida al azar entre las fichas disponibles. No es una recomendación de voto.", "ex_cols": ["La promesa", "El voto o la acción", "Resultado verificable"], "ex_more": "Ver la ficha completa y sus fuentes", "ex_other": "Otro ejemplo", "ex_src": "Comprobar la fuente", "news_eye": "Actualidad y citas electorales", "news_h": "Las próximas votaciones", "mm_eye": "Método, fuentes e independencia editorial"});
+function homeExample(){
+  const by={};for(const k in PARTIES){if(!C[k])continue;for(const p of PARTIES[k]){const P=pairsOf(k,p);if(P)P.forEach(r=>{if(r[2])(by[k]=by[k]||[]).push([k,p,r])})}}
+  const ks=Object.keys(by);if(!ks.length)return "";const R=a=>a[Math.floor(Math.random()*a.length)];
+  const [k,p,[d,f,u,st]]=R(by[R(ks)]),c=t("ex_cols");
+  return `<div class="hex" id="hex"><p class="hex-who"><b>${esc(p.name)}</b> · ${esc(tr(C[k].name))}</p>
+   <ol class="hex-row"><li><span class="eyebrow">${c[0]}</span><p>${esc(tr(d))}</p></li><li><span class="eyebrow">${c[1]}</span><p>${esc(tr(f))}</p></li><li class="prow ps-${st}"><span class="eyebrow">${c[2]}</span><div class="pf"><span class="ptag">${t("ptag")[st]||""}</span><a href="${u}" target="_blank" rel="noopener">${t("ex_src")} ↗</a></div></li></ol>
+   <div class="hex-foot"><a class="btn" href="#${k}-${p.id}">${t("ex_more")}</a><button class="btn ghost" type="button" id="hex-other">${t("ex_other")}</button></div></div>`}
+function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js`;sc.onload=()=>{if(REG.full[k])ingest(k);if(location.hash.slice(1).split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
+function bindExample(){preloadSome(2);const b=document.getElementById("hex-other");if(b)b.addEventListener("click",()=>{const h=document.getElementById("hex");h.outerHTML=homeExample();bindExample()})}
+function guideBlock(){
+  const st=t("g_steps"),path=t("g_path"),pk=readyKeys().map(k=>[k,tr((C[k]||REG.meta[k]).name)]).sort((a,b)=>a[1].localeCompare(b[1],lang));
+  const act=[`<a class="btn" href="#" data-jump="pays">${st[0][2]}</a>`,
+    `<div class="gpick"><label class="sr" for="g-country">${t("g_pick_l")}</label><select id="g-country"><option value="">${t("g_pick")}</option>${pk.map(([k,n])=>`<option value="${k}">${esc(n)}</option>`).join("")}</select><button class="btn" type="button" id="g-go">${st[1][2]}</button></div>`,
+    `<a class="btn" href="#" data-jump="miroir">${st[2][2]}</a>`];
+  return `<section class="guide" id="guide" aria-labelledby="g-h"><p class="eyebrow" id="g-h">${t("g_eye")}</p>
+   <p class="gpath">${path.map(x=>`<span>${x}</span>`).join('<i aria-hidden="true">→</i>')}</p>
+   <ol class="gsteps">${st.map(([h,pp],i)=>`<li><span class="gn" aria-hidden="true">${i+1}</span><h3>${h}</h3><p>${pp}</p>${act[i]}</li>`).join("")}</ol></section>`}
+function bindGuide(){const g=document.getElementById("g-go");if(!g)return;g.addEventListener("click",()=>{const v=document.getElementById("g-country").value;if(v)location.hash="#"+v+"-partis";else{const sel=document.getElementById("g-country");sel.focus();sel.classList.add("need");document.getElementById("pays").scrollIntoView({behavior:"smooth"})}})}
 function landing(){
   const all=readyKeys(),conts=["europe","americas","africa","asia","oceania"];
   const order=all.map(k=>[k,info(k)]).filter(([k,c])=>c.elec&&c.elec.date&&daysTo(c.elec.date)>=0).sort((a,b)=>daysTo(a[1].elec.date)-daysTo(b[1].elec.date)).slice(0,8);
@@ -616,23 +638,20 @@ function landing(){
   const S=u=>`<a href="${u}" target="_blank" rel="noopener">${t("src_link")}</a>`;
   return `
   <div class="hero">
-    <div>
-      <p class="eyebrow">${t("hero_eye")}</p>
-      <h1>${t("hero_h1")}</h1>
-      <p class="lead">${t("hero_lead")}</p>
-      <div class="cta"><a class="btn" href="#" data-jump="miroir">${t("cta_mirror")}</a><a class="btn ghost" href="#" data-jump="pays">${t("cta_country")}</a></div>
-    </div>
-    <div class="gapviz">
-      <p class="eyebrow">${t("gap_eye")}</p>
-      <div class="row"><span style="color:var(--dit);font-weight:600">${t("said")}</span><div class="track"><span class="dot" style="left:28%;background:var(--dit)"></span></div></div>
-      <div class="row"><span style="color:var(--fait);font-weight:600">${t("did")}</span><div class="track"><span class="dot" style="left:71%;background:var(--fait)"></span></div></div>
-      <div class="scale"><span>${t("redis")}</span><span>${t("market")}</span></div>
-      <p class="bracket">${t("gap_note")}</p>
-    </div>
+    <div><p class="eyebrow">${t("hero_eye")}</p><h1>${t("hero_h1")}</h1></div>
+    <div class="hero-promise"><h2>${t("promise_h")}</h2><p class="lead">${t("hero_lead")}</p></div>
   </div>
-  <div class="ticker">${ticks}</div>
-  ${dailyGap()}
-  ${disclaimer(false)}
+  ${guideBlock()}
+  <section id="pays">
+    <div><p class="eyebrow">${t("c_eye")}</p><h2>${T[lang].c_hn(all.length)}</h2></div>
+    <div class="countries">
+      <div><div class="tilemap world" role="group" aria-label="${t("nav_countries")}">${map}</div><div class="maplegend"><span class="on">${t("available")}</span><span>${t("soon_l")}</span></div></div>
+      <div>${clists}</div>
+    </div>
+  </section>
+
+
+  <section id="exemple" class="ex-sec"><div><p class="eyebrow">${t("ex_eye")}</p><h2>${t("ex_h")}</h2><p class="explain" style="margin-top:8px">${t("ex_note")}</p></div>${homeExample()}</section>
 
   <section id="miroir">
     <div><p class="eyebrow">${t("mir_eye")}</p><h2>${t("mir_h")}</h2><p class="lead" style="margin-top:8px">${t("mir_lead")}</p></div>
@@ -649,17 +668,12 @@ function landing(){
     </div>
   </section>
 
-  <section id="pays">
-    <div><p class="eyebrow">${t("c_eye")}</p><h2>${t("c_h")}</h2></div>
-    <div class="countries">
-      <div><div class="tilemap world" role="group" aria-label="${t("nav_countries")}">${map}</div><div class="maplegend"><span class="on">${t("available")}</span><span>${t("soon_l")}</span></div></div>
-      <div>${clists}</div>
-    </div>
+
+  <section id="actu" class="news-sec"><div><p class="eyebrow">${t("news_eye")}</p><h2>${t("news_h")}</h2></div>
+  <div class="ticker">${ticks}</div>
+  ${dailyGap()}
   </section>
 
-  <section id="comparatif">
-    <a class="cmp-teaser" href="#comparer"><span><span class="eyebrow">${t("cmp_eye")}</span><b>${t("cmp_h")}</b><span class="explain">${t("cmp_teaser")}</span></span><span class="arrow" aria-hidden="true">→</span></a>
-  </section>
 
   <section id="voter" class="vote-sec">
     <div><p class="eyebrow">${t("why_eye")}</p><h2>${t("why_h")}</h2><p class="lead" style="margin-top:10px">${t("why_lead")}</p></div>
@@ -696,8 +710,9 @@ function landing(){
   </section>
 
   <section>
-    <div><p class="eyebrow">${t("m_eye")}</p><h2>${t("m_h")}</h2></div>
+    <div><p class="eyebrow">${t("mm_eye")}</p><h2>${t("m_h")}</h2></div>
     <div class="principles">${t("m").map(([h,p])=>`<div><h3>${h}</h3><p>${p}</p></div>`).join("")}</div>
+    ${disclaimer(false)}
   </section>`;
 }
 
@@ -1017,9 +1032,9 @@ function render(){
   if(key==="comparer"){bindFilter();window.scrollTo(0,0);return}
   if(key==="medias"||key==="apropos"||key==="legal"){const tg=key==="legal"&&party&&document.getElementById(party);if(tg)tg.scrollIntoView({block:"start"});else window.scrollTo(0,0);return}
   if(key==="accueil"){
-    bindMirror();bindFilter();
+    bindMirror();bindFilter();bindGuide();bindExample();
     document.querySelectorAll("[data-jump]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();document.getElementById(a.dataset.jump).scrollIntoView({behavior:"smooth"})}));
-    const tgt=["voter","pays","soutien","comparatif"].includes(r)&&document.getElementById(r);
+    const tgt=["voter","pays","soutien","comparatif","guide","exemple","miroir","actu"].includes(r)&&document.getElementById(r);
     if(tgt)tgt.scrollIntoView({block:"start"});else window.scrollTo(0,0);
     return;
   }
@@ -1028,6 +1043,7 @@ function render(){
   if(party==="figures"){selectTab("t-fig");window.scrollTo(0,0);return}
   if(party==="budget"){selectTab("t-gov");const bb=document.querySelector("#p-gov .budget");if(bb)bb.scrollIntoView({block:"start"});else window.scrollTo(0,0);return}
   if(party==="watch"){selectTab("t-watch");window.scrollTo(0,0);return}
+  if(party==="partis"){selectTab("t-par");bindToggles();const pp=document.getElementById("p-par");if(pp)pp.scrollIntoView({block:"start"});return}
   bindToggles();
   const target=party&&document.getElementById("party-"+party);
   if(target){selectTab("t-par");openCard(target,true);target.scrollIntoView({block:"start"})}else window.scrollTo(0,0);
