@@ -770,3 +770,5 @@ section .disc{margin-top:8px}
 @media (max-width:820px){.cont-others{grid-template-columns:minmax(0,1fr)}}
 .cont-dd.soon{margin-top:10px}
 .cont-dd.soon .clist{padding:0 10px 10px}
+.cont-dd.wide{grid-column:1/-1}
+.cont-others{margin-top:0}
