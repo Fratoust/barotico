@@ -756,3 +756,17 @@ section .disc{margin-top:8px}
  .top-right{flex-direction:row;align-items:center;gap:8px;flex-wrap:nowrap}
  .top-right .coffee{display:none}
 }
+
+/* v109: countries: Europe open, other continents folded in two columns, alphabetical */
+.cont-others{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:16px;align-items:start}
+.cont-dd{border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+.cont-dd>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:12px 14px;font:600 var(--fs-s)/1.2 var(--f-body);color:var(--ink)}
+.cont-dd>summary::-webkit-details-marker{display:none}
+.cont-dd>summary .mono{color:var(--muted);font-size:var(--fs-xs)}
+.cont-dd>summary::after{content:"";margin-left:auto;width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg)}
+.cont-dd[open]>summary::after{transform:translateY(2px) rotate(-135deg)}
+.cont-dd .clist{padding:0 10px 10px}
+.clist.one{grid-template-columns:minmax(0,1fr)!important}
+@media (max-width:820px){.cont-others{grid-template-columns:minmax(0,1fr)}}
+.cont-dd.soon{margin-top:10px}
+.cont-dd.soon .clist{padding:0 10px 10px}
