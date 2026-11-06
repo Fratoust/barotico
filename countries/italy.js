@@ -236,7 +236,7 @@ BAROTICO.add("italy", {
                "Los escaños indicados son los obtenidos en septiembre de 2022. Desde entonces muchos parlamentarios han cambiado de grupo, incluidas salidas hacia Futuro Nazionale en 2026, y el tamaño actual de los grupos no se ha verificado."),
 
   parties: [
-    { id: "fdi", name: "FdI", full: "Fratelli d'Italia", leader: "Giorgia Meloni",
+    { id: "fdi", born: {"y": 2012, "m": 12, "gov": "lead", "u": "https://www.panorama.it/attualita/politica/fratelli-ditalia-compie-13-anni-la-scalata-dall196-al-partito-nazionale-piu-votato"}, name: "FdI", full: "Fratelli d'Italia", leader: "Giorgia Meloni",
       seats: L3("119 deputies of 400 and 66 senators of 200 (2022)","119 députés sur 400 et 66 sénateurs sur 200 (2022)","119 diputados de 400 y 66 senadores de 200 (2022)"),
       role: "gov", pos: 1.5, style: "lean",
       dit: [L3("Stability through a stronger, directly elected executive","La stabilité par un exécutif renforcé et élu directement","Estabilidad con un ejecutivo reforzado y elegido directamente"),
@@ -319,7 +319,7 @@ BAROTICO.add("italy", {
                    "No se encontró desglose de ingresos. Las cuentas auditadas se presentan a la comisión parlamentaria de control de partidos. Los contribuyentes asignaron 6,62 millones de euros a FdI mediante el 2 por mil en 2025, segundo tras el PD.") },
       prog: [] },
 
-    { id: "pd", name: "PD", full: "Partito Democratico", leader: "Elly Schlein",
+    { id: "pd", born: {"y": 2007, "m": 10, "gov": "lead", "u": "https://www.agi.it/politica/news/2024-10-15/veltroni-schlein-storia-pd-lunga-17-anni-28267535/"}, name: "PD", full: "Partito Democratico", leader: "Elly Schlein",
       seats: L3("69 deputies of 400 and 40 senators of 200 (2022)","69 députés sur 400 et 40 sénateurs sur 200 (2022)","69 diputados de 400 y 40 senadores de 200 (2022)"),
       role: "opp", pos: -0.7, style: "lean",
       dit: [L3("A statutory minimum wage","Un salaire minimum légal","Un salario mínimo legal"),
@@ -390,7 +390,7 @@ BAROTICO.add("italy", {
                    "No se encontró desglose de ingresos. Las cuentas auditadas se presentan a la comisión parlamentaria. El PD recibió la mayor cuantía del 2 por mil: 10,57 millones de euros en 2025.") },
       prog: [] },
 
-    { id: "lega", name: "Lega", full: "Lega per Salvini Premier", leader: "Matteo Salvini",
+    { id: "lega", born: {"y": 2017, "gov": "partner", "u": "https://pagellapolitica.it/articoli/lega-nord-salvini"}, name: "Lega", full: "Lega per Salvini Premier", leader: "Matteo Salvini",
       seats: L3("66 deputies of 400 and 29 senators of 200 (2022); several deputies left for Futuro Nazionale in 2026",
                 "66 députés sur 400 et 29 sénateurs sur 200 (2022) ; plusieurs députés sont partis vers Futuro Nazionale en 2026",
                 "66 diputados de 400 y 29 senadores de 200 (2022); varios diputados se fueron a Futuro Nazionale en 2026"),
@@ -470,7 +470,7 @@ BAROTICO.add("italy", {
                    "No se encontró desglose de ingresos. Las cuentas auditadas se presentan a la comisión parlamentaria. Los contribuyentes asignaron 1,14 millones de euros a la Lega mediante el 2 por mil en 2025.") },
       prog: [] },
 
-    { id: "m5s", name: "M5S", full: "Movimento 5 Stelle", leader: "Giuseppe Conte",
+    { id: "m5s", born: {"y": 2009, "m": 10, "gov": "lead", "u": "https://www.ilfoglio.it/politica/2022/10/04/news/il-m5s-festeggia-il-compleanno-ma-dopo-13-anni-e-rimasto-solo-casalino--160268"}, name: "M5S", full: "Movimento 5 Stelle", leader: "Giuseppe Conte",
       seats: L3("52 deputies of 400 and 28 senators of 200 (2022)","52 députés sur 400 et 28 sénateurs sur 200 (2022)","52 diputados de 400 y 28 senadores de 200 (2022)"),
       role: "opp", pos: -0.5, style: "rake",
       rakeNote: L3("Governed with the Lega (Conte I, 2018-19), then with the PD (Conte II, 2019-21), then in Draghi's national-unity government; now in opposition, allied with the PD in many regions.",
@@ -540,7 +540,7 @@ BAROTICO.add("italy", {
                    "No se encontró desglose de ingresos. Las cuentas auditadas se presentan a la comisión parlamentaria. Los contribuyentes asignaron 3,17 millones de euros al M5S mediante el 2 por mil en 2025.") },
       prog: [] },
 
-    { id: "fi", name: "Forza Italia", full: "Forza Italia - Berlusconi Presidente", leader: "Antonio Tajani",
+    { id: "fi", born: {"y": 2009, "m": 3, "old": "Popolo della Libertà", "re": 2013, "gov": "lead", "u": "https://www.ilpost.it/2013/11/16/che-cosa-succede-nel-pdl/"}, name: "Forza Italia", full: "Forza Italia - Berlusconi Presidente", leader: "Antonio Tajani",
       seats: L3("45 deputies of 400 and 18 senators of 200 (2022)","45 députés sur 400 et 18 sénateurs sur 200 (2022)","45 diputados de 400 y 18 senadores de 200 (2022)"),
       role: "gov", pos: 0.8, style: "lean",
       dit: [L3("Liberal, pro-European, member of the EPP","Libérale, pro-européenne, membre du PPE","Liberal, proeuropea, miembro del PPE"),
@@ -607,7 +607,7 @@ BAROTICO.add("italy", {
                    "No se encontró desglose de ingresos. Las cuentas auditadas se presentan a la comisión parlamentaria. Los contribuyentes asignaron 0,79 millones de euros a FI mediante el 2 por mil en 2025.") },
       prog: [] },
 
-    { id: "avs", name: "AVS", full: "Alleanza Verdi e Sinistra", leader: "Angelo Bonelli, Nicola Fratoianni",
+    { id: "avs", born: {"y": 2022, "m": 7, "gov": "never", "u": "https://www.ilpost.it/2022/08/17/cosa-ce-sinistra-del-pd/"}, name: "AVS", full: "Alleanza Verdi e Sinistra", leader: "Angelo Bonelli, Nicola Fratoianni",
       seats: L3("12 deputies of 400 and 4 senators of 200 (2022)","12 députés sur 400 et 4 sénateurs sur 200 (2022)","12 diputados de 400 y 4 senadores de 200 (2022)"),
       role: "opp", pos: -1.4, style: "lean",
       dit: [L3("Climate and ecological conversion","Climat et conversion écologique","Clima y conversión ecológica"),
@@ -674,7 +674,7 @@ BAROTICO.add("italy", {
                    "No se encontró desglose de ingresos. AVS es una alianza; sus dos partidos presentan cuentas auditadas por separado. Mediante el 2 por mil en 2025, Sinistra Italiana recibió 1,69 millones de euros y Europa Verde 1,55 millones.") },
       prog: [] },
 
-    { id: "azione", name: "Azione", full: "Azione", leader: "Carlo Calenda",
+    { id: "azione", born: {"y": 2019, "m": 11, "gov": "never", "u": "https://www.ilpost.it/2019/11/21/calenda-partito-azione/"}, name: "Azione", full: "Azione", leader: "Carlo Calenda",
       seats: L3("Elected on the joint Azione-Italia Viva list in 2022 (21 deputies and 9 senators in total); separate groups since 2023",
                 "Élus sur la liste commune Azione-Italia Viva en 2022 (21 députés et 9 sénateurs au total) ; groupes séparés depuis 2023",
                 "Elegidos en la lista conjunta Azione-Italia Viva en 2022 (21 diputados y 9 senadores en total); grupos separados desde 2023"),
@@ -738,7 +738,7 @@ BAROTICO.add("italy", {
                    "No se encontró desglose de ingresos de 2025. Las cuentas auditadas se presentan a la comisión parlamentaria. Los contribuyentes asignaron 1,52 millones de euros a Azione mediante el 2 por mil en 2025.") },
       prog: [] },
 
-    { id: "iv", name: "Italia Viva", full: "Italia Viva", leader: "Matteo Renzi",
+    { id: "iv", born: {"y": 2019, "m": 9, "gov": "partner", "u": "https://www.ilpost.it/2019/09/17/renzi-lascia-partito-democratico/"}, name: "Italia Viva", full: "Italia Viva", leader: "Matteo Renzi",
       seats: L3("Elected on the joint Azione-Italia Viva list in 2022 (21 deputies and 9 senators in total); group 'Italia Viva-Casa Riformista' in the Chamber",
                 "Élus sur la liste commune Azione-Italia Viva en 2022 (21 députés et 9 sénateurs au total) ; groupe « Italia Viva-Casa Riformista » à la Chambre",
                 "Elegidos en la lista conjunta Azione-Italia Viva en 2022 (21 diputados y 9 senadores en total); grupo «Italia Viva-Casa Riformista» en la Cámara"),
@@ -807,7 +807,7 @@ BAROTICO.add("italy", {
                    "No se encontró desglose de ingresos. Las cuentas auditadas se presentan a la comisión parlamentaria. Los contribuyentes asignaron 1,14 millones de euros a Italia Viva mediante el 2 por mil en 2025.") },
       prog: [] },
 
-    { id: "nm", name: "Noi Moderati", full: "Noi Moderati", leader: "Maurizio Lupi",
+    { id: "nm", born: {"y": 2022, "m": 8, "gov": "never", "u": "https://www.ilrestodelcarlino.it/archive/noi-moderati-982ca2c1"}, name: "Noi Moderati", full: "Noi Moderati", leader: "Maurizio Lupi",
       seats: L3("7 deputies of 400 and 2 senators of 200 (2022), with 0.9% of the vote, through centre-right single-member seats",
                 "7 députés sur 400 et 2 sénateurs sur 200 (2022), avec 0,9 % des voix, grâce aux circonscriptions uninominales du centre droit",
                 "7 diputados de 400 y 2 senadores de 200 (2022), con el 0,9 % de los votos, gracias a los distritos uninominales del centroderecha"),

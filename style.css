@@ -497,7 +497,7 @@ section.legal p{max-width:75ch}
 .bs1{fill:var(--bs1);background:var(--bs1)}.bs2{fill:var(--bs2);background:var(--bs2)}.bs3{fill:var(--bs3);background:var(--bs3)}.bs4{fill:var(--bs4);background:var(--bs4)}.bs5{fill:var(--bs5);background:var(--bs5)}.bs6{fill:var(--bs6);background:var(--bs6)}.bs7{fill:var(--bs7);background:var(--bs7)}.bs8{fill:var(--bs8);background:var(--bs8)}
 .budget polygon{stroke:var(--surface);stroke-width:1}
 .bband.b0{fill:var(--tint);opacity:.9}.bband.b1{fill:transparent}
-.blab{font-size:11px;fill:var(--ink);font-weight:600}.blab.o{fill:var(--muted);font-weight:400}
+.blab{font-size:11px;fill:var(--ink);font-weight:600;paint-order:stroke;stroke:var(--paper);stroke-width:3px;stroke-linejoin:round}.blab.o{fill:var(--muted);font-weight:400}
 .btick{font-size:11px;fill:var(--muted);font-family:var(--f-mono)}
 .bgrid{stroke:var(--line);stroke-width:1;opacity:.6}.bzero{stroke:var(--muted);stroke-width:1}
 .bcri{stroke:var(--muted);stroke-width:1;stroke-dasharray:3 3}.bcril{font-size:10px;fill:var(--muted)}
