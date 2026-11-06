@@ -26,7 +26,7 @@
 /* Layout: civic ledger. One reading column (max 1080px). Colour idea: the promise in blue ink ("dit") corrected by the red pen ("fait"); good / average / poor in green, amber, red; left-right axis in the European red-to-blue convention. */
 :root{
   --paper:#F6F7FA; --surface:#FFFFFF; --ink:#0F1B3D; --muted:#56607A; --line:#D9DDE7;
-  --dit:#1F4FD8; --dit-soft:#E5ECFD; --fait:#D62839; --fait-soft:#FBE6E8;
+  --dit:#1F4FD8; --dit-soft:#E5ECFD; --fait:#D62839; --fait-soft:#FBE6E8; --cof:#8A5A2B;
   --good:#178A55; --warn:#C77700; --bad:#D62839; --tint:#ECEFF5; --violet:#7A4FB5;
   --left:#8A93AB; --right:#8A93AB;
   --f-display:"Young Serif", Georgia, "Times New Roman", serif;
@@ -35,12 +35,12 @@
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --paper:#0B1124; --surface:#131B33; --ink:#ECEFF7; --muted:#9BA4BC; --line:#27304D;
-  --dit:#7FA2FF; --dit-soft:#18264F; --fait:#FF6B78; --fait-soft:#3A1620;
+  --dit:#7FA2FF; --dit-soft:#18264F; --fait:#FF6B78; --fait-soft:#3A1620; --cof:#D9AE7E;
   --good:#4CC98C; --warn:#F2B34A; --bad:#FF6B78; --tint:#182040; --violet:#B79AF0;
   --left:#6B7591; --right:#6B7591; color-scheme:dark}}
 :root[data-theme="dark"]{
   --paper:#0B1124; --surface:#131B33; --ink:#ECEFF7; --muted:#9BA4BC; --line:#27304D;
-  --dit:#7FA2FF; --dit-soft:#18264F; --fait:#FF6B78; --fait-soft:#3A1620;
+  --dit:#7FA2FF; --dit-soft:#18264F; --fait:#FF6B78; --fait-soft:#3A1620; --cof:#D9AE7E;
   --good:#4CC98C; --warn:#F2B34A; --bad:#FF6B78; --tint:#182040; --violet:#B79AF0;
   --left:#6B7591; --right:#6B7591; color-scheme:dark}
 
@@ -700,6 +700,15 @@ section.legal p{max-width:75ch}
 @media (max-width:820px){.hex-row{grid-template-columns:minmax(0,1fr);gap:18px}.hex-row>li+li::before{content:"↓";left:50%;top:-17px}}
 .news-sec{gap:20px} .news-sec .ticker{padding-bottom:0} .news-sec .daily{padding-block:0}
 section .disc{margin-top:8px}
+
+/* v104: support / coffee in a calm neutral style (red is reserved for alarming facts) */
+.coffee{background:var(--surface);border-color:var(--line)}
+.coffee svg{color:var(--cof)}
+.coffee:hover{border-color:var(--ink)}
+.support{background:var(--surface);border-color:var(--line)}
+.support h3 svg,.bmc-btn svg{color:currentColor}
+.bmc-btn{background:var(--ink);color:var(--paper)}
+.bmc-btn[aria-disabled="true"]{opacity:.6}
 </style>
 
 <header class="top" id="top">
