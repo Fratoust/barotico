@@ -430,7 +430,7 @@ function ingest(k){
 window.__baroticoLoaded=k=>{ingest(k)};
 function loadCountry(k){
   if(REG.loading[k])return;REG.loading[k]=1;
-  const s=document.createElement("script");s.src=`countries/${k}.js?v=1793952272`;
+  const s=document.createElement("script");s.src=`countries/${k}.js?v=1793952905`;
   s.onload=()=>{ingest(k);render()};
   s.onerror=()=>{REG.loading[k]=0;document.getElementById("view").innerHTML=`<p class="pending" style="padding:48px 0">${t("load_err")}</p>`};
   document.head.appendChild(s);
@@ -639,7 +639,7 @@ function homeExample(){
   return `<div class="hex" id="hex"><p class="hex-who"><b>${esc(p.name)}</b> · ${esc(tr(C[k].name))}</p>
    <ol class="hex-row"><li><span class="eyebrow">${c[0]}</span><p>${esc(tr(d))}</p></li><li><span class="eyebrow">${c[1]}</span><p>${esc(tr(f))}</p></li><li class="prow ps-${st}"><span class="eyebrow">${c[2]}</span><div class="pf"><span class="ptag">${t("ptag")[st]||""}</span><a href="${u}" target="_blank" rel="noopener">${t("ex_src")} ↗</a></div></li></ol>
    <div class="hex-foot"><a class="btn" href="#${k}-${p.id}">${t("ex_more")}</a><button class="btn ghost" type="button" id="hex-other">${t("ex_other")}</button></div></div>`}
-function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1793952272`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
+function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1793952905`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
 function bindExample(){preloadSome(2);const b=document.getElementById("hex-other");if(b)b.addEventListener("click",()=>{const h=document.getElementById("hex");h.outerHTML=homeExample();pathLinks(document.getElementById("hex"));bindExample()})}
 function guideBlock(){
   const st=t("g_steps"),path=t("g_path"),pk=readyKeys().map(k=>[k,tr((C[k]||REG.meta[k]).name)]).sort((a,b)=>a[1].localeCompare(b[1],lang));
@@ -1049,7 +1049,7 @@ function chrome(){
   if(browserLang!=="en")opts.push(["browser",LANGS.includes(browserLang)?langName(browserLang):T.en.browser_tr(langName(browserLang))]);
   if(PATHMODE){opts.length=0;opts.push(["en","English"]);if(browserLang!=="en"&&LANGS.includes(browserLang))opts.push([browserLang,langName(browserLang)]);else if(browserLang!=="en")opts.push(["browser",T.en.browser_tr(langName(browserLang))]);if(lang!=="en"&&!opts.some(o=>o[0]===lang))opts.push([lang,langName(lang)])}
   const sw=LANGS.map(L=>{const cur=L===lang;return `<a class="lsw${cur?" on":""}" href="${PATHMODE?pathFor(curRaw(),L):"#"}" data-lang="${L}" hreflang="${L}" lang="${L}" title="${LANG_NAMES[L]}" aria-label="${LANG_NAMES[L]}"${cur?' aria-current="true"':""}>${L.toUpperCase()}</a>`}).join("");
-  ["lang-sw","lang-sw-m"].forEach(id=>{const e=document.getElementById(id);if(e)e.innerHTML=sw});
+  ["lang-sw","lang-sw-d","lang-sw-m"].forEach(id=>{const e=document.getElementById(id);if(e)e.innerHTML=sw});
   ["lang-select","lang-select-m"].forEach(id=>{const s=document.getElementById(id);if(!s)return;s.innerHTML=opts.map(([v,n])=>`<option value="${v}">${esc(n)}</option>`).join("");s.value=PATHMODE?(lang==="en"&&useBrowser&&opts.some(o=>o[0]==="browser")?"browser":lang):useBrowser?"browser":"en";s.hidden=opts.length<2});
   document.getElementById("dd-pays").innerHTML=countriesMenu(false);document.getElementById("sheet-pays").innerHTML=countriesMenu(true);
   const ll=document.getElementById("legal-links");if(ll)ll.innerHTML=[["mentions",LEG.sections[0][1]],["charter",LEG.charterLink],["corrections",LEG.report],["privacy",LEG.sections[3][1]],["ai",LEG.sections[4][1]]].map(([id,l])=>`<a href="#legal-${id}">${esc(tr(l))}</a>`).join(" · ");
