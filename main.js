@@ -430,7 +430,7 @@ function ingest(k){
 window.__baroticoLoaded=k=>{ingest(k)};
 function loadCountry(k){
   if(REG.loading[k])return;REG.loading[k]=1;
-  const s=document.createElement("script");s.src=`countries/${k}.js?v=1793954705`;
+  const s=document.createElement("script");s.src=`countries/${k}.js?v=1793955466`;
   s.onload=()=>{ingest(k);render()};
   s.onerror=()=>{REG.loading[k]=0;document.getElementById("view").innerHTML=`<p class="pending" style="padding:48px 0">${t("load_err")}</p>`};
   document.head.appendChild(s);
@@ -639,7 +639,7 @@ function homeExample(){
   return `<div class="hex" id="hex"><p class="hex-who"><b>${esc(p.name)}</b> · ${esc(tr(C[k].name))}</p>
    <ol class="hex-row"><li><span class="eyebrow">${c[0]}</span><p>${esc(tr(d))}</p></li><li><span class="eyebrow">${c[1]}</span><p>${esc(tr(f))}</p></li><li class="prow ps-${st}"><span class="eyebrow">${c[2]}</span><div class="pf"><span class="ptag">${t("ptag")[st]||""}</span><a href="${u}" target="_blank" rel="noopener">${t("ex_src")} ↗</a></div></li></ol>
    <div class="hex-foot"><a class="btn" href="#${k}-${p.id}">${t("ex_more")}</a><button class="btn ghost" type="button" id="hex-other">${t("ex_other")}</button></div></div>`}
-function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1793954705`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
+function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1793955466`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
 function bindExample(){preloadSome(2);const b=document.getElementById("hex-other");if(b)b.addEventListener("click",()=>{const h=document.getElementById("hex");h.outerHTML=homeExample();pathLinks(document.getElementById("hex"));bindExample()})}
 function guideBlock(){
   const st=t("g_steps"),path=t("g_path"),pk=readyKeys().map(k=>[k,tr((C[k]||REG.meta[k]).name)]).sort((a,b)=>a[1].localeCompare(b[1],lang));
@@ -650,6 +650,7 @@ function guideBlock(){
    <p class="gpath">${path.map(x=>`<span>${x}</span>`).join('<i aria-hidden="true">→</i>')}</p>
    <ol class="gsteps">${st.map(([h,pp],i)=>`<li><span class="gn" aria-hidden="true">${i+1}</span><h3>${h}</h3><p>${pp}</p>${act[i]}</li>`).join("")}</ol></section>`}
 function bindGuide(){const g=document.getElementById("g-go");if(!g)return;g.addEventListener("click",()=>{const v=document.getElementById("g-country").value;if(v){if(PATHMODE){history.pushState(null,"",pathFor(v+"-partis"));render()}else location.hash="#"+v+"-partis"}else{const sel=document.getElementById("g-country");sel.focus();sel.classList.add("need");document.getElementById("pays").scrollIntoView({behavior:"smooth"})}})}
+Object.assign(T.en,{cont_h:"Find a country by continent"});Object.assign(T.fr,{cont_h:"Trouver un pays par continent"});Object.assign(T.es,{cont_h:"Encuentra un país por continente"});
 function landing(){
   const all=readyKeys(),conts=["europe","americas","africa","asia","oceania"];
   const order=all.map(k=>[k,info(k)]).filter(([k,c])=>c.elec&&c.elec.date&&daysTo(c.elec.date)>=0).sort((a,b)=>daysTo(a[1].elec.date)-daysTo(b[1].elec.date)).slice(0,8);
@@ -662,7 +663,7 @@ function landing(){
   const nReady=ct=>REG.planned.filter(x=>x[2]===ct&&isReady(x[0])).length;
   const allSoon=REG.planned.filter(x=>!isReady(x[0])).map(([k,,,nm])=>[tr(nm),off(nm)]).sort((a,b)=>a[0].localeCompare(b[0],lang)).map(x=>x[1]).join("");
   const nSoon=REG.planned.filter(x=>!isReady(x[0])).length;
-  const clists=`<div class="cont-others">${conts.filter(ct=>nReady(ct)).map(ct=>`<details class="cont-dd${ct==="europe"?" wide":""}"><summary><span>${t(ct)}</span><span class="mono">${nReady(ct)}</span></summary><div class="clist${ct==="europe"?"":" one"}">${cItems(ct,true)}</div></details>`).join("")}${nSoon?`<details class="cont-dd wide soon"><summary><span>${(t("prep")[0]||"").toUpperCase()+t("prep").slice(1)}</span><span class="mono">${nSoon}</span></summary><div class="clist">${allSoon}</div></details>`:""}</div>`;
+  const clists=`<h3 class="cont-h">${t("cont_h")}</h3><div class="cont-others">${conts.filter(ct=>nReady(ct)).map(ct=>`<details class="cont-dd${ct==="europe"?" wide":""}"><summary><span>${t(ct)}</span><span class="mono">${nReady(ct)}</span></summary><div class="clist${ct==="europe"?"":" one"}">${cItems(ct,true)}</div></details>`).join("")}${nSoon?`<details class="cont-dd wide soon"><summary><span>${(t("prep")[0]||"").toUpperCase()+t("prep").slice(1)}</span><span class="mono">${nSoon}</span></summary><div class="clist">${allSoon}</div></details>`:""}</div>`;
   const how=t("how"),howU=["https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/interior/paginas/voto-por-correo-elecciones-generales-29n.aspx","https://www.service-public.gouv.fr/particuliers/vosdroits/N47",SRC.beCycle.u];
   const fewU=["https://www.dailyprincetonian.com/article/2000/11/florida-declares-bush-winner-by-537-votes","https://www.publicsenat.fr/actualites/politique/presidentielle-il-y-a-20-ans-le-seisme-du-21-avril-2002-203366","https://maldita.es/malditodato/20230729/voto-cera-batalla-escanos/"];
   const wonU=["https://www.uam.es/uam/media/doc/1606883407261/der-expo-campoamor.pdf","https://www2.assemblee-nationale.fr/14/evenements/2015/33-premieres-deputees/vers-la-reconnaissance-de-la-citoyennete-des-femmes","https://www.parismatch.be/actualites/politique/2020/03/27/27-mars-1948-les-femmes-obtenaient-le-droit-de-vote-aux-elections-legislatives-Q6AP4XHTMJEQJNRRL4HOYDO7WM/","https://rediscovering-black-history.blogs.archives.gov/2020/11/05/selma-the-marches-that-changed-america"];
