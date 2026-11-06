@@ -684,6 +684,7 @@ section.legal p{max-width:75ch}
 .hex-row>li.prow.ps-mixed{background:color-mix(in srgb,var(--warn) 14%,var(--surface))}
 .hex-row>li.prow.ps-consistent{background:color-mix(in srgb,var(--muted) 12%,var(--surface))}
 .hex-row>li.prow.ps-rights{background:color-mix(in srgb,var(--bad) 10%,var(--surface))}
+.hex-row>li.prow.ps-rights .pf{padding-left:12px!important}
 .hex-row .ptag{font-size:var(--fs-s);font-weight:700;margin-bottom:8px}
 .hex-row .pf a{font-size:var(--fs-s)}
 .hex-row>li+li::before{content:"→";position:absolute;left:-6px;top:14px;transform:translateX(-50%);color:var(--muted);font-weight:700}
