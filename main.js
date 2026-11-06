@@ -430,7 +430,7 @@ function ingest(k){
 window.__baroticoLoaded=k=>{ingest(k)};
 function loadCountry(k){
   if(REG.loading[k])return;REG.loading[k]=1;
-  const s=document.createElement("script");s.src=`countries/${k}.js?v=1793955466`;
+  const s=document.createElement("script");s.src=`countries/${k}.js?v=1793955677`;
   s.onload=()=>{ingest(k);render()};
   s.onerror=()=>{REG.loading[k]=0;document.getElementById("view").innerHTML=`<p class="pending" style="padding:48px 0">${t("load_err")}</p>`};
   document.head.appendChild(s);
@@ -639,7 +639,7 @@ function homeExample(){
   return `<div class="hex" id="hex"><p class="hex-who"><b>${esc(p.name)}</b> · ${esc(tr(C[k].name))}</p>
    <ol class="hex-row"><li><span class="eyebrow">${c[0]}</span><p>${esc(tr(d))}</p></li><li><span class="eyebrow">${c[1]}</span><p>${esc(tr(f))}</p></li><li class="prow ps-${st}"><span class="eyebrow">${c[2]}</span><div class="pf"><span class="ptag">${t("ptag")[st]||""}</span><a href="${u}" target="_blank" rel="noopener">${t("ex_src")} ↗</a></div></li></ol>
    <div class="hex-foot"><a class="btn" href="#${k}-${p.id}">${t("ex_more")}</a><button class="btn ghost" type="button" id="hex-other">${t("ex_other")}</button></div></div>`}
-function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1793955466`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
+function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1793955677`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
 function bindExample(){preloadSome(2);const b=document.getElementById("hex-other");if(b)b.addEventListener("click",()=>{const h=document.getElementById("hex");h.outerHTML=homeExample();pathLinks(document.getElementById("hex"));bindExample()})}
 function guideBlock(){
   const st=t("g_steps"),path=t("g_path"),pk=readyKeys().map(k=>[k,tr((C[k]||REG.meta[k]).name)]).sort((a,b)=>a[1].localeCompare(b[1],lang));
@@ -650,7 +650,8 @@ function guideBlock(){
    <p class="gpath">${path.map(x=>`<span>${x}</span>`).join('<i aria-hidden="true">→</i>')}</p>
    <ol class="gsteps">${st.map(([h,pp],i)=>`<li><span class="gn" aria-hidden="true">${i+1}</span><h3>${h}</h3><p>${pp}</p>${act[i]}</li>`).join("")}</ol></section>`}
 function bindGuide(){const g=document.getElementById("g-go");if(!g)return;g.addEventListener("click",()=>{const v=document.getElementById("g-country").value;if(v){if(PATHMODE){history.pushState(null,"",pathFor(v+"-partis"));render()}else location.hash="#"+v+"-partis"}else{const sel=document.getElementById("g-country");sel.focus();sel.classList.add("need");document.getElementById("pays").scrollIntoView({behavior:"smooth"})}})}
-Object.assign(T.en,{cont_h:"Find a country by continent"});Object.assign(T.fr,{cont_h:"Trouver un pays par continent"});Object.assign(T.es,{cont_h:"Encuentra un país por continente"});
+Object.assign(T.en,{map_h:"Click a country on the map"});Object.assign(T.fr,{map_h:"Cliquez sur un pays de la carte"});Object.assign(T.es,{map_h:"Haz clic en un país del mapa"});
+Object.assign(T.en,{cont_h:"Or choose from the list"});Object.assign(T.fr,{cont_h:"Ou choisissez dans la liste"});Object.assign(T.es,{cont_h:"O elige en la lista"});
 function landing(){
   const all=readyKeys(),conts=["europe","americas","africa","asia","oceania"];
   const order=all.map(k=>[k,info(k)]).filter(([k,c])=>c.elec&&c.elec.date&&daysTo(c.elec.date)>=0).sort((a,b)=>daysTo(a[1].elec.date)-daysTo(b[1].elec.date)).slice(0,8);
@@ -678,7 +679,7 @@ function landing(){
   <section id="pays">
     <div><p class="eyebrow">${t("c_eye")}</p><h2>${T[lang].c_hn(all.length)}</h2></div>
     <div class="countries">
-      <div><div class="tilemap world" role="group" aria-label="${t("nav_countries")}">${map}</div><div class="maplegend"><span class="on">${t("available")}</span><span>${t("soon_l")}</span></div></div>
+      <div><h3 class="cont-h">${t("map_h")}</h3><div class="tilemap world" role="group" aria-label="${t("nav_countries")}">${map}</div><div class="maplegend"><span class="on">${t("available")}</span><span>${t("soon_l")}</span></div></div>
       <div>${clists}</div>
     </div>
   </section>
