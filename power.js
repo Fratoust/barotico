@@ -65,7 +65,7 @@ POWER.belgique={
  },
  cabinet:{
   name:L3("De Wever government (since 3 February 2025)","Gouvernement De Wever (depuis le 3 février 2025)","Gobierno De Wever (desde el 3 de febrero de 2025)"),total:15,
-  src:"https://fr.businessam.be/?p=139563",
+  src:"https://www.belgium.be/en/about_belgium/government/federal_authorities/federal_government/composition_government",
   parts:[
    [L3("N-VA (incl. the Prime Minister)","N-VA (dont le Premier ministre)","N-VA (incl. el primer ministro)"),4,"nva","gov"],
    [L3("MR","MR","MR"),4,"mr","gov"],

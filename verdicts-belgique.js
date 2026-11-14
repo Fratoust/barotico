@@ -2,37 +2,37 @@
 (function(){
 const ONEM="https://www.onem.be/file/cc73d96153bbd5448a56f19d925d05b1379c7f21/91c0ceb859f0b0a98bc971b7d1b5050d0bf6c6ed/monitoringfr202603-kerncijfers.pdf",
       EXCL="https://www.vrt.be/vrtnws/fr/2026/08/06/plus-de-la-moitie-des-exclus-du-chomage-ont-demande-un-revenu-d/",
-      CONF="https://www.lavenir.net/opinions/2025/02/02/un-accord-pour-larizona-ne-dites-plus-confederalisme-SKFBGEGA4RGJDI7XPVBYTCGUA4/",
-      BNB="https://www.lalibre.be/economie/conjoncture/2026/06/12/il-faut-trouver-14-milliards-dici-fin-2028-pour-arriver-a-un-deficit-tenable-estime-la-banque-nationale-UPX5DADVT5DCVCCEA2QFMJVSWI/",
+      CONF="https://www.rtbf.be/article/voici-toutes-les-mesures-decidees-par-le-nouveau-gouvernement-de-bart-de-wever-11496325",
+      BNB="https://www.belganewsagency.eu/national-bank-governing-parties-must-lift-vetoes-to-get-budget-back-on-track",
       ASILE="https://www.vrt.be/vrtnws/fr/2026/01/27/le-nombre-de-demandeurs-d-asile-a-diminue-en-belgique-les-pales/",
-      PLUSV="https://www.parismatch.be/actualites/economie/2026/04/03/la-chambre-adopte-la-taxe-sur-les-plus-values-financieres-XYOL5QE2AFC63GZLOO32U4F2UU/",
+      PLUSV="https://www.lachambre.be/FLWB/PDF/56/1244/56K1244009.pdf",
       NUC="https://www.vrt.be/vrtnws/fr/2025/05/16/des-centrales-nucleaires-pourraient-etre-construites-en-belgique/",
       TIH="https://www.vrt.be/vrtnws/fr/2025/09/30/le-reacteur-nucleaire-tihange-1-sera-mis-a-larret-ce-soir-cinqu/",
-      WAL3="https://www.lavenir.net/actu/belgique/politique/2025/11/10/polemique-sur-les-droits-denregistrement-vos-chiffres-sont-faux-XMEHNT7RS5GNPGFEBQG7OSKPN4/",
-      PMIN="https://www.lavenir.net/cnt/dmf20200930_01514623/la-vivaldi-annonce-une-pension-minimum-a-1-500-euros-nets-pour-une-carriere-complete",
+      WAL3="https://www.wallonie.be/fr/actualites/reduction-des-droits-denregistrement-de-succession-et-de-donation",
+      PMIN="https://news.belgium.be/fr/node/24950/pdf",
       PAUV="https://www.vrt.be/vrtnws/nl/2025/01/29/aantal-belgen-dat-leeft-in-armoede-is-gedaald/",
       AGE66="https://www.rtbf.be/article/pensions-tout-ce-qui-change-en-2025-11479392",
-      CTIT="https://www.lalibre.be/economie/mes-finances/la-vivaldi-est-tombee-d-accord-sur-la-taxation-des-comptes-titres-5fa13d627b50a6525bd81837",
+      CTIT="https://www.lachambre.be/FLWB/PDF/55/0928/55K0928001.pdf",
       FOREST="https://www.rtbf.be/article/un-an-apres-les-elections-communales-a-forest-comme-promis-les-impots-n-ont-pas-augmente-11612756",
       PTB_PROG="https://www.ptb.be/actualites/une-taxe-sur-les-multimillionnaires-et-1308-autres-propositions-sociales-decouvrez-notre",
       PAL="https://www.vrt.be/vrtnws/fr/2026/07/07/le-ministre-des-affaires-etrangeres-prevot-prepare-une-decision/",
       PSY_ACT="https://bx1.be/?p=524049",
       PSY_FX="https://www.vrt.be/vrtnws/fr/2025/10/08/grace-a-un-nouveau-systeme-de-remboursement-les-jeunes-les-fem/",
       BASIS="https://www.vrt.be/vrtnws/nl/2023/04/26/basisbaan-vooruit/",
-      KADER="https://www.lespecialiste.be/fr/actualites/loi-cadre-vandenbroucke-la-chambre-adopte-le-texte-majorite-contre-opposition.html",
-      FISC="https://www.dhnet.be/actu/belgique/2023/08/30/le-bon-detat-de-van-peteghem-rencontre-un-succes-fou-et-ca-jase-au-sein-de-la-vivaldi-il-se-rachete-du-galon-apres-lechec-de-la-reforme-fiscale-42WIWSIFENGBLLBWO2J4QTZYZA/",
+      KADER="https://www.vrt.be/vrtnws/nl/2026/05/21/kamer-keurt-hervorming-gezondheidssector-goed/",
+      FISC="https://www.vrt.be/vrtnws/fr/2023/09/04/bon-d_etat-a-un-an-les-epargnants-ont-souscrit-pour-pres-de-22/",
       JOB_ACT="https://www.vrt.be/vrtnws/nl/2019/10/21/jobbonus-doorgelicht/",
       JOB_FX="https://www.vlaanderen.be/departement-wewis-werk-sociale-economie/bijna-900000-vlamingen-ontvangen-vanaf-3-november-een-brief-over-de-jobbonus",
       BXL_NVA="https://bx1.be/categories/news/lopen-vld-lassure-les-liberaux-flamands-ne-prendront-part-au-gouvernement-bruxellois-quavec-la-n-va/",
       PDE="https://bx1.be/categories/news/la-commission-europeenne-veut-ouvrir-une-procedure-de-deficit-excessif-concernant-la-belgique/",
       EMPL="https://emploi.belgique.be/fr/actualites/en-route-vers-les-objectifs-de-lue-pour-2030-le-marche-du-travail-belge-en-230",
-      TSOC="https://www.lalibre.be/economie/conjoncture/2022/05/23/prix-de-lenergie-le-cout-pour-letat-de-lelargissement-du-tarif-social-plus-important-que-prevu-ECDF2VEP7RDERNBKF3OR3RFGSM/",
+      TSOC="https://media.kbs-frb.be/fr/media/10142/2022_Tarif%20Social%20-%20Note%20technique",
       DOT="https://www.lachambre.be/FLWB/Pdf/56/0572/56K0572004.pdf",
       NINOVE="https://www.vrt.be/vrtnws/nl/2025/11/18/ninove-verkiezingsprogramma-meerjarenplan/",
       VB_PROG="https://www.vlaamsbelang.org/sites/default/files/2024-03/202403_Verkiezingsprogramma_versie%2020240324.pdf";
 
 const P_EXCL=(who)=>[L3("Limit unemployment benefits in time"+who[0]+": in force since January 2026; 55,246 people left benefits by March, 10.1% of the March cohort found a job and 23,322 obtained welfare income in the first quarter (ONEM)","Limiter les allocations de chômage dans le temps"+who[1]+" : en vigueur depuis janvier 2026 ; 55 246 personnes sorties du chômage fin mars, 10,1 % de la cohorte de mars ont trouvé un emploi et 23 322 ont obtenu un revenu d'intégration au premier trimestre (ONEM)","Limitar en el tiempo las prestaciones por desempleo"+who[2]+": en vigor desde enero de 2026; 55.246 personas salieron del paro a finales de marzo, el 10,1 % de la cohorte de marzo encontró empleo y 23.322 obtuvieron la renta de integración en el primer trimestre (ONEM)"),"kept",EXCL,ONEM];
-const P_WAL=[L3("Wallonia: registration duties on a first home cut from 12.5% to 3% (January 2025): no independent evaluation yet; the notaries' barometer shows house prices up 13%","Wallonie : droits d'enregistrement sur l'habitation propre et unique ramenés de 12,5 % à 3 % (janvier 2025) : pas encore d'évaluation indépendante ; le baromètre des notaires montre des prix des maisons en hausse de 13 %","Valonia: impuesto de registro sobre la vivienda única rebajado del 12,5 % al 3 % (enero de 2025): sin evaluación independiente aún; el barómetro de los notarios muestra los precios de las casas un 13 % más altos"),"token",WAL3];
+const P_WAL=[L3("Wallonia: registration duties on a first home cut from 12.5% to 3% (January 2025): no independent evaluation yet","Wallonie : droits d'enregistrement sur l'habitation propre et unique ramenés de 12,5 % à 3 % (janvier 2025) : pas encore d'évaluation indépendante","Valonia: impuesto de registro sobre la vivienda única rebajado del 12,5 % al 3 % (enero de 2025): sin evaluación independiente aún"),"token",WAL3];
 const P_NUC=(who)=>[L3("Nuclear exit in 2025"+who[0]+": five of seven reactors closed or scheduled to close in 2025, Doel 4 and Tihange 3 extended to 2035","Sortie du nucléaire en 2025"+who[1]+" : cinq réacteurs sur sept fermés ou programmés pour fermer en 2025, Doel 4 et Tihange 3 prolongés jusqu'en 2035","Salida nuclear en 2025"+who[2]+": cinco de siete reactores cerrados o con cierre previsto en 2025, Doel 4 y Tihange 3 prorrogados hasta 2035"),"partial",TIH];
 const P_TSOC=(who)=>[L3("Protect households from energy bills"+who[0]+": social tariff extended in 2021, from 424,000 households to 880,024 (CREG figures)","Protéger les ménages face aux factures d'énergie"+who[1]+" : tarif social élargi en 2021, de 424 000 ménages à 880 024 (chiffres de la CREG)","Proteger a los hogares de las facturas de energía"+who[2]+": tarifa social ampliada en 2021, de 424.000 hogares a 880.024 (datos de la CREG)"),"kept",TSOC,TSOC];
 const P_CTIT=(who)=>[L3("Tax large fortunes"+who[0]+": the Vivaldi settled for a 0.15% tax on securities accounts above €1 million (2021), about €428M a year expected","Taxer les grandes fortunes"+who[1]+" : la Vivaldi s'est arrêtée à une taxe de 0,15 % sur les comptes-titres de plus d'un million d'euros (2021), environ 428 M€ attendus par an","Gravar las grandes fortunas"+who[2]+": la Vivaldi se quedó en un impuesto del 0,15 % sobre cuentas de valores de más de un millón de euros (2021), unos 428 M€ previstos al año"),"partial",CTIT];
@@ -45,7 +45,7 @@ VERDICTS.belgique={
   prom:[
    [L3("Confederalism (2024 programme): the word is absent from the 209 pages of the 2025 coalition agreement it leads","Le confédéralisme (programme 2024) : le mot est absent des 209 pages de l'accord de gouvernement de 2025 qu'il dirige","El confederalismo (programa de 2024): la palabra no aparece en las 209 páginas del acuerdo de gobierno de 2025 que dirige"),"broken",CONF],
    P_EXCL(["","",""]),
-   [L3("Budget discipline: under unchanged policy the deficit stays above 5% of GDP to 2028; the National Bank asks for €14bn more by 2028 (June 2026)","Discipline budgétaire : à politique inchangée, le déficit reste au-dessus de 5 % du PIB jusqu'en 2028 ; la Banque nationale demande 14 Md€ d'ici 2028 (juin 2026)","Disciplina presupuestaria: sin cambios de política, el déficit sigue por encima del 5 % del PIB hasta 2028; el Banco Nacional pide 14.000 M€ más de aquí a 2028 (junio de 2026)"),"partial",BNB],
+   [L3("Budget discipline: the National Bank says about €14bn must be found by 2028 (June 2026)","Discipline budgétaire : selon la Banque nationale, il faut trouver environ 14 Md€ d'ici 2028 (juin 2026)","Disciplina presupuestaria: según el Banco Nacional, hay que encontrar unos 14.000 M€ de aquí a 2028 (junio de 2026)"),"partial",BNB],
    [L3("Fewer asylum applications: 27,574 in 2025, down 17%, partly because Syrian cases were frozen for ten months","Moins de demandes d'asile : 27 574 en 2025, en baisse de 17 %, en partie parce que les dossiers syriens ont été gelés dix mois","Menos solicitudes de asilo: 27.574 en 2025, un 17 % menos, en parte porque los expedientes sirios estuvieron congelados diez meses"),"partial",ASILE]]},
 
  vb:{
@@ -111,7 +111,7 @@ VERDICTS.belgique={
        "Si estás pensando en votar al CD&V, conviene mirar más allá de los eslóganes.\n\nSe alarma por la deuda tras proponer un déficit del 6,4 %. Su reforma fiscal para las rentas medias, a cargo de su ministro de Finanzas, murió en la Vivaldi en 2023.\n\nPide a Bélgica que cumpla su palabra sobre Palestina. El real decreto, mientras tanto, sigue esperando.\n\nCon su ministra, el Estado acumuló 6,75 M€ en multas coercitivas por la acogida.\n\nPara ser justos, el jobbonus flamenco diseñado por su ministra Hilde Crevits paga de 100 a 700 € a casi 900.000 trabajadores con salarios bajos."),
   prom:[
    [L3("Jobbonus for low-wage workers (Flemish government, minister Hilde Crevits, 2019): nearly 900,000 workers receive €100 to €700 (2025 payment)","Jobbonus pour les bas salaires (gouvernement flamand, ministre Hilde Crevits, 2019) : près de 900 000 travailleurs reçoivent de 100 à 700 € (versement 2025)","Jobbonus para salarios bajos (gobierno flamenco, ministra Hilde Crevits, 2019): casi 900.000 trabajadores reciben de 100 a 700 € (pago de 2025)"),"kept",JOB_ACT,JOB_FX],
-   [L3("Tax reform easing the burden on middle incomes (finance minister Vincent Van Peteghem): no agreement in the Vivaldi, abandoned in July 2023","Réforme fiscale allégeant les revenus moyens (ministre des Finances Vincent Van Peteghem) : pas d'accord dans la Vivaldi, abandonnée en juillet 2023","Reforma fiscal que alivie a las rentas medias (ministro de Finanzas Vincent Van Peteghem): sin acuerdo en la Vivaldi, abandonada en julio de 2023"),"partial",FISC],
+   [L3("Tax reform easing the burden on middle incomes (finance minister Vincent Van Peteghem): no agreement in the Vivaldi","Réforme fiscale allégeant les revenus moyens (ministre des Finances Vincent Van Peteghem) : pas d'accord dans la Vivaldi","Reforma fiscal que alivie a las rentas medias (ministro de Finanzas Vincent Van Peteghem): sin acuerdo en la Vivaldi"),"partial",FISC],
    [L3("Recognise Palestine: announced in September 2025 under conditions; in July 2026 its president asked Belgium to “keep its word”, decree still pending","Reconnaître la Palestine : annoncé en septembre 2025 sous conditions ; en juillet 2026, sa présidente demande que « la Belgique respecte sa parole », arrêté toujours attendu","Reconocer Palestina: anunciado en septiembre de 2025 con condiciones; en julio de 2026 su presidenta pidió que Bélgica «cumpla su palabra», decreto aún pendiente"),"partial",PAL]]},
 
  anders:{

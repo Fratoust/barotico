@@ -3,7 +3,7 @@
 var BLANK = {};
 (function(){
 var U={
- law2014:"https://www.eurojuris.fr/articles/reconnaissance-des-votes-blancs-a-compter-du-1er-avril-2014-5010.htm",
+ law2014:"https://questions.assemblee-nationale.fr/dyn/15/questions/QANR5L15QE1516.pdf",
  rap2023:"https://www.assemblee-nationale.fr/dyn/16/rapports/cion_lois/l16b1291_rapport-fond.pdf",
  ppl1251:"https://www.assemblee-nationale.fr/dyn/16/dossiers/conferer_reconnaissance_vote_blanc",
  ps2017:"https://www.publicsenat.fr/article/politique/un-nombre-de-bulletins-blancs-et-nuls-sans-precedent-pour-une-presidentielle-60195",
@@ -12,9 +12,9 @@ var U={
  novlaw:"https://novlaw.fr/regles-bulletin-de-vote-municipales-2026/",
  co258:"https://leyes.co/constitucion/258.htm",
  pe184:"https://peru.justia.com/federales/constitucion-politica-del-peru-de-1993/titulo-iv/capitulo-xiii",
- esPub:"https://www.publico.es/politica/voto-blanco-nulo-y-abstencion.html",
- esJec:"https://es.ara.cat/politica/papel-blanco-considerado-voto-nulo_1_3872717.html",
- inNota:"https://www.deccanherald.com/opinion/give-nota-more-teeth-to-cleanse-electoral-system-3519815",
+ esPub:"https://maldita.es/malditateexplica/20230723/escribir-papeleta-nombre-voto-nulo/",
+ esJec:"https://www.boe.es/buscar/act.php?id=BOE-A-1985-11672",
+ inNota:"https://www.eci.gov.in/EBooks/Leap_of_faith_Second_Edition/files/basic-html/page126.html",
  anDep:"https://questions.assemblee-nationale.fr/contenu/telechargement/625543/file/Fiche%203%20-%20Election%20des%20d%C3%A9put%C3%A9s.pdf"
 };
 BLANK.france={
@@ -66,7 +66,7 @@ BLANK.france={
   [L3("Spain","Espagne","España"),L3("Blank votes count as valid votes. They raise the number of votes a list needs to pass the 3% bar for seats. Only an empty envelope is blank: a blank sheet inside is spoilt.","Le blanc compte parmi les votes valides : il relève le nombre de voix nécessaire pour franchir la barre de 3 % donnant accès aux sièges. Seule une enveloppe vide vaut vote blanc ; une feuille blanche glissée dedans est nulle.","El voto en blanco cuenta como voto válido: eleva el número de votos que necesita una lista para superar la barrera del 3 % que da acceso a escaños. Solo un sobre vacío es voto en blanco; una hoja en blanco dentro es nulo."),[U.esPub,U.esJec]],
   [L3("Colombia","Colombie","Colombia"),L3("If blank votes win a majority of valid votes (first presidential round, governors, mayors, assemblies), the election is held again once, without the same candidates.","Si le blanc obtient la majorité des votes valides (premier tour de la présidentielle, gouverneurs, maires, assemblées), l'élection est refaite une fois, sans les mêmes candidats.","Si el voto en blanco obtiene la mayoría de los votos válidos (primera vuelta presidencial, gobernaciones, alcaldías, corporaciones), la elección se repite una vez, sin los mismos candidatos."),[U.co258]],
   [L3("Peru","Pérou","Perú"),L3("If spoilt and blank votes, together or separately, exceed two thirds of votes cast, the election is annulled.","Si les votes nuls et blancs, ensemble ou séparément, dépassent les deux tiers des votes émis, l'élection est annulée.","Si los votos nulos y en blanco, sumados o por separado, superan los dos tercios de los votos emitidos, la elección se anula."),[U.pe184]],
-  [L3("India","Inde","India"),L3("Since a 2013 Supreme Court ruling, voting machines offer “None of the above”. Some states (Maharashtra, Haryana) rerun local elections when that option comes first.","Depuis un arrêt de la Cour suprême de 2013, les machines proposent « Aucun des candidats ». Certains États (Maharashtra, Haryana) refont une élection locale quand cette option arrive en tête.","Desde una sentencia del Tribunal Supremo de 2013, las máquinas ofrecen «Ninguno de los anteriores». Algunos estados (Maharashtra, Haryana) repiten una elección local cuando esa opción queda primera."),[U.inNota]]
+  [L3("India","Inde","India"),L3("Since a 2013 Supreme Court ruling, voting machines offer “None of the above”. It cannot cancel an election: the candidate with the most votes still wins.","Depuis un arrêt de la Cour suprême de 2013, les machines proposent « Aucun des candidats ». Cette option ne peut pas annuler une élection : le candidat arrivé en tête l'emporte.","Desde una sentencia del Tribunal Supremo de 2013, las máquinas ofrecen «Ninguno de los anteriores». Esa opción no puede anular una elección: gana el candidato más votado."),[U.inNota]]
  ],
  elseNote:L3("For lawmakers and citizens who want to change the rule: each model has a cost. Rerunning an election takes time and money, a low threshold can leave seats empty, and counting blank votes changes majorities and thresholds.","Pour les élus et les citoyens qui veulent changer la règle : chaque modèle a un coût. Refaire une élection prend du temps et de l'argent, un seuil bas peut laisser des sièges vacants, et compter les blancs modifie majorités et seuils.","Para los legisladores y ciudadanos que quieran cambiar la regla: cada modelo tiene un coste. Repetir una elección lleva tiempo y dinero, un umbral bajo puede dejar escaños vacantes y contar los votos en blanco modifica mayorías y umbrales."),
  think:[
@@ -85,23 +85,23 @@ BLANK.france={
 // ---- shared parts + rollout batch 1 (14 Nov 2026): Belgium, Spain, USA, Italy, Colombia ----
 (function(){
 var U={
- fr2014:"https://www.eurojuris.fr/articles/reconnaissance-des-votes-blancs-a-compter-du-1er-avril-2014-5010.htm",
- esPub:"https://www.publico.es/politica/voto-blanco-nulo-y-abstencion.html",
- esJec:"https://es.ara.cat/politica/papel-blanco-considerado-voto-nulo_1_3872717.html",
- es23:"https://www.publico.es/resultados-elecciones/generales/2023/",
+ fr2014:"https://questions.assemblee-nationale.fr/dyn/15/questions/QANR5L15QE1516.pdf",
+ esPub:"https://maldita.es/malditateexplica/20230723/escribir-papeleta-nombre-voto-nulo/",
+ esJec:"https://www.boe.es/buscar/act.php?id=BOE-A-1985-11672",
+ es23:"https://www.ultimahora.es/elecciones/23j/congreso.html",
  co258:"https://leyes.co/constitucion/258.htm",
  coV2:"https://occidente.co/colombia/es-cierto-que-el-voto-en-blanco-no-tiene-ningun-efecto-en-la-segunda-vuelta/",
  co26:"https://www.larepublica.co/especiales/elecciones-presidenciales-2026/votos-en-blanco-y-nulos-superaron-la-votacion-de-ocho-candidatos-presidenciales-4404849",
  pe184:"https://peru.justia.com/federales/constitucion-politica-del-peru-de-1993/titulo-iv/capitulo-xiii",
- inNota:"https://www.deccanherald.com/opinion/give-nota-more-teeth-to-cleanse-electoral-system-3519815",
+ inNota:"https://www.eci.gov.in/EBooks/Leap_of_faith_Second_Edition/files/basic-html/page126.html",
  nv24:"https://www.nvsos.gov/SOSelectionPages/results/2024PPP/ElectionSummary.aspx",
  nvPbs:"https://www.fec.gov/resources/cms-content/documents/FederalElections98_SenateResults.pdf",
  usUnder:"https://elections.sbcounty.gov/faqs/what-happens-if-i-leave-something-blank-on-my-ballot-will-the-rest-of-my-ballot-be-counted/",
  itPag:"https://pagellapolitica.it/articoli/numero-schede-bianche-elezioni-politiche-europee",
- itQuo:"https://www.money.it/scheda-annullata-contribuisco-quorum-referendum",
+ itQuo:"https://pagellapolitica.it/articoli/come-si-vota-referendum-cittadinanza-lavoro",
  beRtbf:"https://www.rtbf.be/article/votes-blancs-ou-nuls-quelles-differences-ces-voix-vont-elles-vraiment-a-la-majorite-11365892",
- be24:"https://www.parismatch.be/actualites/2024/06/10/elections-2024-en-belgique-un-record-particulier-a-ete-largement-battu-par-rapport-a-2019-3MD62UTIWZENVG2M747RLHGTOI/",
- beFl:"https://www.lavenir.net/actu/belgique/2024/09/06/elections-communales-2024-la-flandre-supprime-lobligation-du-vote-WPDXQEEOJBANLO2Q4ANBWWZONE/"
+ be24:"https://www.rtbf.be/article/au-dela-du-million-d-electeurs-le-taux-d-abstention-a-battu-ce-dimanche-son-record-de-2019-11386769",
+ beFl:"https://www.vrt.be/vrtnws/fr/2024/09/10/la-flandre-lance-une-campagne-pour-inciter-ses-citoyens-a-aller/"
 };
 BLANK._common={
  sum:L3("Blank vote: what it says, what it changes","Vote blanc : ce qu'il dit, ce qu'il change","Voto en blanco: lo que dice, lo que cambia"),
@@ -112,7 +112,7 @@ BLANK._common={
   [L3("Peru","Pérou","Perú"),L3("If spoilt and blank votes, together or separately, exceed two thirds of votes cast, the election is annulled.","Si les votes nuls et blancs, ensemble ou séparément, dépassent les deux tiers des votes émis, l'élection est annulée.","Si los votos nulos y en blanco, sumados o por separado, superan los dos tercios de los votos emitidos, la elección se anula."),[U.pe184],"peru"],
   [L3("Italy","Italie","Italia"),L3("Blank ballots do not count as valid votes, but in abrogative referendums they count towards the turnout quorum: voting blank helps reach it, abstaining helps defeat it.","La scheda bianca ne compte pas parmi les votes valides, mais aux référendums abrogatifs elle compte pour le quorum de participation : voter blanc aide à l'atteindre, s'abstenir aide à le faire échouer.","La papeleta en blanco no cuenta como voto válido, pero en los referendos derogatorios cuenta para el quórum de participación: votar en blanco ayuda a alcanzarlo, abstenerse ayuda a que fracase."),[U.itQuo],"italy"],
   [L3("Nevada (United States)","Nevada (États-Unis)","Nevada (Estados Unidos)"),L3("Since 1975, ballots offer “None of these candidates” in statewide and presidential races. It can come first, but it never wins: the candidate with the most votes is elected.","Depuis 1975, le bulletin propose « Aucun de ces candidats » pour les élections à l'échelle de l'État et la présidentielle. Cette option peut arriver en tête, mais ne gagne jamais : le candidat qui a le plus de voix est élu.","Desde 1975, la papeleta ofrece «Ninguno de estos candidatos» en las elecciones estatales y presidenciales. Puede quedar primera, pero nunca gana: resulta elegido el candidato con más votos."),[U.nv24],"usa"],
-  [L3("India","Inde","India"),L3("Since a 2013 Supreme Court ruling, voting machines offer “None of the above”. Some states (Maharashtra, Haryana) rerun local elections when that option comes first.","Depuis un arrêt de la Cour suprême de 2013, les machines proposent « Aucun des candidats ». Certains États (Maharashtra, Haryana) refont une élection locale quand cette option arrive en tête.","Desde una sentencia del Tribunal Supremo de 2013, las máquinas ofrecen «Ninguno de los anteriores». Algunos estados (Maharashtra, Haryana) repiten una elección local cuando esa opción queda primera."),[U.inNota],"india"]
+  [L3("India","Inde","India"),L3("Since a 2013 Supreme Court ruling, voting machines offer “None of the above”. It cannot cancel an election: the candidate with the most votes still wins.","Depuis un arrêt de la Cour suprême de 2013, les machines proposent « Aucun des candidats ». Cette option ne peut pas annuler une élection : le candidat arrivé en tête l'emporte.","Desde una sentencia del Tribunal Supremo de 2013, las máquinas ofrecen «Ninguno de los anteriores». Esa opción no puede anular una elección: gana el candidato más votado."),[U.inNota],"india"]
  ],
  elseNote:BLANK.france.elseNote,
  think:[
