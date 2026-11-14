@@ -25,7 +25,7 @@ POWER.france={
  },
  cabinet:{
   name:L3("Lecornu II government (since October 2025)","Gouvernement Lecornu II (depuis octobre 2025)","Gobierno Lecornu II (desde octubre de 2025)"),total:34,
-  src:"https://www.maire-info.com/gouvernement/un-nouveau-gouvernement-largement-domine-par-lancien-socle-commun-article-30083",
+  src:"https://www.publicsenat.fr/actualites/politique/lecornu-ii-decouvrez-la-composition-du-nouveau-gouvernement",
   // [label, members, party card id or null, "gov"|"out"]
   parts:[
    [L3("Renaissance","Renaissance","Renaissance"),11,"ensemble","gov"],

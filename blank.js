@@ -9,7 +9,7 @@ var U={
  ps2017:"https://www.publicsenat.fr/article/politique/un-nombre-de-bulletins-blancs-et-nuls-sans-precedent-pour-une-presidentielle-60195",
  ps2022:"https://www.publicsenat.fr/actualites/politique/presidentielle-quel-serait-le-score-du-second-tour-en-prenant-en-compte-les-votes",
  psWhy:"https://www.publicsenat.fr/actualites/non-classe/vote-blanc-vote-gris-et-deuxieme-bulletin-face-au-choix-macron-le-pen-60132",
- novlaw:"https://novlaw.fr/regles-bulletin-de-vote-municipales-2026/",
+ novlaw:"https://www.vie-publique.fr/fiches/23931-vote-blanc-vote-nul-quelles-differences",
  co258:"https://leyes.co/constitucion/258.htm",
  pe184:"https://peru.justia.com/federales/constitucion-politica-del-peru-de-1993/titulo-iv/capitulo-xiii",
  esPub:"https://maldita.es/malditateexplica/20230723/escribir-papeleta-nombre-voto-nulo/",
