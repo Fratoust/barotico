@@ -440,7 +440,7 @@ function ingest(k){
 window.__baroticoLoaded=k=>{ingest(k)};
 function loadCountry(k){
   if(REG.loading[k])return;REG.loading[k]=1;
-  const s=document.createElement("script");s.src=`countries/${k}.js?v=1794681736`;
+  const s=document.createElement("script");s.src=`countries/${k}.js?v=1794683423`;
   s.onload=()=>{ingest(k);render()};
   s.onerror=()=>{REG.loading[k]=0;document.getElementById("view").innerHTML=`<p class="pending" style="padding:48px 0">${t("load_err")}</p>`};
   document.head.appendChild(s);
@@ -649,7 +649,7 @@ function homeExample(){
   return `<div class="hex" id="hex"><p class="hex-who"><b>${esc(p.name)}</b> · ${esc(tr(C[k].name))}</p>
    <ol class="hex-row"><li><span class="eyebrow">${c[0]}</span><p>${esc(tr(d))}</p></li><li><span class="eyebrow">${c[1]}</span><p>${esc(tr(f))}</p></li><li class="prow ps-${st}"><span class="eyebrow">${c[2]}</span><div class="pf"><span class="ptag">${t("ptag")[st]||""}</span><a href="${u}" target="_blank" rel="noopener">${t("ex_src")} ↗</a></div></li></ol>
    <div class="hex-foot"><a class="btn" href="#${k}-${p.id}">${t("ex_more")}</a><button class="btn ghost" type="button" id="hex-other">${t("ex_other")}</button></div></div>`}
-function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1794681736`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
+function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1794683423`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
 function bindExample(){preloadSome(2);const b=document.getElementById("hex-other");if(b)b.addEventListener("click",()=>{const h=document.getElementById("hex");h.outerHTML=homeExample();pathLinks(document.getElementById("hex"));bindExample()})}
 function guideBlock(){
   const st=t("g_steps"),path=t("g_path"),pk=readyKeys().map(k=>[k,tr((C[k]||REG.meta[k]).name)]).sort((a,b)=>a[1].localeCompare(b[1],lang));
@@ -895,6 +895,34 @@ function seoMeta(k,sub,L){L=L||lang;const n=cname(k,L),i=inForm(k,L),c=C[k]||REG
        parties:[`Partidos políticos ${i}: promesas, actos y balance`,`Los ${P.length||""} principales partidos políticos ${i}${names?" ("+names+")":""}: sus promesas frente a sus actos, antigüedad, experiencia de gobierno y puntos de vigilancia democrática, con fuentes.`,`Los partidos políticos ${i}`,"Los partidos"],
        government:[`¿Quién gobierna ${i}? Popularidad, presupuesto y balance`,`Quién gobierna ${i} y cómo llegó al poder: popularidad, confianza, estado de la democracia, presupuesto y promesas cumplidas, con fuentes oficiales.`,`¿Quién gobierna ${i}?`,"El gobierno"]}};
   const e=(X[L]||X.en)[sub||""];return {title:e[0]+" | Barotico",desc:e[1].replace(/\s+/g," "),h2:e[2],crumb:e[3]}}
+Object.assign(T.en,{"pw_h": "Who holds power", "pw_gov": "In government", "pw_out": "Outside government", "pw_vac": "Vacant", "pw_seats": "seats", "pw_maj": "absolute majority", "pw_cab": "Members of the government, by origin", "pw_minor": "The parties in government hold {g} of {t} seats; an absolute majority is {m}. They are {d} seats short: the government is in a minority and needs other groups to vote with it or abstain.", "pw_major": "The parties in government hold {g} of {t} seats; an absolute majority is {m}. They have {d} seats more than the majority.", "pw_hover": "Hover or tap a group to see its seats; click a name to open the party card.", "pw_members": "members"});
+Object.assign(T.fr,{"pw_h": "La composition du pouvoir", "pw_gov": "Au gouvernement", "pw_out": "Hors gouvernement", "pw_vac": "Vacant", "pw_seats": "sièges", "pw_maj": "majorité absolue", "pw_cab": "Membres du gouvernement, selon leur origine", "pw_minor": "Les partis au gouvernement ont {g} sièges sur {t} ; la majorité absolue est de {m}. Il leur manque {d} sièges : le gouvernement est minoritaire et a besoin que d'autres groupes votent avec lui ou s'abstiennent.", "pw_major": "Les partis au gouvernement ont {g} sièges sur {t} ; la majorité absolue est de {m}. Ils ont {d} sièges de plus que la majorité.", "pw_hover": "Survolez ou touchez un groupe pour voir ses sièges ; cliquez sur un nom pour ouvrir la fiche du parti.", "pw_members": "membres"});
+Object.assign(T.es,{"pw_h": "Quién tiene el poder", "pw_gov": "En el gobierno", "pw_out": "Fuera del gobierno", "pw_vac": "Vacante", "pw_seats": "escaños", "pw_maj": "mayoría absoluta", "pw_cab": "Miembros del gobierno, según su origen", "pw_minor": "Los partidos en el gobierno tienen {g} escaños de {t}; la mayoría absoluta es de {m}. Les faltan {d} escaños: el gobierno está en minoría y necesita que otros grupos voten con él o se abstengan.", "pw_major": "Los partidos en el gobierno tienen {g} escaños de {t}; la mayoría absoluta es de {m}. Tienen {d} escaños más que la mayoría.", "pw_hover": "Pase el cursor o toque un grupo para ver sus escaños; haga clic en un nombre para abrir la ficha del partido.", "pw_members": "miembros"});
+function hemi(groups,total){
+  // Parliament chart: seats on concentric arcs, filled left to right.
+  const rows=Math.max(4,Math.min(14,Math.round(Math.sqrt(total/3.2)))),R=190,r0=72,cx=200,cy=200,radii=[];for(let i=0;i<rows;i++)radii.push(r0+i*(R-r0)/(rows-1));
+  const sr=radii.reduce((a,b)=>a+b,0);let per=radii.map(r=>Math.round(total*r/sr));let diff=total-per.reduce((a,b)=>a+b,0);for(let i=rows-1;diff!==0;i=(i-1+rows)%rows){per[i]+=Math.sign(diff);diff-=Math.sign(diff)}
+  const pts=[];radii.forEach((r,i)=>{const n=per[i];for(let j=0;j<n;j++){const a=Math.PI-(n===1?Math.PI/2:j*Math.PI/(n-1));pts.push({a,x:cx+r*Math.cos(a),y:cy-r*Math.sin(a)})}});
+  pts.sort((p,q)=>q.a-p.a);const dot=Math.min(5.2,(R-r0)/rows*0.42);let k=0,out="";
+  groups.forEach((g,gi)=>{for(let j=0;j<g[1]&&k<pts.length;j++,k++){const p=pts[k];out+=`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${dot.toFixed(1)}" class="hs-${g[3]}${gi%2?" alt":""}" data-g="${gi}"/>`}});
+  return `<svg class="hemi" viewBox="0 0 400 205" role="img" aria-label="${total} ${t("pw_seats")}">${out}</svg>`}
+function powerBlock(k){
+  const P=(typeof POWER!=="undefined"&&POWER[k])||null;if(!P)return "";
+  const a=u=>u?` <a class="src-a" href="${u}" target="_blank" rel="noopener">${t("source")}</a>`:"";
+  const ch=P.chamber,G=ch.groups,g=G.filter(x=>x[3]==="gov").reduce((s,x)=>s+x[1],0),m=ch.majority,d=Math.abs(g-m+(g>=m?0:0));
+  const link=(lab,pid)=>pid?`<a href="#${k}-${pid}">${esc(tr(lab))}</a>`:esc(tr(lab));
+  const fill=(x,o)=>x.replace("{g}",o.g).replace("{t}",o.t).replace("{m}",o.m).replace("{d}",o.d);
+  const sw=st=>`<i class="sw hs-${st}" aria-hidden="true"></i>`;
+  const legend=`<ul class="pw-leg">${G.map((x,i)=>`<li data-g="${i}">${sw(x[3])}<span>${link(x[0],x[2])}</span><b class="mono">${x[1]}</b></li>`).join("")}</ul>`;
+  const bar=`<div class="pw-bar" aria-hidden="true"><i class="hs-gov" style="width:${(100*g/ch.total).toFixed(2)}%"></i><span class="pw-mk" style="left:${(100*m/ch.total).toFixed(2)}%"></span></div><p class="pw-bar-l"><span>${sw("gov")} ${t("pw_gov")}${lang==="fr"?"\u202f: ":": "}<b class="mono">${g}</b></span><span><i class="pw-mk-l" aria-hidden="true"></i> ${t("pw_maj")}${lang==="fr"?"\u202f: ":": "}<b class="mono">${m}</b></span></p>`;
+  const cab=P.cabinet?(()=>{const C=P.cabinet;return `<div class="pw-cab"><p class="eyebrow">${t("pw_cab")}</p><p class="pw-cname">${esc(tr(C.name))} · ${C.total} ${t("pw_members")}${a(C.src)}</p>
+    <div class="pw-stack" aria-hidden="true">${C.parts.map(x=>`<i class="hs-${x[3]}" style="flex:${x[1]}"></i>`).join("")}</div>
+    <ul class="pw-leg">${C.parts.map(x=>`<li>${sw(x[3])}<span>${link(x[0],x[2])}</span><b class="mono">${x[1]}</b></li>`).join("")}</ul></div>`})():"";
+  return `<div class="block pw" id="pouvoir"><h3>${t("pw_h")}</h3><p>${esc(tr(P.head))}</p>
+   <div class="pw-grid"><figure class="pw-fig">${hemi(G,ch.total)}<figcaption><b>${esc(tr(ch.name))}</b> · ${ch.total} ${t("pw_seats")} · ${t("pw_maj")} ${m}${a(ch.src)}</figcaption>${legend}<p class="explain">${t("pw_hover")}</p></figure>
+   <div class="pw-side">${bar}<p>${fill(g>=m?t("pw_major"):t("pw_minor"),{g,t:ch.total,m,d:Math.abs(g-m)})}</p>${cab}</div></div>
+   ${(P.notes||[]).map(n=>`<p class="explain">${esc(tr(n))}</p>`).join("")}</div>`}
+function bindPower(){document.querySelectorAll(".pw-fig").forEach(f=>{const svg=f.querySelector(".hemi");f.querySelectorAll(".pw-leg li").forEach(li=>{const on=()=>{svg.classList.add("dim");svg.querySelectorAll(`[data-g="${li.dataset.g}"]`).forEach(c=>c.classList.add("on"))},off=()=>{svg.classList.remove("dim");svg.querySelectorAll(".on").forEach(c=>c.classList.remove("on"))};li.addEventListener("mouseenter",on);li.addEventListener("mouseleave",off);li.addEventListener("focusin",on);li.addEventListener("focusout",off)})})}
 function blankElsewhere(k){
   const own=(typeof BLANK!=="undefined"&&BLANK[k])||null;if(!own)return "";
   const B=Object.assign({},BLANK._common||{},own),els=(B.elsewhere||[]).filter(x=>x[3]!==k);if(!els.length)return "";
@@ -1061,7 +1089,7 @@ function countryPage(k){
   </div>
   <div class="panel" id="p-gov" role="tabpanel" aria-labelledby="t-gov" hidden>
     <h2 class="ph2">${esc(seoMeta(k,"government").h2)}</h2>
-    ${gbOf(k,c)?`<div class="block"><h3>${t("who_gov")}</h3><p>${esc(tr(c.gov.who))}</p><p>${esc(tr(c.gov.how))}</p></div>${govBar(k,c)}${budgetBlock(k)}`:`<div class="two">
+    ${gbOf(k,c)?`<div class="block"><h3>${t("who_gov")}</h3><p>${esc(tr(c.gov.who))}</p><p>${esc(tr(c.gov.how))}</p></div>${powerBlock(k)}${govBar(k,c)}${budgetBlock(k)}`:`<div class="two">
       <div class="block"><h3>${t("who_gov")}</h3><p>${esc(tr(c.gov.who))}</p><p>${esc(tr(c.gov.how))}</p></div>
       <div class="block"><h3>${t("citizens")}</h3>${govWeather(c)}<p>${esc(tr(c.gov.sat))}</p><p class="sources">${satS}</p></div>
     </div>`}
@@ -1182,7 +1210,7 @@ function renderView(){
     if(tgt)tgt.scrollIntoView({block:"start"});else window.scrollTo(0,0);
     return;
   }
-  bindTabs();bindShare();
+  bindTabs();bindShare();bindPower();
   document.querySelectorAll(".fi-go").forEach(x=>x.addEventListener("click",()=>{const g=document.querySelector(".chead~.cguide");if(g){g.open=true;g.scrollIntoView({block:"start",behavior:"smooth"})}}));
   document.querySelectorAll(".cg-tab").forEach(x=>x.addEventListener("click",()=>{goTab(x.dataset.tab);const tb=document.querySelector(".tabs");if(tb)tb.scrollIntoView({block:"start",behavior:"smooth"})}));
   if(party==="medias"){selectTab("t-med");window.scrollTo(0,0);return}
