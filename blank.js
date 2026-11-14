@@ -517,3 +517,74 @@ BLANK.newzealand={
  ]
 };
 })();
+// ---- rollout batch 5 (14 Nov 2026): Argentina, Brazil, South Africa, Senegal ----
+(function(){
+var U={
+ arChq:"https://chequeado.com/el-explicador/elecciones-2025-que-se-considera-voto-afirmativo-en-blanco-nulo-y-recurrido-con-la-boleta-unica-de-papel/",
+ arOb:"https://www.econoblog.com.ar/151025/ciudadanos-pueden-justificar-su-falta-de-voto-para-no-pagar-la-multa/",
+ brTse:"https://www.tse.jus.br/comunicacao/noticias/2026/Setembro/faltam-17-dias-votos-nulos-e-brancos-nao-anulam-a-eleicao",
+ br26:"https://www.congressoemfoco.com.br/noticia/122744/saldo-das-urnas-abstencoes-nulos-e-brancos-na-eleicao-de-2026",
+ za24:"https://theoutlier.co.za/politics/2024-06-03/87478/voter-enthusiasm-dips",
+ snDge:"https://dge.sn/wp-content/uploads/2024/11/OK-Guide-bureau-de-vote-legislatives-17-novembre-2024.pdf"
+};
+BLANK.argentina={
+ lead:L3("In Argentina, voting is compulsory from 18 to 70. Since 2025, with the single paper ballot, a blank vote means leaving a category unmarked.","En Argentine, voter est obligatoire de 18 à 70 ans. Depuis 2025, avec le bulletin unique en papier, voter blanc consiste à ne rien cocher dans une catégorie.","En Argentina, votar es obligatorio de 18 a 70 años. Desde 2025, con la boleta única de papel, votar en blanco es no marcar nada en una categoría."),
+ what:[
+  [L3("Blank vote: no preference marked in one or more categories of the ballot.","Vote blanc : aucune préférence cochée dans une ou plusieurs catégories du bulletin.","Voto en blanco: ninguna preferencia marcada en una o más categorías de la boleta."),U.arChq],
+  [L3("Null vote: marks for different lists in the same category, a ballot torn so the choice cannot be read, writing that hides the choice, or foreign objects inside.","Vote nul : des marques pour des listes différentes dans la même catégorie, un bulletin déchiré au point que le choix est illisible, des inscriptions qui empêchent d'identifier le choix, ou des objets glissés à l'intérieur.","Voto nulo: marcas para distintas agrupaciones en la misma categoría, una boleta rota de modo que no se puede leer la opción, inscripciones que impiden identificarla u objetos extraños dentro."),U.arChq],
+  [L3("Not voting without a valid reason brings a fine of 50 to 500 pesos and, if unpaid, restrictions such as being barred from public posts for three years.","Ne pas voter sans motif valable expose à une amende de 50 à 500 pesos et, si elle n'est pas payée, à des restrictions, comme l'interdiction d'occuper un emploi public pendant trois ans.","No votar sin motivo válido supone una multa de 50 a 500 pesos y, si no se paga, restricciones como la inhabilitación para cargos públicos durante tres años."),U.arOb]
+ ],
+ count:[
+  [L3("Blank votes are counted separately from null votes. Because the ballot lists several categories, a voter can choose in one and leave another blank.","Les votes blancs sont comptés à part des votes nuls. Comme le bulletin compte plusieurs catégories, on peut choisir dans l'une et laisser l'autre en blanc.","Los votos en blanco se cuentan aparte de los nulos. Como la boleta tiene varias categorías, se puede elegir en una y dejar otra en blanco."),U.arChq]
+ ],
+ impact:[
+  [L3("Where voting is compulsory, a blank vote is the legal way to go to the polls without choosing; staying home exposes you to a fine.","Là où le vote est obligatoire, voter blanc est la façon légale de se rendre aux urnes sans choisir ; rester chez soi expose à une amende.","Donde el voto es obligatorio, votar en blanco es la forma legal de ir a votar sin elegir; quedarse en casa expone a una multa."),U.arOb]
+ ]
+};
+BLANK.brazil={
+ lead:L3("In Brazil, voting is compulsory and electronic: the machine has a “BRANCO” key. Blank and null votes are not valid votes, and they do not cancel the election.","Au Brésil, le vote est obligatoire et électronique : la machine a une touche « BRANCO ». Les votes blancs et nuls ne sont pas des votes valides, et ils n'annulent pas l'élection.","En Brasil, el voto es obligatorio y electrónico: la urna tiene una tecla «BRANCO». Los votos en blanco y nulos no son votos válidos y no anulan la elección."),
+ what:[
+  [L3("Blank vote: press the BRANCO key on the voting machine.","Vote blanc : appuyer sur la touche BRANCO de l'urne électronique.","Voto en blanco: pulsar la tecla BRANCO de la urna electrónica."),U.brTse],
+  [L3("Null vote: type a number that matches no candidate.","Vote nul : taper un numéro qui ne correspond à aucun candidat.","Voto nulo: teclear un número que no corresponde a ningún candidato."),U.brTse]
+ ],
+ count:[
+  [L3("Neither blank nor null votes count as valid votes, and a high number of them does not cancel the election, contrary to a widespread rumour.","Ni les blancs ni les nuls ne comptent comme votes valides, et leur grand nombre n'annule pas l'élection, contrairement à une rumeur répandue.","Ni los votos en blanco ni los nulos cuentan como válidos, y un número elevado no anula la elección, contrariamente a un rumor muy extendido."),U.brTse],
+  [L3("The president is elected with a majority of valid votes: blank and null votes are left out of that calculation.","Le président est élu à la majorité des votes valides : blancs et nuls restent hors de ce calcul.","El presidente se elige por mayoría de votos válidos: blancos y nulos quedan fuera de ese cálculo."),U.br26]
+ ],
+ nums:[
+  [1.84,L3("of presidential votes were blank in the first round of October 2026 (2.3 million), and 2.93% null (3.7 million).","des votes pour la présidentielle étaient blancs au premier tour d'octobre 2026 (2,3 millions), et 2,93 % nuls (3,7 millions).","de los votos presidenciales fueron en blanco en la primera vuelta de octubre de 2026 (2,3 millones), y el 2,93 % nulos (3,7 millones)."),U.br26],
+  [21.08,L3("of voters abstained, despite compulsory voting (33.5 million).","des électeurs se sont abstenus, malgré le vote obligatoire (33,5 millions).","de los electores se abstuvieron, pese al voto obligatorio (33,5 millones)."),U.br26]
+ ],
+ impact:[
+  [L3("Because they stay out of the valid votes, blank and null votes make it slightly easier to reach the majority of valid votes: they decide nothing themselves.","Comme ils restent hors des votes valides, blancs et nuls rendent un peu plus facile d'atteindre la majorité des votes valides : eux-mêmes ne décident rien.","Como quedan fuera de los votos válidos, blancos y nulos facilitan algo alcanzar la mayoría de votos válidos: por sí mismos no deciden nada."),U.br26]
+ ]
+};
+BLANK.southafrica={
+ lead:L3("In South Africa, there is no blank vote: a ballot that cannot count is a spoilt ballot.","En Afrique du Sud, il n'existe pas de vote blanc : un bulletin qui ne peut pas compter est un bulletin gâché (spoilt).","En Sudáfrica no existe el voto en blanco: una papeleta que no puede contar es una papeleta anulada (spoilt)."),
+ what:[
+  [L3("Spoilt ballots are counted and published separately from valid votes.","Les bulletins gâchés sont comptés et publiés à part des votes valides.","Las papeletas anuladas se cuentan y publican aparte de los votos válidos."),U.za24]
+ ],
+ count:[
+  [L3("Seats in the National Assembly are shared out in proportion to valid votes.","Les sièges de l'Assemblée nationale se répartissent à la proportionnelle des votes valides.","Los escaños de la Asamblea Nacional se reparten en proporción a los votos válidos."),U.za24]
+ ],
+ nums:[
+  [1.3,L3("of votes were spoilt on the national ballot in 2024 (213,437 of 16.3 million), with a turnout below 60% for the first time since 1994 (58.6%).","des votes ont été gâchés sur le bulletin national en 2024 (213 437 sur 16,3 millions), pour une participation passée sous les 60 % pour la première fois depuis 1994 (58,6 %).","de los votos fueron anulados en la papeleta nacional en 2024 (213 437 de 16,3 millones), con una participación por debajo del 60 % por primera vez desde 1994 (58,6 %)."),U.za24]
+ ],
+ impact:[
+  [L3("With pure proportional representation, every valid vote moves the share of seats; a spoilt ballot moves none.","Avec une proportionnelle intégrale, chaque vote valide fait bouger la répartition des sièges ; un bulletin gâché n'en fait bouger aucun.","Con una representación proporcional pura, cada voto válido mueve el reparto de escaños; una papeleta anulada no mueve ninguno."),U.za24]
+ ]
+};
+BLANK.senegal={
+ lead:L3("In Senegal, the voter takes several list ballots and puts only one in the envelope. The official guide provides for no blank vote.","Au Sénégal, l'électeur prend plusieurs bulletins de listes et n'en glisse qu'un dans l'enveloppe. Le guide officiel ne prévoit pas de vote blanc.","En Senegal, el elector toma varias papeletas de listas y solo mete una en el sobre. La guía oficial no prevé el voto en blanco."),
+ what:[
+  [L3("Voting: take one envelope and at least five ballots (when five or more lists compete), put one ballot in the envelope in the booth, throw the others away.","Pour voter : prendre une enveloppe et au moins cinq bulletins (quand au moins cinq listes sont en lice), glisser un bulletin dans l'enveloppe dans l'isoloir, jeter les autres.","Para votar: tomar un sobre y al menos cinco papeletas (cuando compiten cinco listas o más), meter una papeleta en el sobre en la cabina y tirar las demás."),U.snDge],
+  [L3("Null ballots, in a list the guide calls exhaustive: ballots of different lists in one envelope, ballots on which the voter made himself known, ballots without an envelope or in a non-regulation one, identifying marks, non-regulation ballots. A simple stain is not grounds for nullity.","Bulletins nuls, selon une liste que le guide dit limitative : bulletins de listes différentes dans la même enveloppe, bulletins où l'électeur s'est fait connaître, bulletins sans enveloppe ou dans une enveloppe non réglementaire, signes de reconnaissance, bulletins non réglementaires. Une simple tache n'est pas une cause de nullité.","Papeletas nulas, según una lista que la guía considera cerrada: papeletas de listas distintas en un mismo sobre, papeletas en las que el elector se dio a conocer, papeletas sin sobre o en un sobre no reglamentario, señales de reconocimiento, papeletas no reglamentarias. Una simple mancha no es causa de nulidad."),U.snDge]
+ ],
+ count:[
+  [L3("The guide does not say how an empty envelope is treated: it is neither in the list of null ballots nor described as a blank vote.","Le guide ne dit pas comment est traitée une enveloppe vide : elle ne figure ni dans la liste des bulletins nuls, ni comme vote blanc.","La guía no dice cómo se trata un sobre vacío: no figura en la lista de papeletas nulas ni como voto en blanco."),U.snDge]
+ ],
+ impact:[
+  [L3("Without a recognised blank vote, choosing no one leaves no trace in the results other than turnout.","Sans vote blanc reconnu, ne choisir personne ne laisse aucune trace dans les résultats, sinon dans la participation.","Sin voto en blanco reconocido, no elegir a nadie no deja rastro en los resultados, salvo en la participación."),U.snDge]
+ ]
+};
+})();

@@ -18,7 +18,7 @@ function langName(l){try{const n=new Intl.DisplayNames([l],{type:"language"}).of
 const PATHMODE=!!window.BAROTICO_PATH;
 const PAGE_SLUG={comparer:"compare",medias:"media",apropos:"about",legal:"legal"};
 // Countries whose main tabs are real pages (/<lang>/<country>/{vote,parties,government}/). Pilot 14 Nov 2026.
-const SEO_SUB=["france","italy","usa","espagne","belgique","colombia","germany","uk","portugal","netherlands","austria","ireland","greece","sweden","switzerland","poland","czechia","romania","serbia","australia","newzealand"];
+const SEO_SUB=["france","italy","usa","espagne","belgique","colombia","germany","uk","portugal","netherlands","austria","ireland","greece","sweden","switzerland","poland","czechia","romania","serbia","australia","newzealand","argentina","brazil","southafrica","morocco","senegal"];
 const SUB_OF={vote:"vote",partis:"parties",parties:"parties",government:"government",budget:"government"};
 const KEEP_HASH=["medias","figures","watch"];
 const slugify=x=>String(x).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
@@ -440,7 +440,7 @@ function ingest(k){
 window.__baroticoLoaded=k=>{ingest(k)};
 function loadCountry(k){
   if(REG.loading[k])return;REG.loading[k]=1;
-  const s=document.createElement("script");s.src=`countries/${k}.js?v=1794684568`;
+  const s=document.createElement("script");s.src=`countries/${k}.js?v=1794686145`;
   s.onload=()=>{ingest(k);render()};
   s.onerror=()=>{REG.loading[k]=0;document.getElementById("view").innerHTML=`<p class="pending" style="padding:48px 0">${t("load_err")}</p>`};
   document.head.appendChild(s);
@@ -649,7 +649,7 @@ function homeExample(){
   return `<div class="hex" id="hex"><p class="hex-who"><b>${esc(p.name)}</b> · ${esc(tr(C[k].name))}</p>
    <ol class="hex-row"><li><span class="eyebrow">${c[0]}</span><p>${esc(tr(d))}</p></li><li><span class="eyebrow">${c[1]}</span><p>${esc(tr(f))}</p></li><li class="prow ps-${st}"><span class="eyebrow">${c[2]}</span><div class="pf"><span class="ptag">${t("ptag")[st]||""}</span><a href="${u}" target="_blank" rel="noopener">${t("ex_src")} ↗</a></div></li></ol>
    <div class="hex-foot"><a class="btn" href="#${k}-${p.id}">${t("ex_more")}</a><button class="btn ghost" type="button" id="hex-other">${t("ex_other")}</button></div></div>`}
-function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1794684568`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
+function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1794686145`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
 function bindExample(){preloadSome(2);const b=document.getElementById("hex-other");if(b)b.addEventListener("click",()=>{const h=document.getElementById("hex");h.outerHTML=homeExample();pathLinks(document.getElementById("hex"));bindExample()})}
 function guideBlock(){
   const st=t("g_steps"),path=t("g_path"),pk=readyKeys().map(k=>[k,tr((C[k]||REG.meta[k]).name)]).sort((a,b)=>a[1].localeCompare(b[1],lang));
@@ -898,6 +898,12 @@ function seoMeta(k,sub,L){L=L||lang;const n=cname(k,L),i=inForm(k,L),c=C[k]||REG
 Object.assign(T.en,{"pw_h": "Who holds power", "pw_gov": "In government", "pw_out": "Outside government", "pw_vac": "Vacant", "pw_seats": "seats", "pw_maj": "absolute majority", "pw_cab": "Members of the government, by origin", "pw_minor": "The parties in government hold {g} of {t} seats; an absolute majority is {m}. They are {d} seats short: the government is in a minority and needs other groups to vote with it or abstain.", "pw_major": "The parties in government hold {g} of {t} seats; an absolute majority is {m}. They have {d} seats more than the majority.", "pw_hover": "Hover or tap a group to see its seats; click a name to open the party card.", "pw_members": "members"});
 Object.assign(T.fr,{"pw_h": "La composition du pouvoir", "pw_gov": "Au gouvernement", "pw_out": "Hors gouvernement", "pw_vac": "Vacant", "pw_seats": "sièges", "pw_maj": "majorité absolue", "pw_cab": "Membres du gouvernement, selon leur origine", "pw_minor": "Les partis au gouvernement ont {g} sièges sur {t} ; la majorité absolue est de {m}. Il leur manque {d} sièges : le gouvernement est minoritaire et a besoin que d'autres groupes votent avec lui ou s'abstiennent.", "pw_major": "Les partis au gouvernement ont {g} sièges sur {t} ; la majorité absolue est de {m}. Ils ont {d} sièges de plus que la majorité.", "pw_hover": "Survolez ou touchez un groupe pour voir ses sièges ; cliquez sur un nom pour ouvrir la fiche du parti.", "pw_members": "membres"});
 Object.assign(T.es,{"pw_h": "Quién tiene el poder", "pw_gov": "En el gobierno", "pw_out": "Fuera del gobierno", "pw_vac": "Vacante", "pw_seats": "escaños", "pw_maj": "mayoría absoluta", "pw_cab": "Miembros del gobierno, según su origen", "pw_minor": "Los partidos en el gobierno tienen {g} escaños de {t}; la mayoría absoluta es de {m}. Les faltan {d} escaños: el gobierno está en minoría y necesita que otros grupos voten con él o se abstengan.", "pw_major": "Los partidos en el gobierno tienen {g} escaños de {t}; la mayoría absoluta es de {m}. Tienen {d} escaños más que la mayoría.", "pw_hover": "Pase el cursor o toque un grupo para ver sus escaños; haga clic en un nombre para abrir la ficha del partido.", "pw_members": "miembros"});
+Object.assign(T.en,{"pw_sup": "Supports the government", "pw_withsup": "With the parties that support it ({s} seats), the total is {gs}."});
+Object.assign(T.fr,{"pw_sup": "Soutient le gouvernement", "pw_withsup": "Avec les partis qui le soutiennent ({s} sièges), le total est de {gs}."});
+Object.assign(T.es,{"pw_sup": "Apoya al gobierno", "pw_withsup": "Con los partidos que lo apoyan ({s} escaños), el total es de {gs}."});
+Object.assign(T.en,{"pw_minor_p": "The parties in government hold {g} of {t} seats; an absolute majority is {m}. In a presidential system the government does not need the chamber's confidence to stay in office, but to pass laws it needs {d} more votes from other groups.", "pw_major_p": "The parties in government hold {g} of {t} seats, {d} more than the absolute majority of {m}."});
+Object.assign(T.fr,{"pw_minor_p": "Les partis au gouvernement ont {g} sièges sur {t} ; la majorité absolue est de {m}. En régime présidentiel, le gouvernement n'a pas besoin de la confiance de la chambre pour rester en place, mais pour faire voter des lois il lui faut {d} voix de plus venues d'autres groupes.", "pw_major_p": "Les partis au gouvernement ont {g} sièges sur {t}, soit {d} de plus que la majorité absolue de {m}."});
+Object.assign(T.es,{"pw_minor_p": "Los partidos en el gobierno tienen {g} escaños de {t}; la mayoría absoluta es de {m}. En un régimen presidencial el gobierno no necesita la confianza de la cámara para seguir en funciones, pero para aprobar leyes le faltan {d} votos de otros grupos.", "pw_major_p": "Los partidos en el gobierno tienen {g} escaños de {t}, es decir, {d} más que la mayoría absoluta de {m}."});
 function hemi(groups,total){
   // Parliament chart: seats on concentric arcs, filled left to right.
   const rows=Math.max(4,Math.min(14,Math.round(Math.sqrt(total/3.2)))),R=190,r0=72,cx=200,cy=200,radii=[];for(let i=0;i<rows;i++)radii.push(r0+i*(R-r0)/(rows-1));
@@ -909,19 +915,19 @@ function hemi(groups,total){
 function powerBlock(k){
   const P=(typeof POWER!=="undefined"&&POWER[k])||null;if(!P)return "";
   const a=u=>u?` <a class="src-a" href="${u}" target="_blank" rel="noopener">${t("source")}</a>`:"";
-  const ch=P.chamber,G=ch.groups,g=G.filter(x=>x[3]==="gov").reduce((s,x)=>s+x[1],0),m=ch.majority,d=Math.abs(g-m+(g>=m?0:0));
+  const ch=P.chamber,G=ch.groups,g=G.filter(x=>x[3]==="gov").reduce((s,x)=>s+x[1],0),sp=G.filter(x=>x[3]==="sup").reduce((s,x)=>s+x[1],0),m=ch.majority,cc=C[k]||{},head=P.head||(cc.gov&&cc.gov.who);
   const pn=id=>{const x=((typeof PARTIES!=="undefined"&&PARTIES[k])||[]).find(p=>p.id===id);return x?x.name:id};
   const link=(lab,pid)=>Array.isArray(pid)?`${esc(tr(lab))} (${pid.map(id=>`<a href="#${k}-${id}">${esc(pn(id))}</a>`).join(", ")})`:pid?`<a href="#${k}-${pid}">${esc(tr(lab))}</a>`:esc(tr(lab));
   const fill=(x,o)=>x.replace("{g}",o.g).replace("{t}",o.t).replace("{m}",o.m).replace("{d}",o.d);
   const sw=st=>`<i class="sw hs-${st}" aria-hidden="true"></i>`;
   const legend=`<ul class="pw-leg">${G.map((x,i)=>`<li data-g="${i}">${sw(x[3])}<span>${link(x[0],x[2])}</span><b class="mono">${x[1]}</b></li>`).join("")}</ul>`;
-  const bar=`<div class="pw-bar" aria-hidden="true"><i class="hs-gov" style="width:${(100*g/ch.total).toFixed(2)}%"></i><span class="pw-mk" style="left:${(100*m/ch.total).toFixed(2)}%"></span></div><p class="pw-bar-l"><span>${sw("gov")} ${t("pw_gov")}${lang==="fr"?"\u202f: ":": "}<b class="mono">${g}</b></span><span><i class="pw-mk-l" aria-hidden="true"></i> ${t("pw_maj")}${lang==="fr"?"\u202f: ":": "}<b class="mono">${m}</b></span></p>`;
+  const bar=`<div class="pw-bar" aria-hidden="true"><i class="hs-gov" style="width:${(100*g/ch.total).toFixed(2)}%"></i>${sp?`<i class="hs-sup pw-supseg" style="left:${(100*g/ch.total).toFixed(2)}%;width:${(100*sp/ch.total).toFixed(2)}%"></i>`:""}<span class="pw-mk" style="left:${(100*m/ch.total).toFixed(2)}%"></span></div><p class="pw-bar-l"><span>${sw("gov")} ${t("pw_gov")}${lang==="fr"?"\u202f: ":": "}<b class="mono">${g}</b></span><span><i class="pw-mk-l" aria-hidden="true"></i> ${t("pw_maj")}${lang==="fr"?"\u202f: ":": "}<b class="mono">${m}</b></span></p>`;
   const cab=P.cabinet?(()=>{const C=P.cabinet;return `<div class="pw-cab"><p class="eyebrow">${t("pw_cab")}</p><p class="pw-cname">${esc(tr(C.name))} · ${C.total} ${t("pw_members")}${a(C.src)}</p>
     <div class="pw-stack" aria-hidden="true">${C.parts.map(x=>`<i class="hs-${x[3]}" style="flex:${x[1]}"></i>`).join("")}</div>
     <ul class="pw-leg">${C.parts.map(x=>`<li>${sw(x[3])}<span>${link(x[0],x[2])}</span><b class="mono">${x[1]}</b></li>`).join("")}</ul></div>`})():"";
-  return `<div class="block pw" id="pouvoir"><h3>${t("pw_h")}</h3><p>${esc(tr(P.head))}</p>
-   <div class="pw-grid"><figure class="pw-fig">${hemi(G,ch.total)}<figcaption><b>${esc(tr(ch.name))}</b> · ${ch.total} ${t("pw_seats")} · ${t("pw_maj")} ${m}${a(ch.src)}</figcaption>${legend}<p class="explain">${t("pw_hover")}</p></figure>
-   <div class="pw-side">${bar}<p>${fill(g>=m?t("pw_major"):t("pw_minor"),{g,t:ch.total,m,d:Math.abs(g-m)})}</p>${cab}</div></div>
+  return `<div class="block pw" id="pouvoir"><h3>${t("pw_h")}</h3>${head?`<p>${esc(tr(head))}</p>`:""}
+   <div class="pw-grid"><figure class="pw-fig">${hemi(G,ch.total)}<figcaption><b>${esc(tr(ch.name))}</b> · ${ch.total} ${t("pw_seats")} · ${t("pw_maj")} ${m}${a(ch.src)}</figcaption><p class="pw-key">${sw("gov")} ${t("pw_gov")}${sp?` ${sw("sup")} ${t("pw_sup")}`:""} ${sw("out")} ${t("pw_out")}</p>${legend}<p class="explain">${t("pw_hover")}</p></figure>
+   <div class="pw-side">${bar}<p>${P.govNote?esc(tr(P.govNote)):fill(t((g>=m?"pw_major":"pw_minor")+(P.presidential?"_p":"")),{g,t:ch.total,m,d:Math.abs(g-m)})}${sp&&!P.govNote?" "+t("pw_withsup").replace("{s}",sp).replace("{gs}",g+sp):""}</p>${cab}</div></div>
    ${(P.notes||[]).map(n=>`<p class="explain">${esc(tr(n))}</p>`).join("")}</div>`}
 function bindPower(){document.querySelectorAll(".pw-fig").forEach(f=>{const svg=f.querySelector(".hemi");f.querySelectorAll(".pw-leg li").forEach(li=>{const on=()=>{svg.classList.add("dim");svg.querySelectorAll(`[data-g="${li.dataset.g}"]`).forEach(c=>c.classList.add("on"))},off=()=>{svg.classList.remove("dim");svg.querySelectorAll(".on").forEach(c=>c.classList.remove("on"))};li.addEventListener("mouseenter",on);li.addEventListener("mouseleave",off);li.addEventListener("focusin",on);li.addEventListener("focusout",off)})})}
 function blankElsewhere(k){
