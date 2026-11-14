@@ -430,7 +430,7 @@ function ingest(k){
 window.__baroticoLoaded=k=>{ingest(k)};
 function loadCountry(k){
   if(REG.loading[k])return;REG.loading[k]=1;
-  const s=document.createElement("script");s.src=`countries/${k}.js?v=1794677613`;
+  const s=document.createElement("script");s.src=`countries/${k}.js?v=1794678121`;
   s.onload=()=>{ingest(k);render()};
   s.onerror=()=>{REG.loading[k]=0;document.getElementById("view").innerHTML=`<p class="pending" style="padding:48px 0">${t("load_err")}</p>`};
   document.head.appendChild(s);
@@ -639,7 +639,7 @@ function homeExample(){
   return `<div class="hex" id="hex"><p class="hex-who"><b>${esc(p.name)}</b> · ${esc(tr(C[k].name))}</p>
    <ol class="hex-row"><li><span class="eyebrow">${c[0]}</span><p>${esc(tr(d))}</p></li><li><span class="eyebrow">${c[1]}</span><p>${esc(tr(f))}</p></li><li class="prow ps-${st}"><span class="eyebrow">${c[2]}</span><div class="pf"><span class="ptag">${t("ptag")[st]||""}</span><a href="${u}" target="_blank" rel="noopener">${t("ex_src")} ↗</a></div></li></ol>
    <div class="hex-foot"><a class="btn" href="#${k}-${p.id}">${t("ex_more")}</a><button class="btn ghost" type="button" id="hex-other">${t("ex_other")}</button></div></div>`}
-function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1794677613`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
+function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1794678121`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
 function bindExample(){preloadSome(2);const b=document.getElementById("hex-other");if(b)b.addEventListener("click",()=>{const h=document.getElementById("hex");h.outerHTML=homeExample();pathLinks(document.getElementById("hex"));bindExample()})}
 function guideBlock(){
   const st=t("g_steps"),path=t("g_path"),pk=readyKeys().map(k=>[k,tr((C[k]||REG.meta[k]).name)]).sort((a,b)=>a[1].localeCompare(b[1],lang));
@@ -864,6 +864,12 @@ Object.assign(T.es,{"bvh_go": "Ver", "bvh_pick": "Elegir un país", "bvh_g1": "V
 function bvPick(){const pk=readyKeys().map(k=>[k,tr((C[k]||REG.meta[k]).name)]).sort((a,b)=>a[1].localeCompare(b[1],lang)),hb=typeof BLANK!=="undefined"?BLANK:{};
   const o=arr=>arr.map(([k,n])=>`<option value="${k}">${esc(n)}</option>`).join("");
   return `<div class="gpick bvpick"><label class="sr" for="bv-country">${t("bvh_pick")}</label><select id="bv-country"><option value="">${t("bvh_pick")}</option><optgroup label="${t("bvh_g1")}">${o(pk.filter(([k])=>hb[k]))}</optgroup><optgroup label="${t("bvh_g2")}">${o(pk.filter(([k])=>!hb[k]))}</optgroup></select><button class="btn" type="button" id="bv-go">${t("bvh_go")} →</button></div>`}
+function blankElsewhere(k){
+  const own=(typeof BLANK!=="undefined"&&BLANK[k])||null;if(!own)return "";
+  const B=Object.assign({},BLANK._common||{},own),els=(B.elsewhere||[]).filter(x=>x[3]!==k);if(!els.length)return "";
+  const a=u=>u?` <a class="src-a" href="${u}" target="_blank" rel="noopener">${t("source")}</a>`:"";
+  return `<div class="block bv-intl"><h3>${t("bv_else")}</h3><ul class="bv-else">${els.map(([c,x,us])=>`<li><b>${esc(tr(c))}</b><span>${esc(tr(x))}${(us||[]).map(u=>a(u)).join("")}</span></li>`).join("")}</ul>${B.elseNote?`<p class="explain">${esc(tr(B.elseNote))}</p>`:""}</div>`;
+}
 function blankBlock(k){
   const own=(typeof BLANK!=="undefined"&&BLANK[k])||null;if(!own)return "";
   const B=Object.assign({},BLANK._common||{},own),els=(B.elsewhere||[]).filter(x=>x[3]!==k);
@@ -879,7 +885,6 @@ function blankBlock(k){
    ${B.impact?sec("bv_impact",`<ul class="bv-ul">${li(B.impact)}</ul>`):""}
    ${B.why?sec("bv_why",`<ul class="bv-ul">${li(B.why)}</ul><p class="sources">${a(B.whySrc).trim()}</p>`):""}
    ${B.pro?sec("bv_debate",`<div class="bv-two"><div class="bv-side"><b>${t("bv_pro")}</b><ul class="bv-ul">${li(B.pro)}</ul></div><div class="bv-side"><b>${t("bv_con")}</b><ul class="bv-ul">${li(B.con)}</ul></div></div>${B.status?`<p class="bv-status">${esc(tr(B.status[0]))}${a(B.status[1])}</p>`:""}`):""}
-   ${els.length?sec("bv_else",`<ul class="bv-else">${els.map(([c,x,us])=>`<li><b>${esc(tr(c))}</b><span>${esc(tr(x))}${(us||[]).map(u=>a(u)).join("")}</span></li>`).join("")}</ul>${B.elseNote?`<p class="bv-status">${esc(tr(B.elseNote))}</p>`:""}`):""}
    <div class="bv-think"><p class="eyebrow">${t("bv_think")}</p><ul>${B.think.map(x=>`<li>${esc(tr(x))}</li>`).join("")}</ul><p class="bv-note">${esc(tr(B.note))}</p></div>
   </div></details>`;
 }
@@ -1046,6 +1051,7 @@ function countryPage(k){
     <div class="block"><h3>${t("how_vote")}</h3><ul>${c.vote.map(x=>`<li>${esc(tr(x))}</li>`).join("")}</ul></div>
     ${blankBlock(k)}
     <a class="vwhy" href="#voter"><span class="eyebrow">${t("nav_vote")}</span><b>${t("why_h")}</b><span class="vwhy-go">${t("v_why_go")} →</span></a>
+    ${blankElsewhere(k)}
   </div>
   <div class="panel" id="p-med" role="tabpanel" aria-labelledby="t-med" hidden>
     ${mediaBlock(k)}

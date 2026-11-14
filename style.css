@@ -818,3 +818,5 @@ section .disc{margin-top:8px}
 .bvh{display:grid;gap:10px}
 .bvh .fi-go{text-decoration:none}
 @media (max-width:720px){.bv-else{grid-template-columns:1fr}}
+.bv-intl{display:grid;gap:10px}
+.block ul.bv-else{padding-left:0;margin-left:0}
