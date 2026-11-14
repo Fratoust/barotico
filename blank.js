@@ -94,8 +94,8 @@ var U={
  co26:"https://www.larepublica.co/especiales/elecciones-presidenciales-2026/votos-en-blanco-y-nulos-superaron-la-votacion-de-ocho-candidatos-presidenciales-4404849",
  pe184:"https://peru.justia.com/federales/constitucion-politica-del-peru-de-1993/titulo-iv/capitulo-xiii",
  inNota:"https://www.deccanherald.com/opinion/give-nota-more-teeth-to-cleanse-electoral-system-3519815",
- nv24:"https://www.ktnv.com/news/nevadas-unique-ballot-option-defeats-haley-in-gop-primary",
- nvPbs:"https://www.pbs.org/newshour/politics/not-fan-candidate-nevada-can-vote-none-candidates",
+ nv24:"https://www.nvsos.gov/SOSelectionPages/results/2024PPP/ElectionSummary.aspx",
+ nvPbs:"https://www.fec.gov/resources/cms-content/documents/FederalElections98_SenateResults.pdf",
  usUnder:"https://elections.sbcounty.gov/faqs/what-happens-if-i-leave-something-blank-on-my-ballot-will-the-rest-of-my-ballot-be-counted/",
  itPag:"https://pagellapolitica.it/articoli/numero-schede-bianche-elezioni-politiche-europee",
  itQuo:"https://www.money.it/scheda-annullata-contribuisco-quorum-referendum",
@@ -180,10 +180,9 @@ BLANK.usa={
  ],
  nums:[
   [63,L3("for “None of these candidates” in Nevada's 2024 Republican presidential primary, against 30% for Nikki Haley, who was still recorded as the winner.","pour « Aucun de ces candidats » à la primaire républicaine du Nevada en 2024, contre 30 % pour Nikki Haley, déclarée gagnante malgré tout.","para «Ninguno de estos candidatos» en las primarias republicanas de Nevada en 2024, frente al 30 % de Nikki Haley, que figuró igualmente como ganadora."),U.nv24],
-  [1.9,L3("was the highest score of that option in a presidential race in Nevada before 2016.","était le meilleur score de cette option à une présidentielle au Nevada avant 2016.","era el mejor resultado de esa opción en unas presidenciales en Nevada antes de 2016."),U.nvPbs]
  ],
  impact:[
-  [L3("In 1998, “None of these candidates” got 8,125 votes in Nevada's Senate race, decided by 401 votes. Refusals outnumbered the margin twenty times over.","En 1998, « Aucun de ces candidats » a obtenu 8 125 voix au Nevada pour un siège de sénateur gagné avec 401 voix d'avance. Les refus pesaient vingt fois l'écart.","En 1998, «Ninguno de estos candidatos» obtuvo 8 125 votos en Nevada en una elección al Senado decidida por 401 votos. Los rechazos multiplicaban por veinte la diferencia."),U.nvPbs],
+  [L3("In 1998, “None of these candidates” got 8,125 votes in Nevada's Senate race, decided by 428 votes after a recount. Refusals outnumbered the margin nineteen times over.","En 1998, « Aucun de ces candidats » a obtenu 8 125 voix au Nevada pour un siège de sénateur gagné avec 428 voix d'avance après recomptage. Les refus pesaient dix-neuf fois l'écart.","En 1998, «Ninguno de estos candidatos» obtuvo 8 125 votos en Nevada en una elección al Senado decidida por 428 votos tras el recuento. Los rechazos multiplicaban por diecinueve la diferencia."),U.nvPbs],
   [L3("In a first-past-the-post race, the gap between candidates is made only of votes for them: a skipped race leaves the decision to others.","Dans une élection à un tour où le premier l'emporte, l'écart entre candidats ne se fait qu'avec leurs voix : une élection laissée vide laisse la décision aux autres.","En una elección a una vuelta en la que gana el primero, la diferencia entre candidatos solo se hace con sus votos: una contienda en blanco deja la decisión a los demás."),null]
  ]
 };

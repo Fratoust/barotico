@@ -454,7 +454,7 @@ function metric(k,key){
   if(key==="hom"){const x=Array.isArray(v)?v[0]:v,r=x/(ref?ref.v:0.88);return{main:(k==="france"?"≈":"")+o(x),unit:tr(L3("per 100,000","pour 100 000","por 100 000")),sub:`${num(r.toFixed(1).replace(".",","))} × ${ref?ref.l:""}`,rate:r<=0.8?"good":r>=1.2?"bad":"mid",ref}}
   if(key==="rsf"){const [rk,sc]=v,c=RSFK.find(x=>sc>=x[0]);return{main:`${ordinal(rk)} / 180`,unit:"",sub:`${tr(L3("score","score","puntuación"))} ${num(sc.toFixed(1).replace(".",","))} · ${tr(c[2])}`,rate:c[1],ref:null}}
   if(key==="fh"){const [sc,st]=Array.isArray(v)?v:[v,"F"];return{main:`${sc}/100`,unit:"",sub:tr(FHS[st]),rate:st==="F"?"good":st==="PF"?"mid":"bad",ref:null}}
-  if(key==="cpi"){const [sc,rk]=v,d=Math.round(sc-(ref?ref.v:64));return{main:`${sc}/100`,unit:"",sub:`${ordinal(rk)} / 180 · ${d>0?"+":d<0?"−":"±"}${Math.abs(d)} ${tr(L3("vs","vs","vs"))} ${ref?ref.l:""}`,rate:d>=5?"good":d<=-5?"bad":"mid",ref}}
+  if(key==="cpi"){const [sc,rk]=v,d=Math.round(sc-(ref?ref.v:64));return{main:`${sc}/100`,unit:"",sub:`${ordinal(rk)} / 182 · ${d>0?"+":d<0?"−":"±"}${Math.abs(d)} ${tr(L3("vs","vs","vs"))} ${ref?ref.l:""}`,rate:d>=5?"good":d<=-5?"bad":"mid",ref}}
   if(key==="hdi"){const [rk,x]=v,c=HDIC.find(y=>x>=y[0]);return{main:ordinal(rk),unit:"",sub:`${tr(L3("HDI","IDH","IDH"))} ${num(x.toFixed(3).replace(".",","))} · ${tr(c[2])}`,rate:c[1],ref:null}}
 }
 /* A country file (countries/<key>.js) is turned into the same shapes as the first three countries */
@@ -471,7 +471,7 @@ function ingest(k){
 window.__baroticoLoaded=k=>{ingest(k)};
 function loadCountry(k){
   if(REG.loading[k])return;REG.loading[k]=1;
-  const s=document.createElement("script");s.src=`countries/${k}.js?v=1794691834`;
+  const s=document.createElement("script");s.src=`countries/${k}.js?v=1794692889`;
   s.onload=()=>{ingest(k);render()};
   s.onerror=()=>{REG.loading[k]=0;document.getElementById("view").innerHTML=`<p class="pending" style="padding:48px 0">${t("load_err")}</p>`};
   document.head.appendChild(s);
@@ -680,7 +680,7 @@ function homeExample(){
   return `<div class="hex" id="hex"><p class="hex-who"><b>${esc(p.name)}</b> · ${esc(tr(C[k].name))}</p>
    <ol class="hex-row"><li><span class="eyebrow">${c[0]}</span><p>${esc(tr(d))}</p></li><li><span class="eyebrow">${c[1]}</span><p>${esc(tr(f))}</p></li><li class="prow ps-${st}"><span class="eyebrow">${c[2]}</span><div class="pf"><span class="ptag">${t("ptag")[st]||""}</span><a href="${u}" target="_blank" rel="noopener">${t("ex_src")} ↗</a></div></li></ol>
    <div class="hex-foot"><a class="btn" href="#${k}-${p.id}">${t("ex_more")}</a><button class="btn ghost" type="button" id="hex-other">${t("ex_other")}</button></div></div>`}
-function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1794691834`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
+function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1794692889`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
 function bindExample(){preloadSome(2);const b=document.getElementById("hex-other");if(b)b.addEventListener("click",()=>{const h=document.getElementById("hex");h.outerHTML=homeExample();pathLinks(document.getElementById("hex"));bindExample()})}
 function guideBlock(){
   const st=t("g_steps"),path=t("g_path"),pk=readyKeys().map(k=>[k,tr((C[k]||REG.meta[k]).name)]).sort((a,b)=>a[1].localeCompare(b[1],lang));
