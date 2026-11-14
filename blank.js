@@ -82,3 +82,154 @@ BLANK.france={
  note:L3("Barotico does not recommend voting blank, nor avoiding it. These questions are there to help you decide with the facts in hand.","Barotico ne recommande ni de voter blanc ni de l'éviter. Ces questions sont là pour décider en connaissance de cause.","Barotico no recomienda votar en blanco ni evitarlo. Estas preguntas están para decidir con conocimiento de causa.")
 };
 })();
+// ---- shared parts + rollout batch 1 (14 Nov 2026): Belgium, Spain, USA, Italy, Colombia ----
+(function(){
+var U={
+ fr2014:"https://www.eurojuris.fr/articles/reconnaissance-des-votes-blancs-a-compter-du-1er-avril-2014-5010.htm",
+ esPub:"https://www.publico.es/politica/voto-blanco-nulo-y-abstencion.html",
+ esJec:"https://es.ara.cat/politica/papel-blanco-considerado-voto-nulo_1_3872717.html",
+ es23:"https://www.publico.es/resultados-elecciones/generales/2023/",
+ co258:"https://leyes.co/constitucion/258.htm",
+ coV2:"https://occidente.co/colombia/es-cierto-que-el-voto-en-blanco-no-tiene-ningun-efecto-en-la-segunda-vuelta/",
+ co26:"https://www.larepublica.co/especiales/elecciones-presidenciales-2026/votos-en-blanco-y-nulos-superaron-la-votacion-de-ocho-candidatos-presidenciales-4404849",
+ pe184:"https://peru.justia.com/federales/constitucion-politica-del-peru-de-1993/titulo-iv/capitulo-xiii",
+ inNota:"https://www.deccanherald.com/opinion/give-nota-more-teeth-to-cleanse-electoral-system-3519815",
+ nv24:"https://www.ktnv.com/news/nevadas-unique-ballot-option-defeats-haley-in-gop-primary",
+ nvPbs:"https://www.pbs.org/newshour/politics/not-fan-candidate-nevada-can-vote-none-candidates",
+ usUnder:"https://elections.sbcounty.gov/faqs/what-happens-if-i-leave-something-blank-on-my-ballot-will-the-rest-of-my-ballot-be-counted/",
+ itPag:"https://pagellapolitica.it/articoli/numero-schede-bianche-elezioni-politiche-europee",
+ itQuo:"https://www.money.it/scheda-annullata-contribuisco-quorum-referendum",
+ beRtbf:"https://www.rtbf.be/article/votes-blancs-ou-nuls-quelles-differences-ces-voix-vont-elles-vraiment-a-la-majorite-11365892",
+ be24:"https://www.parismatch.be/actualites/2024/06/10/elections-2024-en-belgique-un-record-particulier-a-ete-largement-battu-par-rapport-a-2019-3MD62UTIWZENVG2M747RLHGTOI/",
+ beFl:"https://www.lavenir.net/actu/belgique/2024/09/06/elections-communales-2024-la-flandre-supprime-lobligation-du-vote-WPDXQEEOJBANLO2Q4ANBWWZONE/"
+};
+BLANK._common={
+ sum:L3("Blank vote: what it says, what it changes","Vote blanc : ce qu'il dit, ce qu'il change","Voto en blanco: lo que dice, lo que cambia"),
+ elsewhere:[
+  [L3("France","France","Francia"),L3("Counted separately and published since 2014, but outside the votes cast: no effect on the result or on thresholds.","Compté à part et publié depuis 2014, mais hors des suffrages exprimés : sans effet sur le résultat ni sur les seuils.","Se cuenta aparte y se publica desde 2014, pero fuera de los votos emitidos: sin efecto en el resultado ni en los umbrales."),[U.fr2014],"france"],
+  [L3("Spain","Espagne","España"),L3("Blank votes count as valid votes. They raise the number of votes a list needs to pass the 3% bar for seats. Only an empty envelope is blank: a blank sheet inside is spoilt.","Le blanc compte parmi les votes valides : il relève le nombre de voix nécessaire pour franchir la barre de 3 % donnant accès aux sièges. Seule une enveloppe vide vaut vote blanc ; une feuille blanche glissée dedans est nulle.","El voto en blanco cuenta como voto válido: eleva el número de votos que necesita una lista para superar la barrera del 3 % que da acceso a escaños. Solo un sobre vacío es voto en blanco; una hoja en blanco dentro es nulo."),[U.esPub,U.esJec],"espagne"],
+  [L3("Colombia","Colombie","Colombia"),L3("If blank votes win a majority of valid votes (first presidential round, governors, mayors, assemblies), the election is held again once, without the same candidates.","Si le blanc obtient la majorité des votes valides (premier tour de la présidentielle, gouverneurs, maires, assemblées), l'élection est refaite une fois, sans les mêmes candidats.","Si el voto en blanco obtiene la mayoría de los votos válidos (primera vuelta presidencial, gobernaciones, alcaldías, corporaciones), la elección se repite una vez, sin los mismos candidatos."),[U.co258],"colombia"],
+  [L3("Peru","Pérou","Perú"),L3("If spoilt and blank votes, together or separately, exceed two thirds of votes cast, the election is annulled.","Si les votes nuls et blancs, ensemble ou séparément, dépassent les deux tiers des votes émis, l'élection est annulée.","Si los votos nulos y en blanco, sumados o por separado, superan los dos tercios de los votos emitidos, la elección se anula."),[U.pe184],"peru"],
+  [L3("Italy","Italie","Italia"),L3("Blank ballots do not count as valid votes, but in abrogative referendums they count towards the turnout quorum: voting blank helps reach it, abstaining helps defeat it.","La scheda bianca ne compte pas parmi les votes valides, mais aux référendums abrogatifs elle compte pour le quorum de participation : voter blanc aide à l'atteindre, s'abstenir aide à le faire échouer.","La papeleta en blanco no cuenta como voto válido, pero en los referendos derogatorios cuenta para el quórum de participación: votar en blanco ayuda a alcanzarlo, abstenerse ayuda a que fracase."),[U.itQuo],"italy"],
+  [L3("Nevada (United States)","Nevada (États-Unis)","Nevada (Estados Unidos)"),L3("Since 1975, ballots offer “None of these candidates” in statewide and presidential races. It can come first, but it never wins: the candidate with the most votes is elected.","Depuis 1975, le bulletin propose « Aucun de ces candidats » pour les élections à l'échelle de l'État et la présidentielle. Cette option peut arriver en tête, mais ne gagne jamais : le candidat qui a le plus de voix est élu.","Desde 1975, la papeleta ofrece «Ninguno de estos candidatos» en las elecciones estatales y presidenciales. Puede quedar primera, pero nunca gana: resulta elegido el candidato con más votos."),[U.nv24],"usa"],
+  [L3("India","Inde","India"),L3("Since a 2013 Supreme Court ruling, voting machines offer “None of the above”. Some states (Maharashtra, Haryana) rerun local elections when that option comes first.","Depuis un arrêt de la Cour suprême de 2013, les machines proposent « Aucun des candidats ». Certains États (Maharashtra, Haryana) refont une élection locale quand cette option arrive en tête.","Desde una sentencia del Tribunal Supremo de 2013, las máquinas ofrecen «Ninguno de los anteriores». Algunos estados (Maharashtra, Haryana) repiten una elección local cuando esa opción queda primera."),[U.inNota],"india"]
+ ],
+ elseNote:BLANK.france.elseNote,
+ think:[
+  L3("If no option represents me, do I want that refusal to be counted? Check above how it is counted here.","Si aucune option ne me représente, est-ce que je veux que ce refus soit compté ? Regardez plus haut comment il l'est ici.","Si ninguna opción me representa, ¿quiero que ese rechazo se cuente? Mire más arriba cómo se cuenta aquí."),
+  L3("Do I reject every option, or is one of them less far from my ideas than the others?","Est-ce que je rejette toutes les options, ou l'une d'elles est-elle moins éloignée de mes idées que les autres ?","¿Rechazo todas las opciones, o una de ellas está menos lejos de mis ideas que las demás?"),
+  L3("Do I want to weigh on the result, or to make a refusal count?","Est-ce que je veux peser sur le résultat, ou faire compter un refus ?","¿Quiero influir en el resultado, o que cuente un rechazo?"),
+  L3("Is the race close, is the country going through a crisis, could the election tip one way or the other? The closer it is, the more the outcome rests on the votes given to candidates.","Le scrutin est-il serré, le pays traverse-t-il une crise, l'élection peut-elle basculer d'un côté comme de l'autre ? Plus c'est serré, plus l'issue repose sur les voix données aux candidats.","¿Está reñida la elección, atraviesa el país una crisis, puede inclinarse hacia un lado o hacia el otro? Cuanto más reñida, más depende el resultado de los votos dados a los candidatos."),
+  L3("Blank, spoilt or abstention: what does the law of this country do with each one?","Blanc, nul ou abstention : que fait la loi de ce pays de chacun ?","En blanco, nulo o abstención: ¿qué hace la ley de este país con cada uno?")
+ ],
+ note:BLANK.france.note
+};
+delete BLANK.france.elsewhere;delete BLANK.france.elseNote;
+
+BLANK.belgique={
+ lead:L3("In Belgium, voting is compulsory (except in Flemish local elections since 2024). A blank vote is often the only legal way to choose no one.","En Belgique, voter est obligatoire (sauf aux élections communales en Flandre depuis 2024). Le vote blanc est souvent la seule manière légale de ne choisir personne.","En Bélgica, votar es obligatorio (salvo en las elecciones municipales de Flandes desde 2024). El voto en blanco es a menudo la única forma legal de no elegir a nadie."),
+ what:[
+  [L3("Blank vote: a paper ballot with no mark at all. With electronic voting (as in Brussels), you tick the “blank vote” box.","Vote blanc : un bulletin papier sans aucune marque. Avec le vote électronique (comme à Bruxelles), on coche la case « vote blanc ».","Voto en blanco: una papeleta de papel sin ninguna marca. Con el voto electrónico (como en Bruselas), se marca la casilla «voto en blanco»."),U.beRtbf],
+  [L3("Spoilt vote: an invalid answer, such as a drawing on the paper. Electronic voting does not allow spoilt votes.","Vote nul : une réponse non valable, par exemple un dessin sur le bulletin. Le vote électronique ne permet pas de voter nul.","Voto nulo: una respuesta no válida, por ejemplo un dibujo en la papeleta. El voto electrónico no permite votar nulo."),U.beRtbf],
+  [L3("Compulsory voting: adults must vote in federal, regional and (in Wallonia and Brussels) local elections. Flanders abolished the obligation for its local elections by a 2021 decree, applied in October 2024.","Obligation de vote : les adultes doivent voter aux élections fédérales, régionales et (en Wallonie et à Bruxelles) communales. La Flandre a supprimé l'obligation pour ses communales par un décret de 2021, appliqué en octobre 2024.","Voto obligatorio: los adultos deben votar en las elecciones federales, regionales y (en Valonia y Bruselas) municipales. Flandes suprimió la obligación en sus municipales por un decreto de 2021, aplicado en octubre de 2024."),U.beFl]
+ ],
+ count:[
+  [L3("Blank and spoilt votes are counted but not taken into account: seats are shared out among valid votes only.","Les votes blancs et nuls sont comptés mais pas pris en compte : les sièges se répartissent sur les seuls votes valides.","Los votos en blanco y nulos se cuentan pero no se tienen en cuenta: los escaños se reparten solo entre los votos válidos."),U.beRtbf],
+  [L3("They do not “go to the majority”: they go to no party. But by reducing the number of valid votes, they raise every party's share. A party with 40% of all ballots reaches 50% of valid votes if 20% are blank or spoilt.","Ils ne « vont pas à la majorité » : ils ne vont à aucun parti. Mais en réduisant le nombre de votes valides, ils augmentent la part de chacun. Un parti à 40 % des bulletins atteint 50 % des votes valides si 20 % sont blancs ou nuls.","No «van a la mayoría»: no van a ningún partido. Pero al reducir el número de votos válidos, aumentan la cuota de cada uno. Un partido con el 40 % de las papeletas alcanza el 50 % de los votos válidos si el 20 % son en blanco o nulos."),U.beRtbf]
+ ],
+ nums:[
+  [5.4,L3("of voters cast a blank or spoilt ballot in 2019; almost 12% did not vote at all.","des électeurs ont voté blanc ou nul en 2019 ; près de 12 % n'ont pas voté du tout.","de los electores votaron en blanco o nulo en 2019; casi el 12 % no votó."),U.beRtbf],
+  [12.5,L3("of voters stayed away in 2024 (over 1,050,000), a record; blank votes fell slightly, from 438,098 to 415,912.","des électeurs se sont abstenus en 2024 (plus de 1 050 000), un record ; les votes blancs ont légèrement baissé, de 438 098 à 415 912.","de los electores se abstuvieron en 2024 (más de 1 050 000), un récord; los votos en blanco bajaron ligeramente, de 438 098 a 415 912."),U.be24]
+ ],
+ impact:[
+  [L3("Where voting is compulsory, a blank ballot respects the law; staying home does not.","Là où le vote est obligatoire, voter blanc respecte la loi ; rester chez soi, non.","Donde el voto es obligatorio, votar en blanco respeta la ley; quedarse en casa, no."),U.beRtbf],
+  [L3("Seats are allocated on valid votes only: blank and spoilt ballots change no party's seat count directly, but they make each valid vote weigh a little more.","Les sièges se calculent sur les seuls votes valides : blancs et nuls ne changent directement les sièges d'aucun parti, mais ils font peser un peu plus chaque vote valide.","Los escaños se calculan solo sobre los votos válidos: blancos y nulos no cambian directamente los escaños de ningún partido, pero hacen pesar un poco más cada voto válido."),U.beRtbf]
+ ]
+};
+
+BLANK.espagne={
+ lead:L3("In Spain, a blank vote is a valid vote: it enters the percentages and the bar that gives access to seats. But it must be cast the right way.","En Espagne, le vote blanc est un vote valide : il entre dans les pourcentages et dans la barre d'accès aux sièges. Encore faut-il le déposer correctement.","En España, el voto en blanco es un voto válido: entra en los porcentajes y en la barrera de acceso a los escaños. Eso sí, hay que emitirlo correctamente."),
+ what:[
+  [L3("Blank vote: an empty envelope. “An envelope containing no ballot is considered a blank but valid vote” (electoral law, art. 96.5).","Vote blanc : une enveloppe vide. « Est considérée comme vote blanc, mais valide, l'enveloppe qui ne contient pas de bulletin » (loi électorale, art. 96.5).","Voto en blanco: un sobre vacío. «Se considera voto en blanco, pero válido, el sobre que no contenga papeleta» (LOREG, art. 96.5)."),U.esJec],
+  [L3("Careful: a blank sheet of paper inside the envelope is a spoilt vote, as the Central Electoral Board recalled in 2021.","Attention : une feuille blanche glissée dans l'enveloppe est un vote nul, comme l'a rappelé la Junta Electoral Central en 2021.","Atención: una hoja en blanco dentro del sobre es voto nulo, como recordó la Junta Electoral Central en 2021."),U.esJec],
+  [L3("Spoilt vote: for example, ballots of different lists in the same envelope, or a ballot marked or altered.","Vote nul : par exemple des bulletins de listes différentes dans la même enveloppe, ou un bulletin annoté ou modifié.","Voto nulo: por ejemplo, papeletas de distintas candidaturas en el mismo sobre, o una papeleta marcada o alterada."),U.esPub]
+ ],
+ count:[
+  [L3("Blank votes are counted with the valid votes. A list needs at least 3% of valid votes in its constituency to win Congress seats, so blank votes raise the number of votes it needs.","Les blancs sont comptés avec les votes valides. Une liste doit obtenir au moins 3 % des votes valides de sa circonscription pour avoir des sièges au Congrès : les blancs relèvent donc le nombre de voix nécessaire.","Los votos en blanco se cuentan con los válidos. Una candidatura necesita al menos el 3 % de los votos válidos de su circunscripción para obtener escaños en el Congreso: los blancos elevan, por tanto, el número de votos necesario."),U.esPub],
+  [L3("In theory this penalises small parties; in practice, says political scientist Manuel Arias, it rarely changes anything, as few parties sit right at the 3% line.","En théorie, cela pénalise les petits partis ; en pratique, selon le politologue Manuel Arias, cela change rarement quelque chose, peu de partis étant juste à la limite des 3 %.","En teoría, esto perjudica a los partidos pequeños; en la práctica, según el politólogo Manuel Arias, rara vez cambia algo, porque pocos partidos están justo en el límite del 3 %."),U.esPub]
+ ],
+ nums:[
+  [0.81,L3("of voters cast a blank vote in the 2023 general election: 199,392 envelopes.","des votants ont voté blanc aux législatives de 2023 : 199 392 enveloppes.","de los votantes votaron en blanco en las generales de 2023: 199 392 sobres."),U.es23],
+  [1.06,L3("cast a spoilt vote (261,078), more than blank votes.","ont voté nul (261 078), plus que de votes blancs.","votaron nulo (261 078), más que en blanco."),U.es23]
+ ],
+ impact:[
+  [L3("Unlike in France, a Spanish blank vote is in the denominator: it lowers every party's percentage a little and raises the 3% bar.","Contrairement à la France, le blanc espagnol est dans le dénominateur : il baisse un peu le pourcentage de chaque parti et relève la barre des 3 %.","A diferencia de Francia, el voto en blanco español está en el denominador: baja un poco el porcentaje de cada partido y eleva la barrera del 3 %."),U.esPub],
+  [L3("It still elects no one: seats go only to lists. A blank vote does not leave a seat empty.","Il n'élit toutefois personne : les sièges vont seulement aux listes. Un vote blanc ne laisse aucun siège vide.","Aun así, no elige a nadie: los escaños solo van a las candidaturas. Un voto en blanco no deja ningún escaño vacío."),U.esPub]
+ ]
+};
+
+BLANK.usa={
+ lead:L3("In the United States there is no blank ballot as such: a ballot often lists dozens of races, and you can leave any of them empty.","Aux États-Unis, il n'existe pas de bulletin blanc à proprement parler : un bulletin compte souvent des dizaines d'élections, et on peut en laisser n'importe laquelle vide.","En Estados Unidos no existe la papeleta en blanco como tal: una papeleta suele incluir decenas de contiendas, y se puede dejar cualquiera vacía."),
+ what:[
+  [L3("Undervote: you skip a race, on purpose or by mistake. Your other choices on the ballot are still counted.","« Undervote » : on saute une élection, volontairement ou par erreur. Les autres choix du bulletin sont tout de même comptés.","«Undervote»: se deja una contienda sin marcar, a propósito o por error. Las demás elecciones de la papeleta se cuentan igualmente."),U.usUnder],
+  [L3("In Nevada only, since 1975: a “None of these candidates” option in statewide and presidential races.","Au Nevada seulement, depuis 1975 : une option « Aucun de ces candidats » pour les élections à l'échelle de l'État et la présidentielle.","Solo en Nevada, desde 1975: una opción «Ninguno de estos candidatos» en las elecciones estatales y presidenciales."),U.nv24]
+ ],
+ count:[
+  [L3("A skipped race adds to no candidate. The result is decided by the votes given to candidates.","Une élection laissée vide ne s'ajoute à aucun candidat. Le résultat se décide sur les voix données aux candidats.","Una contienda en blanco no suma a ningún candidato. El resultado se decide con los votos dados a los candidatos."),U.usUnder],
+  [L3("In Nevada, “None of these candidates” can come first but cannot win: the candidate with the most votes is declared the winner.","Au Nevada, « Aucun de ces candidats » peut arriver en tête mais ne peut pas gagner : le candidat qui a le plus de voix est déclaré élu.","En Nevada, «Ninguno de estos candidatos» puede quedar primero pero no puede ganar: se declara ganador al candidato con más votos."),U.nv24]
+ ],
+ nums:[
+  [63,L3("for “None of these candidates” in Nevada's 2024 Republican presidential primary, against 30% for Nikki Haley, who was still recorded as the winner.","pour « Aucun de ces candidats » à la primaire républicaine du Nevada en 2024, contre 30 % pour Nikki Haley, déclarée gagnante malgré tout.","para «Ninguno de estos candidatos» en las primarias republicanas de Nevada en 2024, frente al 30 % de Nikki Haley, que figuró igualmente como ganadora."),U.nv24],
+  [1.9,L3("was the highest score of that option in a presidential race in Nevada before 2016.","était le meilleur score de cette option à une présidentielle au Nevada avant 2016.","era el mejor resultado de esa opción en unas presidenciales en Nevada antes de 2016."),U.nvPbs]
+ ],
+ impact:[
+  [L3("In 1998, “None of these candidates” got 8,125 votes in Nevada's Senate race, decided by 401 votes. Refusals outnumbered the margin twenty times over.","En 1998, « Aucun de ces candidats » a obtenu 8 125 voix au Nevada pour un siège de sénateur gagné avec 401 voix d'avance. Les refus pesaient vingt fois l'écart.","En 1998, «Ninguno de estos candidatos» obtuvo 8 125 votos en Nevada en una elección al Senado decidida por 401 votos. Los rechazos multiplicaban por veinte la diferencia."),U.nvPbs],
+  [L3("In a first-past-the-post race, the gap between candidates is made only of votes for them: a skipped race leaves the decision to others.","Dans une élection à un tour où le premier l'emporte, l'écart entre candidats ne se fait qu'avec leurs voix : une élection laissée vide laisse la décision aux autres.","En una elección a una vuelta en la que gana el primero, la diferencia entre candidatos solo se hace con sus votos: una contienda en blanco deja la decisión a los demás."),null]
+ ]
+};
+
+BLANK.italy={
+ lead:L3("In Italy, a blank ballot (scheda bianca) counts among voters but not among valid votes. Its real weight shows in referendums.","En Italie, la scheda bianca compte parmi les votants mais pas parmi les votes valides. Son vrai poids se voit aux référendums.","En Italia, la papeleta en blanco (scheda bianca) cuenta entre los votantes pero no entre los votos válidos. Su verdadero peso se ve en los referendos."),
+ what:[
+  [L3("Blank ballot: a ballot handed in with no mark.","Scheda bianca : un bulletin rendu sans aucune marque.","Scheda bianca: una papeleta entregada sin ninguna marca."),U.itPag],
+  [L3("Spoilt ballot (scheda nulla): a ballot with invalid marks; it counts neither for yes nor for no in a referendum.","Scheda nulla : un bulletin avec des marques non valables ; il ne compte ni pour le oui ni pour le non à un référendum.","Scheda nulla: una papeleta con marcas no válidas; no cuenta ni para el sí ni para el no en un referendo."),U.itQuo]
+ ],
+ count:[
+  [L3("Blank ballots count in turnout, because the voter went to the polls, but are excluded from the valid votes used to allocate seats: no effect on results.","Les blancs comptent dans la participation, puisque l'électeur s'est déplacé, mais sont exclus des votes valides qui servent à répartir les sièges : sans effet sur le résultat.","Los blancos cuentan en la participación, porque el elector acudió a votar, pero se excluyen de los votos válidos que sirven para repartir escaños: sin efecto en el resultado."),U.itPag],
+  [L3("Abrogative referendums are valid only if more than half of voters take part. Blank and spoilt ballots count towards that quorum.","Un référendum abrogatif n'est valable que si plus de la moitié des électeurs participent. Les bulletins blancs et nuls comptent pour ce quorum.","Un referendo derogatorio solo es válido si participa más de la mitad de los electores. Las papeletas en blanco y nulas cuentan para ese quórum."),U.itQuo]
+ ],
+ nums:[
+  [1.7,L3("of Chamber voters cast a blank ballot in 2022, almost half a million; 2.8% cast a spoilt one (822,000).","des votants à la Chambre ont voté blanc en 2022, près d'un demi-million ; 2,8 % ont voté nul (822 000).","de los votantes de la Cámara votaron en blanco en 2022, casi medio millón; el 2,8 % votó nulo (822 000)."),U.itPag],
+  [4.2,L3("the record for blank ballots in a general election, in 2001.","le record de bulletins blancs à des élections législatives, en 2001.","el récord de papeletas en blanco en unas elecciones generales, en 2001."),U.itPag]
+ ],
+ impact:[
+  [L3("In a referendum, a voter opposed to the question who votes blank helps reach the quorum; one who abstains helps make it fail. Blank and abstention do not have the same effect.","À un référendum, un électeur opposé à la question qui vote blanc aide à atteindre le quorum ; celui qui s'abstient aide à le faire échouer. Blanc et abstention n'ont pas le même effet.","En un referendo, un elector contrario a la pregunta que vota en blanco ayuda a alcanzar el quórum; el que se abstiene ayuda a que fracase. El blanco y la abstención no tienen el mismo efecto."),U.itQuo],
+  [L3("In general elections, blank ballots weigh on turnout figures, not on seats.","Aux élections législatives, les blancs pèsent sur les chiffres de participation, pas sur les sièges.","En las elecciones generales, los blancos pesan en las cifras de participación, no en los escaños."),U.itPag]
+ ]
+};
+
+BLANK.colombia={
+ lead:L3("In Colombia, the blank vote is a box on the ballot and a valid vote. If it wins the first round, the election is held again with other candidates.","En Colombie, le vote blanc est une case du bulletin et un vote valide. S'il gagne au premier tour, l'élection est refaite avec d'autres candidats.","En Colombia, el voto en blanco es una casilla del tarjetón y un voto válido. Si gana en primera vuelta, la elección se repite con otros candidatos."),
+ what:[
+  [L3("Blank vote: a dedicated box on the ballot, counted separately and added to no candidate.","Vote blanc : une case dédiée sur le bulletin, comptée à part et ajoutée à aucun candidat.","Voto en blanco: una casilla propia en el tarjetón, que se cuenta aparte y no se suma a ningún candidato."),U.coV2],
+  [L3("Unlike France or Italy, it is a valid vote: it counts in the total of valid votes.","Contrairement à la France ou à l'Italie, c'est un vote valide : il compte dans le total des votes valides.","A diferencia de Francia o Italia, es un voto válido: cuenta en el total de votos válidos."),U.co258]
+ ],
+ count:[
+  [L3("If blank votes are a majority of valid votes, the election is held again once: in the first presidential round, and for governors, mayors and elected bodies. In single-seat races the same candidates cannot run again; lists below the threshold cannot either.","Si les blancs sont majoritaires parmi les votes valides, l'élection est refaite une fois : au premier tour de la présidentielle, et pour les gouverneurs, les maires et les assemblées élues. Pour un poste unique, les mêmes candidats ne peuvent pas se représenter ; les listes sous le seuil non plus.","Si los votos en blanco son mayoría entre los válidos, la elección se repite una vez: en la primera vuelta presidencial, y para gobernaciones, alcaldías y corporaciones públicas. En los cargos unipersonales no pueden presentarse los mismos candidatos; tampoco las listas que no alcanzaron el umbral."),U.co258],
+  [L3("In the presidential run-off the box is still there, but it is symbolic: there is no rerun, the candidate with the most votes wins.","Au second tour de la présidentielle, la case existe toujours, mais elle est symbolique : pas de nouvelle élection, le candidat qui a le plus de voix l'emporte.","En la segunda vuelta presidencial la casilla sigue existiendo, pero es simbólica: no hay repetición, gana el candidato con más votos."),U.coV2]
+ ],
+ nums:[
+  [1.71,L3("of valid votes went blank in the first presidential round of 31 May 2026: 406,830 votes, more than eight candidates each received.","des votes valides sont allés au blanc au premier tour de la présidentielle du 31 mai 2026 : 406 830 voix, plus que huit candidats.","de los votos válidos fueron en blanco en la primera vuelta presidencial del 31 de mayo de 2026: 406 830 votos, más que ocho candidatos."),U.co26],
+  [1.02,L3("of votes were spoilt in that round (245,339).","des votes étaient nuls à ce même tour (245 339).","de los votos fueron nulos en esa vuelta (245 339)."),U.co26]
+ ],
+ impact:[
+  [L3("Here, a blank vote can do more than send a message: if it wins a majority, it removes every candidate from the rerun.","Ici, un vote blanc peut faire plus qu'envoyer un message : s'il est majoritaire, il écarte tous les candidats de l'élection suivante.","Aquí, un voto en blanco puede hacer algo más que enviar un mensaje: si es mayoritario, aparta a todos los candidatos de la nueva elección."),U.co258],
+  [L3("Below a majority, it changes no winner: in the run-off and in most races, the person with the most votes is elected.","En dessous de la majorité, il ne change aucun vainqueur : au second tour et dans la plupart des élections, la personne qui a le plus de voix est élue.","Por debajo de la mayoría, no cambia a ningún ganador: en la segunda vuelta y en la mayoría de elecciones, resulta elegida la persona con más votos."),U.coV2]
+ ],
+ think:[
+  L3("First round or run-off? In the first round, a majority of blank votes forces a new election with other candidates; in the run-off, the blank box is symbolic.","Premier tour ou second tour ? Au premier tour, une majorité de blancs oblige à refaire l'élection avec d'autres candidats ; au second, la case blanche est symbolique.","¿Primera o segunda vuelta? En la primera, una mayoría de votos en blanco obliga a repetir la elección con otros candidatos; en la segunda, la casilla en blanco es simbólica."),
+  L3("Do I reject every option, or is one of them less far from my ideas than the others?","Est-ce que je rejette toutes les options, ou l'une d'elles est-elle moins éloignée de mes idées que les autres ?","¿Rechazo todas las opciones, o una de ellas está menos lejos de mis ideas que las demás?"),
+  L3("Is the race close, is the country going through a crisis? Below a majority of blank votes, the outcome rests on the votes given to candidates.","Le scrutin est-il serré, le pays traverse-t-il une crise ? Tant que le blanc n'est pas majoritaire, l'issue repose sur les voix données aux candidats.","¿Está reñida la elección, atraviesa el país una crisis? Mientras el blanco no sea mayoritario, el resultado depende de los votos dados a los candidatos.")
+ ]
+};
+})();

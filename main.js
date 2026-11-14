@@ -430,7 +430,7 @@ function ingest(k){
 window.__baroticoLoaded=k=>{ingest(k)};
 function loadCountry(k){
   if(REG.loading[k])return;REG.loading[k]=1;
-  const s=document.createElement("script");s.src=`countries/${k}.js?v=1794676975`;
+  const s=document.createElement("script");s.src=`countries/${k}.js?v=1794677613`;
   s.onload=()=>{ingest(k);render()};
   s.onerror=()=>{REG.loading[k]=0;document.getElementById("view").innerHTML=`<p class="pending" style="padding:48px 0">${t("load_err")}</p>`};
   document.head.appendChild(s);
@@ -639,7 +639,7 @@ function homeExample(){
   return `<div class="hex" id="hex"><p class="hex-who"><b>${esc(p.name)}</b> · ${esc(tr(C[k].name))}</p>
    <ol class="hex-row"><li><span class="eyebrow">${c[0]}</span><p>${esc(tr(d))}</p></li><li><span class="eyebrow">${c[1]}</span><p>${esc(tr(f))}</p></li><li class="prow ps-${st}"><span class="eyebrow">${c[2]}</span><div class="pf"><span class="ptag">${t("ptag")[st]||""}</span><a href="${u}" target="_blank" rel="noopener">${t("ex_src")} ↗</a></div></li></ol>
    <div class="hex-foot"><a class="btn" href="#${k}-${p.id}">${t("ex_more")}</a><button class="btn ghost" type="button" id="hex-other">${t("ex_other")}</button></div></div>`}
-function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1794676975`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
+function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1794677613`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
 function bindExample(){preloadSome(2);const b=document.getElementById("hex-other");if(b)b.addEventListener("click",()=>{const h=document.getElementById("hex");h.outerHTML=homeExample();pathLinks(document.getElementById("hex"));bindExample()})}
 function guideBlock(){
   const st=t("g_steps"),path=t("g_path"),pk=readyKeys().map(k=>[k,tr((C[k]||REG.meta[k]).name)]).sort((a,b)=>a[1].localeCompare(b[1],lang));
@@ -649,7 +649,7 @@ function guideBlock(){
   return `<section class="guide" id="guide" aria-labelledby="g-h"><p class="eyebrow" id="g-h">${t("g_eye")}</p>
    <p class="gpath">${path.map(x=>`<span>${x}</span>`).join('<i aria-hidden="true">→</i>')}</p>
    <ol class="gsteps">${st.map(([h,pp],i)=>`<li><span class="gn" aria-hidden="true">${i+1}</span><h3>${h}</h3><p>${pp}</p>${act[i]}</li>`).join("")}</ol></section>`}
-function bindGuide(){const g=document.getElementById("g-go");if(!g)return;g.addEventListener("click",()=>{const v=document.getElementById("g-country").value;if(v){if(PATHMODE){history.pushState(null,"",pathFor(v+"-partis"));render()}else location.hash="#"+v+"-partis"}else{const sel=document.getElementById("g-country");sel.focus();sel.classList.add("need");document.getElementById("pays").scrollIntoView({behavior:"smooth"})}})}
+function bindGuide(){const bg=document.getElementById("bv-go");if(bg)bg.addEventListener("click",()=>{const sel=document.getElementById("bv-country"),v=sel.value;if(!v){sel.focus();sel.classList.add("need");return}if(PATHMODE){history.pushState(null,"",pathFor(v+"-vote"));render()}else location.hash="#"+v+"-vote"});const g=document.getElementById("g-go");if(!g)return;g.addEventListener("click",()=>{const v=document.getElementById("g-country").value;if(v){if(PATHMODE){history.pushState(null,"",pathFor(v+"-partis"));render()}else location.hash="#"+v+"-partis"}else{const sel=document.getElementById("g-country");sel.focus();sel.classList.add("need");document.getElementById("pays").scrollIntoView({behavior:"smooth"})}})}
 Object.assign(T.en,{map_h:"Click a country on the map"});Object.assign(T.fr,{map_h:"Cliquez sur un pays de la carte"});Object.assign(T.es,{map_h:"Haz clic en un país del mapa"});
 Object.assign(T.en,{cont_h:"Or choose from the list"});Object.assign(T.fr,{cont_h:"Ou choisissez dans la liste"});Object.assign(T.es,{cont_h:"O elige en la lista"});
 function landing(){
@@ -744,7 +744,7 @@ function landing(){
     <div class="block bvh"><h3>${t("bvh_h")}</h3><p>${t("bvh_p")}</p>
       <ul class="bv-else">${t("bvh_cards").map(([c,x],i)=>`<li><b>${c}</b><span>${x} ${S(BVH_U[i])}</span></li>`).join("")}</ul>
       <p class="explain">${t("bvh_note")}</p>
-      <a class="fi-go" href="#france-vote">${t("bvh_go")} →</a>
+      ${bvPick()}
     </div>
   </section>
 
@@ -858,20 +858,28 @@ Object.assign(T.en,{"bv_else": "Elsewhere, a blank vote has effects", "bvh_h": "
 Object.assign(T.fr,{"bv_else": "Ailleurs, le blanc a des effets", "bvh_h": "Le vote blanc : oui, non, et ce qu'il change", "bvh_p": "Chaque fiche pays a un onglet « Le vote » : comment voter en pratique, le mode de scrutin, la participation et, au fil du déploiement, ce que change un vote blanc. Les règles varient beaucoup d'un pays à l'autre :", "bvh_cards": [["France", "Compté à part et publié, mais sans effet sur le résultat ni sur les seuils."], ["Espagne", "Compté parmi les votes valides : il relève la barre de 3 % qui donne accès aux sièges. Seule une enveloppe vide vaut vote blanc."], ["Colombie", "S'il obtient la majorité, l'élection est refaite, sans les mêmes candidats."], ["Pérou", "Au-delà des deux tiers de votes blancs ou nuls, l'élection est annulée."]], "bvh_note": "Blanc ou nul ? Un mot ou une rature sur le bulletin le rend en général nul. Vérifiez les règles de votre pays avant de voter.", "bvh_go": "Voir le vote blanc en France"});
 Object.assign(T.es,{"bv_else": "En otros países, el voto en blanco tiene efectos", "bvh_h": "El voto en blanco: sí, no, y qué cambia", "bvh_p": "Cada ficha de país tiene una pestaña «El voto»: cómo votar en la práctica, el sistema electoral, la participación y, a medida que lo ampliamos, qué cambia un voto en blanco. Las reglas varían mucho de un país a otro:", "bvh_cards": [["Francia", "Se cuenta aparte y se publica, pero sin efecto en el resultado ni en los umbrales."], ["España", "Cuenta como voto válido: eleva la barrera del 3 % que da acceso a escaños. Solo un sobre vacío es voto en blanco."], ["Colombia", "Si obtiene la mayoría, la elección se repite, sin los mismos candidatos."], ["Perú", "Por encima de dos tercios de votos en blanco o nulos, la elección se anula."]], "bvh_note": "¿En blanco o nulo? Una palabra o un tachón en la papeleta suele convertir el voto en nulo. Comprueba las reglas de tu país antes de votar.", "bvh_go": "Ver el voto en blanco en Francia"});
 const BVH_U=["https://www.eurojuris.fr/articles/reconnaissance-des-votes-blancs-a-compter-du-1er-avril-2014-5010.htm","https://es.ara.cat/politica/papel-blanco-considerado-voto-nulo_1_3872717.html","https://leyes.co/constitucion/258.htm","https://peru.justia.com/federales/constitucion-politica-del-peru-de-1993/titulo-iv/capitulo-xiii"];
+Object.assign(T.en,{"bvh_go": "See", "bvh_pick": "Choose a country", "bvh_g1": "Blank vote explained", "bvh_g2": "Other countries (how to vote)"});
+Object.assign(T.fr,{"bvh_go": "Voir", "bvh_pick": "Choisir un pays", "bvh_g1": "Vote blanc expliqué", "bvh_g2": "Autres pays (comment voter)"});
+Object.assign(T.es,{"bvh_go": "Ver", "bvh_pick": "Elegir un país", "bvh_g1": "Voto en blanco explicado", "bvh_g2": "Otros países (cómo votar)"});
+function bvPick(){const pk=readyKeys().map(k=>[k,tr((C[k]||REG.meta[k]).name)]).sort((a,b)=>a[1].localeCompare(b[1],lang)),hb=typeof BLANK!=="undefined"?BLANK:{};
+  const o=arr=>arr.map(([k,n])=>`<option value="${k}">${esc(n)}</option>`).join("");
+  return `<div class="gpick bvpick"><label class="sr" for="bv-country">${t("bvh_pick")}</label><select id="bv-country"><option value="">${t("bvh_pick")}</option><optgroup label="${t("bvh_g1")}">${o(pk.filter(([k])=>hb[k]))}</optgroup><optgroup label="${t("bvh_g2")}">${o(pk.filter(([k])=>!hb[k]))}</optgroup></select><button class="btn" type="button" id="bv-go">${t("bvh_go")} →</button></div>`}
 function blankBlock(k){
-  const B=(typeof BLANK!=="undefined"&&BLANK[k])||null;if(!B)return "";
+  const own=(typeof BLANK!=="undefined"&&BLANK[k])||null;if(!own)return "";
+  const B=Object.assign({},BLANK._common||{},own),els=(B.elsewhere||[]).filter(x=>x[3]!==k);
   const a=u=>u?` <a class="src-a" href="${u}" target="_blank" rel="noopener">${t("source")}</a>`:"";
   const num=v=>String(v).replace(".",lang==="en"?".":",")+(lang==="en"?"%":"\u202f%");
   const li=arr=>arr.map(x=>Array.isArray(x)?`<li>${esc(tr(x[0]))}${a(x[1])}</li>`:`<li>${esc(tr(x))}</li>`).join("");
+  const sec=(key,html)=>html?`<div><p class="eyebrow">${t(key)}</p>${html}</div>`:"";
   return `<details class="cguide bv" id="vote-blanc" open><summary>${esc(tr(B.sum))}</summary><div class="cg-body">
    <p class="bv-lead">${esc(tr(B.lead))}</p>
    <div class="bv-two"><div><p class="eyebrow">${t("bv_what")}</p><ul class="bv-ul">${li(B.what)}</ul></div>
    <div><p class="eyebrow">${t("bv_count")}</p><ul class="bv-ul">${li(B.count)}</ul></div></div>
-   <div><p class="eyebrow">${t("bv_nums")}</p><ul class="bv-nums">${B.nums.map(([v,l,u])=>`<li><b class="mono">${num(v)}</b><span>${esc(tr(l))}${a(u)}</span></li>`).join("")}</ul></div>
-   <div><p class="eyebrow">${t("bv_impact")}</p><ul class="bv-ul">${li(B.impact)}</ul></div>
-   <div><p class="eyebrow">${t("bv_why")}</p><ul class="bv-ul">${li(B.why)}</ul><p class="sources">${a(B.whySrc).trim()}</p></div>
-   <div><p class="eyebrow">${t("bv_debate")}</p><div class="bv-two"><div class="bv-side"><b>${t("bv_pro")}</b><ul class="bv-ul">${li(B.pro)}</ul></div><div class="bv-side"><b>${t("bv_con")}</b><ul class="bv-ul">${li(B.con)}</ul></div></div><p class="bv-status">${esc(tr(B.status[0]))}${a(B.status[1])}</p></div>
-   ${B.elsewhere?`<div><p class="eyebrow">${t("bv_else")}</p><ul class="bv-else">${B.elsewhere.map(([c,x,us])=>`<li><b>${esc(tr(c))}</b><span>${esc(tr(x))}${us.map(u=>a(u)).join("")}</span></li>`).join("")}</ul><p class="bv-status">${esc(tr(B.elseNote))}</p></div>`:""}
+   ${B.nums?sec("bv_nums",`<ul class="bv-nums">${B.nums.map(([v,l,u])=>`<li><b class="mono">${num(v)}</b><span>${esc(tr(l))}${a(u)}</span></li>`).join("")}</ul>`):""}
+   ${B.impact?sec("bv_impact",`<ul class="bv-ul">${li(B.impact)}</ul>`):""}
+   ${B.why?sec("bv_why",`<ul class="bv-ul">${li(B.why)}</ul><p class="sources">${a(B.whySrc).trim()}</p>`):""}
+   ${B.pro?sec("bv_debate",`<div class="bv-two"><div class="bv-side"><b>${t("bv_pro")}</b><ul class="bv-ul">${li(B.pro)}</ul></div><div class="bv-side"><b>${t("bv_con")}</b><ul class="bv-ul">${li(B.con)}</ul></div></div>${B.status?`<p class="bv-status">${esc(tr(B.status[0]))}${a(B.status[1])}</p>`:""}`):""}
+   ${els.length?sec("bv_else",`<ul class="bv-else">${els.map(([c,x,us])=>`<li><b>${esc(tr(c))}</b><span>${esc(tr(x))}${(us||[]).map(u=>a(u)).join("")}</span></li>`).join("")}</ul>${B.elseNote?`<p class="bv-status">${esc(tr(B.elseNote))}</p>`:""}`):""}
    <div class="bv-think"><p class="eyebrow">${t("bv_think")}</p><ul>${B.think.map(x=>`<li>${esc(tr(x))}</li>`).join("")}</ul><p class="bv-note">${esc(tr(B.note))}</p></div>
   </div></details>`;
 }
