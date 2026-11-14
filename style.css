@@ -820,3 +820,7 @@ section .disc{margin-top:8px}
 @media (max-width:720px){.bv-else{grid-template-columns:1fr}}
 .bv-intl{display:grid;gap:10px}
 .block ul.bv-else{padding-left:0;margin-left:0}
+
+/* v113 tabs as links + sub-page headings */
+.tabs a.tab{text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.ph2{margin:0 0 4px;font-size:1.5rem}
