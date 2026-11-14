@@ -859,3 +859,6 @@ section .disc{margin-top:8px}
 .hs-sup{fill:color-mix(in srgb,var(--ink) 58%,var(--surface));background:color-mix(in srgb,var(--ink) 58%,var(--surface))}
 .pw-bar{display:block}.pw-bar>i.pw-supseg{position:absolute;top:0;height:100%;border-radius:0}
 .pw-key{margin:0!important;display:flex;flex-wrap:wrap;justify-content:center;gap:4px 12px;font-size:var(--fs-s);align-items:center}.pw-key .sw{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:4px}
+/* v115: links without "#": in-page jumps are buttons; "Why vote" page */
+[data-jump],[data-scroll]{cursor:pointer}
+.vpage .vh1{font-size:clamp(1.6rem,3.2vw,2.2rem);max-width:28ch;margin:0}
