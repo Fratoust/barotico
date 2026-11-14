@@ -274,7 +274,7 @@ BAROTICO.add("turkey", {
                "Los enlaces a programas quedan vacíos: no abrimos las páginas de programa de los propios partidos. Los valores declarados vienen de manifiestos, discursos de congreso y declaraciones de los dirigentes recogidos por la prensa nacional; las cifras de ayuda pública vienen del reparto de 2026 publicado en la prensa."),
 
   parties: [
-    { id: "akp", name: "AKP", full: "Adalet ve Kalkınma Partisi (Justice and Development Party)", leader: "Recep Tayyip Erdoğan",
+    { id: "akp", born: {"y": 2001, "m": 8, "gov": "lead", "u": "https://www.dha.com.tr/politika/desticiden-ak-partinin-25inci-kurulus-yil-donumu-mesaji-2927123"}, name: "AKP", full: "Adalet ve Kalkınma Partisi (Justice and Development Party)", leader: "Recep Tayyip Erdoğan",
       seats: L3("281 seats of 600 (October 2026); 268 won in 2023 with 35.62%", "281 sièges sur 600 (octobre 2026) ; 268 obtenus en 2023 avec 35,62 %", "281 escaños de 600 (octubre de 2026); 268 obtenidos en 2023 con el 35,62 %"),
       role: "gov", pos: 1.0, style: "lean",
       dit: [
@@ -339,7 +339,7 @@ BAROTICO.add("turkey", {
               "Recibe 2.550,5 millones de liras de ayuda del Tesoro en 2026, la mayor parte de los 6.413 millones pagados a los cinco partidos que superaron el umbral del 7 % en 2023. El Tribunal Constitucional audita las cuentas de los partidos; no encontramos un desglose publicado de sus cuotas y donaciones.") },
       prog: [] },
 
-    { id: "yeni", name: "YENİ Parti", full: "YENİ Parti (founded on 24 July 2026 by Özgür Özel and 90 deputies who left the CHP)", leader: "Özgür Özel",
+    { id: "yeni", born: {"y": 2026, "m": 7, "gov": "never", "u": "https://bianet.org/haber/yeni-parti-nin-kurulus-dilekcesi-icisleri-bakanligi-na-teslim-edildi-321849"}, name: "YENİ Parti", full: "YENİ Parti (founded on 24 July 2026 by Özgür Özel and 90 deputies who left the CHP)", leader: "Özgür Özel",
       seats: L3("91 seats of 600 (October 2026): deputies who left the CHP in July 2026, most of them elected on CHP lists in 2023", "91 sièges sur 600 (octobre 2026) : des députés ayant quitté le CHP en juillet 2026, élus pour la plupart sur des listes du CHP en 2023", "91 escaños de 600 (octubre de 2026): diputados que dejaron el CHP en julio de 2026, la mayoría elegidos en listas del CHP en 2023"),
       role: "opp", pos: -0.5, style: "lean",
       dit: [
@@ -412,7 +412,7 @@ BAROTICO.add("turkey", {
               "No recibe ayuda del Tesoro: el reparto de 2026 va a los cinco partidos que superaron el umbral del 7 % en 2023, incluidos 1.815,5 millones de liras para el CHP que dejaron sus diputados. Vive de cuotas y donaciones; aún no hay cuentas auditadas.") },
       prog: [] },
 
-    { id: "dem", name: "DEM Parti", full: "Halkların Eşitlik ve Demokrasi Partisi (Peoples' Equality and Democracy Party)", leader: "Tuncer Bakırhan and Tülay Hatimoğulları (co-chairs)",
+    { id: "dem", born: {"y": 2012, "old": "Yeşiller ve Sol Gelecek Partisi (Yeşil Sol Parti)", "re": 2023, "gov": "never", "u": "https://www.bpb.de/themen/europa/tuerkei/249708/partei-der-gruenen-und-linken-zukunft-ysgp"}, name: "DEM Parti", full: "Halkların Eşitlik ve Demokrasi Partisi (Peoples' Equality and Democracy Party)", leader: "Tuncer Bakırhan and Tülay Hatimoğulları (co-chairs)",
       seats: L3("56 seats of 600 (October 2026); 61 won in 2023 as the Green Left Party (YSP) with 8.82%", "56 sièges sur 600 (octobre 2026) ; 61 obtenus en 2023 sous l'étiquette Parti de la gauche verte (YSP) avec 8,82 %", "56 escaños de 600 (octubre de 2026); 61 obtenidos en 2023 como Partido de la Izquierda Verde (YSP) con el 8,82 %"),
       role: "opp", pos: -1.1, style: "lean",
       dit: [
@@ -482,7 +482,7 @@ BAROTICO.add("turkey", {
               "Recibe 631,7 millones de liras de ayuda del Tesoro en 2026 como uno de los cinco partidos por encima del umbral del 7 % en 2023. No encontramos un desglose publicado de sus otros ingresos.") },
       prog: [] },
 
-    { id: "mhp", name: "MHP", full: "Milliyetçi Hareket Partisi (Nationalist Movement Party)", leader: "Devlet Bahçeli",
+    { id: "mhp", born: {"y": 1983, "old": "Muhafazakâr Parti, then Milliyetçi Çalışma Partisi (MÇP)", "re": 1993, "gov": "partner", "u": "https://www.memurlar.net/haber/807963/mhp-siyasette-yarim-asri-devirdi.html"}, name: "MHP", full: "Milliyetçi Hareket Partisi (Nationalist Movement Party)", leader: "Devlet Bahçeli",
       seats: L3("46 seats of 600 (October 2026); 50 won in 2023 with 10.07%", "46 sièges sur 600 (octobre 2026) ; 50 obtenus en 2023 avec 10,07 %", "46 escaños de 600 (octubre de 2026); 50 obtenidos en 2023 con el 10,07 %"),
       role: "support", pos: 1.5, style: "lean",
       dit: [
@@ -537,7 +537,7 @@ BAROTICO.add("turkey", {
               "Recibe 721,5 millones de liras de ayuda del Tesoro en 2026. No encontramos un desglose publicado de sus cuotas y donaciones.") },
       prog: [] },
 
-    { id: "chp", name: "CHP", full: "Cumhuriyet Halk Partisi (Republican People's Party)", leader: "Kemal Kılıçdaroğlu (reinstated by an appeals court ruling of 21 May 2026, not yet final)",
+    { id: "chp", born: {"y": 1923, "m": 9, "gov": "lead", "u": "https://www.sozcu.com.tr/kapatilan-chp-11-yil-sonra-boyle-acildi-wp7798173"}, name: "CHP", full: "Cumhuriyet Halk Partisi (Republican People's Party)", leader: "Kemal Kılıçdaroğlu (reinstated by an appeals court ruling of 21 May 2026, not yet final)",
       seats: L3("44 seats of 600 (October 2026); 169 won in 2023 with 25.35%; 91 deputies left for YENİ Parti in July 2026", "44 sièges sur 600 (octobre 2026) ; 169 obtenus en 2023 avec 25,35 % ; 91 députés partis pour YENİ Parti en juillet 2026", "44 escaños de 600 (octubre de 2026); 169 obtenidos en 2023 con el 25,35 %; 91 diputados se fueron a YENİ Parti en julio de 2026"),
       role: "opp", pos: -0.5, style: "lean",
       dit: [
@@ -591,7 +591,7 @@ BAROTICO.add("turkey", {
               "Recibe 1.815,5 millones de liras de ayuda del Tesoro en 2026, calculada sobre su voto de 2023, aunque 91 de sus 135 diputados se fueron en julio de 2026. No encontramos un desglose publicado de sus otros ingresos.") },
       prog: [] },
 
-    { id: "iyi", name: "İYİ Parti", full: "İYİ Parti (Good Party)", leader: "Müsavat Dervişoğlu",
+    { id: "iyi", born: {"y": 2017, "m": 10, "gov": "never", "u": "https://www.memurlar.net/haber/703012/aksener-partiyi-resmen-kurdu-yeni-seyler-soylemek-lazim.html"}, name: "İYİ Parti", full: "İYİ Parti (Good Party)", leader: "Müsavat Dervişoğlu",
       seats: L3("27 seats of 600 (October 2026); 43 won in 2023 with 9.69%", "27 sièges sur 600 (octobre 2026) ; 43 obtenus en 2023 avec 9,69 %", "27 escaños de 600 (octubre de 2026); 43 obtenidos en 2023 con el 9,69 %"),
       role: "opp", pos: 1.0, style: "lean",
       dit: [
@@ -640,7 +640,7 @@ BAROTICO.add("turkey", {
               "Recibe 693,9 millones de liras de ayuda del Tesoro en 2026, calculada sobre su voto de 2023. No encontramos un desglose publicado de sus otros ingresos.") },
       prog: [] },
 
-    { id: "yeniyol", name: "Yeni Yol", full: "Yeni Yol Partisi (New Path: umbrella party for the parliamentary group of DEVA and Saadet deputies and former Gelecek deputies)", leader: "Celal Mümtaz Akıncı (chairman, former Constitutional Court member)",
+    { id: "yeniyol", born: {"y": 2025, "m": 1, "gov": "never", "u": "https://www.diken.com.tr/?p=1520422"}, name: "Yeni Yol", full: "Yeni Yol Partisi (New Path: umbrella party for the parliamentary group of DEVA and Saadet deputies and former Gelecek deputies)", leader: "Celal Mümtaz Akıncı (chairman, former Constitutional Court member)",
       seats: L3("20 seats of 600 (October 2026), the minimum for a parliamentary group; 24 at its creation", "20 sièges sur 600 (octobre 2026), le minimum pour un groupe parlementaire ; 24 à sa création", "20 escaños de 600 (octubre de 2026), el mínimo para un grupo parlamentario; 24 al crearse"),
       role: "opp", pos: 0.6, style: "lean",
       dit: [

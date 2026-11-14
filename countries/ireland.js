@@ -139,7 +139,7 @@ BAROTICO.add("ireland", {
                "Aucun suivi indépendant, ligne par ligne, du programme 2025 n’a été trouvé ; les éléments ci-dessus sont des vérifications partielles d’organismes publics et associatifs.",
                "No se encontró ningún seguimiento independiente, punto por punto, del programa de 2025; lo anterior son comprobaciones parciales de organismos públicos y de la sociedad civil."),
   parties: [
-    { id: "ff", name: "Fianna Fáil", full: "Fianna Fáil – The Republican Party", leader: "Micheál Martin",
+    { id: "ff", born: {"y": 1926, "gov": "lead", "u": "https://www.farmersjournal.ie/news/opinion/a-guide-to-irelands-political-parties-784801"}, name: "Fianna Fáil", full: "Fianna Fáil – The Republican Party", leader: "Micheál Martin",
       seats: L3("48 of 174 seats (2024), largest party", "48 sièges sur 174 (2024), premier parti", "48 de 174 escaños (2024), primer partido"),
       role: "gov", pos: 0.3, style: "lean",
       dit: [
@@ -204,7 +204,7 @@ BAROTICO.add("ireland", {
         n: L3("Received €3,856,415 in State funding in 2025 (+€274,319). SIPO lists its 2024 audited accounts as compliant, but no income breakdown was located, so no shares are shown.", "A reçu 3 856 415 € de fonds publics en 2025 (+274 319 €). La SIPO juge conformes ses comptes audités 2024, mais aucune ventilation des recettes n’a été trouvée : pas de parts affichées.", "Recibió 3.856.415 € de fondos públicos en 2025 (+274.319 €). La SIPO considera conformes sus cuentas auditadas de 2024, pero no se localizó el desglose de ingresos: no se muestran porcentajes.") },
       prog: [] },
 
-    { id: "sf", name: "Sinn Féin", full: "Sinn Féin", leader: "Mary Lou McDonald",
+    { id: "sf", born: {"y": 1970, "gov": "never", "u": "https://www.farmersjournal.ie/news/opinion/a-guide-to-irelands-political-parties-784801"}, name: "Sinn Féin", full: "Sinn Féin", leader: "Mary Lou McDonald",
       seats: L3("39 of 174 seats (2024), largest opposition party", "39 sièges sur 174 (2024), premier parti d’opposition", "39 de 174 escaños (2024), primer partido de la oposición"),
       role: "opp", pos: -0.8, style: "lean",
       dit: [
@@ -269,7 +269,7 @@ BAROTICO.add("ireland", {
         n: L3("Total income €7.95m in 2024: State funding €5.59m, fundraising €0.52m, miscellaneous €1.42m, donations €0.23m, membership €0.16m. Contributions from elected members are not shown as a separate line. Its US fundraising body is not consolidated; an academic queried this in 2026 and the party says it complies.", "Recettes totales 7,95 M€ en 2024 : fonds publics 5,59 M€, collectes 0,52 M€, divers 1,42 M€, dons 0,23 M€, cotisations 0,16 M€. Pas de ligne distincte pour les contributions des élus. Son organisme de collecte aux États-Unis n’est pas consolidé ; un universitaire l’a interrogé en 2026, le parti se dit en règle.", "Ingresos totales de 7,95 M€ en 2024: fondos públicos 5,59 M€, recaudación 0,52 M€, varios 1,42 M€, donaciones 0,23 M€, cuotas 0,16 M€. No hay línea separada para aportaciones de cargos electos. Su entidad de recaudación en EE. UU. no se consolida; un académico lo cuestionó en 2026 y el partido dice cumplir la ley.") },
       prog: [] },
 
-    { id: "fg", name: "Fine Gael", full: "Fine Gael", leader: "Simon Harris",
+    { id: "fg", born: {"y": 1933, "gov": "lead", "u": "https://www.farmersjournal.ie/news/opinion/a-guide-to-irelands-political-parties-784801"}, name: "Fine Gael", full: "Fine Gael", leader: "Simon Harris",
       seats: L3("38 of 174 seats (2024); still 38 after the May 2026 by-elections", "38 sièges sur 174 (2024) ; toujours 38 après les partielles de mai 2026", "38 de 174 escaños (2024); siguen siendo 38 tras las parciales de mayo de 2026"),
       role: "gov", pos: 0.6, style: "lean",
       dit: [
@@ -338,7 +338,7 @@ BAROTICO.add("ireland", {
         n: L3("Received €3,632,285 in State funding in 2025 (+€341,476). SIPO lists its 2024 audited accounts as compliant, but no income breakdown was located, so no shares are shown.", "A reçu 3 632 285 € de fonds publics en 2025 (+341 476 €). La SIPO juge conformes ses comptes audités 2024, mais aucune ventilation des recettes n’a été trouvée : pas de parts affichées.", "Recibió 3.632.285 € de fondos públicos en 2025 (+341.476 €). La SIPO considera conformes sus cuentas auditadas de 2024, pero no se localizó el desglose de ingresos: no se muestran porcentajes.") },
       prog: [["2025", "https://www.finegael.ie/app/uploads/2025/01/2025-Programme-for-Government.pdf"]] },
 
-    { id: "lab", name: "Labour", full: "Labour Party / Páirtí an Lucht Oibre", leader: "Ivana Bacik",
+    { id: "lab", born: {"y": 1912, "gov": "partner", "u": "https://www.farmersjournal.ie/news/opinion/a-guide-to-irelands-political-parties-784801"}, name: "Labour", full: "Labour Party / Páirtí an Lucht Oibre", leader: "Ivana Bacik",
       seats: L3("11 of 174 seats (2024)", "11 sièges sur 174 (2024)", "11 de 174 escaños (2024)"),
       role: "opp", pos: -0.6, style: "lean",
       dit: [
@@ -400,7 +400,7 @@ BAROTICO.add("ireland", {
         n: L3("Received €1,357,539 in State funding in 2025 (+€262,279). SIPO lists its 2024 audited accounts as compliant, but no income breakdown was located, so no shares are shown.", "A reçu 1 357 539 € de fonds publics en 2025 (+262 279 €). La SIPO juge conformes ses comptes audités 2024, mais aucune ventilation des recettes n’a été trouvée : pas de parts affichées.", "Recibió 1.357.539 € de fondos públicos en 2025 (+262.279 €). La SIPO considera conformes sus cuentas auditadas de 2024, pero no se localizó el desglose de ingresos: no se muestran porcentajes.") },
       prog: [] },
 
-    { id: "sd", name: "Social Democrats", full: "Social Democrats / Na Daonlathaithe Sóisialta", leader: "Holly Cairns",
+    { id: "sd", born: {"y": 2015, "gov": "never", "u": "https://www.farmersjournal.ie/news/opinion/a-guide-to-irelands-political-parties-784801"}, name: "Social Democrats", full: "Social Democrats / Na Daonlathaithe Sóisialta", leader: "Holly Cairns",
       seats: L3("11 of 174 seats (2024); 12 since the May 2026 Dublin Central by-election", "11 sièges sur 174 (2024) ; 12 depuis la partielle de Dublin Central (mai 2026)", "11 de 174 escaños (2024); 12 desde la parcial de Dublin Central (mayo de 2026)"),
       role: "opp", pos: -0.8, style: "lean",
       dit: [
@@ -455,7 +455,7 @@ BAROTICO.add("ireland", {
         n: L3("Received €1,316,063 in State funding in 2025 (+€529,612). SIPO lists its 2024 audited accounts as compliant, but no income breakdown was located, so no shares are shown.", "A reçu 1 316 063 € de fonds publics en 2025 (+529 612 €). La SIPO juge conformes ses comptes audités 2024, mais aucune ventilation des recettes n’a été trouvée : pas de parts affichées.", "Recibió 1.316.063 € de fondos públicos en 2025 (+529.612 €). La SIPO considera conformes sus cuentas auditadas de 2024, pero no se localizó el desglose de ingresos: no se muestran porcentajes.") },
       prog: [["2026", "https://www.socialdemocrats.ie/our-policies/"]] },
 
-    { id: "ii", name: "Independent Ireland", full: "Independent Ireland", leader: "Michael Collins",
+    { id: "ii", born: {"y": 2023, "m": 11, "gov": "never", "u": "https://rte.ie/news/politics/2023/1110/1415804-political-party"}, name: "Independent Ireland", full: "Independent Ireland", leader: "Michael Collins",
       seats: L3("4 of 174 seats (2024)", "4 sièges sur 174 (2024)", "4 de 174 escaños (2024)"),
       role: "opp", pos: 0.9, style: "lean",
       dit: [
@@ -503,7 +503,7 @@ BAROTICO.add("ireland", {
         n: L3("Received €701,265 in State funding in 2025, its first full year with TDs. No SIPO income breakdown was located for this edition, so no shares are shown.", "A reçu 701 265 € de fonds publics en 2025, sa première année pleine avec des TD. Aucune ventilation SIPO des recettes trouvée pour cette édition : pas de parts affichées.", "Recibió 701.265 € de fondos públicos en 2025, su primer año completo con TD. No se localizó un desglose de ingresos de la SIPO para esta edición: no se muestran porcentajes.") },
       prog: [["2024", "https://www.independentireland.ie/manifesto"]] },
 
-    { id: "aontu", name: "Aontú", full: "Aontú", leader: "Peadar Tóibín",
+    { id: "aontu", born: {"y": 2019, "gov": "never", "u": "https://www.farmersjournal.ie/news/opinion/a-guide-to-irelands-political-parties-784801"}, name: "Aontú", full: "Aontú", leader: "Peadar Tóibín",
       seats: L3("2 of 174 seats (2024)", "2 sièges sur 174 (2024)", "2 de 174 escaños (2024)"),
       role: "opp", pos: 0.6, style: "lean",
       dit: [
@@ -558,7 +558,7 @@ BAROTICO.add("ireland", {
         n: L3("Total income €799,231 in 2025: State funding €625,689, fundraising €82,162, membership €46,499, donations €25,530, miscellaneous €19,351. Contributions from elected members are not shown as a separate line.", "Recettes totales 799 231 € en 2025 : fonds publics 625 689 €, collectes 82 162 €, cotisations 46 499 €, dons 25 530 €, divers 19 351 €. Pas de ligne distincte pour les contributions des élus.", "Ingresos totales de 799.231 € en 2025: fondos públicos 625.689 €, recaudación 82.162 €, cuotas 46.499 €, donaciones 25.530 €, varios 19.351 €. No hay línea separada para aportaciones de cargos electos.") },
       prog: [] },
 
-    { id: "greens", name: "Green Party", full: "Green Party / Comhaontas Glas", leader: "Roderic O’Gorman",
+    { id: "greens", born: {"y": 1981, "gov": "partner", "u": "https://www.farmersjournal.ie/news/opinion/a-guide-to-irelands-political-parties-784801"}, name: "Green Party", full: "Green Party / Comhaontas Glas", leader: "Roderic O’Gorman",
       seats: L3("1 of 174 seats (2024)", "1 siège sur 174 (2024)", "1 de 174 escaños (2024)"),
       role: "opp", pos: -0.7, style: "lean",
       dit: [

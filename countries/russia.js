@@ -239,7 +239,7 @@ BAROTICO.add("russia", {
                "Los enlaces a programas quedan vacíos: no abrimos las páginas de programa de los partidos. Los valores y promesas vienen de congresos y programas según la prensa rusa (estatal e independiente). Las posiciones en el eje izquierda-derecha son estimaciones de la redacción (ver cada ficha)."),
 
   parties: [
-    { id: "er", name: "United Russia", full: "Единая Россия (Yedinaya Rossiya)", leader: "Dmitry Medvedev (chairman)",
+    { id: "er", born: {"y": 2001, "m": 12, "old": "Unity and Fatherland – United Russia", "re": 2003, "gov": "lead", "u": "https://bigenc.ru/c/edinaia-rossiia-b7486d"}, name: "United Russia", full: "Единая Россия (Yedinaya Rossiya)", leader: "Dmitry Medvedev (chairman)",
       seats: L3("349 of 450 seats (2026): 140 list seats and 209 single-member districts; 58.2% of list votes", "349 sièges sur 450 (2026) : 140 de liste et 209 circonscriptions ; 58,2 % des voix de liste", "349 de 450 escaños (2026): 140 de lista y 209 distritos; 58,2 % del voto de lista"),
       role: "gov", pos: 0.8, style: "lean",
       dit: [
@@ -315,7 +315,7 @@ BAROTICO.add("russia", {
               "Unos 10.900 millones de rublos: 4.300 millones de financiación pública, 5.800 millones en donaciones, 331 millones en cuotas; además pidió prestados 190 millones. Las aportaciones de cargos electos no se desglosan.") },
       prog: [] },
 
-    { id: "kprf", name: "CPRF", full: "Коммунистическая партия Российской Федерации (Communist Party of the Russian Federation)", leader: "Gennady Zyuganov",
+    { id: "kprf", born: {"y": 1993, "m": 2, "gov": "never", "u": "https://www.kommersant.ru/doc/2943753"}, name: "CPRF", full: "Коммунистическая партия Российской Федерации (Communist Party of the Russian Federation)", leader: "Gennady Zyuganov",
       seats: L3("37 of 450 seats (2026): 32 list seats and 5 districts; 13.5% of list votes", "37 sièges sur 450 (2026) : 32 de liste et 5 circonscriptions ; 13,5 % des voix de liste", "37 de 450 escaños (2026): 32 de lista y 5 distritos; 13,5 % del voto de lista"),
       role: "opp", pos: -1.0, style: "lean",
       dit: [
@@ -380,7 +380,7 @@ BAROTICO.add("russia", {
               "Unos 2.000 millones de rublos, de ellos 1.600 millones de financiación pública, 116 millones en cuotas y unos 50 millones en donaciones.") },
       prog: [] },
 
-    { id: "ldpr", name: "LDPR", full: "Либерально-демократическая партия России (Liberal Democratic Party of Russia)", leader: "Leonid Slutsky",
+    { id: "ldpr", born: {"y": 1989, "m": 12, "old": "Liberal Democratic Party of the Soviet Union", "re": 1992, "gov": "never", "u": "https://www.pnp.ru/politics/ldpr-razmenyala-chetvyortyy-desyatok.html"}, name: "LDPR", full: "Либерально-демократическая партия России (Liberal Democratic Party of Russia)", leader: "Leonid Slutsky",
       seats: L3("23 of 450 seats (2026): 21 list seats and 2 districts; 8.9% of list votes", "23 sièges sur 450 (2026) : 21 de liste et 2 circonscriptions ; 8,9 % des voix de liste", "23 de 450 escaños (2026): 21 de lista y 2 distritos; 8,9 % del voto de lista"),
       role: "opp", pos: 1.3, style: "lean",
       dit: [
@@ -436,7 +436,7 @@ BAROTICO.add("russia", {
               "Unos 777 millones de rublos: 646 millones de financiación pública, 18 millones en donaciones (sobre todo de empresas); las cuotas no se desglosan y van en «otros».") },
       prog: [] },
 
-    { id: "np", name: "New People", full: "Новые люди (Novye Lyudi)", leader: "Alexei Nechaev",
+    { id: "np", born: {"y": 2020, "gov": "never", "u": "https://rg.ru/2020/08/10/u-nas-mozhet-poiavitsia-eshche-odna-politicheskaia-partiia.html"}, name: "New People", full: "Новые люди (Novye Lyudi)", leader: "Alexei Nechaev",
       seats: L3("19 of 450 seats (2026), all from the list; 7.8% of list votes", "19 sièges sur 450 (2026), tous de liste ; 7,8 % des voix de liste", "19 de 450 escaños (2026), todos de lista; 7,8 % del voto de lista"),
       role: "opp", pos: 0.4, style: "lean",
       dit: [
@@ -491,7 +491,7 @@ BAROTICO.add("russia", {
               "Unos 747 millones de rublos: 456 millones de financiación pública y 223 millones en donaciones; las cuotas no se desglosan.") },
       prog: [] },
 
-    { id: "sr", name: "A Just Russia – For Truth", full: "Справедливая Россия – За правду (Spravedlivaya Rossiya – Za Pravdu)", leader: "Sergei Mironov",
+    { id: "sr", born: {"y": 2006, "m": 10, "old": "A Just Russia", "re": 2021, "gov": "never", "u": "https://asafov.ru/news/spravedlivaia-rossiia-otmetila-20-letie-i-obieiavila-vserossiiskii-priem-grazdan"}, name: "A Just Russia – For Truth", full: "Справедливая Россия – За правду (Spravedlivaya Rossiya – Za Pravdu)", leader: "Sergei Mironov",
       seats: L3("17 of 450 seats (2026): 13 list seats and 4 districts; 5.3% of list votes", "17 sièges sur 450 (2026) : 13 de liste et 4 circonscriptions ; 5,3 % des voix de liste", "17 de 450 escaños (2026): 13 de lista y 4 distritos; 5,3 % del voto de lista"),
       role: "opp", pos: -0.4, style: "lean",
       dit: [

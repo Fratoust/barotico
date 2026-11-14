@@ -221,7 +221,7 @@ BAROTICO.add("belarus", {
                "Los enlaces a programas quedan vacíos: no abrimos las páginas de programa de los partidos. Valores y promesas proceden de declaraciones de sus dirigentes y de la campaña de 2025, recogidas por medios bielorrusos en el exilio. Las posiciones izquierda-derecha son estimaciones de la redacción basadas en comentarios de expertos nacionales, no en una encuesta de expertos."),
 
   parties: [
-    { id: "belayarus", name: "Belaya Rus", full: "Белорусская партия «Белая Русь» (Belarusian party 'Belaya Rus')", leader: "Olga Chemodanova (chair since June 2025)",
+    { id: "belayarus", born: {"y": 2023, "m": 3, "gov": "never", "u": "https://www.osw.waw.pl/en/publikacje/analyses/2023-03-21/belarus-pro-regime-belaya-rus-party-holds-its-founding-congress"}, name: "Belaya Rus", full: "Белорусская партия «Белая Русь» (Belarusian party 'Belaya Rus')", leader: "Olga Chemodanova (chair since June 2025)",
       seats: L3("51 of 110 seats (2024)", "51 sièges sur 110 (2024)", "51 de 110 escaños (2024)"),
       role: "gov", pos: 0.3, style: "lean",
       dit: [
@@ -281,7 +281,7 @@ BAROTICO.add("belarus", {
               "No encontramos cuentas publicadas. El partido se creó en 2023 a partir de la asociación del mismo nombre, bajo una ley que exige al menos 5.000 afiliados.") },
       prog: [] },
 
-    { id: "rpts", name: "Party of Labour and Justice", full: "Республиканская партия труда и справедливости (РПТС, Republican Party of Labour and Justice)", leader: "Alexander Khizhnyak (chairman)",
+    { id: "rpts", born: {"y": 1993, "gov": "never", "u": "https://news.zerkalo.io/economics/42652.html"}, name: "Party of Labour and Justice", full: "Республиканская партия труда и справедливости (РПТС, Republican Party of Labour and Justice)", leader: "Alexander Khizhnyak (chairman)",
       seats: L3("8 of 110 seats (2024)", "8 sièges sur 110 (2024)", "8 de 110 escaños (2024)"),
       role: "support", pos: -0.5, style: "lean",
       dit: [
@@ -331,7 +331,7 @@ BAROTICO.add("belarus", {
               "No encontramos cuentas publicadas. El partido es uno de los cuatro que superaron la reinscripción de 2023.") },
       prog: [] },
 
-    { id: "kpb", name: "Communist Party of Belarus", full: "Коммунистическая партия Беларуси (КПБ)", leader: "Sergei Syrankov (First Secretary of the Central Committee)",
+    { id: "kpb", born: {"y": 1996, "m": 11, "gov": "never", "u": "https://www.yabloko.ru/Themes/Belarus/belarus-29.html"}, name: "Communist Party of Belarus", full: "Коммунистическая партия Беларуси (КПБ)", leader: "Sergei Syrankov (First Secretary of the Central Committee)",
       seats: L3("7 of 110 seats (2024)", "7 sièges sur 110 (2024)", "7 de 110 escaños (2024)"),
       role: "support", pos: -1.2, style: "lean",
       dit: [
@@ -381,7 +381,7 @@ BAROTICO.add("belarus", {
               "No encontramos cuentas publicadas. El partido es uno de los cuatro que superaron la reinscripción de 2023.") },
       prog: [] },
 
-    { id: "ldpb", name: "Liberal Democratic Party", full: "Либерально-демократическая партия Беларуси (ЛДПБ)", leader: "Oleg Gaidukevich (chairman)",
+    { id: "ldpb", born: {"y": 1994, "gov": "never", "u": "https://interfax.com/newsroom/top-stories/17594/"}, name: "Liberal Democratic Party", full: "Либерально-демократическая партия Беларуси (ЛДПБ)", leader: "Oleg Gaidukevich (chairman)",
       seats: L3("4 of 110 seats (2024)", "4 sièges sur 110 (2024)", "4 de 110 escaños (2024)"),
       role: "support", pos: 1.0, style: "lean",
       dit: [
@@ -431,7 +431,7 @@ BAROTICO.add("belarus", {
               "No encontramos cuentas publicadas. El partido es uno de los cuatro que superaron la reinscripción de 2023.") },
       prog: [] },
 
-    { id: "demforces", name: "Democratic forces (in exile)", full: "Офіс Святланы Ціханоўскай, Аб'яднаны пераходны кабінет, Каардынацыйная рада (Tsikhanouskaya's office, United Transitional Cabinet, Coordination Council)", leader: "Sviatlana Tsikhanouskaya ('national leader' under a 2024 protocol)",
+    { id: "demforces", born: {"y": 2020, "m": 8, "gov": "never", "u": "https://www.rferl.org/amp/30802198.html"}, name: "Democratic forces (in exile)", full: "Офіс Святланы Ціханоўскай, Аб'яднаны пераходны кабінет, Каардынацыйная рада (Tsikhanouskaya's office, United Transitional Cabinet, Coordination Council)", leader: "Sviatlana Tsikhanouskaya ('national leader' under a 2024 protocol)",
       seats: L3("0 of 110 seats: not a registered party, cannot run in Belarus; Coordination Council of 80 seats elected online in May 2026", "0 siège sur 110 : pas un parti enregistré, ne peut pas se présenter en Biélorussie ; Conseil de coordination de 80 sièges élu en ligne en mai 2026", "0 de 110 escaños: no es un partido inscrito y no puede presentarse en Bielorrusia; Consejo de Coordinación de 80 escaños elegido en línea en mayo de 2026"),
       role: "opp", pos: 0.2, style: "lean",
       dit: [

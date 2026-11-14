@@ -243,7 +243,7 @@ BAROTICO.add("poland", {
                "Los escaños son el recuento de Polsat News del 29 de julio de 2026; desde entonces, al menos un diputado más pasó del PiS a Rozwój Plus. Rozwój Plus (una asociación, aún no un partido) y Centrum (un grupo desde febrero de 2026) aún no tienen programa electoral ni cuentas auditadas. La Konfederacja Korony Polskiej (Grzegorz Braun, círculo de tres diputados) no aparece porque el sitio muestra como máximo nueve grupos por escaños. Las posiciones izquierda-derecha son nuestra estimación del Chapel Hill Expert Survey; el PiS y Razem figuran como extrema derecha y extrema izquierda porque The PopuList los clasifica así (ver informe)."),
 
   parties: [
-    { id: "ko", name: "KO", full: "Koalicja Obywatelska", leader: "Donald Tusk",
+    { id: "ko", born: {"y": 2001, "old": "Platforma Obywatelska", "re": 2025, "gov": "lead", "u": "https://xyz.pl/?p=130121"}, name: "KO", full: "Koalicja Obywatelska", leader: "Donald Tusk",
       seats: L3("156 of 460 MPs (July 2026) · 30.70% and 157 seats in 2023", "156 députés sur 460 (juillet 2026) · 30,70 % et 157 sièges en 2023", "156 de 460 diputados (julio de 2026) · 30,70 % y 157 escaños en 2023"),
       role: "gov", pos: 0.2, style: "lean",
       dit: [
@@ -316,7 +316,7 @@ BAROTICO.add("poland", {
               "La PKW publica el informe anual auditado de cada partido; no pudimos abrir los informes de 2025 de los partidos miembros de la KO, así que no se muestra desglose.") },
       prog: [] },
 
-    { id: "pis", name: "PiS", full: "Prawo i Sprawiedliwość", leader: "Jarosław Kaczyński",
+    { id: "pis", born: {"y": 2001, "m": 6, "gov": "lead", "u": "https://www.infor.pl/prawo/wybory/partie-polityczne/685685,Prawo-i-Sprawiedliwosc.html"}, name: "PiS", full: "Prawo i Sprawiedliwość", leader: "Jarosław Kaczyński",
       seats: L3("146 of 460 MPs (29 July 2026), down from 194 after the Rozwój Plus split · 35.38% in 2023", "146 députés sur 460 (29 juillet 2026), contre 194 avant la scission de Rozwój Plus · 35,38 % en 2023", "146 de 460 diputados (29 de julio de 2026), frente a 194 antes de la escisión de Rozwój Plus · 35,38 % en 2023"),
       role: "opp", pos: 1.2, edge: true, style: "lean",
       dit: [
@@ -408,7 +408,7 @@ BAROTICO.add("poland", {
               "Ingresos 2025: 32,3 millones de zł, de ellos subvención estatal 13,4 millones y asignación presupuestaria 4,5 millones, donaciones 11,3 millones, cuotas 2,5 millones. El informe no separa las aportaciones de los cargos electos.") },
       prog: [] },
 
-    { id: "rozwoj", name: "Rozwój Plus", full: "Rozwój Plus (association; Sejm club since July 2026)", leader: "Mateusz Morawiecki",
+    { id: "rozwoj", born: {"y": 2026, "gov": "never", "u": "https://oko.press/na-zywo/na-zywo-relacja/konwencja-rozwoju-plus-morawiecki-chce-polski-sprawiedliwej-a-unii-tylko-handlowej"}, name: "Rozwój Plus", full: "Rozwój Plus (association; Sejm club since July 2026)", leader: "Mateusz Morawiecki",
       seats: L3("40 of 460 MPs (club registered July 2026), elected in 2023 on the PiS list", "40 députés sur 460 (groupe enregistré en juillet 2026), élus en 2023 sur la liste du PiS", "40 de 460 diputados (grupo registrado en julio de 2026), elegidos en 2023 en la lista del PiS"),
       role: "opp", pos: 1.0, style: "lean",
       dit: [
@@ -467,7 +467,7 @@ BAROTICO.add("poland", {
               "Rozwój Plus es una asociación, no un partido registrado, así que no presenta informe financiero de partido a la PKW; su financiación no es pública.") },
       prog: [] },
 
-    { id: "psl", name: "PSL", full: "Polskie Stronnictwo Ludowe", leader: "Władysław Kosiniak-Kamysz",
+    { id: "psl", born: {"y": 1990, "m": 5, "gov": "lead", "u": "https://www.infor.pl/prawo/wybory/partie-polityczne/685683,Polskie-Stronnictwo-Ludowe.html"}, name: "PSL", full: "Polskie Stronnictwo Ludowe", leader: "Władysław Kosiniak-Kamysz",
       seats: L3("32 of 460 MPs (2026) · elected on the Trzecia Droga list with Polska 2050 (14.40%, 65 seats in 2023)", "32 députés sur 460 (2026) · élus sur la liste Trzecia Droga avec Polska 2050 (14,40 %, 65 sièges en 2023)", "32 de 460 diputados (2026) · elegidos en la lista Trzecia Droga con Polska 2050 (14,40 %, 65 escaños en 2023)"),
       role: "gov", pos: 0.4, style: "lean",
       dit: [
@@ -526,7 +526,7 @@ BAROTICO.add("poland", {
               "Ingresos 2025: 12,1 millones de zł, de ellos subvención estatal 7,5 millones y asignación presupuestaria 0,4 millones, donaciones 3,9 millones, cuotas 0,1 millones. Informe aceptado con incumplimientos señalados en los registros de donaciones y contratos.") },
       prog: [] },
 
-    { id: "lewica", name: "Lewica", full: "Nowa Lewica (Koalicyjny Klub Parlamentarny Lewicy)", leader: "Włodzimierz Czarzasty",
+    { id: "lewica", born: {"y": 1999, "old": "Sojusz Lewicy Demokratycznej", "re": 2021, "gov": "lead", "u": "https://oko.press/nowa-lewica-sld-i-wiosna-lacza-sie-w-jedna-partie"}, name: "Lewica", full: "Nowa Lewica (Koalicyjny Klub Parlamentarny Lewicy)", leader: "Włodzimierz Czarzasty",
       seats: L3("21 of 460 MPs (2026) · 8.61% and 26 seats in 2023, including the Razem MPs who left in 2024", "21 députés sur 460 (2026) · 8,61 % et 26 sièges en 2023, y compris les députés de Razem partis en 2024", "21 de 460 diputados (2026) · 8,61 % y 26 escaños en 2023, incluidos los diputados de Razem que se fueron en 2024"),
       role: "gov", pos: -1.0, style: "lean",
       dit: [
@@ -590,7 +590,7 @@ BAROTICO.add("poland", {
               "No pudimos abrir la resolución de la PKW sobre el informe de 2025 de Nowa Lewica, así que no se muestra desglose.") },
       prog: [] },
 
-    { id: "konf", name: "Konfederacja", full: "Konfederacja Wolność i Niepodległość (Nowa Nadzieja, Ruch Narodowy)", leader: "Sławomir Mentzen · Krzysztof Bosak",
+    { id: "konf", born: {"y": 2019, "gov": "never", "u": "https://info.pkw.gov.pl/uploaded_files/1601461521_ewp-400-konfederacja-wolnosc-i-niepodleglosc.pdf"}, name: "Konfederacja", full: "Konfederacja Wolność i Niepodległość (Nowa Nadzieja, Ruch Narodowy)", leader: "Sławomir Mentzen · Krzysztof Bosak",
       seats: L3("16 of 460 MPs (2026) · 7.16% and 18 seats in 2023, then including Grzegorz Braun's party", "16 députés sur 460 (2026) · 7,16 % et 18 sièges en 2023, avec alors le parti de Grzegorz Braun", "16 de 460 diputados (2026) · 7,16 % y 18 escaños en 2023, entonces con el partido de Grzegorz Braun"),
       role: "opp", pos: 1.6, style: "lean",
       dit: [
@@ -655,7 +655,7 @@ BAROTICO.add("poland", {
               "Su subvención de 2025 quedó en unos 8 millones de zł tras el recorte de la PKW; no pudimos abrir su informe financiero anual, así que no se muestra desglose.") },
       prog: [] },
 
-    { id: "centrum", name: "Centrum", full: "Klub Parlamentarny Centrum", leader: "Paulina Hennig-Kloska",
+    { id: "centrum", born: {"y": 2026, "m": 2, "gov": "partner", "u": "https://www.rmf24.pl/fakty/polityka/news-rozlam-w-polsce-2050-klub-parlamentarny-centrum-wybral-lider,nId,8068117"}, name: "Centrum", full: "Klub Parlamentarny Centrum", leader: "Paulina Hennig-Kloska",
       seats: L3("15 of 460 MPs (club since February 2026) · elected in 2023 on the Trzecia Droga list", "15 députés sur 460 (groupe depuis février 2026) · élus en 2023 sur la liste Trzecia Droga", "15 de 460 diputados (grupo desde febrero de 2026) · elegidos en 2023 en la lista Trzecia Droga"),
       role: "gov", pos: 0.2, style: "lean",
       dit: [
@@ -710,7 +710,7 @@ BAROTICO.add("poland", {
               "Centrum es un grupo parlamentario creado en 2026; no se ha publicado ningún informe financiero de partido.") },
       prog: [] },
 
-    { id: "pl2050", name: "Polska 2050", full: "Polska 2050", leader: "Katarzyna Pełczyńska-Nałęcz",
+    { id: "pl2050", born: {"y": 2020, "m": 9, "gov": "partner", "u": "https://www.rmf24.pl/fakty/polska/news-holownia-zaklada-partie-nie-bedzie-jej-szefem,nId,4762140"}, name: "Polska 2050", full: "Polska 2050", leader: "Katarzyna Pełczyńska-Nałęcz",
       seats: L3("15 of 460 MPs (2026), down from 33 before the February 2026 split · elected on the Trzecia Droga list (14.40% with PSL)", "15 députés sur 460 (2026), contre 33 avant la scission de février 2026 · élus sur la liste Trzecia Droga (14,40 % avec le PSL)", "15 de 460 diputados (2026), frente a 33 antes de la escisión de febrero de 2026 · elegidos en la lista Trzecia Droga (14,40 % con el PSL)"),
       role: "gov", pos: 0.2, style: "lean",
       dit: [
@@ -770,7 +770,7 @@ BAROTICO.add("poland", {
               "No pudimos abrir la resolución de la PKW sobre el informe de 2025 de Polska 2050, así que no se muestra desglose.") },
       prog: [] },
 
-    { id: "razem", name: "Razem", full: "Partia Razem (koło poselskie)", leader: "Adrian Zandberg",
+    { id: "razem", born: {"y": 2015, "gov": "never", "u": "https://www.rp.pl/polityka/art41573981-sejmowa-partia-zmienila-nazwe-czas-na-powrot-do-korzeni"}, name: "Razem", full: "Partia Razem (koło poselskie)", leader: "Adrian Zandberg",
       seats: L3("4 of 460 MPs (a circle, 2026) · elected in 2023 on the Lewica list (8.61%)", "4 députés sur 460 (un cercle, 2026) · élus en 2023 sur la liste Lewica (8,61 %)", "4 de 460 diputados (un círculo, 2026) · elegidos en 2023 en la lista de Lewica (8,61 %)"),
       role: "opp", pos: -1.5, edge: true, style: "lean",
       dit: [

@@ -287,7 +287,7 @@ BAROTICO.add("romania", {
                "Los escaños indicados son los asignados tras las parlamentarias de diciembre de 2024. Desde entonces, SOS România ha perdido 13 diputados y su grupo en el Senado, el grupo de POT en la Cámara quedó en manos de miembros expulsados y pasó a llamarse «Uniți pentru România» (mayo de 2026), y exsenadores de SOS y POT formaron el grupo «PACE - Întâi România». El grupo de las minorías nacionales (19 escaños) no figura como partido, porque reúne a 18 organizaciones distintas elegidas en escaños reservados."),
 
   parties: [
-    { id: "psd", name: "PSD", full: "Partidul Social Democrat", leader: "Sorin Grindeanu",
+    { id: "psd", born: {"y": 2001, "m": 6, "gov": "lead", "u": "https://www.antena3.ro/campanii/romania-la-vot/psd-cel-mai-mare-partid-politic-din-romania-si-cu-radacini-bine-infipte-in-istorie-162765.html"}, name: "PSD", full: "Partidul Social Democrat", leader: "Sorin Grindeanu",
       seats: L3("86 deputies of 331 and 37 senators of 134 (2024)","86 députés sur 331 et 37 sénateurs sur 134 (2024)","86 diputados de 331 y 37 senadores de 134 (2024)"),
       role: "gov", pos: -0.4, style: "lean",
       dit: [L3("Protect pensions and incomes","Protéger les pensions et les revenus","Proteger las pensiones y los ingresos"),
@@ -369,7 +369,7 @@ BAROTICO.add("romania", {
                    "Porcentajes calculados con las cifras de EFOR sobre unos ingresos declarados de 79 millones de lei: subvención contabilizada 62,9 millones, cuotas casi 11 millones, donaciones de particulares unos 0,9 millones y el resto otros ingresos. El PSD tenía además unos 83 millones de lei en préstamos, la cifra más alta de todos los partidos, que no cuentan como ingresos.") },
       prog: [] },
 
-    { id: "aur", name: "AUR", full: "Alianța pentru Unirea Românilor", leader: "George Simion",
+    { id: "aur", born: {"y": 2019, "m": 9, "gov": "never", "u": "https://spotmedia.ro/stiri/alegeri-parlamentare-2020/alegeri-parlamentare-2020-partide-nou-infiintate-la-alegerile-legislative-din-6-decembrie-2020"}, name: "AUR", full: "Alianța pentru Unirea Românilor", leader: "George Simion",
       seats: L3("64 deputies of 331 and 28 senators of 134 (2024)","64 députés sur 331 et 28 sénateurs sur 134 (2024)","64 diputados de 331 y 28 senadores de 134 (2024)"),
       role: "opp", pos: 1.7, style: "lean",
       dit: [L3("National sovereignty and family, faith and nation","Souveraineté nationale, famille, foi et nation","Soberanía nacional, familia, fe y nación"),
@@ -441,7 +441,7 @@ BAROTICO.add("romania", {
                    "Ingresos declarados de unos 90,8 millones de lei, los más altos de todos los partidos: subvención contabilizada 40,0 millones (44 %), cuotas unos 9 millones y 50,8 millones de otros ingresos cuya parte de donaciones no se publica por separado. Préstamos: unos 25,8 millones de lei.") },
       prog: [] },
 
-    { id: "pnl", name: "PNL", full: "Partidul Național Liberal", leader: "Ilie Bolojan",
+    { id: "pnl", born: {"y": 1990, "m": 1, "gov": "lead", "u": "https://observatornews.ro/politic/radu-campeanu-a-murit-inchis-de-comunisti-la-25-de-ani-emigreaza-in-franta-la-51-de-ani-si-revine-in-tara-la-67-de-ani-pentru-a-reinfiinta-pnl-188387.html"}, name: "PNL", full: "Partidul Național Liberal", leader: "Ilie Bolojan",
       seats: L3("50 deputies of 331 and 22 senators of 134 (2024)","50 députés sur 331 et 22 sénateurs sur 134 (2024)","50 diputados de 331 y 22 senadores de 134 (2024)"),
       role: "support", pos: 0.7, style: "lean",
       dit: [L3("Sound public finances and a smaller state","Des finances publiques saines et un État plus léger","Finanzas públicas sanas y un Estado más pequeño"),
@@ -523,7 +523,7 @@ BAROTICO.add("romania", {
                    "Porcentajes calculados con las cifras de EFOR sobre unos ingresos declarados de 69 millones de lei: subvención contabilizada 41,1 millones, cuotas casi 11 millones, donaciones unos 3,4 millones (particulares y empresas) y el resto otros ingresos. Préstamos: unos 30.000 lei.") },
       prog: [] },
 
-    { id: "usr", name: "USR", full: "Uniunea Salvați România", leader: "Dominic Fritz",
+    { id: "usr", born: {"y": 2016, "m": 6, "gov": "partner", "u": "https://www.g4media.ro/care-a-fost-traseul-aliantei-dintre-usr-plus-fuziune-aprobata-definitiv-de-curtea-de-apel-bucuresti.html"}, name: "USR", full: "Uniunea Salvați România", leader: "Dominic Fritz",
       seats: L3("40 deputies of 331 and 19 senators of 134 (2024)","40 députés sur 331 et 19 sénateurs sur 134 (2024)","40 diputados de 331 y 19 senadores de 134 (2024)"),
       role: "opp", pos: 0.3, style: "lean",
       dit: [L3("Fight corruption and clientelism","Lutter contre la corruption et le clientélisme","Luchar contra la corrupción y el clientelismo"),
@@ -591,7 +591,7 @@ BAROTICO.add("romania", {
                    "Porcentajes calculados con las cifras de EFOR sobre unos ingresos declarados de 65,7 millones de lei: subvención contabilizada 38,6 millones, cuotas unos 2,9 millones, donaciones unos 1,4 millones y el resto otros ingresos que EFOR no desglosa. Préstamos: unos 0,97 millones de lei.") },
       prog: [] },
 
-    { id: "sos", name: "SOS România", full: "S.O.S. România", leader: "Diana Șoșoacă",
+    { id: "sos", born: {"y": 2021, "m": 11, "gov": "never", "u": "https://www.osw.waw.pl/en/publikacje/osw-commentary/2024-04-29/a-shift-further-to-right-radical-parties-are-gaining"}, name: "SOS România", full: "S.O.S. România", leader: "Diana Șoșoacă",
       seats: L3("27 deputies of 331 and 11 senators of 134 (2024); 15 deputies remain in 2026, no Senate group","27 députés sur 331 et 11 sénateurs sur 134 (2024) ; 15 députés restants en 2026, plus de groupe au Sénat","27 diputados de 331 y 11 senadores de 134 (2024); quedan 15 diputados en 2026, sin grupo en el Senado"),
       role: "opp", pos: 1.9, style: "lean",
       dit: [L3("Defend Romania's sovereignty against foreign pressure","Défendre la souveraineté de la Roumanie face aux pressions étrangères","Defender la soberanía de Rumanía frente a las presiones extranjeras"),
@@ -645,7 +645,7 @@ BAROTICO.add("romania", {
                    "No hay desglose: cuando EFOR hizo su análisis, SOS România no había publicado estados financieros completos de 2025. La AEP le transfirió unos 19,8 millones de lei en subvenciones en 2025, de los que gastó unos 16,8 millones.") },
       prog: [] },
 
-    { id: "udmr", name: "UDMR", full: "Uniunea Democrată Maghiară din România / Romániai Magyar Demokrata Szövetség", leader: "Kelemen Hunor",
+    { id: "udmr", born: {"y": 1989, "m": 12, "gov": "partner", "u": "https://www.mediafax.ro/?p=5331477"}, name: "UDMR", full: "Uniunea Democrată Maghiară din România / Romániai Magyar Demokrata Szövetség", leader: "Kelemen Hunor",
       seats: L3("22 deputies of 331 and 10 senators of 134 (2024)","22 députés sur 331 et 10 sénateurs sur 134 (2024)","22 diputados de 331 y 10 senadores de 134 (2024)"),
       role: "support", pos: 0.5, style: "rake",
       rakeNote: L3("It sat in the PNL-led Bolojan cabinet (2025-2026), and in October 2026 it signed a support agreement with the PSD-dominated Niculescu cabinet.",
@@ -708,7 +708,7 @@ BAROTICO.add("romania", {
                    "No se publica desglose de ingresos. La UDMR no recibió subvención de partido en 2025 y optó por la financiación de las organizaciones de minorías. EFOR describe unos ingresos privados limitados (unos 17.000 lei de donaciones de empresas) y unos ingresos sobre todo públicos.") },
       prog: [] },
 
-    { id: "pot", name: "POT", full: "Partidul Oamenilor Tineri", leader: "Anamaria Gavrilă",
+    { id: "pot", born: {"y": 2023, "gov": "never", "u": "https://www.antena3.ro/politica/piticii-de-pe-buletinul-de-vot-cine-sunt-pot-si-sens-dar-si-cele-doua-clone-ale-psd-729329.html"}, name: "POT", full: "Partidul Oamenilor Tineri", leader: "Anamaria Gavrilă",
       seats: L3("23 deputies of 331 and 7 senators of 134 (2024); no parliamentary group since May 2026","23 députés sur 331 et 7 sénateurs sur 134 (2024) ; plus de groupe parlementaire depuis mai 2026","23 diputados de 331 y 7 senadores de 134 (2024); sin grupo parlamentario desde mayo de 2026"),
       role: "opp", pos: 1.5, style: "lean",
       dit: [L3("A sovereigntist, 'pro-Romanian' party of young people","Un parti souverainiste, « pro-roumain », des jeunes","Un partido soberanista, «prorrumano», de jóvenes"),

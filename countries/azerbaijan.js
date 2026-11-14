@@ -227,7 +227,7 @@ BAROTICO.add("azerbaijan", {
                "Los enlaces a programas quedan vacíos: no abrimos las páginas de programa de los partidos. Los valores declarados vienen de declaraciones de los partidos recogidas por medios azerbaiyanos y en el exilio. Las posiciones izquierda-derecha son estimaciones de la redacción basadas en comentarios de expertos nacionales, no en una encuesta de expertos (ver cada ficha)."),
 
   parties: [
-    { id: "yap", name: "New Azerbaijan Party", full: "Yeni Azərbaycan Partiyası (YAP)", leader: "Ilham Aliyev (chairman, President of the Republic)",
+    { id: "yap", born: {"y": 1992, "m": 11, "gov": "lead", "u": "https://president.az/en/articles/view/6667"}, name: "New Azerbaijan Party", full: "Yeni Azərbaycan Partiyası (YAP)", leader: "Ilham Aliyev (chairman, President of the Republic)",
       seats: L3("68 of 125 seats (2024, preliminary official results)", "68 sièges sur 125 (2024, résultats officiels préliminaires)", "68 de 125 escaños (2024, resultados oficiales preliminares)"),
       role: "gov", pos: 0.5, style: "lean",
       dit: [
@@ -297,7 +297,7 @@ BAROTICO.add("azerbaijan", {
               "El último estado financiero que pudimos abrir (2018) muestra 9,4 millones de manat de ingresos, de ellos 1,37 millones de «otros ingresos», sin desglose publicado entre financiación pública, cuotas y donaciones. La Comisión de Venecia pidió que la financiación pública dependa más de los votos que de los escaños.") },
       prog: [] },
 
-    { id: "real", name: "REAL", full: "Respublikaçı Alternativ Partiyası (Republican Alternative Party)", leader: "Political Committee (Ilgar Mammadov stepped down as chairman in September 2024)",
+    { id: "real", born: {"y": 2018, "m": 4, "gov": "never", "u": "https://jam-news.net/az/?p=8157"}, name: "REAL", full: "Respublikaçı Alternativ Partiyası (Republican Alternative Party)", leader: "Political Committee (Ilgar Mammadov stepped down as chairman in September 2024)",
       seats: L3("1 of 125 seats (2024): Erkin Gadirli, re-elected", "1 siège sur 125 (2024) : Erkin Gadirli, réélu", "1 de 125 escaños (2024): Erkin Gadirli, reelegido"),
       role: "opp", pos: 0.3, style: "lean",
       dit: [
@@ -351,7 +351,7 @@ BAROTICO.add("azerbaijan", {
               "No encontramos cuentas publicadas. La ley de partidos de 2023 da al Ministerio de Justicia un amplio control sobre los partidos; la Comisión de Venecia pidió que la financiación pública dependa más de los votos que de los escaños.") },
       prog: [] },
 
-    { id: "axcp", name: "Popular Front Party", full: "Azərbaycan Xalq Cəbhəsi Partiyası (AXCP, Azerbaijan Popular Front Party)", leader: "Ali Karimli (chairman, in pre-trial detention since 29 November 2025)",
+    { id: "axcp", born: {"y": 1989, "gov": "lead", "u": "https://countrystudies.us/azerbaijan/28.htm"}, name: "Popular Front Party", full: "Azərbaycan Xalq Cəbhəsi Partiyası (AXCP, Azerbaijan Popular Front Party)", leader: "Ali Karimli (chairman, in pre-trial detention since 29 November 2025)",
       seats: L3("0 of 125 seats: boycotted the 2024 elections", "0 siège sur 125 : a boycotté les élections de 2024", "0 de 125 escaños: boicoteó las elecciones de 2024"),
       role: "opp", pos: 0.4, style: "lean",
       dit: [
@@ -410,7 +410,7 @@ BAROTICO.add("azerbaijan", {
               "No encontramos cuentas publicadas. Según la Comisión de Venecia, la financiación pública se pondera por escaños, y el partido no tiene ninguno; pidió que dependa más de los votos.") },
       prog: [] },
 
-    { id: "musavat", name: "Musavat", full: "Müsavat Partiyası (Musavat Party)", leader: "Arif Hajili (chairman)",
+    { id: "musavat", born: {"y": 1992, "old": "Yeni Müsavat (New Musavat)", "gov": "never", "u": "https://encyclopedia.com/history/encyclopedias-almanacs-transcripts-and-maps/musavat"}, name: "Musavat", full: "Müsavat Partiyası (Musavat Party)", leader: "Arif Hajili (chairman)",
       seats: L3("0 of 125 seats (2024): about 25 candidates, none elected", "0 siège sur 125 (2024) : environ 25 candidats, aucun élu", "0 de 125 escaños (2024): unos 25 candidatos, ninguno elegido"),
       role: "opp", pos: 0.6, style: "lean",
       dit: [

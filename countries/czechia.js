@@ -249,7 +249,7 @@ BAROTICO.add("czechia", {
                "Los escaños son los obtenidos en octubre de 2025. ODS, KDU-ČSL y TOP 09 se presentaron juntos como SPOLU (23,4 %, 52 escaños) pero forman tres grupos distintos, por lo que tienen fichas separadas. Dos Verdes salieron elegidos en la lista pirata. Stačilo! no tiene escaños pero obtuvo el 4,3 %, por encima del umbral del 3 % de este sitio."),
 
   parties: [
-    { id: "ano", name: "ANO", full: "ANO 2011", leader: "Andrej Babiš",
+    { id: "ano", born: {"y": 2012, "gov": "lead", "u": "https://www.novinky.cz/clanek/volby-ano-2011-vznik-a-vyvoj-politicke-strany-andreje-babise-40364176"}, name: "ANO", full: "ANO 2011", leader: "Andrej Babiš",
       seats: L3("80 seats of 200 (34.5%, 2025)","80 sièges sur 200 (34,5 %, 2025)","80 escaños de 200 (34,5 %, 2025)"),
       role: "gov", pos: 0.4, style: "lean",
       dit: [L3("Cheaper energy and lower living costs","Une énergie moins chère et une vie moins coûteuse","Energía más barata y vida menos cara"),
@@ -325,7 +325,7 @@ BAROTICO.add("czechia", {
                    "No se encontró desglose por fuentes. ANO declaró 185 millones de coronas de ingresos y 217 millones de gastos en 2025 (pérdida de 31,8 millones). Por su resultado electoral de 2025 recibió en 2026 una contribución pública única de 194 millones de coronas, la mayor de todos los partidos (Ministerio de Hacienda).") },
       prog: [] },
 
-    { id: "ods", name: "ODS", full: "Občanská demokratická strana", leader: "Martin Kupka",
+    { id: "ods", born: {"y": 1991, "m": 3, "gov": "lead", "u": "https://mv.gov.cz/seznam-politickych-stran?id=120&PageNo=6"}, name: "ODS", full: "Občanská demokratická strana", leader: "Martin Kupka",
       seats: L3("27 seats of 200 (elected on the SPOLU list, 2025)","27 sièges sur 200 (élus sur la liste SPOLU, 2025)","27 escaños de 200 (elegidos en la lista SPOLU, 2025)"),
       role: "opp", pos: 1.0, style: "lean",
       dit: [L3("Low taxes and a lean state","Des impôts bas et un État léger","Impuestos bajos y un Estado ligero"),
@@ -388,7 +388,7 @@ BAROTICO.add("czechia", {
                    "No se encontró desglose por fuentes. ODS cerró 2025 con un superávit de unos 10,4 millones de coronas. Su parte de la contribución pública de SPOLU por las elecciones de 2025 fue de 72,2 millones, pagados en 2026.") },
       prog: [] },
 
-    { id: "stan", name: "STAN", full: "Starostové a nezávislí", leader: "Vít Rakušan",
+    { id: "stan", born: {"y": 2004, "m": 8, "gov": "partner", "u": "https://mv.gov.cz/seznam-politickych-stran?id=228&PageNo=8"}, name: "STAN", full: "Starostové a nezávislí", leader: "Vít Rakušan",
       seats: L3("22 seats of 200 (11.2%, 2025)","22 sièges sur 200 (11,2 %, 2025)","22 escaños de 200 (11,2 %, 2025)"),
       role: "opp", pos: 0.2, style: "lean",
       dit: [L3("Politics led by mayors and the regions","Une politique menée par les maires et les régions","Una política dirigida por alcaldes y regiones"),
@@ -452,7 +452,7 @@ BAROTICO.add("czechia", {
                    "No se encontró desglose por fuentes. STAN declaró una pérdida de 33,7 millones de coronas en 2025. Por su resultado electoral de 2025 recibió en 2026 una contribución pública única de 63,2 millones.") },
       prog: [] },
 
-    { id: "pirati", name: "Piráti", full: "Česká pirátská strana", leader: "Zdeněk Hřib",
+    { id: "pirati", born: {"y": 2009, "m": 6, "gov": "partner", "u": "https://www.lupa.cz/clanky/ceska-piratska-strana-nastinila-svuj-program/"}, name: "Piráti", full: "Česká pirátská strana", leader: "Zdeněk Hřib",
       seats: L3("18 seats of 200 (9.0%, 2025; two of them Greens elected on its list)","18 sièges sur 200 (9,0 %, 2025 ; dont deux Verts élus sur sa liste)","18 escaños de 200 (9,0 %, 2025; dos de ellos Verdes elegidos en su lista)"),
       role: "opp", pos: -0.4, style: "lean",
       dit: [L3("A digital state: everything online","Un État numérique : tout en ligne","Un Estado digital: todo en línea"),
@@ -512,7 +512,7 @@ BAROTICO.add("czechia", {
                    "No se encontró desglose por fuentes. Los Piratas declararon una pérdida de 57,4 millones de coronas en 2025, la mayor de los partidos parlamentarios. Por su resultado electoral de 2025 recibieron en 2026 una contribución pública única de 50,5 millones.") },
       prog: [] },
 
-    { id: "kdu", name: "KDU-ČSL", full: "Křesťanská a demokratická unie – Československá strana lidová", leader: "Jan Grolich",
+    { id: "kdu", born: {"y": 1991, "m": 11, "gov": "partner", "u": "https://mv.gov.cz/seznam-politickych-stran?id=112&PageNo=3"}, name: "KDU-ČSL", full: "Křesťanská a demokratická unie – Československá strana lidová", leader: "Jan Grolich",
       seats: L3("16 seats of 200 (elected on the SPOLU list, 2025)","16 sièges sur 200 (élus sur la liste SPOLU, 2025)","16 escaños de 200 (elegidos en la lista SPOLU, 2025)"),
       role: "opp", pos: 0.4, style: "lean",
       dit: [L3("Support for families","Le soutien aux familles","Apoyo a las familias"),
@@ -568,7 +568,7 @@ BAROTICO.add("czechia", {
                    "No se encontró desglose por fuentes. KDU-ČSL cerró 2025 con un superávit de unos 16,2 millones de coronas. Su parte de la contribución pública de SPOLU por las elecciones de 2025 fue de 29,6 millones, pagados en 2026.") },
       prog: [] },
 
-    { id: "spd", name: "SPD", full: "Svoboda a přímá demokracie", leader: "Tomio Okamura",
+    { id: "spd", born: {"y": 2015, "m": 6, "gov": "partner", "u": "https://mv.gov.cz/seznam-politickych-stran?id=468&PageNo=8"}, name: "SPD", full: "Svoboda a přímá demokracie", leader: "Tomio Okamura",
       seats: L3("15 seats of 200 (7.8%, 2025)","15 sièges sur 200 (7,8 %, 2025)","15 escaños de 200 (7,8 %, 2025)"),
       role: "gov", pos: 1.7, style: "lean",
       dit: [L3("Direct democracy: let the people decide by referendum","Démocratie directe : que le peuple décide par référendum","Democracia directa: que el pueblo decida por referéndum"),
@@ -634,7 +634,7 @@ BAROTICO.add("czechia", {
                    "No se encontró desglose por fuentes. El SPD declaró una pérdida de 39,9 millones de coronas en 2025. Por su resultado electoral de 2025 recibió en 2026 una contribución pública única de 43,8 millones.") },
       prog: [] },
 
-    { id: "motoriste", name: "Motoristé", full: "Motoristé sobě", leader: "Petr Macinka",
+    { id: "motoriste", born: {"y": 2017, "m": 4, "re": 2022, "gov": "partner", "u": "https://mv.gov.cz/seznam-politickych-stran?id=501&PageNo=4"}, name: "Motoristé", full: "Motoristé sobě", leader: "Petr Macinka",
       seats: L3("13 seats of 200 (6.8%, 2025)","13 sièges sur 200 (6,8 %, 2025)","13 escaños de 200 (6,8 %, 2025)"),
       role: "gov", pos: 1.4, style: "lean",
       dit: [L3("The most fiscally responsible party: a balanced budget within four years","Le parti le plus responsable budgétairement : un budget équilibré en quatre ans","El partido más responsable con el presupuesto: equilibrio en cuatro años"),
@@ -692,7 +692,7 @@ BAROTICO.add("czechia", {
                    "Porcentajes calculados con las cifras publicadas de 2025: ingresos de 76 millones de coronas, de ellos 44 millones de contribuciones públicas, 30,5 millones de donaciones y 1,5 millones de cuotas; superávit de unos 19 millones. Las aportaciones de cargos electos no se publican por separado.") },
       prog: [] },
 
-    { id: "top09", name: "TOP 09", full: "TOP 09", leader: "Matěj Ondřej Havel",
+    { id: "top09", born: {"y": 2009, "m": 6, "gov": "partner", "u": "https://mv.gov.cz/seznam-politickych-stran?id=321&PageNo=9"}, name: "TOP 09", full: "TOP 09", leader: "Matěj Ondřej Havel",
       seats: L3("9 seats of 200 (elected on the SPOLU list, 2025)","9 sièges sur 200 (élus sur la liste SPOLU, 2025)","9 escaños de 200 (elegidos en la lista SPOLU, 2025)"),
       role: "opp", pos: 0.7, style: "lean",
       dit: [L3("Responsible public finances","Des finances publiques responsables","Finanzas públicas responsables"),
@@ -747,7 +747,7 @@ BAROTICO.add("czechia", {
                    "No se encontró desglose por fuentes. TOP 09 cerró 2025 con un superávit de unos 10,6 millones de coronas. Su parte de la contribución pública de SPOLU por las elecciones de 2025 fue de 29,6 millones, pagados en 2026.") },
       prog: [] },
 
-    { id: "stacilo", name: "Stačilo!", full: "Stačilo! (KSČM, SOCDEM and allies)", leader: "Kateřina Konečná",
+    { id: "stacilo", born: {"y": 2024, "m": 10, "gov": "never", "u": "https://mv.gov.cz/seznam-politickych-stran?id=622&PageNo=8"}, name: "Stačilo!", full: "Stačilo! (KSČM, SOCDEM and allies)", leader: "Kateřina Konečná",
       seats: L3("No seats: 4.3% in 2025, below the 5% threshold","Aucun siège : 4,3 % en 2025, sous le seuil de 5 %","Sin escaños: 4,3 % en 2025, por debajo del umbral del 5 %"),
       role: "opp", pos: -1.6, style: "lean",
       dit: [L3("A referendum on membership of the EU and NATO","Un référendum sur l'appartenance à l'UE et à l'OTAN","Un referéndum sobre la pertenencia a la UE y la OTAN"),

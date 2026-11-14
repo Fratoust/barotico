@@ -148,7 +148,7 @@ BAROTICO.add("portugal", {
                "Le PSD et le CDS-PP se sont présentés ensemble sous le nom d'Aliança Democrática (AD) avec un programme commun, mais siègent en deux groupes parlementaires.",
                "PSD y CDS-PP concurrieron juntos como Aliança Democrática (AD) con un programa común, pero forman dos grupos parlamentarios."),
   parties: [
-    { id: "psd", name: "PSD", full: "Partido Social Democrata", leader: "Luís Montenegro",
+    { id: "psd", born: {"y": 1974, "m": 5, "old": "PPD", "gov": "lead", "u": "https://www.dn.pt/opiniao/psd-foi-fundado-faz-hoje-47-anos-13690281.html"}, name: "PSD", full: "Partido Social Democrata", leader: "Luís Montenegro",
       seats: L3("89 seats of 230 (2025, AD list with CDS-PP)", "89 sièges sur 230 (2025, liste AD avec le CDS-PP)", "89 escaños de 230 (2025, lista AD con el CDS-PP)"),
       role: "gov", pos: 0.5, style: "lean",
       dit: [L3("Lower taxes on work", "Moins d'impôts sur le travail", "Menos impuestos sobre el trabajo"),
@@ -234,7 +234,7 @@ BAROTICO.add("portugal", {
                    "Subvención pública de 6,1 millones de euros en 2025 (5,6 millones en 2024); donaciones de 881.000 € (174.000 en 2024); cuentas con superávit. No se publicó un desglose porcentual completo en las fuentes halladas.") },
       prog: [["2025", "https://ad2025.pt/pdf/programa-eleitoral.pdf"]] },
 
-    { id: "chega", name: "Chega", full: "Chega", leader: "André Ventura",
+    { id: "chega", born: {"y": 2019, "m": 4, "gov": "never", "u": "https://www.rtp.pt/noticias/pais/o-ano-em-que-a-direita-radical-chegou-a-segunda-forca-parlamentar_n1703168"}, demw: [[{"en": "Constitutional revision bill (7 May 2026), art. 4: \"a nacionalidade portuguesa adquirida e não originária pode ser revogada\" for fraud or acts that \"atentem gravemente contra os valores fundamentais do Estado português\". André Ventura, 8 May 2026: Parliament should confirm the struck-down decree regardless of the Court's reading, or hold a referendum.", "fr": "Projet de révision constitutionnelle (7 mai 2026), art. 4 : « a nacionalidade portuguesa adquirida e não originária pode ser revogada » en cas de fraude ou d'actes qui « atentem gravemente contra os valores fundamentais do Estado português ». André Ventura, 8 mai 2026 : le Parlement devrait confirmer le décret censuré quelle que soit la lecture du Tribunal, ou organiser un référendum.", "es": "Proyecto de reforma constitucional (7 de mayo de 2026), art. 4: «a nacionalidade portuguesa adquirida e não originária pode ser revogada» en caso de fraude o de actos que «atentem gravemente contra os valores fundamentais do Estado português». André Ventura, 8 de mayo de 2026: el Parlamento debería confirmar el decreto anulado al margen de la interpretación del Tribunal, o convocar un referéndum."}, {"en": "The Tribunal Constitucional unanimously struck down loss of nationality as an accessory penalty on 15 December 2025 and, in a revised version, on 8 May 2026, for breaching equality (naturalised citizens treated differently from citizens by birth) and proportionality. Chega contests the rulings, Ventura saying the judges were substituting themselves for the majority and the legislator; on 3 July 2026 Parliament refused to confirm the decree, 152 votes to 56, with Chega and CDS-PP in favour.", "fr": "Le Tribunal constitutionnel a censuré à l'unanimité la perte de nationalité comme peine accessoire le 15 décembre 2025 puis, dans une version révisée, le 8 mai 2026, pour atteinte à l'égalité (naturalisés traités autrement que les citoyens de naissance) et à la proportionnalité. Chega conteste ces décisions, André Ventura estimant que les juges se substituent à la majorité et au législateur ; le 3 juillet 2026, le Parlement a refusé de confirmer le décret par 152 voix contre 56, Chega et le CDS-PP votant pour.", "es": "El Tribunal Constitucional anuló por unanimidad la pérdida de la nacionalidad como pena accesoria el 15 de diciembre de 2025 y, en una versión revisada, el 8 de mayo de 2026, por vulnerar la igualdad (naturalizados tratados de forma distinta a los ciudadanos de origen) y la proporcionalidad. Chega impugna las sentencias: André Ventura dijo que los jueces suplantan a la mayoría y al legislador; el 3 de julio de 2026 el Parlamento rechazó confirmar el decreto por 152 votos contra 56, con Chega y el CDS-PP a favor."}, "https://www.cmjornal.pt/politica/amp/chega-quer-que-constituicao-permita-perda-de-nacionalidade", 4, ["https://eco.sapo.pt/2026/05/08/ventura-desafia-direita-a-reconfirmar-perda-de-nacionalidade-e-admite-referendo/", "https://www.cmjornal.pt/politica/amp/confirmacao-do-decreto-de-perda-de-nacionalidade-reprovada-por-ampla-maioria", "https://eco.sapo.pt/2026/05/07/chega-quer-prisao-perpetua-e-perda-da-nacionalidade-na-constituicao/"]]], name: "Chega", full: "Chega", leader: "André Ventura",
       seats: L3("60 seats of 230 (2025)", "60 sièges sur 230 (2025)", "60 escaños de 230 (2025)"),
       role: "opp", pos: 1.8, style: "lean",
       dit: [L3("Much tougher sentences, including life imprisonment", "Des peines bien plus lourdes, dont la perpétuité", "Penas mucho más duras, incluida la cadena perpetua"),
@@ -326,7 +326,7 @@ BAROTICO.add("portugal", {
                    "5,23 millones de euros en «subvenciones, donaciones y legados» y unos 10 millones de «otros ingresos» sin desglosar; superávit de 1,36 millones en 2025.") },
       prog: [] },
 
-    { id: "ps", name: "PS", full: "Partido Socialista", leader: "José Luís Carneiro",
+    { id: "ps", born: {"y": 1973, "m": 4, "gov": "lead", "u": "https://www.dn.pt/edicao-do-dia/19-abr-2023/costa-quer-grande-mobilizacao-cesar-diz-que-e-preciso-reinventar-o-ps--16200488.html"}, name: "PS", full: "Partido Socialista", leader: "José Luís Carneiro",
       seats: L3("58 seats of 230 (2025)", "58 sièges sur 230 (2025)", "58 escaños de 230 (2025)"),
       role: "opp", pos: -0.6, style: "lean",
       dit: [L3("Bring back zero VAT on basic food", "Rétablir la TVA zéro sur l'alimentation de base", "Recuperar el IVA cero en alimentos básicos"),
@@ -409,7 +409,7 @@ BAROTICO.add("portugal", {
                    "Déficit de unos 695.000 € en 2025, sobre todo por la caída de su subvención pública tras las elecciones de 2025; donaciones de 391.000 €; gasto de 11,3 millones. Sin desglose porcentual en las fuentes halladas.") },
       prog: [] },
 
-    { id: "il", name: "IL", full: "Iniciativa Liberal", leader: "Mariana Leitão",
+    { id: "il", born: {"y": 2017, "m": 12, "gov": "never", "u": "https://www.rtp.pt/noticias/politica/iniciativa-liberal-ficha-do-partido_n1630854"}, name: "IL", full: "Iniciativa Liberal", leader: "Mariana Leitão",
       seats: L3("9 seats of 230 (2025)", "9 sièges sur 230 (2025)", "9 escaños de 230 (2025)"),
       role: "opp", pos: 1.1, style: "lean",
       dit: [L3("Growth as the top political priority", "La croissance comme priorité politique absolue", "El crecimiento como prioridad política máxima"),
@@ -476,7 +476,7 @@ BAROTICO.add("portugal", {
                    "Ligero superávit en 2025 (175.000 € según el partido a Lusa; 18.000 € en la página de la ECFP, limitada a su representación parlamentaria). Sin desglose de ingresos en las fuentes halladas.") },
       prog: [] },
 
-    { id: "livre", name: "Livre", full: "Livre", leader: "Isabel Mendes Lopes and Jorge Pinto",
+    { id: "livre", born: {"y": 2014, "m": 1, "gov": "never", "u": "https://observador.pt/especiais/livre-como-funciona-o-partido-que-nao-tem-um-lider/"}, name: "Livre", full: "Livre", leader: "Isabel Mendes Lopes and Jorge Pinto",
       seats: L3("6 seats of 230 (2025)", "6 sièges sur 230 (2025)", "6 escaños de 230 (2025)"),
       role: "opp", pos: -1.1, style: "lean",
       dit: [L3("A four-day working week", "La semaine de quatre jours", "La semana laboral de cuatro días"),
@@ -538,7 +538,7 @@ BAROTICO.add("portugal", {
                    "Superávit de 265.900 € en 2025 (57.800 € en 2024). Sin desglose de ingresos en las fuentes halladas.") },
       prog: [] },
 
-    { id: "pcp", name: "PCP (CDU)", full: "Partido Comunista Português", leader: "Paulo Raimundo",
+    { id: "pcp", born: {"y": 1921, "m": 3, "gov": "partner", "u": "https://www.dnoticias.pt/2021/3/6/253171-costa-felicita-pcp-e-congratula-se-com-respostas-comuns/"}, name: "PCP (CDU)", full: "Partido Comunista Português", leader: "Paulo Raimundo",
       seats: L3("3 seats of 230 (2025, CDU list)", "3 sièges sur 230 (2025, liste CDU)", "3 escaños de 230 (2025, lista CDU)"),
       role: "opp", pos: -1.6, style: "lean",
       dit: [L3("Higher wages and pensions", "Hausse des salaires et des pensions", "Subir salarios y pensiones"),
@@ -606,7 +606,7 @@ BAROTICO.add("portugal", {
                    "Superávit de 651.000 € en 2025 (695.000 € en 2024). Las cuotas y la Festa do Avante anual forman parte de sus ingresos, pero no se publicó un desglose porcentual en las fuentes halladas.") },
       prog: [["2024", "https://www.cdu.pt/assets/docs/programa_eleitoral_pcp_2024.pdf?admin"]] },
 
-    { id: "cds", name: "CDS-PP", full: "CDS – Partido Popular", leader: "Nuno Melo",
+    { id: "cds", born: {"y": 1974, "m": 7, "old": "CDS", "re": 1995, "gov": "partner", "u": "https://www.noticiasaominuto.com/politica/1399325/45-anos-de-historia-do-cds-pp-em-39-datas"}, name: "CDS-PP", full: "CDS – Partido Popular", leader: "Nuno Melo",
       seats: L3("2 seats of 230 (2025, AD list with PSD)", "2 sièges sur 230 (2025, liste AD avec le PSD)", "2 escaños de 230 (2025, lista AD con el PSD)"),
       role: "gov", pos: 1.0, style: "lean",
       dit: [L3("Christian-democratic values and the family", "Valeurs démocrates-chrétiennes et famille", "Valores democristianos y familia"),

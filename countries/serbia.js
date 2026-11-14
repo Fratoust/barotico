@@ -247,7 +247,7 @@ BAROTICO.add("serbia", {
                "Solo dos listas superaron el umbral del 3 % en octubre de 2026. Cinco listas de minorías nacionales ganaron siete escaños entre todas: dos cada una la Alianza de Húngaros de Voivodina (0,8 %) y la Coalición Albanesa, y uno cada una «Rasim Ljajić – Ljudski», el SDA del Sandžak – Čuvari Sandžaka y la lista de Usame Zukorlić; ninguna llega al 3 % ni a un grupo parlamentario, así que no tienen ficha. El SPS, en el Gobierno desde 2012, concurrió como «Ivica Dačić – Faktor stabilnosti» y obtuvo el 2,1 % sin escaños. Los partidos de oposición de la Asamblea saliente no presentaron listas propias; algunos, como el SDS de Boris Tadić, apoyaron a la Lista Estudiantil."),
 
   parties: [
-    { id: "studenti", name: "Studentska lista", full: "Studentska lista – Studenti pobeđuju (citizens' group)", leader: "Ilija Srdanović (first on the list; no PM candidate named)",
+    { id: "studenti", born: {"y": 2026, "m": 9, "gov": "never", "u": "https://vreme.com/?p=5017892"}, name: "Studentska lista", full: "Studentska lista – Studenti pobeđuju (citizens' group)", leader: "Ilija Srdanović (first on the list; no PM candidate named)",
       seats: L3("140 seats of 250 (53.0% of votes cast, 25 October 2026; RIK final results, 5 November)","140 sièges sur 250 (53,0 % des votants, 25 octobre 2026 ; résultats définitifs de la RIK, 5 novembre)","140 escaños de 250 (53,0 % de los votantes, 25 de octubre de 2026; resultados definitivos de la RIK, 5 de noviembre)"),
       role: "opp", pos: 0.0, style: "lean",
       dit: [L3("Free and fair elections, with a full audit of the voter register","Des élections libres et équitables, avec un audit complet des listes électorales","Elecciones libres y justas, con una auditoría completa del censo"),
@@ -303,7 +303,7 @@ BAROTICO.add("serbia", {
                    "No se encontró ningún informe financiero. La lista es un grupo de ciudadanos formado en septiembre de 2026 para estas elecciones, así que no tiene cuentas anuales de partido. Su informe de financiación de campaña a la Agencia de Prevención de la Corrupción no se había publicado al redactar esta página.") },
       prog: [] },
 
-    { id: "sns", name: "SNS – Ujedinjena Srbija", full: "Srpska napredna stranka (list 'Aleksandar Vučić – Ujedinjena Srbija')", leader: "Miloš Vučević (party president); Aleksandar Vučić heads the list",
+    { id: "sns", born: {"y": 2008, "m": 10, "gov": "lead", "u": "https://n1info.rs/vesti/a429889-SNS-i-put-promena-za-10-godina/"}, name: "SNS – Ujedinjena Srbija", full: "Srpska napredna stranka (list 'Aleksandar Vučić – Ujedinjena Srbija')", leader: "Miloš Vučević (party president); Aleksandar Vučić heads the list",
       seats: L3("103 seats of 250 (39.0% of votes cast, 25 October 2026; RIK final results, 5 November)","103 sièges sur 250 (39,0 % des votants, 25 octobre 2026 ; résultats définitifs de la RIK, 5 novembre)","103 escaños de 250 (39,0 % de los votantes, 25 de octubre de 2026; resultados definitivos de la RIK, 5 de noviembre)"),
       role: "gov", pos: 0.8, style: "lean",
       dit: [L3("Growth and higher wages: an average wage of €1,320 by 2030","La croissance et des salaires plus hauts : un salaire moyen de 1 320 euros en 2030","Crecimiento y salarios más altos: un salario medio de 1.320 euros en 2030"),

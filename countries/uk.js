@@ -193,7 +193,7 @@ BAROTICO.add("uk", {
                "Actualizado dos días después del presupuesto del 28 de octubre de 2026: solo figuran sus medidas principales, y sus efectos aún no se pueden medir."),
 
   parties: [
-    { id: "lab", name: "Labour", full: "Labour Party", leader: "Andy Burnham",
+    { id: "lab", born: {"y": 1900, "m": 2, "old": "Labour Representation Committee", "re": 1906, "gov": "lead", "u": "https://atom.aim25.com/index.php/labour-party-3"}, name: "Labour", full: "Labour Party", leader: "Andy Burnham",
       seats: L3("About 404 of 650 MPs (Aug. 2026, incl. suspended MPs); 411 won in 2024",
                 "Environ 404 députés sur 650 (août 2026, suspendus compris) ; 411 élus en 2024",
                 "Unos 404 de 650 diputados (ago. 2026, incluidos suspendidos); 411 obtenidos en 2024"),
@@ -304,7 +304,7 @@ BAROTICO.add("uk", {
               "El laborismo no presentó sus cuentas de 2024 a tiempo para la publicación de agosto de 2025 de la Comisión Electoral, así que no hay cifra disponible. La Comisión publica totales, no un desglose por fuentes.") },
       prog: [] },
 
-    { id: "con", name: "Conservatives", full: "Conservative and Unionist Party", leader: "Kemi Badenoch",
+    { id: "con", born: {"y": 1834, "old": "Conservative Party", "re": 1912, "gov": "lead", "u": "https://www.alistairlexden.org.uk/news/tamworth-commemorating-first-and-most-famous-election-manifesto-190-years-ago"}, demw: [[{"en": "Leave the European Convention on Human Rights: \"Kemi has made leaving the ECHR official Conservative policy, with full Shadow Cabinet backing\" (Conservative Party, 4 October 2025), to act on border security, veterans' legal cases and sentencing.", "fr": "Quitter la Convention européenne des droits de l'homme : « Kemi has made leaving the ECHR official Conservative policy, with full Shadow Cabinet backing » (Parti conservateur, 4 octobre 2025), pour agir sur la sécurité des frontières, les procédures visant des anciens militaires et les peines.", "es": "Salir del Convenio Europeo de Derechos Humanos: «Kemi has made leaving the ECHR official Conservative policy, with full Shadow Cabinet backing» (Partido Conservador, 4 de octubre de 2025), para actuar sobre la seguridad de las fronteras, los procesos contra veteranos y las penas."}, {"en": "By the party's own account, the policy requires withdrawing from the ECHR, whose rights, including the ban on torture (Art. 3), fair trial (Art. 6) and family life (Art. 8), are enforced by UK courts and the European Court of Human Rights. The party says 'lawfare' has frustrated border control; no court has ruled on the plan.", "fr": "De l'aveu même du parti, cette politique suppose de quitter la CEDH, dont les droits, notamment l'interdiction de la torture (art. 3), le procès équitable (art. 6) et la vie familiale (art. 8), sont appliqués par les tribunaux britanniques et la Cour européenne des droits de l'homme. Le parti affirme que la « guérilla juridique » (lawfare) a entravé le contrôle des frontières ; aucun juge ne s'est prononcé sur ce projet.", "es": "Según el propio partido, esta política exige abandonar el CEDH, cuyos derechos, entre ellos la prohibición de la tortura (art. 3), el juicio justo (art. 6) y la vida familiar (art. 8), aplican los tribunales británicos y el Tribunal Europeo de Derechos Humanos. El partido sostiene que la «guerra jurídica» (lawfare) ha frenado el control de fronteras; ningún tribunal se ha pronunciado sobre el plan."}, "https://www.conservatives.com/news/conservatives-announce-echr-exit-policy", 6, ["https://www.irishnews.com/news/uk/tories-deny-mimicking-farage-with-plan-to-quit-echr-criticised-by-rights-groups-VK3VGN3QVVO3DJEJBDWS43652I/"]]], name: "Conservatives", full: "Conservative and Unionist Party", leader: "Kemi Badenoch",
       seats: L3("About 118 of 650 MPs (Aug. 2026); 121 won in 2024",
                 "Environ 118 députés sur 650 (août 2026) ; 121 élus en 2024",
                 "Unos 118 de 650 diputados (ago. 2026); 121 obtenidos en 2024"),
@@ -419,7 +419,7 @@ BAROTICO.add("uk", {
               "Ingresos totales 50,2 M£, gastos 52,0 M£ en 2024. La Comisión publica totales, no un desglose por fuentes.") },
       prog: [] },
 
-    { id: "ld", name: "Liberal Democrats", full: "Liberal Democrats", leader: "Ed Davey",
+    { id: "ld", born: {"y": 1988, "m": 3, "old": "Social and Liberal Democrats", "re": 1989, "gov": "partner", "u": "https://liberalhistory.org.uk/history/the-liberal-democrats/"}, name: "Liberal Democrats", full: "Liberal Democrats", leader: "Ed Davey",
       seats: L3("About 71 of 650 MPs (2026); 72 won in 2024", "Environ 71 députés sur 650 (2026) ; 72 élus en 2024", "Unos 71 de 650 diputados (2026); 72 obtenidos en 2024"),
       role: "opp", pos: -0.3, style: "lean",
       dit: [
@@ -514,7 +514,7 @@ BAROTICO.add("uk", {
               "Ingresos totales 12,6 M£, gastos 11,5 M£ en 2024. La Comisión publica totales, no un desglose por fuentes.") },
       prog: [["2024", "https://www.libdems.org.uk/press/release/speech-ed-davey-launches-liberal-democrat-manifesto-with-plan-to-save-the-nhs"]] },
 
-    { id: "snp", name: "SNP", full: "Scottish National Party", leader: "John Swinney",
+    { id: "snp", born: {"y": 1934, "m": 4, "gov": "never", "u": "https://news.stv.tv/politics/yousaf-celebrates-90-years-of-snp-with-confident-election-message"}, name: "SNP", full: "Scottish National Party", leader: "John Swinney",
       seats: L3("8 of 650 MPs (2026); 9 won in 2024. Governs Scotland (58 of 129 MSPs)", "8 députés sur 650 (2026) ; 9 élus en 2024. Gouverne l'Écosse (58 sièges sur 129)", "8 de 650 diputados (2026); 9 obtenidos en 2024. Gobierna Escocia (58 de 129 escaños)"),
       role: "opp", pos: -0.8, style: "lean",
       dit: [
@@ -611,7 +611,7 @@ BAROTICO.add("uk", {
               "Ingresos totales 4,5 M£, gastos 5,0 M£ en 2024. La Comisión publica totales, no un desglose por fuentes.") },
       prog: [] },
 
-    { id: "reform", name: "Reform UK", full: "Reform UK", leader: "Nigel Farage",
+    { id: "reform", born: {"y": 2018, "m": 11, "old": "The Brexit Party", "re": 2021, "gov": "never", "u": "https://find-and-update.company-information.service.gov.uk:443/company/11694875"}, demw: [[{"en": "Leave the ECHR \"no ifs, no buts\", repeal the Human Rights Act 1998 and replace it with a British Bill of Rights covering only citizens and people with a legal right to live in the UK; \"dis-apply\" the 1951 Refugee Convention, the UN Convention against Torture and the Council of Europe anti-trafficking convention (\"Operation Restoring Justice\", Nigel Farage and Zia Yusuf, 26 August 2025).", "fr": "Quitter la CEDH « no ifs, no buts », abroger le Human Rights Act de 1998 et le remplacer par une déclaration britannique des droits limitée aux citoyens et aux personnes autorisées à vivre au Royaume-Uni ; « dis-apply » la Convention de 1951 sur les réfugiés, la Convention de l'ONU contre la torture et la convention du Conseil de l'Europe contre la traite (« Operation Restoring Justice », Nigel Farage et Zia Yusuf, 26 août 2025).", "es": "Salir del CEDH «no ifs, no buts», derogar la Human Rights Act de 1998 y sustituirla por una carta británica de derechos limitada a los ciudadanos y a quienes tienen derecho legal a vivir en el Reino Unido; «dis-apply» la Convención sobre los Refugiados de 1951, la Convención de la ONU contra la Tortura y el convenio del Consejo de Europa contra la trata («Operation Restoring Justice», Nigel Farage y Zia Yusuf, 26 de agosto de 2025)."}, {"en": "By the party's own account, the plan requires leaving the ECHR and setting aside treaties that bar removal to a risk of torture (Art. 3 ECHR, UN Convention against Torture). Reform says these steps are needed to deport up to 600,000 people with no right to be in the UK; no court has ruled on the plan.", "fr": "De l'aveu même du parti, le plan suppose de quitter la CEDH et d'écarter des traités qui interdisent d'éloigner une personne vers un risque de torture (art. 3 CEDH, Convention de l'ONU contre la torture). Reform UK dit ces étapes nécessaires pour expulser jusqu'à 600 000 personnes sans droit au séjour ; aucun juge ne s'est prononcé sur ce plan.", "es": "Según el propio partido, el plan exige salir del CEDH y dejar de aplicar tratados que prohíben expulsar a alguien hacia un riesgo de tortura (art. 3 CEDH, Convención de la ONU contra la Tortura). Reform UK afirma que estos pasos son necesarios para expulsar hasta a 600.000 personas sin derecho a residir en el país; ningún tribunal se ha pronunciado sobre el plan."}, "https://www.lbc.co.uk/politics/uk-politics/nigel-farage-reform-uk-total-despair-migration/", 6, ["https://www.compas.ox.ac.uk/article/the-most-radical-part-of-reforms-deportation-plans"]]], name: "Reform UK", full: "Reform UK", leader: "Nigel Farage",
       seats: L3("8 of 650 MPs (Aug. 2026); 5 won in 2024", "8 députés sur 650 (août 2026) ; 5 élus en 2024", "8 de 650 diputados (ago. 2026); 5 obtenidos en 2024"),
       role: "opp", pos: 1.6, style: "lean",
       dit: [
@@ -698,7 +698,7 @@ BAROTICO.add("uk", {
               "Ingresos totales 10,8 M£, gastos 9,3 M£ en 2024. La Comisión publica totales, no un desglose por fuentes.") },
       prog: [] },
 
-    { id: "sf", name: "Sinn Féin", full: "Sinn Féin", leader: "Mary Lou McDonald",
+    { id: "sf", born: {"y": 1970, "gov": "never", "u": "https://www.farmersjournal.ie/news/opinion/a-guide-to-irelands-political-parties-784801"}, name: "Sinn Féin", full: "Sinn Féin", leader: "Mary Lou McDonald",
       seats: L3("7 of 650 MPs (2024), who do not take their seats", "7 députés sur 650 (2024), qui ne siègent pas", "7 de 650 diputados (2024), que no ocupan sus escaños"),
       role: "opp", pos: -0.9, style: "lean",
       dit: [
@@ -765,7 +765,7 @@ BAROTICO.add("uk", {
               "Ingresos totales 1,07 M£, gastos 1,49 M£ en 2024 (solo cuentas británicas; el partido actúa también en Irlanda). Sin desglose por fuentes.") },
       prog: [] },
 
-    { id: "dup", name: "DUP", full: "Democratic Unionist Party", leader: "Gavin Robinson",
+    { id: "dup", born: {"y": 1971, "m": 9, "gov": "never", "u": "https://mp.scotsman.com/news/politics/the-dup-celebrates-its-50th-birthday-today-3401794"}, name: "DUP", full: "Democratic Unionist Party", leader: "Gavin Robinson",
       seats: L3("5 of 650 MPs (2024)", "5 députés sur 650 (2024)", "5 de 650 diputados (2024)"),
       role: "opp", pos: 1.0, style: "lean",
       dit: [
@@ -844,7 +844,7 @@ BAROTICO.add("uk", {
               "Ingresos totales 442.000 £, gastos 436.000 £ en 2024. Sin desglose por fuentes.") },
       prog: [] },
 
-    { id: "green", name: "Greens", full: "Green Party of England and Wales", leader: "Zack Polanski",
+    { id: "green", born: {"y": 1973, "old": "PEOPLE", "re": 1990, "gov": "never", "u": "https://pukdevelop.politics.co.uk/?p=96231"}, name: "Greens", full: "Green Party of England and Wales", leader: "Zack Polanski",
       seats: L3("5 of 650 MPs (2026); 4 won in 2024", "5 députés sur 650 (2026) ; 4 élus en 2024", "5 de 650 diputados (2026); 4 obtenidos en 2024"),
       role: "opp", pos: -1.4, style: "lean",
       dit: [
@@ -912,7 +912,7 @@ BAROTICO.add("uk", {
               "Ingresos totales 5,2 M£, gastos 5,0 M£ en 2024. La Comisión publica totales, no un desglose por fuentes.") },
       prog: [] },
 
-    { id: "plaid", name: "Plaid Cymru", full: "Plaid Cymru – The Party of Wales", leader: "Rhun ap Iorwerth",
+    { id: "plaid", born: {"y": 1925, "old": "Plaid Genedlaethol Cymru", "gov": "never", "u": "https://www.library.wales/plaidcymru100"}, name: "Plaid Cymru", full: "Plaid Cymru – The Party of Wales", leader: "Rhun ap Iorwerth",
       seats: L3("4 of 650 MPs (2024). Governs Wales (43 of 96 Senedd seats)", "4 députés sur 650 (2024). Gouverne le pays de Galles (43 sièges sur 96)", "4 de 650 diputados (2024). Gobierna Gales (43 de 96 escaños)"),
       role: "opp", pos: -0.9, style: "lean",
       dit: [

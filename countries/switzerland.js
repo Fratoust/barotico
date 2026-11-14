@@ -220,7 +220,7 @@ BAROTICO.add("switzerland", {
                "Solo aparecen los seis partidos con grupo propio en la Asamblea Federal. EVP (2,0 %), EDU (1,2 %), Lega y MCG se integran en otros grupos y están por debajo del 3 %."),
 
   parties: [
-    { id: "svp", edge: true, name: "SVP/UDC", full: "Schweizerische Volkspartei / Union démocratique du centre", leader: "Marcel Dettling",
+    { id: "svp", born: {"y": 1971, "gov": "partner", "u": "https://www.swissinfo.ch/eng/swiss-politics/political-parties-in-switzerland/29288918"}, demw: [[{"en": "End family reunification for provisionally admitted persons: motions of the SVP group and of SVP senator Esther Friedli. SVP MP Thomas Knutti argued that if families could follow, these persons would never leave. Adopted by the National Council 105 to 74 (24 Sept 2024), rejected by the Council of States 20 to 18 (18 Dec 2024).", "fr": "Supprimer le regroupement familial pour les personnes admises à titre provisoire : motions du groupe UDC et de la sénatrice UDC Esther Friedli. Le conseiller national UDC Thomas Knutti a fait valoir que si les familles pouvaient suivre, ces personnes ne repartiraient jamais. Adoptée par le Conseil national par 105 voix contre 74 (24 sept. 2024), rejetée par le Conseil des États par 20 voix contre 18 (18 déc. 2024).", "es": "Suprimir la reagrupación familiar para las personas admitidas provisionalmente: mociones del grupo de la UDC y de la senadora de la UDC Esther Friedli. El diputado de la UDC Thomas Knutti argumentó que, si las familias pudieran seguirlas, estas personas no se irían nunca. Aprobada por el Consejo Nacional por 105 votos contra 74 (24 de septiembre de 2024), rechazada por el Consejo de los Estados por 20 contra 18 (18 de diciembre de 2024)."}, {"en": "On 4 July 2023 (B.F. and Others v. Switzerland) the European Court of Human Rights found that Switzerland breached the right to respect for family life (Art. 8 ECHR) in three cases where family reunification was refused to provisionally admitted refugees relying on social assistance, because the authorities did not strike a fair balance between the interests at stake.", "fr": "Le 4 juillet 2023 (B.F. et autres c. Suisse), la Cour européenne des droits de l'homme a jugé que la Suisse avait violé le droit au respect de la vie familiale (art. 8 CEDH) dans trois cas où le regroupement familial avait été refusé à des réfugiés admis à titre provisoire dépendant de l'aide sociale, faute d'un juste équilibre entre les intérêts en jeu.", "es": "El 4 de julio de 2023 (B.F. y otros c. Suiza) el Tribunal Europeo de Derechos Humanos consideró que Suiza vulneró el derecho al respeto de la vida familiar (art. 8 CEDH) en tres casos en que se denegó la reagrupación familiar a refugiados admitidos provisionalmente que dependían de la asistencia social, por no haber un justo equilibrio entre los intereses en juego."}, "https://www.parlament.ch/de/services/news/Seiten/2024/20240924130220038194158159026_bsd093.aspx", 6, ["https://www.parlament.ch/de/services/news/Seiten/2024/20241218124051050194158159026_bsd102.aspx", "https://www.e-doc.admin.ch/dam/bj/de/data/staat/menschenrechte/egmr/ber-egmr-2023q3.pdf.download.pdf/ber-egmr-2023q3-d.pdf"]]], edge: true, name: "SVP/UDC", full: "Schweizerische Volkspartei / Union démocratique du centre", leader: "Marcel Dettling",
       seats: L3("62 seats of 200 in the National Council (2023) · 27.9% of the vote · 2 Federal Councillors", "62 sièges sur 200 au Conseil national (2023) · 27,9 % des voix · 2 conseillers fédéraux", "62 escaños de 200 en el Consejo Nacional (2023) · 27,9 % de los votos · 2 consejeros federales"),
       role: "gov", pos: 1.6, style: "lean",
       dit: [L3("Independence: no institutional ties to the EU", "Indépendance : pas de liens institutionnels avec l'UE", "Independencia: ningún vínculo institucional con la UE"),
@@ -288,7 +288,7 @@ BAROTICO.add("switzerland", {
                    "Ingresos declarados en 2025: 3,8 millones de francos, de ellos unos 0,4 millones en aportaciones de cargos electos. Mayor donante declarado: UBS, 417 000 francos. No se ha encontrado un desglose completo de los ingresos por fuente.") },
       prog: [] },
 
-    { id: "sp", name: "SP/PS", full: "Sozialdemokratische Partei der Schweiz / Parti socialiste suisse", leader: "Mattea Meyer, Cédric Wermuth",
+    { id: "sp", born: {"y": 1888, "gov": "partner", "u": "https://www.swissinfo.ch/eng/swiss-politics/political-parties-in-switzerland/29288918"}, name: "SP/PS", full: "Sozialdemokratische Partei der Schweiz / Parti socialiste suisse", leader: "Mattea Meyer, Cédric Wermuth",
       seats: L3("41 seats of 200 (2023) · 18.3% of the vote · 2 Federal Councillors", "41 sièges sur 200 (2023) · 18,3 % des voix · 2 conseillers fédéraux", "41 escaños de 200 (2023) · 18,3 % de los votos · 2 consejeros federales"),
       role: "gov", pos: -1.1, style: "lean",
       dit: [L3("Purchasing power: affordable health premiums and rents", "Pouvoir d'achat : des primes maladie et des loyers abordables", "Poder adquisitivo: primas del seguro médico y alquileres asequibles"),
@@ -353,7 +353,7 @@ BAROTICO.add("switzerland", {
                    "Ingresos declarados en 2025: 7,9 millones de francos, los más altos de todos los partidos, con 2,2 millones de cuotas y 0,5 millones de cargos electos. Ninguna donación de UBS declarada. No se ha encontrado un desglose completo.") },
       prog: [] },
 
-    { id: "mitte", name: "Die Mitte/Le Centre", full: "Die Mitte / Le Centre / Alleanza del Centro", leader: "Philipp Matthias Bregy",
+    { id: "mitte", born: {"y": 2021, "m": 1, "gov": "partner", "u": "https://www.swissinfo.ch/eng/swiss-politics/political-parties-in-switzerland/29288918"}, name: "Die Mitte/Le Centre", full: "Die Mitte / Le Centre / Alleanza del Centro", leader: "Philipp Matthias Bregy",
       seats: L3("29 seats of 200 (2023) · 14.1% of the vote · 1 Federal Councillor", "29 sièges sur 200 (2023) · 14,1 % des voix · 1 conseiller fédéral", "29 escaños de 200 (2023) · 14,1 % de los votos · 1 consejero federal"),
       role: "gov", pos: 0.3, style: "lean",
       dit: [L3("Cohesion and compromise", "La cohésion et le compromis", "Cohesión y compromiso"),
@@ -409,7 +409,7 @@ BAROTICO.add("switzerland", {
                    "Ingresos declarados en 2025: 2,7 millones de francos, de ellos 0,2 millones de cargos electos. Donaciones declaradas, entre otras, de UBS (284 000 francos) y Raiffeisen (unos 58 000 francos). No se ha encontrado un desglose completo.") },
       prog: [] },
 
-    { id: "fdp", name: "FDP/PLR", full: "FDP / PLR (Freisinnig-Demokratische Partei / Parti libéral-radical)", leader: "Susanne Vincenz-Stauffacher, Benjamin Mühlemann",
+    { id: "fdp", born: {"y": 2009, "gov": "partner", "u": "https://www.swissinfo.ch/eng/swiss-politics/political-parties-in-switzerland/29288918"}, name: "FDP/PLR", full: "FDP / PLR (Freisinnig-Demokratische Partei / Parti libéral-radical)", leader: "Susanne Vincenz-Stauffacher, Benjamin Mühlemann",
       seats: L3("28 seats of 200 (2023) · 14.3% of the vote · 2 Federal Councillors", "28 sièges sur 200 (2023) · 14,3 % des voix · 2 conseillers fédéraux", "28 escaños de 200 (2023) · 14,3 % de los votos · 2 consejeros federales"),
       role: "gov", pos: 0.9, style: "lean",
       dit: [L3("Less state, more freedom", "Moins d'État, plus de liberté", "Menos Estado, más libertad"),
@@ -470,7 +470,7 @@ BAROTICO.add("switzerland", {
                    "Ingresos declarados en 2025: 4,8 millones de francos, segundo tras el SP. Ninguna donación de UBS declarada. No se ha encontrado desglose entre cuotas, aportaciones de cargos electos y donaciones.") },
       prog: [] },
 
-    { id: "gruene", name: "Grüne/Les Vert-e-s", full: "Grüne Partei der Schweiz / Les Vert-e-s suisses", leader: "Lisa Mazzone",
+    { id: "gruene", born: {"y": 1983, "gov": "never", "u": "https://www.swissinfo.ch/eng/swiss-politics/political-parties-in-switzerland/29288918"}, name: "Grüne/Les Vert-e-s", full: "Grüne Partei der Schweiz / Les Vert-e-s suisses", leader: "Lisa Mazzone",
       seats: L3("23 seats of 200 (2023) · 9.8% of the vote · no Federal Councillor", "23 sièges sur 200 (2023) · 9,8 % des voix · aucun conseiller fédéral", "23 escaños de 200 (2023) · 9,8 % de los votos · ningún consejero federal"),
       role: "opp", pos: -1.2, style: "lean",
       dit: [L3("Climate protection as the priority", "La protection du climat en priorité", "La protección del clima como prioridad"),
@@ -531,7 +531,7 @@ BAROTICO.add("switzerland", {
                    "Ingresos declarados en 2025: 1,8 millones de francos, con 0,4 millones de cuotas y unos 0,4 millones de cargos electos; Raiffeisen donó unos 22 000 francos, ninguna donación de UBS. No se ha encontrado un desglose completo.") },
       prog: [] },
 
-    { id: "glp", name: "GLP/PVL", full: "Grünliberale Partei / Parti vert'libéral", leader: "Jürg Grossen",
+    { id: "glp", born: {"y": 2007, "gov": "never", "u": "https://www.swissinfo.ch/eng/swiss-politics/political-parties-in-switzerland/29288918"}, name: "GLP/PVL", full: "Grünliberale Partei / Parti vert'libéral", leader: "Jürg Grossen",
       seats: L3("10 seats of 200 (2023) · 7.6% of the vote · no Federal Councillor", "10 sièges sur 200 (2023) · 7,6 % des voix · aucun conseiller fédéral", "10 escaños de 200 (2023) · 7,6 % de los votos · ningún consejero federal"),
       role: "opp", pos: 0.2, style: "lean",
       dit: [L3("Reconcile ecology and economy", "Concilier écologie et économie", "Conciliar ecología y economía"),

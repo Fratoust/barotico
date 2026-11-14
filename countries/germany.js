@@ -212,7 +212,7 @@ BAROTICO.add("germany", {
                "CDU y CSU forman un solo grupo (la «Unión») en el Bundestag; la CSU solo se presenta en Baviera. BSW y FDP aparecen porque superaron el 3 % en 2025, aunque no tienen escaños."),
 
   parties: [
-    { id: "cducsu", name: "CDU/CSU", full: "Christlich Demokratische Union Deutschlands / Christlich-Soziale Union in Bayern", leader: "Friedrich Merz (CDU) · Markus Söder (CSU)",
+    { id: "cducsu", born: {"y": 1945, "gov": "lead", "u": "https://www.bpb.de/themen/parteien/parteien-in-deutschland/zahlen-und-fakten/138661/die-entwicklung-des-parteiensystems-seit-1945/"}, name: "CDU/CSU", full: "Christlich Demokratische Union Deutschlands / Christlich-Soziale Union in Bayern", leader: "Friedrich Merz (CDU) · Markus Söder (CSU)",
       seats: L3("208 seats of 630 (2025): CDU 164, CSU 44 · 28.6% of second votes", "208 sièges sur 630 (2025) : CDU 164, CSU 44 · 28,6 % des secondes voix", "208 escaños de 630 (2025): CDU 164, CSU 44 · 28,6 % de segundos votos"),
       role: "gov", pos: 0.6, style: "lean",
       dit: [L3("Sound public finances", "Des finances publiques saines", "Finanzas públicas saneadas"),
@@ -281,7 +281,7 @@ BAROTICO.add("germany", {
                    "Ingresos 2024: CDU 174,5 millones de euros, 31 % de fondos públicos; CSU 53,2 millones, 34 % de fondos públicos. El resumen del Bundestag no desglosa el resto (cuotas, aportaciones de cargos, donaciones).") },
       prog: [["2025", U.kv25]] },
 
-    { id: "afd", name: "AfD", full: "Alternative für Deutschland", leader: "Alice Weidel · Tino Chrupalla",
+    { id: "afd", born: {"y": 2013, "m": 2, "gov": "never", "u": "https://www.bpb.de/themen/parteien/parteien-in-deutschland/zahlen-und-fakten/138661/die-entwicklung-des-parteiensystems-seit-1945/"}, demw: [[{"en": "\"Im öffentlichen Dienst soll kein Kopftuch getragen werden; in Bildungseinrichtungen weder von Lehrerinnen noch Schülerinnen\" (basic programme, section 7.6.5). Bundestag motion 21/5323, first debated on 16 April 2026: ban headscarves for girls under 14 in public schools and pre-school facilities.", "fr": "« Im öffentlichen Dienst soll kein Kopftuch getragen werden; in Bildungseinrichtungen weder von Lehrerinnen noch Schülerinnen » (pas de foulard dans la fonction publique ni, à l'école, pour les enseignantes et les élèves ; programme fondamental, section 7.6.5). Motion 21/5323 au Bundestag, débattue le 16 avril 2026 : interdire le foulard aux filles de moins de 14 ans dans les écoles et établissements préscolaires publics.", "es": "«Im öffentlichen Dienst soll kein Kopftuch getragen werden; in Bildungseinrichtungen weder von Lehrerinnen noch Schülerinnen» (nada de pañuelo en la función pública ni, en la escuela, para profesoras y alumnas; programa fundamental, sección 7.6.5). Moción 21/5323 en el Bundestag, debatida el 16 de abril de 2026: prohibir el pañuelo a las niñas menores de 14 años en escuelas y centros preescolares públicos."}, {"en": "On 27 January 2015 (1 BvR 471/10) the Federal Constitutional Court ruled that a blanket ban on teachers in state schools showing their faith through their dress breaches freedom of faith, and that exempting Christian values breaches the ban on religious discrimination; a ban needs a specific danger to school peace. On 11 December 2020 (G 4/2020) Austria's Constitutional Court struck down a headscarf ban for primary-school girls: singling out one religion breached equality and religious neutrality.", "fr": "Le 27 janvier 2015 (1 BvR 471/10), la Cour constitutionnelle fédérale a jugé qu'une interdiction générale faite aux enseignantes des écoles publiques de manifester leur foi par leur tenue viole la liberté de croyance, et qu'exempter les valeurs chrétiennes viole l'interdiction de la discrimination religieuse ; une interdiction suppose un danger concret pour la paix scolaire. Le 11 décembre 2020 (G 4/2020), la Cour constitutionnelle autrichienne a annulé une interdiction du foulard pour les écolières du primaire : viser une seule religion violait l'égalité et la neutralité religieuse.", "es": "El 27 de enero de 2015 (1 BvR 471/10) el Tribunal Constitucional Federal resolvió que prohibir de forma general a las profesoras de la escuela pública mostrar su fe en su vestimenta vulnera la libertad de creencia, y que eximir los valores cristianos vulnera la prohibición de discriminación religiosa; una prohibición exige un peligro concreto para la paz escolar. El 11 de diciembre de 2020 (G 4/2020) el Tribunal Constitucional de Austria anuló la prohibición del pañuelo para las alumnas de primaria: señalar a una sola religión vulneraba la igualdad y la neutralidad religiosa."}, "https://www.bundestagswahl-bw.de/fileadmin/bundestagswahl-bw/2025/Wahlprogramme/AfD_Grundsatzprogramm.pdf", 4, ["https://www.bundestag.de/dokumente/textarchiv/2026/kw16-de-kinderkopftuch-1158210", "https://www.bundesverfassungsgericht.de/SharedDocs/Pressemitteilungen/EN/2015/bvg15-014.html", "https://www.vfgh.gv.at/downloads/G_4.2020_Verkuendung.pdf"]]], name: "AfD", full: "Alternative für Deutschland", leader: "Alice Weidel · Tino Chrupalla",
       seats: L3("152 seats of 630 (2025) · 20.8% of second votes", "152 sièges sur 630 (2025) · 20,8 % des secondes voix", "152 escaños de 630 (2025) · 20,8 % de segundos votos"),
       role: "opp", pos: 1.8, style: "lean",
       dit: [L3("Defend national sovereignty and the Basic Law", "Défendre la souveraineté nationale et la Loi fondamentale", "Defender la soberanía nacional y la Ley Fundamental"),
@@ -336,7 +336,7 @@ BAROTICO.add("germany", {
              n: L3("Income 2024: €36.3 million, of which 35% state funds. The Bundestag summary does not break down the rest (dues, MPs' contributions, donations).", "Recettes 2024 : 36,3 millions d'euros, dont 35 % de fonds publics. Le résumé du Bundestag ne détaille pas le reste (cotisations, contributions d'élus, dons).", "Ingresos 2024: 36,3 millones de euros, 35 % de fondos públicos. El resumen del Bundestag no desglosa el resto (cuotas, aportaciones de cargos, donaciones).") },
       prog: [] },
 
-    { id: "spd", name: "SPD", full: "Sozialdemokratische Partei Deutschlands", leader: "Lars Klingbeil",
+    { id: "spd", born: {"y": 1875, "old": "Sozialistische Arbeiterpartei Deutschlands (SAP)", "re": 1890, "gov": "lead", "u": "https://www.bpb.de/kurz-knapp/lexika/handwoerterbuch-politisches-system/202108/spd-sozialdemokratische-partei-deutschlands"}, name: "SPD", full: "Sozialdemokratische Partei Deutschlands", leader: "Lars Klingbeil",
       seats: L3("120 seats of 630 (2025) · 16.4% of second votes", "120 sièges sur 630 (2025) · 16,4 % des secondes voix", "120 escaños de 630 (2025) · 16,4 % de segundos votos"),
       role: "gov", pos: -0.5, style: "lean",
       dit: [L3("Social justice and secure pensions", "Justice sociale et retraites garanties", "Justicia social y pensiones seguras"),
@@ -399,7 +399,7 @@ BAROTICO.add("germany", {
              n: L3("Income 2024: €215.3 million, the largest of any party, of which 33% state funds. The Bundestag summary does not break down the rest.", "Recettes 2024 : 215,3 millions d'euros, le montant le plus élevé de tous les partis, dont 33 % de fonds publics. Le résumé du Bundestag ne détaille pas le reste.", "Ingresos 2024: 215,3 millones de euros, los mayores de todos los partidos, 33 % de fondos públicos. El resumen del Bundestag no desglosa el resto.") },
       prog: [["2025", U.kv25]] },
 
-    { id: "gruene", name: "Grüne", full: "Bündnis 90/Die Grünen", leader: "Franziska Brantner · Felix Banaszak",
+    { id: "gruene", born: {"y": 1993, "gov": "partner", "u": "https://www.bpb.de/themen/parteien/parteien-in-deutschland/zahlen-und-fakten/138661/die-entwicklung-des-parteiensystems-seit-1945/"}, name: "Grüne", full: "Bündnis 90/Die Grünen", leader: "Franziska Brantner · Felix Banaszak",
       seats: L3("85 seats of 630 (2025) · 11.6% of second votes", "85 sièges sur 630 (2025) · 11,6 % des secondes voix", "85 escaños de 630 (2025) · 11,6 % de segundos votos"),
       role: "opp", pos: -0.7, style: "lean",
       dit: [L3("Climate neutrality by 2045", "Neutralité climatique d'ici 2045", "Neutralidad climática en 2045"),
@@ -451,7 +451,7 @@ BAROTICO.add("germany", {
              n: L3("Income 2024: €121.4 million, of which 35% state funds. The Bundestag summary does not break down the rest.", "Recettes 2024 : 121,4 millions d'euros, dont 35 % de fonds publics. Le résumé du Bundestag ne détaille pas le reste.", "Ingresos 2024: 121,4 millones de euros, 35 % de fondos públicos. El resumen del Bundestag no desglosa el resto.") },
       prog: [] },
 
-    { id: "linke", edge: true, name: "Die Linke", full: "Die Linke", leader: "Ines Schwerdtner · Luigi Pantisano",
+    { id: "linke", born: {"y": 2007, "gov": "never", "u": "https://www.bpb.de/themen/parteien/parteien-in-deutschland/zahlen-und-fakten/138661/die-entwicklung-des-parteiensystems-seit-1945/"}, edge: true, name: "Die Linke", full: "Die Linke", leader: "Ines Schwerdtner · Luigi Pantisano",
       seats: L3("64 seats of 630 (2025) · 8.8% of second votes", "64 sièges sur 630 (2025) · 8,8 % des secondes voix", "64 escaños de 630 (2025) · 8,8 % de segundos votos"),
       role: "opp", pos: -1.4, style: "lean",
       dit: [L3("Cap rents and socialise large housing companies", "Plafonner les loyers et socialiser les grands bailleurs", "Topar alquileres y socializar a los grandes caseros"),
@@ -504,7 +504,7 @@ BAROTICO.add("germany", {
              n: L3("Income 2024: €30.0 million, of which 37% state funds. The Bundestag summary does not break down the rest.", "Recettes 2024 : 30,0 millions d'euros, dont 37 % de fonds publics. Le résumé du Bundestag ne détaille pas le reste.", "Ingresos 2024: 30,0 millones de euros, 37 % de fondos públicos. El resumen del Bundestag no desglosa el resto.") },
       prog: [] },
 
-    { id: "bsw", name: "BSW", full: "Bündnis Soziale Gerechtigkeit und Wirtschaftliche Vernunft (until Sept. 2026: Bündnis Sahra Wagenknecht)", leader: "Fabio De Masi · Amira Mohamed Ali",
+    { id: "bsw", born: {"y": 2024, "m": 1, "old": "Bündnis Sahra Wagenknecht", "re": 2026, "gov": "never", "u": "https://www.bpb.de/themen/parteien/wer-steht-zur-wahl/bundestagswahl-2025/558940/buendnis-sahra-wagenknecht-vernunft-und-gerechtigkeit/"}, name: "BSW", full: "Bündnis Soziale Gerechtigkeit und Wirtschaftliche Vernunft (until Sept. 2026: Bündnis Sahra Wagenknecht)", leader: "Fabio De Masi · Amira Mohamed Ali",
       seats: L3("0 seats (2025) · 4.981% of second votes, 9,529 votes short of 5%", "0 siège (2025) · 4,981 % des secondes voix, 9 529 voix sous les 5 %", "0 escaños (2025) · 4,981 % de segundos votos, a 9529 votos del 5 %"),
       role: "opp", pos: -0.6, style: "lean",
       dit: [L3("Peace through diplomacy, no US missiles in Germany", "La paix par la diplomatie, pas de missiles américains en Allemagne", "Paz mediante diplomacia, sin misiles estadounidenses en Alemania"),
@@ -556,7 +556,7 @@ BAROTICO.add("germany", {
              n: L3("Income 2024: €13.5 million, of which 27% state funds. In 2024 the party also received publicly reported donations of about €5 million from one couple (CORRECTIV).", "Recettes 2024 : 13,5 millions d'euros, dont 27 % de fonds publics. En 2024, le parti a aussi reçu environ 5 millions d'euros de dons déclarés d'un même couple (CORRECTIV).", "Ingresos 2024: 13,5 millones de euros, 27 % de fondos públicos. En 2024 el partido recibió además unos 5 millones de euros en donaciones declaradas de una misma pareja (CORRECTIV).") },
       prog: [] },
 
-    { id: "fdp", name: "FDP", full: "Freie Demokratische Partei", leader: "Wolfgang Kubicki",
+    { id: "fdp", born: {"y": 1948, "m": 12, "gov": "partner", "u": "https://www.bpb.de/kurz-knapp/lexika/handwoerterbuch-politisches-system/202021/fdp-freie-demokratische-partei/"}, name: "FDP", full: "Freie Demokratische Partei", leader: "Wolfgang Kubicki",
       seats: L3("0 seats (2025) · 4.3% of second votes", "0 siège (2025) · 4,3 % des secondes voix", "0 escaños (2025) · 4,3 % de segundos votos"),
       role: "opp", pos: 0.6, style: "lean",
       dit: [L3("No tax increases", "Pas de hausse d'impôts", "Ninguna subida de impuestos"),

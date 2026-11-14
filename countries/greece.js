@@ -123,7 +123,7 @@ BAROTICO.add("greece", {
                "Los enlaces a los programas no se verificaron en esta edición. Los partidos deben publicar sus cuentas anuales antes del 31 de mayo; en junio de 2026 solo Niki había publicado su balance de 2025 (Vouliwatch)."),
 
   parties: [
-    { id: "nd", name: "ND", full: "Νέα Δημοκρατία", leader: "Kyriakos Mitsotakis",
+    { id: "nd", born: {"y": 1974, "m": 10, "gov": "lead", "u": "https://www.tanea.gr/2021/10/04/politics/mitsotakis-i-nd-giortazei-ta-47-tis-xronia-se-mia-ellada-pou-allazei/"}, name: "ND", full: "Νέα Δημοκρατία", leader: "Kyriakos Mitsotakis",
       seats: L3("156 seats of 300 (Oct 2026)","156 sièges sur 300 (oct. 2026)","156 escaños de 300 (oct. 2026)"), role: "gov",
       pos: 0.9, style: "lean",
       dit: [L3("Growth, investment and lower taxes","Croissance, investissement et baisse des impôts","Crecimiento, inversión y menos impuestos"),
@@ -185,7 +185,7 @@ BAROTICO.add("greece", {
              n: L3("Income €19.27 m, of which about €16.2 m (about 84 %) state funding (regular and research grants). Liabilities €602 m, mostly old bank loans. No breakdown of MPs' contributions, dues and donations was found.","Recettes de 19,27 M€, dont environ 16,2 M€ (environ 84 %) de financement public (dotation ordinaire et recherche). Dettes de 602 M€, surtout d'anciens prêts bancaires. Aucune répartition des cotisations d'élus, d'adhérents et des dons n'a été trouvée.","Ingresos de 19,27 M€, de ellos unos 16,2 M€ (alrededor del 84 %) de financiación pública (ordinaria e investigación). Deudas de 602 M€, sobre todo antiguos préstamos bancarios. No se halló desglose de aportaciones de cargos, cuotas y donaciones.") },
       prog: [] },
 
-    { id: "pasok", name: "PASOK", full: "ΠΑΣΟΚ – Κίνημα Αλλαγής", leader: "Nikos Androulakis",
+    { id: "pasok", born: {"y": 1974, "m": 9, "gov": "lead", "u": "https://www.iefimerida.gr/politiki/3i-septembrioy-46-hronia-apo-tin-idrysi-pasok"}, name: "PASOK", full: "ΠΑΣΟΚ – Κίνημα Αλλαγής", leader: "Nikos Androulakis",
       seats: L3("36 seats of 300 (Oct 2026)","36 sièges sur 300 (oct. 2026)","36 escaños de 300 (oct. 2026)"), role: "opp",
       pos: -0.4, style: "lean",
       dit: [L3("Social democracy and a strong welfare state","Social-démocratie et État social fort","Socialdemocracia y Estado del bienestar fuerte"),
@@ -236,7 +236,7 @@ BAROTICO.add("greece", {
              n: L3("The historic PASOK entity carries about €565 m of liabilities, mostly bank loans, on a separate balance sheet; the current PASOK-KINAL entity reports a surplus of nearly €1.5 m for 2025. Reported state-funding figures differ between sources (about €1.1 m regular funding in its accounts, €4.5 m in official 2025 allocation data). No full breakdown verified.","L'ancienne entité PASOK porte environ 565 M€ de dettes, surtout bancaires, dans un bilan séparé ; l'entité actuelle PASOK-KINAL affiche un excédent de près de 1,5 M€ en 2025. Les montants de financement public diffèrent selon les sources (environ 1,1 M€ de dotation ordinaire dans ses comptes, 4,5 M€ dans les données officielles de répartition 2025). Pas de répartition complète vérifiée.","La antigua entidad PASOK arrastra unos 565 M€ de deudas, sobre todo bancarias, en un balance aparte; la entidad actual PASOK-KINAL declara un superávit de casi 1,5 M€ en 2025. Las cifras de financiación pública difieren según la fuente (unos 1,1 M€ ordinarios en sus cuentas, 4,5 M€ en los datos oficiales de reparto de 2025). Sin desglose completo verificado.") },
       prog: [] },
 
-    { id: "kke", name: "KKE", full: "Κομμουνιστικό Κόμμα Ελλάδας", leader: "Dimitris Koutsoumbas",
+    { id: "kke", born: {"y": 1918, "m": 11, "old": "ΣΕΚΕ (Σοσιαλιστικό Εργατικό Κόμμα Ελλάδας)", "re": 1924, "gov": "partner", "u": "https://www.in.gr/2014/11/15/greece/i-gennisi-toy-seke-kai-i-metekseliksi-toy-sto-kke/"}, name: "KKE", full: "Κομμουνιστικό Κόμμα Ελλάδας", leader: "Dimitris Koutsoumbas",
       seats: L3("21 seats of 300 (Oct 2026)","21 sièges sur 300 (oct. 2026)","21 escaños de 300 (oct. 2026)"), role: "opp",
       pos: -1.8, style: "lean",
       dit: [L3("Workers' rights and socialism","Droits des travailleurs et socialisme","Derechos de los trabajadores y socialismo"),
@@ -283,7 +283,7 @@ BAROTICO.add("greece", {
              n: L3("State funding in 2025: €3.2 m. Its 2025 balance sheet was not published by the 31 May 2026 legal deadline (Vouliwatch check, June 2026). No income breakdown verified.","Financement public en 2025 : 3,2 M€. Son bilan 2025 n'était pas publié à la date limite légale du 31 mai 2026 (vérification Vouliwatch, juin 2026). Aucune répartition des recettes vérifiée.","Financiación pública en 2025: 3,2 M€. Su balance de 2025 no estaba publicado en el plazo legal del 31 de mayo de 2026 (comprobación de Vouliwatch, junio de 2026). Sin desglose de ingresos verificado.") },
       prog: [] },
 
-    { id: "syriza", name: "SYRIZA", full: "Συνασπισμός Ριζοσπαστικής Αριστεράς – Προοδευτική Συμμαχία", leader: "Collective leadership since July 2026 (group president: Rena Dourou)",
+    { id: "syriza", born: {"y": 2013, "m": 7, "gov": "lead", "u": "https://www.protothema.gr/politics/article/294564/simera-i-krisimi-psifoforia-gia-tin-eklogi-proedrou-ston-suriza/"}, name: "SYRIZA", full: "Συνασπισμός Ριζοσπαστικής Αριστεράς – Προοδευτική Συμμαχία", leader: "Collective leadership since July 2026 (group president: Rena Dourou)",
       seats: L3("11 seats of 300 (Oct 2026)","11 sièges sur 300 (oct. 2026)","11 escaños de 300 (oct. 2026)"), role: "opp",
       pos: -1.1, style: "lean",
       dit: [L3("Social justice and labour rights","Justice sociale et droits du travail","Justicia social y derechos laborales"),
@@ -341,7 +341,7 @@ BAROTICO.add("greece", {
              n: L3("State funding in 2025: €6.38 m. Its 2025 balance sheet was not published by the 31 May 2026 legal deadline (Vouliwatch check, June 2026). No income breakdown verified.","Financement public en 2025 : 6,38 M€. Son bilan 2025 n'était pas publié à la date limite légale du 31 mai 2026 (vérification Vouliwatch, juin 2026). Aucune répartition des recettes vérifiée.","Financiación pública en 2025: 6,38 M€. Su balance de 2025 no estaba publicado en el plazo legal del 31 de mayo de 2026 (comprobación de Vouliwatch, junio de 2026). Sin desglose de ingresos verificado.") },
       prog: [] },
 
-    { id: "el", name: "Elliniki Lysi", full: "Ελληνική Λύση – Κυριάκος Βελόπουλος", leader: "Kyriakos Velopoulos",
+    { id: "el", born: {"y": 2016, "m": 6, "gov": "never", "u": "https://www.enainstitute.org/wp-content/uploads/2023/07/%CE%95%CE%9D%CE%91_%CE%A3%CE%B1%CE%BC%CE%B1%CF%81%CE%AC%CF%82_%CE%91%CE%BA%CF%81%CE%BF%CE%B4%CE%B5%CE%BE%CE%B9%CE%AC.pdf"}, name: "Elliniki Lysi", full: "Ελληνική Λύση – Κυριάκος Βελόπουλος", leader: "Kyriakos Velopoulos",
       seats: L3("11 seats of 300 (Oct 2026)","11 sièges sur 300 (oct. 2026)","11 escaños de 300 (oct. 2026)"), role: "opp",
       pos: 1.6, style: "lean",
       dit: [L3("National sovereignty","Souveraineté nationale","Soberanía nacional"),
@@ -391,7 +391,7 @@ BAROTICO.add("greece", {
              n: L3("State funding in 2025: €2.22 m. Its 2025 balance sheet was not published by the 31 May 2026 legal deadline (Vouliwatch check, June 2026). No income breakdown verified.","Financement public en 2025 : 2,22 M€. Son bilan 2025 n'était pas publié à la date limite légale du 31 mai 2026 (vérification Vouliwatch, juin 2026). Aucune répartition des recettes vérifiée.","Financiación pública en 2025: 2,22 M€. Su balance de 2025 no estaba publicado en el plazo legal del 31 de mayo de 2026 (comprobación de Vouliwatch, junio de 2026). Sin desglose de ingresos verificado.") },
       prog: [] },
 
-    { id: "niki", name: "Niki", full: "Δημοκρατικό Πατριωτικό Κίνημα «Νίκη»", leader: "Dimitris Natsios",
+    { id: "niki", born: {"y": 2019, "gov": "never", "u": "https://www.iefimerida.gr/ekloges/komma-niki-dimoskopisi"}, name: "Niki", full: "Δημοκρατικό Πατριωτικό Κίνημα «Νίκη»", leader: "Dimitris Natsios",
       seats: L3("8 seats of 300 (Oct 2026)","8 sièges sur 300 (oct. 2026)","8 escaños de 300 (oct. 2026)"), role: "opp",
       pos: 1.4, style: "lean",
       dit: [L3("Orthodox Christian values","Valeurs chrétiennes orthodoxes","Valores cristianos ortodoxos"),
@@ -438,7 +438,7 @@ BAROTICO.add("greece", {
              n: L3("State funding in 2025: €1.99 m. The only parliamentary party to have published its 2025 balance sheet by the 31 May 2026 deadline (Vouliwatch check). Breakdown not verified for this edition.","Financement public en 2025 : 1,99 M€. Seul parti parlementaire à avoir publié son bilan 2025 avant la date limite du 31 mai 2026 (vérification Vouliwatch). Répartition non vérifiée pour cette édition.","Financiación pública en 2025: 1,99 M€. Único partido parlamentario que publicó su balance de 2025 antes del plazo del 31 de mayo de 2026 (comprobación de Vouliwatch). Desglose no verificado en esta edición.") },
       prog: [] },
 
-    { id: "plefsi", name: "Plefsi Eleftherias", full: "Πλεύση Ελευθερίας – Ζωή Κωνσταντοπούλου", leader: "Zoe Konstantopoulou",
+    { id: "plefsi", born: {"y": 2016, "m": 7, "gov": "never", "u": "https://www.lifo.gr/node/252918"}, name: "Plefsi Eleftherias", full: "Πλεύση Ελευθερίας – Ζωή Κωνσταντοπούλου", leader: "Zoe Konstantopoulou",
       seats: L3("5 seats of 300 (Oct 2026)","5 sièges sur 300 (oct. 2026)","5 escaños de 300 (oct. 2026)"), role: "opp",
       pos: -1.0, style: "lean",
       dit: [L3("Fight against corruption and impunity","Lutte contre la corruption et l'impunité","Lucha contra la corrupción y la impunidad"),
@@ -483,7 +483,7 @@ BAROTICO.add("greece", {
              n: L3("State funding in 2025: €1.82 m. Its 2025 balance sheet was not published by the 31 May 2026 legal deadline (Vouliwatch check, June 2026). No income breakdown verified.","Financement public en 2025 : 1,82 M€. Son bilan 2025 n'était pas publié à la date limite légale du 31 mai 2026 (vérification Vouliwatch, juin 2026). Aucune répartition des recettes vérifiée.","Financiación pública en 2025: 1,82 M€. Su balance de 2025 no estaba publicado en el plazo legal del 31 de mayo de 2026 (comprobación de Vouliwatch, junio de 2026). Sin desglose de ingresos verificado.") },
       prog: [] },
 
-    { id: "spartiates", name: "Spartiates", full: "Σπαρτιάτες", leader: "Vasilis Stigkas",
+    { id: "spartiates", born: {"y": 2017, "m": 12, "gov": "never", "u": "https://www.tanea.gr/2023/06/08/politics/spartiates-to-komma-tis-akrodeksias-polykatoikias-pou-stirizei-o-kasidiaris/"}, name: "Spartiates", full: "Σπαρτιάτες", leader: "Vasilis Stigkas",
       seats: L3("No group today (12 seats won in June 2023 with 4.68 %; 3 seats annulled in 2025)","Plus de groupe (12 sièges en juin 2023 avec 4,68 % ; 3 sièges annulés en 2025)","Sin grupo hoy (12 escaños en junio de 2023 con el 4,68 %; 3 escaños anulados en 2025)"), role: "opp",
       pos: 1.9, style: "lean",
       dit: [L3("Patriotism","Patriotisme","Patriotismo"),

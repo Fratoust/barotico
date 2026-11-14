@@ -264,7 +264,7 @@ BAROTICO.add("sweden", {
                "Los enlaces remiten a los manifiestos electorales de 2026 archivados por el Servicio Nacional Sueco de Datos (SND, Svenska valmanifest). Las líneas «dice» resumen las posiciones centrales que cada partido defiende desde hace tiempo; las páginas de los manifiestos no pudieron abrirse desde esta sesión."),
 
   parties: [
-    { id: "s", name: "S", full: "Sveriges socialdemokratiska arbetareparti (Socialdemokraterna)", leader: "Magdalena Andersson",
+    { id: "s", born: {"y": 1889, "gov": "lead", "u": "https://lex.dk/Sveriges_politiske_partier"}, name: "S", full: "Sveriges socialdemokratiska arbetareparti (Socialdemokraterna)", leader: "Magdalena Andersson",
       seats: L3("99 seats of 349 (2026) · 28.02%", "99 sièges sur 349 (2026) · 28,02 %", "99 escaños de 349 (2026) · 28,02 %"), role: "opp",
       pos: -0.6, style: "lean",
       dit: [L3("Strong welfare, paid for together", "Un État-providence fort, financé ensemble", "Un Estado del bienestar fuerte, pagado entre todos"),
@@ -325,7 +325,7 @@ BAROTICO.add("sweden", {
                    "Total: 239 millones de coronas; «otros» incluye 37 millones de loterías. Último desglose por partido hallado en una fuente nacional; los informes más recientes se presentan al Kammarkollegiet. Las aportaciones de cargos electos no se distinguen.") },
       prog: [["2026", U.sndS]] },
 
-    { id: "m", name: "M", full: "Moderata samlingspartiet (Moderaterna)", leader: "Ulf Kristersson",
+    { id: "m", born: {"y": 1904, "old": "Allmänna valmansförbundet, later Högerpartiet", "re": 1969, "gov": "lead", "u": "https://www.scb.se/hitta-statistik/redaktionellt/hundraarig-historia-for-partierna-i-riksdagen/"}, name: "M", full: "Moderata samlingspartiet (Moderaterna)", leader: "Ulf Kristersson",
       seats: L3("70 seats of 349 (2026) · 19.85%", "70 sièges sur 349 (2026) · 19,85 %", "70 escaños de 349 (2026) · 19,85 %"), role: "gov",
       pos: 1.0, style: "lean",
       dit: [L3("Law and order: break the gang violence", "La loi et l’ordre : briser la violence des gangs", "Ley y orden: acabar con la violencia de bandas"),
@@ -387,7 +387,7 @@ BAROTICO.add("sweden", {
                    "Total: 152 millones de coronas. Último desglose por partido hallado en una fuente nacional; los informes más recientes se presentan al Kammarkollegiet. Las aportaciones de cargos electos no se distinguen.") },
       prog: [["2026", U.sndM]] },
 
-    { id: "sd", name: "SD", full: "Sverigedemokraterna", leader: "Jimmie Åkesson",
+    { id: "sd", born: {"y": 1988, "m": 2, "gov": "never", "u": "https://www.svt.se/nyheter/inrikes/sd-s-vitbok-starka-rotter-i-bevara-sverige-svenskt"}, name: "SD", full: "Sverigedemokraterna", leader: "Jimmie Åkesson",
       seats: L3("62 seats of 349 (2026) · 17.48%", "62 sièges sur 349 (2026) · 17,48 %", "62 escaños de 349 (2026) · 17,48 %"), role: "support",
       pos: 1.4, edge: true, style: "lean",
       dit: [L3("A 'social-conservative party with a nationalist outlook'", "Un « parti social-conservateur à la vision nationaliste »", "Un «partido socialconservador de visión nacionalista»"),
@@ -448,7 +448,7 @@ BAROTICO.add("sweden", {
                    "Total: 84 millones de coronas. Último desglose por partido hallado en una fuente nacional; los informes más recientes se presentan al Kammarkollegiet. Las aportaciones de cargos electos no se distinguen.") },
       prog: [["2026", U.sndSD], ["2026", U.sdManifest]] },
 
-    { id: "v", name: "V", full: "Vänsterpartiet", leader: "Nooshi Dadgostar",
+    { id: "v", born: {"y": 1917, "old": "Sveriges socialdemokratiska vänsterparti, then Kommunisterna / VPK", "re": 1990, "gov": "never", "u": "https://lex.dk/Sveriges_politiske_partier"}, name: "V", full: "Vänsterpartiet", leader: "Nooshi Dadgostar",
       seats: L3("30 seats of 349 (2026) · 8.40%", "30 sièges sur 349 (2026) · 8,40 %", "30 escaños de 349 (2026) · 8,40 %"), role: "opp",
       pos: -1.5, edge: true, style: "lean",
       dit: [L3("No profits in tax-funded welfare", "Pas de profits dans l’aide sociale financée par l’impôt", "Sin beneficios privados en el bienestar pagado con impuestos"),
@@ -504,7 +504,7 @@ BAROTICO.add("sweden", {
                    "Total: 40 millones de coronas. Último desglose por partido hallado en una fuente nacional; los informes más recientes se presentan al Kammarkollegiet. Las aportaciones de cargos electos no se distinguen.") },
       prog: [["2026", U.sndV]] },
 
-    { id: "c", name: "C", full: "Centerpartiet", leader: "Elisabeth Thand Ringqvist",
+    { id: "c", born: {"y": 1913, "old": "Bondeförbundet", "re": 1958, "gov": "lead", "u": "https://lex.dk/Sveriges_politiske_partier"}, name: "C", full: "Centerpartiet", leader: "Elisabeth Thand Ringqvist",
       seats: L3("25 seats of 349 (2026) · 7.03%", "25 sièges sur 349 (2026) · 7,03 %", "25 escaños de 349 (2026) · 7,03 %"), role: "opp",
       pos: 0.3, style: "lean",
       dit: [L3("A centre government, without SD influence", "Un gouvernement du centre, sans influence du SD", "Un gobierno de centro, sin influencia de SD"),
@@ -565,7 +565,7 @@ BAROTICO.add("sweden", {
                    "Total: 118 millones de coronas, de ellos unos 75 millones en dividendos de una empresa del partido; sin cuotas declaradas a nivel nacional. Último desglose por partido hallado en una fuente nacional.") },
       prog: [["2026", U.sndC]] },
 
-    { id: "kd", name: "KD", full: "Kristdemokraterna", leader: "Ebba Busch",
+    { id: "kd", born: {"y": 1964, "old": "Kristen Demokratisk Samling (KDS), then Kristdemokratiska samhällspartiet", "re": 1996, "gov": "partner", "u": "https://www.scb.se/hitta-statistik/artiklar/2021/hundra-ar-av-svensk-demokrati/"}, name: "KD", full: "Kristdemokraterna", leader: "Ebba Busch",
       seats: L3("22 seats of 349 (2026) · 6.17%", "22 sièges sur 349 (2026) · 6,17 %", "22 escaños de 349 (2026) · 6,17 %"), role: "gov",
       pos: 1.0, style: "lean",
       dit: [L3("The state should take over healthcare from the regions", "L’État doit reprendre la santé aux régions", "El Estado debe asumir la sanidad de las regiones"),
@@ -621,7 +621,7 @@ BAROTICO.add("sweden", {
                    "Total: 31 millones de coronas. Último desglose por partido hallado en una fuente nacional; los informes más recientes se presentan al Kammarkollegiet. Las aportaciones de cargos electos no se distinguen.") },
       prog: [["2026", U.sndKD]] },
 
-    { id: "mp", name: "MP", full: "Miljöpartiet de gröna", leader: "Amanda Lind · Daniel Helldén",
+    { id: "mp", born: {"y": 1981, "gov": "partner", "u": "https://lex.dk/Sveriges_politiske_partier"}, name: "MP", full: "Miljöpartiet de gröna", leader: "Amanda Lind · Daniel Helldén",
       seats: L3("22 seats of 349 (2026) · 6.12%", "22 sièges sur 349 (2026) · 6,12 %", "22 escaños de 349 (2026) · 6,12 %"), role: "opp",
       pos: -1.0, style: "lean",
       dit: [L3("Put the climate first", "Le climat d’abord", "El clima primero"),
@@ -682,7 +682,7 @@ BAROTICO.add("sweden", {
                    "Total: 51 millones de coronas. Último desglose por partido hallado en una fuente nacional; los informes más recientes se presentan al Kammarkollegiet. Las aportaciones de cargos electos no se distinguen.") },
       prog: [["2026", U.sndMP]] },
 
-    { id: "l", name: "L", full: "Liberalerna", leader: "Simona Mohamsson",
+    { id: "l", born: {"y": 1934, "old": "Folkpartiet, then Folkpartiet liberalerna", "re": 2015, "gov": "lead", "u": "https://lex.dk/Sveriges_politiske_partier"}, name: "L", full: "Liberalerna", leader: "Simona Mohamsson",
       seats: L3("19 seats of 349 (2026) · 5.34%", "19 sièges sur 349 (2026) · 5,34 %", "19 escaños de 349 (2026) · 5,34 %"), role: "gov",
       pos: 0.5, style: "lean",
       dit: [L3("A knowledge school with calm in the classroom", "Une école du savoir, avec le calme en classe", "Una escuela del conocimiento con calma en el aula"),
