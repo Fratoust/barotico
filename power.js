@@ -44,3 +44,39 @@ POWER.france={
   L3("The Assembly page gives no date for its figures; it was consulted on 14 November 2026.","La page de l'Assemblée ne date pas ses chiffres ; elle a été consultée le 14 novembre 2026.","La página de la Asamblea no fecha sus cifras; se consultó el 14 de noviembre de 2026.")
  ]
 };
+POWER.belgique={
+ asOf:"2026-11-14",
+ chamber:{
+  name:L3("Chamber of Representatives","Chambre des représentants","Cámara de Representantes"),total:150,majority:76,
+  src:"https://www.lachambre.be/FLWB/Pdf/56/0001/56K0001009.pdf",
+  groups:[
+   [L3("PVDA-PTB","PVDA-PTB","PVDA-PTB"),15,"ptb","out"],
+   [L3("PS","PS","PS"),16,"ps","out"],
+   [L3("Ecolo-Groen","Ecolo-Groen","Ecolo-Groen"),9,["ecolo","groen"],"out"],
+   [L3("Vooruit","Vooruit","Vooruit"),13,"vooruit","gov"],
+   [L3("Les Engagés","Les Engagés","Les Engagés"),14,"engages","gov"],
+   [L3("cd&v","cd&v","cd&v"),11,"cdv","gov"],
+   [L3("DéFI","DéFI","DéFI"),1,null,"out"],
+   [L3("Anders (ex-Open Vld)","Anders (ex-Open Vld)","Anders (ex-Open Vld)"),8,"anders","out"],
+   [L3("N-VA","N-VA","N-VA"),24,"nva","gov"],
+   [L3("MR","MR","MR"),19,"mr","gov"],
+   [L3("Vlaams Belang","Vlaams Belang","Vlaams Belang"),20,"vb","out"]
+  ]
+ },
+ cabinet:{
+  name:L3("De Wever government (since 3 February 2025)","Gouvernement De Wever (depuis le 3 février 2025)","Gobierno De Wever (desde el 3 de febrero de 2025)"),total:15,
+  src:"https://fr.businessam.be/?p=139563",
+  parts:[
+   [L3("N-VA (incl. the Prime Minister)","N-VA (dont le Premier ministre)","N-VA (incl. el primer ministro)"),4,"nva","gov"],
+   [L3("MR","MR","MR"),4,"mr","gov"],
+   [L3("Les Engagés","Les Engagés","Les Engagés"),3,"engages","gov"],
+   [L3("Vooruit","Vooruit","Vooruit"),2,"vooruit","gov"],
+   [L3("cd&v","cd&v","cd&v"),2,"cdv","gov"]
+  ]
+ },
+ head:L3("Head of State: King Philippe. Prime Minister: Bart De Wever (N-VA), at the head of the “Arizona” coalition of five parties, Flemish and French-speaking.","Chef de l'État : le roi Philippe. Premier ministre : Bart De Wever (N-VA), à la tête de la coalition « Arizona » de cinq partis, flamands et francophones.","Jefe del Estado: el rey Felipe. Primer ministro: Bart De Wever (N-VA), al frente de la coalición «Arizona» de cinco partidos, flamencos y francófonos."),
+ notes:[
+  L3("Seats: official list of members of the Chamber of 29 May 2026. Ecolo and Groen sit in one group. The single DéFI member is not in a recognised group (at least five members are needed); its place in the chart is indicative.","Sièges : liste officielle des membres de la Chambre du 29 mai 2026. Ecolo et Groen forment un seul groupe. L'unique élu DéFI n'appartient à aucun groupe reconnu (il faut au moins cinq membres) ; sa place dans le schéma est indicative.","Escaños: lista oficial de miembros de la Cámara del 29 de mayo de 2026. Ecolo y Groen forman un solo grupo. El único electo de DéFI no pertenece a ningún grupo reconocido (hacen falta al menos cinco miembros); su lugar en el gráfico es indicativo."),
+  L3("Government: composition at its swearing-in on 3 February 2025, Prime Minister and 14 ministers.","Gouvernement : composition à sa prestation de serment le 3 février 2025, Premier ministre et 14 ministres.","Gobierno: composición en su juramento el 3 de febrero de 2025, primer ministro y 14 ministros.")
+ ]
+};
