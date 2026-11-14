@@ -18,7 +18,7 @@ function langName(l){try{const n=new Intl.DisplayNames([l],{type:"language"}).of
 const PATHMODE=!!window.BAROTICO_PATH;
 const PAGE_SLUG={comparer:"compare",medias:"media",apropos:"about",legal:"legal"};
 // Countries whose main tabs are real pages (/<lang>/<country>/{vote,parties,government}/). Pilot 14 Nov 2026.
-const SEO_SUB=["france","italy","usa","espagne","belgique"];
+const SEO_SUB=["france","italy","usa","espagne","belgique","colombia","germany","uk","portugal","netherlands","austria"];
 const SUB_OF={vote:"vote",partis:"parties",parties:"parties",government:"government",budget:"government"};
 const KEEP_HASH=["medias","figures","watch"];
 const slugify=x=>String(x).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
@@ -440,7 +440,7 @@ function ingest(k){
 window.__baroticoLoaded=k=>{ingest(k)};
 function loadCountry(k){
   if(REG.loading[k])return;REG.loading[k]=1;
-  const s=document.createElement("script");s.src=`countries/${k}.js?v=1794679110`;
+  const s=document.createElement("script");s.src=`countries/${k}.js?v=1794680247`;
   s.onload=()=>{ingest(k);render()};
   s.onerror=()=>{REG.loading[k]=0;document.getElementById("view").innerHTML=`<p class="pending" style="padding:48px 0">${t("load_err")}</p>`};
   document.head.appendChild(s);
@@ -649,7 +649,7 @@ function homeExample(){
   return `<div class="hex" id="hex"><p class="hex-who"><b>${esc(p.name)}</b> · ${esc(tr(C[k].name))}</p>
    <ol class="hex-row"><li><span class="eyebrow">${c[0]}</span><p>${esc(tr(d))}</p></li><li><span class="eyebrow">${c[1]}</span><p>${esc(tr(f))}</p></li><li class="prow ps-${st}"><span class="eyebrow">${c[2]}</span><div class="pf"><span class="ptag">${t("ptag")[st]||""}</span><a href="${u}" target="_blank" rel="noopener">${t("ex_src")} ↗</a></div></li></ol>
    <div class="hex-foot"><a class="btn" href="#${k}-${p.id}">${t("ex_more")}</a><button class="btn ghost" type="button" id="hex-other">${t("ex_other")}</button></div></div>`}
-function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1794679110`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
+function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1794680247`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
 function bindExample(){preloadSome(2);const b=document.getElementById("hex-other");if(b)b.addEventListener("click",()=>{const h=document.getElementById("hex");h.outerHTML=homeExample();pathLinks(document.getElementById("hex"));bindExample()})}
 function guideBlock(){
   const st=t("g_steps"),path=t("g_path"),pk=readyKeys().map(k=>[k,tr((C[k]||REG.meta[k]).name)]).sort((a,b)=>a[1].localeCompare(b[1],lang));

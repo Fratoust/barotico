@@ -233,3 +233,99 @@ BLANK.colombia={
  ]
 };
 })();
+// ---- rollout batch 2 (14 Nov 2026): Germany, United Kingdom, Portugal, Netherlands, Austria ----
+(function(){
+var U={
+ deGl:"https://bundeswahlleiterin.de/service/glossar/u/ungueltige-stimmabgabe.html",
+ de25:"https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/29_25_endgueltiges-ergebnis.html",
+ ukR47:"https://legislation.gov.uk/ukpga/1983/2/schedule/1/paragraph/47/2021-03-20/data.html",
+ ukEd:"https://www.edinburgh.gov.uk/documents/uk-parliament-election-2024-guidance-count-procedures-candidates-election-agents-counting-agents/9",
+ ptDef:"https://portaldaqueixa.com/news/branco-nulo-ou-abstencao-que-tipos-de-voto-existem",
+ pt26:"https://www.sabado.pt/portugal/amp/votos-nulos-nas-presidenciais-aumentaram-cne-esclarece-papel-dos-candidatos-excluidos",
+ nlNos:"https://nos.nl/artikel/2163232-wat-is-een-blanco-stem-en-andere-weetjes-rond-de-verkiezingen",
+ nlHvn:"https://www.hartvannederland.nl/politiek/verkiezingen/artikelen/zo-werkt-blanco-stemmen-stembiljet-verkiezingen",
+ nl25:"https://www.parlement.com/tweede-kamerverkiezingen-2025",
+ at81:"https://www.jusline.at/gesetz/nrwo/paragraf/81",
+ at24:"https://www.salzburg24.at/themen/wahlen-in-salzburg/nationalratswahl/endergebnis-der-nationalratswahl-2024-ist-amtlich-art-281011"
+};
+BLANK.germany={
+ lead:L3("In Germany, there is no separate blank vote: a ballot left empty is an invalid vote, counted with the other invalid votes.","En Allemagne, il n'existe pas de vote blanc à part : un bulletin laissé vide est un vote invalide, compté avec les autres votes invalides.","En Alemania no existe un voto en blanco separado: una papeleta vacía es un voto nulo, contado con los demás votos nulos."),
+ what:[
+  [L3("Each voter has two votes on the same ballot: a first vote for a local candidate and a second vote for a party list.","Chaque électeur a deux voix sur le même bulletin : une première voix pour un candidat local, une seconde voix pour une liste de parti.","Cada elector tiene dos votos en la misma papeleta: un primer voto para un candidato local y un segundo voto para una lista de partido."),U.deGl],
+  [L3("A ballot with no mark at all, or not officially issued, makes both votes invalid. So does a ballot whose intention is unclear, or that carries an addition or a reservation.","Un bulletin sans aucune marque, ou non officiel, rend les deux voix invalides. De même pour un bulletin dont l'intention n'est pas claire, ou qui porte un ajout ou une réserve.","Una papeleta sin ninguna marca, o no oficial, anula los dos votos. Lo mismo ocurre con una papeleta cuya intención no está clara o que lleva un añadido o una reserva."),U.deGl]
+ ],
+ count:[
+  [L3("Invalid votes are published but go to no party: seats are shared out among valid votes.","Les votes invalides sont publiés mais ne vont à aucun parti : les sièges se répartissent sur les votes valides.","Los votos nulos se publican pero no van a ningún partido: los escaños se reparten entre los votos válidos."),U.de25]
+ ],
+ nums:[
+  [0.6,L3("of second votes were invalid in February 2025 (0.9% in 2021), with a turnout of 82.5%.","des secondes voix étaient invalides en février 2025 (0,9 % en 2021), pour une participation de 82,5 %.","de los segundos votos fueron nulos en febrero de 2025 (0,9 % en 2021), con una participación del 82,5 %."),U.de25],
+  [0.8,L3("of first votes were invalid in 2025 (1.0% in 2021).","des premières voix étaient invalides en 2025 (1,0 % en 2021).","de los primeros votos fueron nulos en 2025 (1,0 % en 2021)."),U.de25]
+ ],
+ impact:[
+  [L3("Because a blank ballot is simply invalid, an empty ballot and a spoilt one carry the same weight in the results: none.","Comme un bulletin vide est simplement invalide, un bulletin vide et un bulletin raturé pèsent la même chose dans les résultats : rien.","Como una papeleta vacía es simplemente nula, una papeleta vacía y una tachada pesan lo mismo en los resultados: nada."),U.deGl]
+ ]
+};
+BLANK.uk={
+ lead:L3("In the United Kingdom, there is no blank vote: a ballot left unmarked is one of the rejected ballots, counted and announced at each count.","Au Royaume-Uni, il n'existe pas de vote blanc : un bulletin laissé vide fait partie des bulletins rejetés, comptés et annoncés à chaque dépouillement.","En el Reino Unido no existe el voto en blanco: una papeleta sin marcar forma parte de las papeletas rechazadas, que se cuentan y anuncian en cada escrutinio."),
+ what:[
+  [L3("A ballot is rejected if it has no official mark, votes for more than one candidate, carries writing that could identify the voter, or is unmarked or void for uncertainty.","Un bulletin est rejeté s'il n'a pas la marque officielle, s'il vote pour plusieurs candidats, s'il porte une inscription qui pourrait identifier l'électeur, ou s'il est vide ou incertain.","Una papeleta se rechaza si no lleva la marca oficial, vota por más de un candidato, lleva escritos que podrían identificar al elector o está sin marcar o es incierta."),U.ukR47],
+  [L3("A ballot marked in the wrong place or with something other than a cross is still counted if the voter's choice is clear.","Un bulletin marqué au mauvais endroit, ou autrement que par une croix, reste compté si le choix de l'électeur est clair.","Una papeleta marcada en un lugar equivocado, o con algo distinto de una cruz, se cuenta igualmente si la elección del elector está clara."),U.ukR47]
+ ],
+ count:[
+  [L3("The returning officer publishes the number of rejected ballots under four headings, including “unmarked or void for uncertainty”. They go to no candidate.","Le responsable du scrutin publie le nombre de bulletins rejetés sous quatre rubriques, dont « vide ou incertain ». Ils ne vont à aucun candidat.","El responsable del escrutinio publica el número de papeletas rechazadas en cuatro apartados, entre ellos «sin marcar o incierta». No van a ningún candidato."),U.ukR47],
+  [L3("Each MP is elected in one round: the candidate with the most votes wins, whatever the share of rejected ballots.","Chaque député est élu en un seul tour : le candidat qui a le plus de voix l'emporte, quelle que soit la part de bulletins rejetés.","Cada diputado se elige en una sola vuelta: gana el candidato con más votos, sea cual sea la proporción de papeletas rechazadas."),U.ukEd]
+ ],
+ impact:[
+  [L3("In a single-round race, the gap between the first two is made only of votes for them: an unmarked ballot leaves the decision to others.","Dans une élection à un tour, l'écart entre les deux premiers ne se fait qu'avec leurs voix : un bulletin vide laisse la décision aux autres.","En una elección a una vuelta, la diferencia entre los dos primeros solo se hace con sus votos: una papeleta sin marcar deja la decisión a los demás."),null]
+ ]
+};
+BLANK.portugal={
+ lead:L3("In Portugal, a blank vote is counted separately and counts in turnout, but not among the valid votes used to share out seats.","Au Portugal, le vote blanc est compté à part et entre dans la participation, mais pas parmi les votes valides qui servent à répartir les sièges.","En Portugal, el voto en blanco se cuenta aparte y entra en la participación, pero no entre los votos válidos que sirven para repartir los escaños."),
+ what:[
+  [L3("Blank vote: a ballot handed in with no mark or sign at all.","Vote blanc : un bulletin remis sans aucune marque ni signe.","Voto en blanco: una papeleta entregada sin ninguna marca ni señal."),U.ptDef],
+  [L3("Spoilt vote: more than one box marked, writing or crossings-out; also a mark for a withdrawn or non-admitted candidate still printed on the ballot.","Vote nul : plus d'une case cochée, des inscriptions ou des ratures ; ou encore une croix pour un candidat retiré ou non admis encore imprimé sur le bulletin.","Voto nulo: más de una casilla marcada, escritos o tachones; o una cruz para un candidato retirado o no admitido que sigue impreso en la papeleta."),U.pt26]
+ ],
+ count:[
+  [L3("Only valid votes count for seats: blank and spoilt votes neither help nor harm any list directly.","Seuls les votes valides comptent pour les sièges : blancs et nuls ne favorisent ni ne pénalisent directement aucune liste.","Solo los votos válidos cuentan para los escaños: blancos y nulos no favorecen ni perjudican directamente a ninguna candidatura."),U.ptDef]
+ ],
+ nums:[
+  [1.06,L3("of votes were blank in the first round of the January 2026 presidential election (61,226), fewer than spoilt votes (65,381, 1.13%).","des votes étaient blancs au premier tour de la présidentielle de janvier 2026 (61 226), moins que les nuls (65 381, soit 1,13 %).","de los votos fueron en blanco en la primera vuelta de las presidenciales de enero de 2026 (61 226), menos que los nulos (65 381, el 1,13 %)."),U.pt26]
+ ],
+ impact:[
+  [L3("Blank votes are published and discussed, but a candidate or a list wins with valid votes alone.","Les blancs sont publiés et commentés, mais un candidat ou une liste l'emporte avec les seuls votes valides.","Los votos en blanco se publican y se comentan, pero un candidato o una lista gana solo con los votos válidos."),U.ptDef]
+ ]
+};
+BLANK.netherlands={
+ lead:L3("In the Netherlands, a blank vote counts in turnout but not for seats. It must be handed in with nothing written on it.","Aux Pays-Bas, le vote blanc compte dans la participation mais pas pour les sièges. Il faut le déposer sans rien écrire dessus.","En los Países Bajos, el voto en blanco cuenta en la participación pero no para los escaños. Hay que depositarlo sin escribir nada."),
+ what:[
+  [L3("Blank vote: the ballot put in the box with nothing filled in.","Vote blanc : le bulletin glissé dans l'urne sans rien remplir.","Voto en blanco: la papeleta depositada en la urna sin rellenar nada."),U.nlHvn],
+  [L3("Careful: writing anything on it, even “blank”, or a name or signature, makes the vote invalid, not blank. A mark other than a red-filled box is also invalid.","Attention : écrire quoi que ce soit, même « blanc », ou un nom ou une signature, rend le vote invalide, pas blanc. Une marque autre que la case coloriée en rouge l'est aussi.","Atención: escribir cualquier cosa, incluso «en blanco», o un nombre o una firma, convierte el voto en nulo, no en blanco. Una marca distinta de la casilla coloreada en rojo también lo es."),U.nlNos]
+ ],
+ count:[
+  [L3("Blank votes are listed separately in the official result. They count in turnout but are not shared out among parties.","Les blancs figurent à part dans le résultat officiel. Ils comptent dans la participation mais ne sont pas répartis entre les partis.","Los votos en blanco figuran aparte en el resultado oficial. Cuentan en la participación pero no se reparten entre los partidos."),U.nlNos]
+ ],
+ nums:[
+  [0.38,L3("of votes cast were blank in October 2025: 40,128, against 28,206 invalid votes, with a turnout of 78.3%.","des votes exprimés étaient blancs en octobre 2025 : 40 128, contre 28 206 votes invalides, pour une participation de 78,3 %.","de los votos emitidos fueron en blanco en octubre de 2025: 40 128, frente a 28 206 nulos, con una participación del 78,3 %."),U.nl25],
+  [0.19,L3("of valid votes were blank in 2023 (19,655): blank votes doubled in two years.","des votes valides étaient blancs en 2023 (19 655) : les blancs ont doublé en deux ans.","de los votos válidos fueron en blanco en 2023 (19 655): los votos en blanco se duplicaron en dos años."),U.nlHvn]
+ ],
+ impact:[
+  [L3("With proportional representation, every valid vote counts towards the sharing of seats; a blank vote counts only in turnout.","Avec la proportionnelle, chaque vote valide pèse sur la répartition des sièges ; un vote blanc ne compte que dans la participation.","Con la representación proporcional, cada voto válido pesa en el reparto de escaños; un voto en blanco solo cuenta en la participación."),U.nlNos]
+ ]
+};
+BLANK.austria={
+ lead:L3("In Austria, there is no separate blank vote: a ballot with no party or candidate marked is invalid.","En Autriche, il n'existe pas de vote blanc à part : un bulletin sans parti ni candidat coché est invalide.","En Austria no existe un voto en blanco separado: una papeleta sin partido ni candidato marcado es nula."),
+ what:[
+  [L3("A ballot is invalid if no party or candidate is marked, if two or more parties are marked, or if the mark does not clearly show the choice. An empty envelope counts as an invalid ballot.","Un bulletin est invalide si aucun parti ni candidat n'est coché, si deux partis ou plus le sont, ou si la marque ne montre pas clairement le choix. Une enveloppe vide compte comme un bulletin invalide.","Una papeleta es nula si no se marca ningún partido ni candidato, si se marcan dos o más partidos o si la marca no muestra claramente la elección. Un sobre vacío cuenta como papeleta nula."),U.at81],
+  [L3("Words or signs on the ballot that are not party or candidate marks do not by themselves make it invalid.","Des mots ou des signes sur le bulletin qui ne désignent ni parti ni candidat ne le rendent pas invalide à eux seuls.","Palabras o signos en la papeleta que no designan partido ni candidato no la anulan por sí solos."),U.at81]
+ ],
+ count:[
+  [L3("Invalid votes count in turnout but go to no party: seats are shared out among valid votes.","Les votes invalides comptent dans la participation mais ne vont à aucun parti : les sièges se répartissent sur les votes valides.","Los votos nulos cuentan en la participación pero no van a ningún partido: los escaños se reparten entre los votos válidos."),U.at24]
+ ],
+ nums:[
+  [0.95,L3("of votes cast were invalid in the September 2024 general election (about 46,900 of 4,929,745), with a turnout of 77.68%.","des votes exprimés étaient invalides aux législatives de septembre 2024 (environ 46 900 sur 4 929 745), pour une participation de 77,68 %.","de los votos emitidos fueron nulos en las legislativas de septiembre de 2024 (unos 46 900 de 4 929 745), con una participación del 77,68 %."),U.at24]
+ ],
+ impact:[
+  [L3("An empty ballot and a spoilt one end up in the same category: they show up in turnout, not in seats.","Un bulletin vide et un bulletin raté finissent dans la même catégorie : ils apparaissent dans la participation, pas dans les sièges.","Una papeleta vacía y una mal rellenada acaban en la misma categoría: aparecen en la participación, no en los escaños."),U.at24]
+ ]
+};
+})();
