@@ -428,3 +428,92 @@ BLANK.poland={
  ]
 };
 })();
+// ---- rollout batch 4 (14 Nov 2026): Czechia, Romania, Serbia, Australia, New Zealand ----
+(function(){
+var U={
+ czFin:"https://www.finance.cz/553389-kdy-se-vas-hlas-v-parlamentnich-volbach-nezapocte-a-propadne",
+ czSez:"https://www.seznamzpravy.cz/clanek/propadl-milion-hlasu-petina-volicu-nerozhodovala-o-slozeni-snemovny-177285",
+ roBec:"https://www.g4media.ro/cand-un-vot-este-valabil-exprimat-si-cand-este-considerat-nul-precizari-ale-biroului-electoral-central.html",
+ roRes:"https://www.digi24.ro/alegeri-parlamentare-2024/biroul-electoral-central-a-prezentat-rezultatele-finale-la-alegerile-parlamentare-3037971",
+ rs26:"https://n1info.rs/english/news/election-commission-announces-final-results-of-parliamentary-elections/",
+ auInf:"https://www.aec.gov.au/About_AEC/research/files/analysis-informal-voting-2025-election.pdf",
+ auPart:"https://aec.gov.au/election/fe25/participation-rates.htm",
+ nz23:"https://elections.nz/media-and-news/2023/official-results-for-the-2023-general-election/"
+};
+BLANK.czechia={
+ lead:L3("In Czechia, there is no blank vote: an envelope left empty is a lost vote.","En Tchéquie, il n'existe pas de vote blanc : une enveloppe laissée vide est un vote perdu.","En Chequia no existe el voto en blanco: un sobre vacío es un voto perdido."),
+ what:[
+  [L3("Each voter receives one ballot per party list and puts one of them in the official envelope.","Chaque électeur reçoit un bulletin par liste et en glisse un seul dans l'enveloppe officielle.","Cada elector recibe una papeleta por lista y mete una sola en el sobre oficial."),U.czFin],
+  [L3("Lost or invalid vote: an empty envelope, more than one ballot, another envelope than the official one, or a torn or glued ballot. Circling more than four candidates only cancels the preference votes; the vote for the party still counts.","Vote perdu ou invalide : enveloppe vide, plus d'un bulletin, autre enveloppe que l'officielle, bulletin déchiré ou collé. Entourer plus de quatre candidats annule seulement les voix de préférence ; la voix pour le parti compte toujours.","Voto perdido o nulo: sobre vacío, más de una papeleta, otro sobre que el oficial, papeleta rota o pegada. Rodear a más de cuatro candidatos solo anula los votos preferenciales; el voto al partido sigue contando."),U.czFin]
+ ],
+ count:[
+  [L3("Only valid votes are shared out, and only among parties above the 5% threshold.","Seuls les votes valides sont répartis, et seulement entre les partis au-dessus du seuil de 5 %.","Solo se reparten los votos válidos, y solo entre los partidos por encima del umbral del 5 %."),U.czSez]
+ ],
+ nums:[
+  [19.9,L3("of valid votes in 2021 went to parties below the 5% threshold: about 1.07 million votes that elected no one.","des votes valides de 2021 sont allés à des partis sous le seuil de 5 % : environ 1,07 million de voix qui n'ont élu personne.","de los votos válidos de 2021 fueron a partidos por debajo del umbral del 5 %: cerca de 1,07 millones de votos que no eligieron a nadie."),U.czSez]
+ ],
+ impact:[
+  [L3("Besides empty envelopes, a vote can also weigh nothing in seats when it goes to a party that stays below 5%. Both kinds of “lost” votes leave the seats to the others.","En plus des enveloppes vides, un vote peut aussi ne peser sur aucun siège quand il va à un parti qui reste sous les 5 %. Ces deux sortes de voix « perdues » laissent les sièges aux autres.","Además de los sobres vacíos, un voto tampoco pesa en los escaños cuando va a un partido que queda por debajo del 5 %. Esos dos tipos de votos «perdidos» dejan los escaños a los demás."),U.czSez]
+ ]
+};
+BLANK.romania={
+ lead:L3("In Romania, there is no blank vote: you vote with a “VOTAT” stamp, and a ballot without it is null.","En Roumanie, il n'existe pas de vote blanc : on vote avec un tampon « VOTAT », et un bulletin sans tampon est nul.","En Rumanía no existe el voto en blanco: se vota con un sello «VOTAT», y una papeleta sin sello es nula."),
+ what:[
+  [L3("Valid vote: the stamp inside a single box. A stamp that slightly overflows without touching another box still counts, and handwritten notes do not cancel a vote that has a stamp inside a box.","Vote valable : le tampon dans une seule case. Un tampon qui déborde sans toucher une autre case compte quand même, et des mots écrits à la main n'annulent pas un vote tamponné dans une case.","Voto válido: el sello dentro de una sola casilla. Un sello que desborda sin tocar otra casilla cuenta igualmente, y las notas a mano no anulan un voto con sello dentro de una casilla."),U.roBec],
+  [L3("Null vote: no stamp at all, a stamp touching another box, stamps on several boxes or outside them, or a ballot without the polling station's control stamp.","Vote nul : aucun tampon, un tampon qui touche une autre case, des tampons sur plusieurs cases ou hors des cases, ou un bulletin sans le cachet de contrôle du bureau.","Voto nulo: ningún sello, un sello que toca otra casilla, sellos en varias casillas o fuera de ellas, o una papeleta sin el sello de control de la mesa."),U.roBec]
+ ],
+ count:[
+  [L3("Seats are shared out among valid votes; the seven parties that entered the Chamber in December 2024 each had more than 5% of them.","Les sièges se répartissent sur les votes valides ; les sept partis entrés à la Chambre en décembre 2024 en avaient chacun plus de 5 %.","Los escaños se reparten sobre los votos válidos; los siete partidos que entraron en la Cámara en diciembre de 2024 tenían cada uno más del 5 %."),U.roRes]
+ ],
+ impact:[
+  [L3("Choosing no one means handing in a ballot without a valid stamp: it is counted as null, in the same category as mistakes.","Ne choisir personne revient à rendre un bulletin sans tampon valable : il est compté nul, dans la même catégorie que les erreurs.","No elegir a nadie equivale a entregar una papeleta sin sello válido: se cuenta como nula, en la misma categoría que los errores."),U.roBec]
+ ]
+};
+BLANK.serbia={
+ lead:L3("In Serbia, the official results show no separate blank vote: only valid and invalid ballots.","En Serbie, les résultats officiels ne distinguent pas de vote blanc : seulement des bulletins valables et invalides.","En Serbia, los resultados oficiales no distinguen un voto en blanco: solo papeletas válidas y nulas."),
+ what:[
+  [L3("Official results give registered voters, ballots cast and valid ballots; the difference is the invalid ballots.","Les résultats officiels donnent les inscrits, les bulletins déposés et les bulletins valables ; la différence correspond aux bulletins invalides.","Los resultados oficiales dan los inscritos, las papeletas depositadas y las válidas; la diferencia corresponde a las nulas."),U.rs26]
+ ],
+ count:[
+  [L3("Seats are shared out among the lists on valid ballots only.","Les sièges se répartissent entre les listes sur les seuls bulletins valables.","Los escaños se reparten entre las listas solo sobre las papeletas válidas."),U.rs26]
+ ],
+ nums:[
+  [1.27,L3("of ballots cast were invalid in the 2026 parliamentary election (56,571 of 4,441,636), with a turnout of about 68.9%.","des bulletins déposés étaient invalides aux législatives de 2026 (56 571 sur 4 441 636), pour une participation d'environ 68,9 %.","de las papeletas depositadas fueron nulas en las legislativas de 2026 (56 571 de 4 441 636), con una participación de cerca del 68,9 %."),U.rs26]
+ ],
+ impact:[
+  [L3("An invalid ballot is counted in turnout but not in any list's share.","Un bulletin invalide compte dans la participation mais dans la part d'aucune liste.","Una papeleta nula cuenta en la participación pero en la cuota de ninguna lista."),U.rs26]
+ ]
+};
+BLANK.australia={
+ lead:L3("In Australia, voting is compulsory. Turning up and handing in a blank ballot is what the electoral commission calls an “intentionally informal” vote.","En Australie, voter est obligatoire. Se présenter et rendre un bulletin vide, c'est ce que la commission électorale appelle un vote « informel volontaire ».","En Australia votar es obligatorio. Presentarse y entregar una papeleta vacía es lo que la comisión electoral llama un voto «informal intencionado»."),
+ what:[
+  [L3("Voters number the candidates in order of preference. An informal vote is one that cannot count: blank, only a “1” where all boxes must be numbered, wrong numbering, or a ballot that identifies the voter.","On numérote les candidats par ordre de préférence. Un vote « informel » est un vote qui ne peut pas compter : vide, un seul « 1 » là où toutes les cases doivent être numérotées, numérotation erronée, ou bulletin qui identifie l'électeur.","Se numeran los candidatos por orden de preferencia. Un voto «informal» es el que no puede contar: vacío, un solo «1» donde hay que numerar todas las casillas, numeración errónea o papeleta que identifica al elector."),U.auInf],
+  [L3("The commission notes that a compulsory voting system always has some deliberate informality: people attend, are marked off, and return a ballot without a formal vote.","La commission note qu'un système de vote obligatoire comporte toujours une part d'informalité volontaire : des électeurs se présentent, sont pointés, et rendent un bulletin sans vote valable.","La comisión señala que un sistema de voto obligatorio siempre tiene cierta informalidad deliberada: los electores acuden, se les marca en el censo y devuelven una papeleta sin voto válido."),U.auInf]
+ ],
+ count:[
+  [L3("Informal votes count for no candidate and are excluded from the preference count.","Les votes informels ne comptent pour aucun candidat et sont exclus du décompte des préférences.","Los votos informales no cuentan para ningún candidato y quedan fuera del recuento de preferencias."),U.auInf]
+ ],
+ nums:[
+  [5.6,L3("of House of Representatives ballots were informal in 2025 (919,512), for a turnout of 90.7% of enrolled voters.","des bulletins pour la Chambre des représentants étaient informels en 2025 (919 512), pour une participation de 90,7 % des inscrits.","de las papeletas para la Cámara de Representantes fueron informales en 2025 (919 512), con una participación del 90,7 % de los inscritos."),U.auPart],
+  [25.2,L3("of informal ballots examined in the commission's sample were blank; the others were mostly numbering mistakes.","des bulletins informels examinés dans l'échantillon de la commission étaient vides ; les autres étaient surtout des erreurs de numérotation.","de las papeletas informales examinadas en la muestra de la comisión estaban vacías; las demás eran sobre todo errores de numeración."),U.auInf]
+ ],
+ impact:[
+  [L3("With compulsory voting, blank ballots are mixed with honest mistakes in the same informal pile: most informal votes are errors, not protests.","Avec le vote obligatoire, les bulletins vides se mêlent aux erreurs sincères dans la même pile « informelle » : la plupart des votes informels sont des erreurs, pas des protestations.","Con el voto obligatorio, las papeletas vacías se mezclan con los errores sinceros en el mismo montón «informal»: la mayoría de los votos informales son errores, no protestas."),U.auInf]
+ ]
+};
+BLANK.newzealand={
+ lead:L3("In New Zealand, each voter has two votes, one for a party and one for a local candidate. A party vote that cannot count is “informal”.","En Nouvelle-Zélande, chaque électeur a deux voix, l'une pour un parti, l'autre pour un candidat local. Une voix de parti qui ne peut pas compter est dite « informelle ».","En Nueva Zelanda, cada elector tiene dos votos, uno para un partido y otro para un candidato local. Un voto de partido que no puede contar se llama «informal»."),
+ what:[
+  [L3("Informal party votes are published separately from valid ones and go to no party.","Les voix de parti informelles sont publiées à part des voix valables et ne vont à aucun parti.","Los votos de partido informales se publican aparte de los válidos y no van a ningún partido."),U.nz23]
+ ],
+ count:[
+  [L3("Seats in Parliament are shared out according to the valid party votes.","Les sièges au Parlement se répartissent selon les voix de parti valables.","Los escaños del Parlamento se reparten según los votos de partido válidos."),U.nz23]
+ ],
+ nums:[
+  [0.56,L3("of votes cast were informal party votes in 2023 (16,252 of 2,883,412), for a turnout of 78.2% of enrolled voters.","des votes exprimés étaient des voix de parti informelles en 2023 (16 252 sur 2 883 412), pour une participation de 78,2 % des inscrits.","de los votos emitidos fueron votos de partido informales en 2023 (16 252 de 2 883 412), con una participación del 78,2 % de los inscritos."),U.nz23]
+ ],
+ impact:[
+  [L3("Because the party vote decides the shape of Parliament, a party vote left informal weighs on no party's seats.","Comme la voix de parti décide de la composition du Parlement, une voix de parti laissée informelle ne pèse sur les sièges d'aucun parti.","Como el voto de partido decide la composición del Parlamento, un voto de partido informal no pesa en los escaños de ningún partido."),U.nz23]
+ ]
+};
+})();
