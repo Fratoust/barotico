@@ -329,3 +329,102 @@ BLANK.austria={
  ]
 };
 })();
+// ---- rollout batch 3 (14 Nov 2026): Ireland, Greece, Sweden, Switzerland, Poland ----
+(function(){
+var U={
+ ieLL:"https://www.leinsterleader.ie/news/national-news/1668186/beware-people-are-spoiling-their-vote-in-general-election-2024-with-honest-mistake.html",
+ ie25:"https://www.rte.ie/news/2025/1025/1540616-election-result-in-numbers",
+ ieWhy:"https://analysis.irelandthinks.ie/who-are-the-people-who-spoiled-their-ballot-and-why/",
+ grYpes:"https://www.powergame.gr/politiki/468634/ypes-20-erotiseis-apantiseis-gia-tis-ekloges-tis-kyriakis",
+ gr23:"https://www.iefimerida.gr/ekloges/ekloges-2023-telika-apotelesmata",
+ seVpn:"https://www.riksdagen.se/sv/dokument-och-lagar/dokument/valprovningsnamndens-beslut/avsaknad-av-blanka-valsedlar-har-inte-ansetts_had34ec7ee/",
+ seHb:"https://hurbra.se/rosta-blankt-2026/",
+ chLdp:"https://www.droit-bilingue.ch/en-fr/1/16/161.1-12-17.html",
+ ch12:"https://swissvotes.ch/vote/558.00/erwahrung-fr.pdf",
+ plPkw:"https://eli.gov.pl/api/acts/DU/2023/2234/text.html",
+ plRef:"https://www.infor.pl/prawo/nowosci-prawne/6340048,wynik-referendum-nie-jest-wiazacy-pkw-podala-frekwencje.html"
+};
+BLANK.ireland={
+ lead:L3("In Ireland, there is no blank vote: an unmarked ballot is a spoilt vote. In 2025, spoiling became a protest on a scale never seen before.","En Irlande, il n'existe pas de vote blanc : un bulletin laissé vide est un vote « gâché » (spoilt). En 2025, ce geste est devenu une protestation d'une ampleur inédite.","En Irlanda no existe el voto en blanco: una papeleta sin marcar es un voto «estropeado» (spoilt). En 2025, ese gesto se convirtió en una protesta de una magnitud inédita."),
+ what:[
+  [L3("You rank candidates: 1 for your first choice, 2 for the next, and so on. You may stop after one choice.","On classe les candidats : 1 pour le premier choix, 2 pour le suivant, et ainsi de suite. On peut s'arrêter après un seul choix.","Se ordena a los candidatos: 1 para la primera opción, 2 para la siguiente, y así sucesivamente. Se puede parar tras una sola opción."),U.ieLL],
+  [L3("Spoilt votes: blank ballots, ticks or crosses instead of a “1”, an unclear order, illegible writing, unstamped ballots, or marks that identify the voter.","Votes gâchés : bulletins vides, coches ou croix au lieu d'un « 1 », ordre peu clair, écriture illisible, bulletin non tamponné, ou marques qui identifient l'électeur.","Votos estropeados: papeletas vacías, marcas o cruces en lugar de un «1», orden poco claro, escritura ilegible, papeletas sin sellar o marcas que identifican al elector."),U.ieLL]
+ ],
+ count:[
+  [L3("Spoilt votes are counted and published, but do not count towards the result.","Les votes gâchés sont comptés et publiés, mais ne comptent pas pour le résultat.","Los votos estropeados se cuentan y se publican, pero no cuentan para el resultado."),U.ieLL]
+ ],
+ nums:[
+  [12.9,L3("of ballots were spoilt in the October 2025 presidential election (213,738), against 1.2% in 2018: a record.","des bulletins ont été gâchés à la présidentielle d'octobre 2025 (213 738), contre 1,2 % en 2018 : un record.","de las papeletas fueron estropeadas en las presidenciales de octubre de 2025 (213 738), frente al 1,2 % en 2018: un récord."),U.ie25]
+ ],
+ impact:[
+  [L3("A polling-day survey linked most of those spoilt ballots to a lack of choice, protest, or support for a would-be candidate who was not on the ballot. A campaign to spoil had spread online.","Un sondage du jour du vote a relié la plupart de ces bulletins gâchés à un manque de choix, à la protestation, ou au soutien à une candidate absente du bulletin. Une campagne pour gâcher son vote s'était diffusée en ligne.","Una encuesta del día de la votación vinculó la mayoría de esas papeletas estropeadas a la falta de opciones, a la protesta o al apoyo a una aspirante que no figuraba en la papeleta. Una campaña para estropear el voto se había difundido en internet."),U.ieWhy],
+  [L3("The winner was still elected with the valid votes alone: a spoilt ballot sends a message but changes no result.","La gagnante a été élue avec les seuls votes valides : un bulletin gâché envoie un message mais ne change aucun résultat.","La ganadora fue elegida solo con los votos válidos: una papeleta estropeada envía un mensaje pero no cambia ningún resultado."),U.ie25]
+ ]
+};
+BLANK.greece={
+ lead:L3("In Greece, voting is compulsory under the electoral law, and blank ballots are counted separately from invalid ones.","En Grèce, voter est obligatoire selon la loi électorale, et les bulletins blancs sont comptés à part des bulletins invalides.","En Grecia, votar es obligatorio según la ley electoral, y las papeletas en blanco se cuentan aparte de las nulas."),
+ what:[
+  [L3("Compulsory voting: voters abroad on election day and those over 70 are exempt. The Interior Ministry's guide does not mention any penalty.","Vote obligatoire : les électeurs à l'étranger le jour du vote et les plus de 70 ans en sont dispensés. Le guide du ministère de l'Intérieur ne mentionne aucune sanction.","Voto obligatorio: los electores en el extranjero el día de la votación y los mayores de 70 años están exentos. La guía del Ministerio del Interior no menciona ninguna sanción."),U.grYpes],
+  [L3("The ballot goes into a sealed, stamped envelope. In the June 2023 election, lists were closed, with no preference vote.","Le bulletin va dans une enveloppe fermée et tamponnée. Aux législatives de juin 2023, les listes étaient bloquées, sans vote de préférence.","La papeleta va en un sobre cerrado y sellado. En las legislativas de junio de 2023, las listas eran cerradas, sin voto preferencial."),U.grYpes]
+ ],
+ count:[
+  [L3("Results list valid, invalid and blank ballots separately; only valid ballots go to parties.","Les résultats distinguent bulletins valides, invalides et blancs ; seuls les valides vont aux partis.","Los resultados distinguen papeletas válidas, nulas y en blanco; solo las válidas van a los partidos."),U.gr23]
+ ],
+ nums:[
+  [0.57,L3("of ballots were blank in May 2023 (34,760), against 2.04% invalid (123,488).","des bulletins étaient blancs en mai 2023 (34 760), contre 2,04 % d'invalides (123 488).","de las papeletas fueron en blanco en mayo de 2023 (34 760), frente al 2,04 % de nulas (123 488)."),U.gr23],
+  [39.06,L3("of voters abstained in May 2023, despite compulsory voting.","des électeurs se sont abstenus en mai 2023, malgré le vote obligatoire.","de los electores se abstuvieron en mayo de 2023, pese al voto obligatorio."),U.gr23]
+ ],
+ impact:[
+  [L3("Where voting is compulsory but not enforced, a blank ballot and staying home lead to the same place in the results: neither counts for a party.","Là où le vote est obligatoire sans sanction appliquée, un bulletin blanc et l'abstention mènent au même endroit dans les résultats : ni l'un ni l'autre ne compte pour un parti.","Donde el voto es obligatorio sin sanción aplicada, una papeleta en blanco y la abstención llevan al mismo lugar en los resultados: ninguna cuenta para un partido."),U.gr23]
+ ]
+};
+BLANK.sweden={
+ lead:L3("In Sweden, you vote blank with a blank ballot paper put alone in the envelope. Blank votes are published, but they are invalid votes.","En Suède, on vote blanc avec un bulletin vierge glissé seul dans l'enveloppe. Les votes blancs sont publiés, mais ce sont des votes invalides.","En Suecia, se vota en blanco con una papeleta en blanco colocada sola en el sobre. Los votos en blanco se publican, pero son votos no válidos."),
+ what:[
+  [L3("Polling stations must offer ballot papers with only the election name on them: you can write a party on them, or leave them empty to vote blank.","Les bureaux de vote doivent proposer des bulletins qui ne portent que le nom de l'élection : on peut y écrire un parti, ou les laisser vides pour voter blanc.","Los colegios electorales deben ofrecer papeletas que solo llevan el nombre de la elección: se puede escribir un partido en ellas o dejarlas vacías para votar en blanco."),U.seVpn],
+  [L3("Careful: an envelope with no ballot inside is not a blank vote; it is recorded as “invalid – other”.","Attention : une enveloppe sans bulletin n'est pas un vote blanc ; elle est enregistrée comme « invalide – autre ».","Atención: un sobre sin papeleta no es un voto en blanco; se registra como «no válido – otro»."),U.seHb]
+ ],
+ count:[
+  [L3("A ballot without a party name is invalid. Blank votes count in turnout but not among valid votes, so they do not affect the 4% threshold.","Un bulletin sans nom de parti est invalide. Les blancs comptent dans la participation mais pas parmi les votes valides : ils ne touchent donc pas au seuil de 4 %.","Una papeleta sin nombre de partido no es válida. Los votos en blanco cuentan en la participación pero no entre los votos válidos: no afectan, por tanto, al umbral del 4 %."),U.seHb]
+ ],
+ nums:[
+  [0.95,L3("of the 6.55 million votes in the 2022 Riksdag election were blank: just over 62,000 of the 70,000 invalid votes.","des 6,55 millions de votes des législatives de 2022 étaient blancs : un peu plus de 62 000 des 70 000 votes invalides.","de los 6,55 millones de votos de las legislativas de 2022 fueron en blanco: algo más de 62 000 de los 70 000 votos no válidos."),U.seHb]
+ ],
+ impact:[
+  [L3("Since blank votes stay outside valid votes, a party's share and the 4% bar are calculated without them.","Comme les blancs restent hors des votes valides, la part de chaque parti et la barre des 4 % se calculent sans eux.","Como los votos en blanco quedan fuera de los válidos, la cuota de cada partido y la barrera del 4 % se calculan sin ellos."),U.seHb]
+ ]
+};
+BLANK.switzerland={
+ lead:L3("In Switzerland, people vote several times a year on laws and initiatives. Blank ballots are counted, but they do not enter the yes-no result.","En Suisse, on vote plusieurs fois par an sur des lois et des initiatives. Les bulletins blancs sont comptés, mais n'entrent pas dans le résultat oui-non.","En Suiza se vota varias veces al año sobre leyes e iniciativas. Las papeletas en blanco se cuentan, pero no entran en el resultado sí-no."),
+ what:[
+  [L3("Blank ballot: a ballot handed in without a yes or a no.","Bulletin blanc : un bulletin rendu sans oui ni non.","Papeleta en blanco: una papeleta entregada sin sí ni no."),U.ch12],
+  [L3("Void ballot: not official, not filled in by hand, intention not clearly recognisable, or carrying defamatory remarks or obviously irrelevant markings.","Bulletin nul : non officiel, non rempli à la main, intention pas clairement reconnaissable, ou portant des remarques injurieuses ou des marques manifestement étrangères au vote.","Papeleta nula: no oficial, no rellenada a mano, intención no reconocible con claridad, o con comentarios injuriosos o marcas manifiestamente ajenas a la votación."),U.chLdp]
+ ],
+ count:[
+  [L3("In the official results, blank and void ballots are listed as “not taken into account”; only valid ballots, the yes and the no, decide.","Dans les résultats officiels, les bulletins blancs et nuls sont classés « n'entrant pas en ligne de compte » ; seuls les bulletins valables, les oui et les non, décident.","En los resultados oficiales, las papeletas en blanco y nulas figuran como «que no se tienen en cuenta»; solo deciden las válidas, el sí y el no."),U.ch12]
+ ],
+ nums:[
+  [1.7,L3("of ballots were blank in the March 2012 vote on second homes (38,798), more than the margin by which the initiative passed (28,796 votes).","des bulletins étaient blancs à la votation de mars 2012 sur les résidences secondaires (38 798), plus que l'écart avec lequel l'initiative est passée (28 796 voix).","de las papeletas fueron en blanco en la votación de marzo de 2012 sobre las segundas residencias (38 798), más que la diferencia con la que se aprobó la iniciativa (28 796 votos)."),U.ch12]
+ ],
+ impact:[
+  [L3("In 2012, the second-homes initiative passed with 1,152,598 yes against 1,123,802 no. The blank ballots outnumbered the gap: on a close vote, those who decide are those who choose yes or no.","En 2012, l'initiative sur les résidences secondaires est passée avec 1 152 598 oui contre 1 123 802 non. Les bulletins blancs dépassaient l'écart : sur un vote serré, ceux qui décident sont ceux qui choisissent oui ou non.","En 2012, la iniciativa sobre las segundas residencias se aprobó con 1 152 598 síes frente a 1 123 802 noes. Las papeletas en blanco superaban la diferencia: en una votación reñida, deciden quienes eligen sí o no."),U.ch12]
+ ]
+};
+BLANK.poland={
+ lead:L3("In Poland, there is no blank vote: a ballot without any cross is an invalid vote, counted with the others.","En Pologne, il n'existe pas de vote blanc : un bulletin sans aucune croix est un vote invalide, compté avec les autres.","En Polonia no existe el voto en blanco: una papeleta sin ninguna cruz es un voto nulo, contado con los demás."),
+ what:[
+  [L3("Invalid vote: no cross next to any candidate, crosses next to candidates of different lists, or a cross only for a list whose registration was cancelled.","Vote invalide : aucune croix devant un candidat, des croix devant des candidats de listes différentes, ou une croix seulement pour une liste dont l'enregistrement a été annulé.","Voto nulo: ninguna cruz junto a un candidato, cruces junto a candidatos de listas distintas, o una cruz solo para una lista cuyo registro fue anulado."),U.plPkw]
+ ],
+ count:[
+  [L3("The electoral commission publishes invalid votes by reason; they go to no list.","La commission électorale publie les votes invalides par motif ; ils ne vont à aucune liste.","La comisión electoral publica los votos nulos por motivo; no van a ninguna lista."),U.plPkw],
+  [L3("A national referendum is binding only if more than half of the voters take part.","Un référendum national n'est contraignant que si plus de la moitié des électeurs y participent.","Un referéndum nacional solo es vinculante si participa más de la mitad de los electores."),U.plRef]
+ ],
+ nums:[
+  [1.69,L3("of votes were invalid in the October 2023 Sejm election (370,217), including 144,870 ballots with no cross at all, with a turnout of 74.38%.","des votes étaient invalides aux législatives d'octobre 2023 (370 217), dont 144 870 bulletins sans aucune croix, pour une participation de 74,38 %.","de los votos fueron nulos en las legislativas de octubre de 2023 (370 217), entre ellos 144 870 papeletas sin ninguna cruz, con una participación del 74,38 %."),U.plPkw],
+  [40.91,L3("turnout in the referendum held the same day: below 50%, so the result was not binding.","de participation au référendum organisé le même jour : sous les 50 %, le résultat n'était donc pas contraignant.","de participación en el referéndum celebrado el mismo día: por debajo del 50 %, el resultado no fue vinculante."),U.plRef]
+ ],
+ impact:[
+  [L3("In 2023 the same voters received a Sejm ballot and a referendum ballot: in a referendum with a turnout quorum, not taking part and taking part do not have the same effect.","En 2023, les mêmes électeurs recevaient un bulletin pour la Diète et un pour le référendum : dans un référendum à quorum, ne pas participer et participer n'ont pas le même effet.","En 2023, los mismos electores recibían una papeleta para el Sejm y otra para el referéndum: en un referéndum con quórum, no participar y participar no tienen el mismo efecto."),U.plRef]
+ ]
+};
+})();
