@@ -9,7 +9,7 @@ BAROTICO.add("uk", {
    gov:[[L3("ITV News: Burnham names his cabinet (20 July 2026)","ITV News : Burnham nomme son gouvernement (20 juillet 2026)","ITV News: Burnham nombra su gabinete (20 de julio de 2026)"),"https://www.itv.com/news/2026-07-20/prime-minister-andy-burnham-cabinet-announcements"],[L3("Full Fact: the 2024 election in numbers","Full Fact : l'élection de 2024 en chiffres","Full Fact: las elecciones de 2024 en cifras"),"https://fullfact.org/election-2024/general-election-result-numbers/"],[L3("UK Parliament: Makerfield by-election result (18 June 2026)","Parlement britannique : résultat de la partielle de Makerfield (18 juin 2026)","Parlamento británico: resultado de la parcial de Makerfield (18 de junio de 2026)"),"https://electionresults.parliament.uk/elections/4555"]]},
   iso: "GB", continent: "europe",
   region: "europe",
-  updated: "2026-10-30",
+  updated: "2026-11-15",
   name: L3("United Kingdom", "Royaume-Uni", "Reino Unido"),
   sub: L3("Constitutional monarchy, parliamentary system · about 69 million people",
           "Monarchie constitutionnelle, régime parlementaire · environ 69 millions d'habitants",
@@ -109,10 +109,14 @@ BAROTICO.add("uk", {
               "La prochaine revue des dépenses doit préciser comment la défense atteindra 3,5 % du PIB (objectif OTAN) d'ici 2035, avec une étape à 3 % en 2030.",
               "La próxima revisión del gasto debe detallar cómo la defensa alcanzará el 3,5 % del PIB (objetivo OTAN) en 2035, con un hito del 3 % en 2030."),
      "https://www.gov.uk/government/news/budget-2026-breathing-space-for-today-hope-for-the-future"],
-    [null, L3("Standards Commissioner inquiry into Nigel Farage's undeclared £5m gift resumes; a suspension of more than 10 sitting days could trigger a recall petition in Clacton.",
-              "Reprise de l'enquête de la commissaire aux normes sur le don de 5 M£ non déclaré par Nigel Farage ; une suspension de plus de 10 jours de séance pourrait déclencher une pétition de révocation à Clacton.",
-              "Se reanuda la investigación del comisionado de normas sobre la donación no declarada de 5 M£ a Nigel Farage; una suspensión de más de 10 días de sesión podría activar una petición revocatoria en Clacton."),
-     "https://www.irishnews.com/news/uk/farage-seeks-august-6-date-for-by-election-which-will-be-boycotted-by-rivals-YPSGHOQ365MS3EGHKEPPIFOM2Y/"],
+    [null, L3("Report of Standards Commissioner Daniel Greenberg on whether Nigel Farage should have registered a £5m gift from Christopher Harborne. Interviewed in September, Farage said on 8 November 2026 that he expected 'a letter of rebuke'. A suspension of 10 sitting days or more would open a recall petition in Clacton.",
+              "Rapport du commissaire aux normes Daniel Greenberg sur l'obligation, pour Nigel Farage, de déclarer un don de 5 M£ de Christopher Harborne. Entendu en septembre, Farage a dit le 8 novembre 2026 s'attendre à « une lettre de réprimande ». Une suspension de 10 jours de séance ou plus ouvrirait une pétition de révocation à Clacton.",
+              "Informe del comisionado de normas Daniel Greenberg sobre si Nigel Farage debía declarar una donación de 5 M£ de Christopher Harborne. Interrogado en septiembre, Farage dijo el 8 de noviembre de 2026 que esperaba «una carta de reprimenda». Una suspensión de 10 días de sesión o más abriría una petición revocatoria en Clacton."),
+     "https://www.itv.com/news/2026-11-08/farage-suggests-he-believes-investigation-into-5m-gift-will-find-against-him"],
+    [null, L3("Representation of the People Bill: votes at 16 and 17, a cap of £100,000 a year on donations from voters living abroad, and a ban on crypto donations made since 25 March 2026. Back in the Commons for report stage on 2 September 2026; the House of Lords must then pass it.",
+              "Projet de loi sur la représentation du peuple : vote dès 16 ans, plafond de 100 000 £ par an pour les dons d'électeurs vivant à l'étranger et interdiction des dons en cryptomonnaie reçus depuis le 25 mars 2026. Revenu aux Communes en rapport le 2 septembre 2026 ; la Chambre des lords doit ensuite l'adopter.",
+              "Proyecto de ley de representación del pueblo: voto a los 16 y 17 años, tope de 100 000 £ anuales a las donaciones de electores residentes en el extranjero y prohibición de las donaciones en criptomonedas recibidas desde el 25 de marzo de 2026. Volvió a los Comunes en fase de informe el 2 de septiembre de 2026; después debe aprobarlo la Cámara de los Lores."),
+     "https://mhclgmedia.blog.gov.uk/2026/09/02/protecting-uk-democracy-from-hostile-actors-and-foreign-interference-%f0%9f%97%b3%ef%b8%8f%f0%9f%94%92/"],
     [null, L3("Bill to strengthen ties with the European Union, announced in the King's Speech of May 2026.",
               "Projet de loi pour resserrer les liens avec l'Union européenne, annoncé dans le discours du roi de mai 2026.",
               "Proyecto de ley para estrechar los lazos con la Unión Europea, anunciado en el discurso del rey de mayo de 2026."),
@@ -138,15 +142,19 @@ BAROTICO.add("uk", {
             "Inscription en ligne sur GOV.UK (« Register to vote »), au plus tard 12 jours ouvrables avant le scrutin. Pièce d'identité avec photo exigée au bureau de vote pour les élections au Parlement britannique. Vote par correspondance ou par procuration sur demande. Les Britanniques de l'étranger peuvent s'inscrire comme électeurs à l'étranger, sans limite de durée depuis 2024.",
             "Inscripción en línea en GOV.UK («Register to vote»), como tarde 12 días hábiles antes de la votación. Hay que llevar documento con foto al colegio electoral en las elecciones al Parlamento británico. Voto por correo o por representación a petición. Los británicos residentes en el extranjero pueden inscribirse como electores en el exterior, sin límite de tiempo desde 2024.") },
 
-  progNote: L3("Updated two days after the Budget of 28 October 2026: only its headline measures are included, and its effects cannot be measured yet.",
-               "Mise à jour deux jours après le budget du 28 octobre 2026 : seules ses mesures phares y figurent, et ses effets ne sont pas encore mesurables.",
-               "Actualizado dos días después del presupuesto del 28 de octubre de 2026: solo figuran sus medidas principales, y sus efectos aún no se pueden medir."),
+  method: L3("Seats are those of the House of Commons 'state of the parties' page, consulted on 15 November 2026; the page carries no date. It lists 13 independents and 3 vacant seats without naming them, and this update could not identify the vacancies. Nine cards are shown, by seats, under the seats-or-3% rule and the nine-card cap. The SDLP (2 MPs), Alliance, the UUP, the TUV, Your Party and Restore Britain (1 each) have no card and appear only in the seat chart, where their place is indicative. 'Greens' means the Green Party of England and Wales; the Scottish Greens are a separate party.\n\nLeft-right positions are an expert-consensus estimate, since no Chapel Hill Expert Survey page for the UK was opened; Reform UK is labelled far right by the position rule. Party finance uses the Electoral Commission's 2024 accounts: totals only, as no breakdown by source is published, and none for Labour, which filed late. Programme links are the 2024 general election manifestos, or the 2026 Holyrood and Senedd manifestos for the SNP and Plaid Cymru; the DUP's is an archive copy held by Ulster University.\n\nPress links come only from the validated list in the media panel; PA dispatches republished by regional titles with a visible credit count as PA. Claims reported only elsewhere were rewritten from official sources or dropped. Cases are listed only with an official act; allegations, private conduct and spent convictions are left out. The homicide rate covers England and Wales only.",
+    "Les sièges sont ceux de la page « state of the parties » de la Chambre des communes, consultée le 15 novembre 2026 ; la page n'est pas datée. Elle compte 13 indépendants et 3 sièges vacants sans les nommer, et cette mise à jour n'a pas pu identifier les sièges vacants. Neuf fiches sont présentées, par sièges, selon la règle des sièges ou des 3 % et le plafond de neuf fiches. Le SDLP (2 députés), Alliance, l'UUP, la TUV, Your Party et Restore Britain (1 chacun) n'ont pas de fiche et ne figurent que dans le graphique des sièges, où leur place est indicative. « Verts » désigne le Green Party d'Angleterre et du pays de Galles ; les Verts écossais forment un parti distinct.\n\nLes positions gauche-droite sont une estimation par consensus d'experts, aucune page du Chapel Hill Expert Survey sur le Royaume-Uni n'ayant été ouverte ; Reform UK est classé extrême droite par la règle de position. Le financement des partis reprend les comptes 2024 de la Commission électorale : totaux seulement, aucune ventilation par source n'étant publiée, et rien pour le Labour, qui a déposé ses comptes en retard. Les liens de programme renvoient aux manifestes des élections générales de 2024, ou aux manifestes de 2026 pour Holyrood et le Senedd dans le cas du SNP et de Plaid Cymru ; celui du DUP est une copie archivée par l'université d'Ulster.\n\nLes liens de presse proviennent uniquement de la liste validée du panneau médias ; les dépêches PA reprises par des titres régionaux avec mention visible comptent comme PA. Les faits rapportés seulement ailleurs ont été réécrits à partir de sources officielles ou retirés. Les affaires ne figurent qu'avec un acte officiel ; allégations, vie privée et condamnations effacées sont écartées. Le taux d'homicides ne couvre que l'Angleterre et le pays de Galles.",
+    "Los escaños son los de la página «state of the parties» de la Cámara de los Comunes, consultada el 15 de noviembre de 2026; la página no lleva fecha. Recoge 13 independientes y 3 escaños vacantes sin nombrarlos, y esta actualización no pudo identificar las vacantes. Se muestran nueve fichas, por escaños, según la regla de escaños o 3 % y el límite de nueve fichas. El SDLP (2 diputados), Alliance, el UUP, la TUV, Your Party y Restore Britain (1 cada uno) no tienen ficha y solo figuran en el gráfico de escaños, donde su lugar es indicativo. «Verdes» designa al Green Party de Inglaterra y Gales; los Verdes escoceses son un partido distinto.\n\nLas posiciones izquierda-derecha son una estimación por consenso de expertos, ya que no se abrió ninguna página del Chapel Hill Expert Survey sobre el Reino Unido; Reform UK figura como extrema derecha por la regla de posición. La financiación de los partidos usa las cuentas de 2024 de la Comisión Electoral: solo totales, porque no se publica desglose por origen, y ninguno para el Partido Laborista, que presentó tarde. Los enlaces de programa son los manifiestos de las elecciones generales de 2024, o los de 2026 para Holyrood y el Senedd en el caso del SNP y Plaid Cymru; el del DUP es una copia archivada por la Universidad del Ulster.\n\nLos enlaces de prensa proceden solo de la lista validada del panel de medios; los despachos de PA reproducidos por diarios regionales con mención visible cuentan como PA. Los hechos publicados solo en otros medios se reescribieron a partir de fuentes oficiales o se retiraron. Los casos solo figuran con un acto oficial; se dejan fuera las alegaciones, la vida privada y las condenas canceladas. La tasa de homicidios solo cubre Inglaterra y Gales."),
+
+  progNote: L3("Only the headline measures of the Budget of 28 October 2026 are included; its effects cannot be measured yet.",
+               "Seules les mesures phares du budget du 28 octobre 2026 y figurent ; ses effets ne sont pas encore mesurables.",
+               "Solo figuran las medidas principales del presupuesto del 28 de octubre de 2026; sus efectos aún no se pueden medir."),
 
   parties: [
     { id: "lab", born: {"y": 1900, "m": 2, "old": "Labour Representation Committee", "re": 1906, "gov": "lead", "u": "https://atom.aim25.com/index.php/labour-party-3"}, name: "Labour", full: "Labour Party", leader: "Andy Burnham",
-      seats: L3("About 404 of 650 MPs (Aug. 2026, incl. suspended MPs); 411 won in 2024",
-                "Environ 404 députés sur 650 (août 2026, suspendus compris) ; 411 élus en 2024",
-                "Unos 404 de 650 diputados (ago. 2026, incluidos suspendidos); 411 obtenidos en 2024"),
+      seats: L3("402 of 650 MPs (Nov. 2026); 411 won in 2024",
+                "402 députés sur 650 (nov. 2026) ; 411 élus en 2024",
+                "402 de 650 diputados (nov. 2026); 411 obtenidos en 2024"),
       role: "gov", pos: -0.4, style: "lean",
       dit: [
         L3("'Change' and stability after years of turmoil (2024 manifesto)", "Le « changement » et la stabilité après des années de turbulences (programme 2024)", "«Cambio» y estabilidad tras años de turbulencias (programa de 2024)"),
@@ -248,12 +256,12 @@ BAROTICO.add("uk", {
         n: L3("Labour did not file its 2024 accounts in time for the Electoral Commission's August 2025 publication, so no figure is available here. The Commission publishes totals, not a breakdown by source.",
               "Le Labour n'a pas déposé ses comptes 2024 à temps pour la publication d'août 2025 de la Commission électorale ; aucun chiffre n'est donc disponible ici. La Commission publie des totaux, pas de répartition par source.",
               "El laborismo no presentó sus cuentas de 2024 a tiempo para la publicación de agosto de 2025 de la Comisión Electoral, así que no hay cifra disponible. La Comisión publica totales, no un desglose por fuentes.") },
-      prog: [] },
+      prog: [["2024", "https://labour.org.uk/wp-content/uploads/2024/06/Change-Labour-manifesto-2024-screen-reader.pdf"]] },
 
     { id: "con", born: {"y": 1834, "old": "Conservative Party", "re": 1912, "gov": "lead", "u": "https://www.alistairlexden.org.uk/news/tamworth-commemorating-first-and-most-famous-election-manifesto-190-years-ago"}, demw: [[{"en": "Leave the European Convention on Human Rights: \"Kemi has made leaving the ECHR official Conservative policy, with full Shadow Cabinet backing\" (Conservative Party, 4 October 2025), to act on border security, veterans' legal cases and sentencing.", "fr": "Quitter la Convention européenne des droits de l'homme : « Kemi has made leaving the ECHR official Conservative policy, with full Shadow Cabinet backing » (Parti conservateur, 4 octobre 2025), pour agir sur la sécurité des frontières, les procédures visant des anciens militaires et les peines.", "es": "Salir del Convenio Europeo de Derechos Humanos: «Kemi has made leaving the ECHR official Conservative policy, with full Shadow Cabinet backing» (Partido Conservador, 4 de octubre de 2025), para actuar sobre la seguridad de las fronteras, los procesos contra veteranos y las penas."}, {"en": "By the party's own account, the policy requires withdrawing from the ECHR, whose rights, including the ban on torture (Art. 3), fair trial (Art. 6) and family life (Art. 8), are enforced by UK courts and the European Court of Human Rights. The party says 'lawfare' has frustrated border control; no court has ruled on the plan.", "fr": "De l'aveu même du parti, cette politique suppose de quitter la CEDH, dont les droits, notamment l'interdiction de la torture (art. 3), le procès équitable (art. 6) et la vie familiale (art. 8), sont appliqués par les tribunaux britanniques et la Cour européenne des droits de l'homme. Le parti affirme que la « guérilla juridique » (lawfare) a entravé le contrôle des frontières ; aucun juge ne s'est prononcé sur ce projet.", "es": "Según el propio partido, esta política exige abandonar el CEDH, cuyos derechos, entre ellos la prohibición de la tortura (art. 3), el juicio justo (art. 6) y la vida familiar (art. 8), aplican los tribunales británicos y el Tribunal Europeo de Derechos Humanos. El partido sostiene que la «guerra jurídica» (lawfare) ha frenado el control de fronteras; ningún tribunal se ha pronunciado sobre el plan."}, "https://www.conservatives.com/news/conservatives-announce-echr-exit-policy", 6, ["https://www.irishnews.com/news/uk/tories-deny-mimicking-farage-with-plan-to-quit-echr-criticised-by-rights-groups-VK3VGN3QVVO3DJEJBDWS43652I/"]]], name: "Conservatives", full: "Conservative and Unionist Party", leader: "Kemi Badenoch",
-      seats: L3("About 118 of 650 MPs (Aug. 2026); 121 won in 2024",
-                "Environ 118 députés sur 650 (août 2026) ; 121 élus en 2024",
-                "Unos 118 de 650 diputados (ago. 2026); 121 obtenidos en 2024"),
+      seats: L3("116 of 650 MPs (Nov. 2026); 121 won in 2024",
+                "116 députés sur 650 (nov. 2026) ; 121 élus en 2024",
+                "116 de 650 diputados (nov. 2026); 121 obtenidos en 2024"),
       role: "opp", pos: 0.9, style: "lean",
       dit: [
         L3("A smaller state that does 'fewer things' but does them well", "Un État plus modeste qui fait « moins de choses » mais les fait bien", "Un Estado más pequeño que hace «menos cosas» pero las hace bien"),
@@ -363,10 +371,10 @@ BAROTICO.add("uk", {
         n: L3("Total income £50.2m, spending £52.0m in 2024. The Commission publishes totals, not a breakdown by source.",
               "Recettes totales 50,2 M£, dépenses 52,0 M£ en 2024. La Commission publie des totaux, pas de répartition par source.",
               "Ingresos totales 50,2 M£, gastos 52,0 M£ en 2024. La Comisión publica totales, no un desglose por fuentes.") },
-      prog: [] },
+      prog: [["2024", "https://conservatives.com/manifesto"]] },
 
     { id: "ld", born: {"y": 1988, "m": 3, "old": "Social and Liberal Democrats", "re": 1989, "gov": "partner", "u": "https://liberalhistory.org.uk/history/the-liberal-democrats/"}, name: "Liberal Democrats", full: "Liberal Democrats", leader: "Ed Davey",
-      seats: L3("About 71 of 650 MPs (2026); 72 won in 2024", "Environ 71 députés sur 650 (2026) ; 72 élus en 2024", "Unos 71 de 650 diputados (2026); 72 obtenidos en 2024"),
+      seats: L3("72 of 650 MPs (Nov. 2026), as many as won in 2024", "72 députés sur 650 (nov. 2026), autant qu'élus en 2024", "72 de 650 diputados (nov. 2026), tantos como en 2024"),
       role: "opp", pos: -0.3, style: "lean",
       dit: [
         L3("Save the NHS and social care: a £9bn rescue plan, free personal care", "Sauver le NHS et l'aide sociale : plan de 9 Md£, soins personnels gratuits", "Salvar el NHS y la atención social: plan de 9.000 M£, cuidados personales gratuitos"),
@@ -461,7 +469,7 @@ BAROTICO.add("uk", {
       prog: [["2024", "https://www.libdems.org.uk/press/release/speech-ed-davey-launches-liberal-democrat-manifesto-with-plan-to-save-the-nhs"]] },
 
     { id: "snp", born: {"y": 1934, "m": 4, "gov": "never", "u": "https://news.stv.tv/politics/yousaf-celebrates-90-years-of-snp-with-confident-election-message"}, name: "SNP", full: "Scottish National Party", leader: "John Swinney",
-      seats: L3("8 of 650 MPs (2026); 9 won in 2024. Governs Scotland (58 of 129 MSPs)", "8 députés sur 650 (2026) ; 9 élus en 2024. Gouverne l'Écosse (58 sièges sur 129)", "8 de 650 diputados (2026); 9 obtenidos en 2024. Gobierna Escocia (58 de 129 escaños)"),
+      seats: L3("7 of 650 MPs (Nov. 2026); 9 won in 2024. Governs Scotland (58 of 129 MSPs)", "7 députés sur 650 (nov. 2026) ; 9 élus en 2024. Gouverne l'Écosse (58 sièges sur 129)", "7 de 650 diputados (nov. 2026); 9 obtenidos en 2024. Gobierna Escocia (58 de 129 escaños)"),
       role: "opp", pos: -0.8, style: "lean",
       dit: [
         L3("Independence for Scotland: 'page one, line one'", "L'indépendance de l'Écosse : « page un, ligne un »", "La independencia de Escocia: «página uno, línea uno»"),
@@ -555,10 +563,10 @@ BAROTICO.add("uk", {
         n: L3("Total income £4.5m, spending £5.0m in 2024. The Commission publishes totals, not a breakdown by source.",
               "Recettes totales 4,5 M£, dépenses 5,0 M£ en 2024. La Commission publie des totaux, pas de répartition par source.",
               "Ingresos totales 4,5 M£, gastos 5,0 M£ en 2024. La Comisión publica totales, no un desglose por fuentes.") },
-      prog: [] },
+      prog: [["2026", "https://www.snp.org/manifesto/"]] },
 
     { id: "reform", born: {"y": 2018, "m": 11, "old": "The Brexit Party", "re": 2021, "gov": "never", "u": "https://find-and-update.company-information.service.gov.uk:443/company/11694875"}, demw: [[{"en": "Leave the ECHR \"no ifs, no buts\", repeal the Human Rights Act 1998 and replace it with a British Bill of Rights covering only citizens and people with a legal right to live in the UK; \"dis-apply\" the 1951 Refugee Convention, the UN Convention against Torture and the Council of Europe anti-trafficking convention (\"Operation Restoring Justice\", Nigel Farage and Zia Yusuf, 26 August 2025).", "fr": "Quitter la CEDH « no ifs, no buts », abroger le Human Rights Act de 1998 et le remplacer par une déclaration britannique des droits limitée aux citoyens et aux personnes autorisées à vivre au Royaume-Uni ; « dis-apply » la Convention de 1951 sur les réfugiés, la Convention de l'ONU contre la torture et la convention du Conseil de l'Europe contre la traite (« Operation Restoring Justice », Nigel Farage et Zia Yusuf, 26 août 2025).", "es": "Salir del CEDH «no ifs, no buts», derogar la Human Rights Act de 1998 y sustituirla por una carta británica de derechos limitada a los ciudadanos y a quienes tienen derecho legal a vivir en el Reino Unido; «dis-apply» la Convención sobre los Refugiados de 1951, la Convención de la ONU contra la Tortura y el convenio del Consejo de Europa contra la trata («Operation Restoring Justice», Nigel Farage y Zia Yusuf, 26 de agosto de 2025)."}, {"en": "By the party's own account, the plan requires leaving the ECHR and setting aside treaties that bar removal to a risk of torture (Art. 3 ECHR, UN Convention against Torture). Reform says these steps are needed to deport up to 600,000 people with no right to be in the UK; no court has ruled on the plan.", "fr": "De l'aveu même du parti, le plan suppose de quitter la CEDH et d'écarter des traités qui interdisent d'éloigner une personne vers un risque de torture (art. 3 CEDH, Convention de l'ONU contre la torture). Reform UK dit ces étapes nécessaires pour expulser jusqu'à 600 000 personnes sans droit au séjour ; aucun juge ne s'est prononcé sur ce plan.", "es": "Según el propio partido, el plan exige salir del CEDH y dejar de aplicar tratados que prohíben expulsar a alguien hacia un riesgo de tortura (art. 3 CEDH, Convención de la ONU contra la Tortura). Reform UK afirma que estos pasos son necesarios para expulsar hasta a 600.000 personas sin derecho a residir en el país; ningún tribunal se ha pronunciado sobre el plan."}, "https://www.itv.com/news/2025-08-26/reform-announce-plan-to-tackle-small-boats-crisis-through-mass-deportations", 6, ["https://www.compas.ox.ac.uk/article/the-most-radical-part-of-reforms-deportation-plans"]]], name: "Reform UK", full: "Reform UK", leader: "Nigel Farage",
-      seats: L3("8 of 650 MPs (Aug. 2026); 5 won in 2024", "8 députés sur 650 (août 2026) ; 5 élus en 2024", "8 de 650 diputados (ago. 2026); 5 obtenidos en 2024"),
+      seats: L3("8 of 650 MPs (Nov. 2026); 5 won in 2024", "8 députés sur 650 (nov. 2026) ; 5 élus en 2024", "8 de 650 diputados (nov. 2026); 5 obtenidos en 2024"),
       role: "opp", pos: 1.6, style: "lean",
       dit: [
         L3("'The people versus the establishment'", "« Le peuple contre l'establishment »", "«El pueblo contra el establishment»"),
@@ -642,10 +650,10 @@ BAROTICO.add("uk", {
         n: L3("Total income £10.8m, spending £9.3m in 2024. The Commission publishes totals, not a breakdown by source.",
               "Recettes totales 10,8 M£, dépenses 9,3 M£ en 2024. La Commission publie des totaux, pas de répartition par source.",
               "Ingresos totales 10,8 M£, gastos 9,3 M£ en 2024. La Comisión publica totales, no un desglose por fuentes.") },
-      prog: [] },
+      prog: [["2024", "https://www.reformparty.uk/our-contract-contents"]] },
 
     { id: "sf", born: {"y": 1970, "gov": "never", "u": "https://cain.ulster.ac.uk/issues/abstentionism/chron.htm"}, name: "Sinn Féin", full: "Sinn Féin", leader: "Mary Lou McDonald",
-      seats: L3("7 of 650 MPs (2024), who do not take their seats", "7 députés sur 650 (2024), qui ne siègent pas", "7 de 650 diputados (2024), que no ocupan sus escaños"),
+      seats: L3("7 of 650 MPs (2024; unchanged Nov. 2026), who do not take their seats", "7 députés sur 650 (2024 ; inchangé en nov. 2026), qui ne siègent pas", "7 de 650 diputados (2024; sin cambios en nov. 2026), que no ocupan sus escaños"),
       role: "opp", pos: -0.9, style: "lean",
       dit: [
         L3("A united Ireland, decided by referendum", "Une Irlande unifiée, décidée par référendum", "Una Irlanda unida, decidida por referéndum"),
@@ -709,10 +717,10 @@ BAROTICO.add("uk", {
         n: L3("Total income £1.07m, spending £1.49m in 2024 (UK accounts only; the party also operates in Ireland). No breakdown by source.",
               "Recettes totales 1,07 M£, dépenses 1,49 M£ en 2024 (comptes britanniques uniquement ; le parti est aussi actif en Irlande). Pas de répartition par source.",
               "Ingresos totales 1,07 M£, gastos 1,49 M£ en 2024 (solo cuentas británicas; el partido actúa también en Irlanda). Sin desglose por fuentes.") },
-      prog: [] },
+      prog: [["2024", "https://vote.sinnfein.ie/sinn-fein-launches-manifesto-for-positive-change"]] },
 
     { id: "dup", born: {"y": 1971, "m": 9, "gov": "never", "u": "https://mp.scotsman.com/news/politics/the-dup-celebrates-its-50th-birthday-today-3401794"}, name: "DUP", full: "Democratic Unionist Party", leader: "Gavin Robinson",
-      seats: L3("5 of 650 MPs (2024)", "5 députés sur 650 (2024)", "5 de 650 diputados (2024)"),
+      seats: L3("5 of 650 MPs (2024; unchanged Nov. 2026)", "5 députés sur 650 (2024 ; inchangé en nov. 2026)", "5 de 650 diputados (2024; sin cambios en nov. 2026)"),
       role: "opp", pos: 1.0, style: "lean",
       dit: [
         L3("Strengthen Northern Ireland's place in the United Kingdom", "Renforcer la place de l'Irlande du Nord au sein du Royaume-Uni", "Reforzar el lugar de Irlanda del Norte en el Reino Unido"),
@@ -788,10 +796,10 @@ BAROTICO.add("uk", {
         n: L3("Total income £442,000, spending £436,000 in 2024. No breakdown by source.",
               "Recettes totales 442 000 £, dépenses 436 000 £ en 2024. Pas de répartition par source.",
               "Ingresos totales 442.000 £, gastos 436.000 £ en 2024. Sin desglose por fuentes.") },
-      prog: [] },
+      prog: [["2024", "https://cain.ulster.ac.uk/issues/politics/docs/dup/dup_2024-07-04_ge_man.pdf"]] },
 
     { id: "green", born: {"y": 1973, "old": "PEOPLE", "re": 1990, "gov": "never", "u": "https://50years.greenparty.org.uk/?p=11"}, name: "Greens", full: "Green Party of England and Wales", leader: "Zack Polanski",
-      seats: L3("5 of 650 MPs (2026); 4 won in 2024", "5 députés sur 650 (2026) ; 4 élus en 2024", "5 de 650 diputados (2026); 4 obtenidos en 2024"),
+      seats: L3("5 of 650 MPs (Nov. 2026); 4 won in 2024", "5 députés sur 650 (nov. 2026) ; 4 élus en 2024", "5 de 650 diputados (nov. 2026); 4 obtenidos en 2024"),
       role: "opp", pos: -1.4, style: "lean",
       dit: [
         L3("Tax great wealth to fund public services", "Taxer les grandes fortunes pour financer les services publics", "Gravar las grandes fortunas para financiar los servicios públicos"),
@@ -856,10 +864,10 @@ BAROTICO.add("uk", {
         n: L3("Total income £5.2m, spending £5.0m in 2024. The Commission publishes totals, not a breakdown by source.",
               "Recettes totales 5,2 M£, dépenses 5,0 M£ en 2024. La Commission publie des totaux, pas de répartition par source.",
               "Ingresos totales 5,2 M£, gastos 5,0 M£ en 2024. La Comisión publica totales, no un desglose por fuentes.") },
-      prog: [] },
+      prog: [["2024", "https://greenparty.org.uk/app/uploads/2024/06/Short-Manifesto-2024-single-pages-screen-res_v2.pdf"]] },
 
     { id: "plaid", born: {"y": 1925, "old": "Plaid Genedlaethol Cymru", "gov": "never", "u": "https://www.library.wales/plaidcymru100"}, name: "Plaid Cymru", full: "Plaid Cymru – The Party of Wales", leader: "Rhun ap Iorwerth",
-      seats: L3("4 of 650 MPs (2024). Governs Wales (43 of 96 Senedd seats)", "4 députés sur 650 (2024). Gouverne le pays de Galles (43 sièges sur 96)", "4 de 650 diputados (2024). Gobierna Gales (43 de 96 escaños)"),
+      seats: L3("4 of 650 MPs (2024; unchanged Nov. 2026). Governs Wales (43 of 96 Senedd seats)", "4 députés sur 650 (2024 ; inchangé en nov. 2026). Gouverne le pays de Galles (43 sièges sur 96)", "4 de 650 diputados (2024; sin cambios en nov. 2026). Gobierna Gales (43 de 96 escaños)"),
       role: "opp", pos: -0.9, style: "lean",
       dit: [
         L3("Independence for Wales, prepared through a public white paper", "L'indépendance du pays de Galles, préparée par un livre blanc public", "La independencia de Gales, preparada con un libro blanco público"),
@@ -935,7 +943,7 @@ BAROTICO.add("uk", {
         n: L3("Total income £1.03m, spending £1.05m in 2024. The Commission publishes totals, not a breakdown by source.",
               "Recettes totales 1,03 M£, dépenses 1,05 M£ en 2024. La Commission publie des totaux, pas de répartition par source.",
               "Ingresos totales 1,03 M£, gastos 1,05 M£ en 2024. La Comisión publica totales, no un desglose por fuentes.") },
-      prog: [] }
+      prog: [["2026", "https://partyof.wales/manifesto"]] }
   ],
 
   media: {
@@ -958,9 +966,9 @@ BAROTICO.add("uk", {
           "Chaînes de service public ; avec la BBC et le Financial Times, les marques les plus crues au Royaume-Uni (Reuters Institute 2026)",
           "Cadenas de servicio público; con la BBC y el Financial Times, las marcas más creíbles del Reino Unido (Reuters Institute 2026)"), "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2026/united-kingdom"],
       [L3("PA Media and the regional press","PA Media et la presse régionale","PA Media y la prensa regional"),
-       L3("PA, the national news agency, supplies regional titles (Irish News, Express & Star, The Scotsman…); regional and local news was trusted by 52% of people, close to the BBC's 55% (Reuters Institute 2022)",
-          "PA, l'agence de presse nationale, alimente les titres régionaux (Irish News, Express & Star, The Scotsman…) ; l'information régionale et locale recueillait 52 % de confiance, près des 55 % de la BBC (Reuters Institute 2022)",
-          "PA, la agencia de noticias nacional, abastece a los diarios regionales (Irish News, Express & Star, The Scotsman…); la información regional y local tenía un 52 % de confianza, cerca del 55 % de la BBC (Reuters Institute 2022)"), "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2022/united-kingdom"]
+       L3("PA, the national news agency, supplies regional titles (Irish News, Express & Star, The Scotsman, News Letter…); regional and local news, including outlets of Scotland, Wales and Northern Ireland such as Holyrood and Nation.Cymru, was trusted by 52% of people, close to the BBC's 55% (Reuters Institute 2022, latest UK figure for this category)",
+          "PA, l'agence de presse nationale, alimente les titres régionaux (Irish News, Express & Star, The Scotsman, News Letter…) ; l'information régionale et locale, y compris des médias d'Écosse, du pays de Galles et d'Irlande du Nord comme Holyrood et Nation.Cymru, recueillait 52 % de confiance, près des 55 % de la BBC (Reuters Institute 2022, dernier chiffre britannique pour cette catégorie)",
+          "PA, la agencia de noticias nacional, abastece a los diarios regionales (Irish News, Express & Star, The Scotsman, News Letter…); la información regional y local, incluidos medios de Escocia, Gales e Irlanda del Norte como Holyrood y Nation.Cymru, tenía un 52 % de confianza, cerca del 55 % de la BBC (Reuters Institute 2022, último dato británico de esta categoría)"), "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2022/united-kingdom"]
     ],
     vid: [
       ["BBC News (YouTube)", L3("The BBC's news channel on YouTube; publicly owned",

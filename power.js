@@ -350,3 +350,174 @@ POWER.poland={asOf:"2026-11-15",
    "Centrum se cuenta con el Gobierno porque conservó el Ministerio del Clima, aunque no ha firmado el acuerdo de coalición de 2023. La Konfederacja Korony Polskiej y los no adscritos no tienen ficha; su lugar en el gráfico es indicativo. Superar un veto exige tres quintos de los votos emitidos: 276 si votan los 460 diputados.")
  ]
 };
+// Germany: who holds power (15 Nov 2026). Parliamentary system: no presidential flag.
+POWER.germany={asOf:"2026-11-15",
+ chamber:{name:L3("Bundestag (21st term)","Bundestag (21e législature)","Bundestag (21.ª legislatura)"),total:630,majority:316,
+  src:"https://www.bundestag.de/parlament/plenum/sitzverteilung",
+  groups:[
+   [L3("Die Linke","Die Linke","Die Linke"),64,"linke","out"],
+   [L3("Bündnis 90/Die Grünen","Bündnis 90/Die Grünen","Bündnis 90/Die Grünen"),85,"gruene","out"],
+   [L3("SPD","SPD","SPD"),120,"spd","gov"],
+   [L3("CDU/CSU","CDU/CSU","CDU/CSU"),208,"cducsu","gov"],
+   [L3("AfD","AfD","AfD"),150,"afd","out"],
+   [L3("Non-attached (1 SSW, 2 former AfD)","Non-inscrits (1 SSW, 2 ex-AfD)","No adscritos (1 SSW, 2 ex-AfD)"),3,null,"out"]
+  ]},
+ cabinet:{name:L3("Merz government (CDU/CSU-SPD, since May 2025)","Gouvernement Merz (CDU/CSU-SPD, depuis mai 2025)","Gobierno Merz (CDU/CSU-SPD, desde mayo de 2025)"),total:18,
+  src:"https://www.bundesregierung.de/breg-de/leichte-sprache/bundesregierung-2344462",
+  parts:[
+   [L3("SPD (incl. Vice-Chancellor Lars Klingbeil)","SPD (dont le vice-chancelier Lars Klingbeil)","SPD (incl. el vicecanciller Lars Klingbeil)"),7,"spd","gov"],
+   [L3("CDU (incl. Chancellor Friedrich Merz)","CDU (dont le chancelier Friedrich Merz)","CDU (incl. el canciller Friedrich Merz)"),7,"cducsu","gov"],
+   [L3("CSU","CSU","CSU"),3,"cducsu","gov"],
+   [L3("No party (digital affairs, nominated by the CDU)","Sans parti (numérique, proposé par la CDU)","Sin partido (asuntos digitales, propuesto por la CDU)"),1,null,"gov"]
+  ]},
+ head:L3("Federal President: Frank-Walter Steinmeier, with a mainly representative role. Chancellor: Friedrich Merz (CDU), elected by the Bundestag on 6 May 2025.",
+  "Président fédéral : Frank-Walter Steinmeier, au rôle surtout représentatif. Chancelier : Friedrich Merz (CDU), élu par le Bundestag le 6 mai 2025.",
+  "Presidente federal: Frank-Walter Steinmeier, con un papel sobre todo representativo. Canciller: Friedrich Merz (CDU), elegido por el Bundestag el 6 de mayo de 2025."),
+ govNote:L3("Coalition of CDU, CSU and SPD with 328 of 630 seats, 12 more than the absolute majority of 316 needed to elect a chancellor. Changes since May 2025: on 29 July 2026 Nina Warken (CDU) moved from health to head the Chancellery, Carsten Linnemann (CDU) became health minister and Steffen Bilger (CDU) transport minister; Alexander Schweitzer (SPD) succeeded Bärbel Bas (SPD) as labour minister on 13 October 2026. The party balance of the cabinet did not change.",
+  "Coalition de la CDU, de la CSU et du SPD avec 328 sièges sur 630, 12 de plus que la majorité absolue de 316 nécessaire pour élire un chancelier. Changements depuis mai 2025 : le 29 juillet 2026, Nina Warken (CDU) est passée de la Santé à la direction de la Chancellerie, Carsten Linnemann (CDU) est devenu ministre de la Santé et Steffen Bilger (CDU) ministre des Transports ; Alexander Schweitzer (SPD) a succédé à Bärbel Bas (SPD) au Travail le 13 octobre 2026. L'équilibre entre partis au gouvernement n'a pas changé.",
+  "Coalición de CDU, CSU y SPD con 328 de 630 escaños, 12 más que la mayoría absoluta de 316 necesaria para elegir canciller. Cambios desde mayo de 2025: el 29 de julio de 2026 Nina Warken (CDU) pasó de Sanidad a dirigir la Cancillería, Carsten Linnemann (CDU) se convirtió en ministro de Sanidad y Steffen Bilger (CDU) en ministro de Transportes; Alexander Schweitzer (SPD) sucedió a Bärbel Bas (SPD) en Trabajo el 13 de octubre de 2026. El equilibrio entre partidos en el gabinete no cambió."),
+ notes:[
+  L3("Seats are derived, not read from one table: the Bundestag's seat page could not be opened for this update. They start from the official 2025 result (CDU/CSU 208, AfD 152, SPD 120, Greens 85, Left 64, SSW 1) and take out the two MPs whom the Bundestag's own biographies list as non-attached: Sieghard Knodel, who left the AfD party and group on 5 May 2025, and Jan Wenzel Schmidt, expelled from the AfD group on 3 March 2026. The SSW member sits as non-attached. The total of 630 matches the legal size of the chamber; consulted on 15 November 2026.",
+   "Les sièges sont déduits, pas lus dans un tableau : la page des sièges du Bundestag n'a pas pu être ouverte pour cette mise à jour. Ils partent du résultat officiel de 2025 (CDU/CSU 208, AfD 152, SPD 120, Verts 85, Gauche 64, SSW 1) et retirent les deux députés que les biographies du Bundestag indiquent comme non inscrits : Sieghard Knodel, qui a quitté le parti et le groupe AfD le 5 mai 2025, et Jan Wenzel Schmidt, exclu du groupe AfD le 3 mars 2026. L'élu du SSW siège comme non-inscrit. Le total de 630 correspond à la taille légale de la chambre ; consulté le 15 novembre 2026.",
+   "Los escaños se deducen, no se leen en una tabla: no pudo abrirse la página de escaños del Bundestag para esta actualización. Parten del resultado oficial de 2025 (CDU/CSU 208, AfD 152, SPD 120, Verdes 85, La Izquierda 64, SSW 1) y restan los dos diputados que las biografías del propio Bundestag registran como no adscritos: Sieghard Knodel, que dejó el partido y el grupo de la AfD el 5 de mayo de 2025, y Jan Wenzel Schmidt, expulsado del grupo de la AfD el 3 de marzo de 2026. El diputado del SSW se sienta como no adscrito. El total de 630 coincide con el tamaño legal de la cámara; consultado el 15 de noviembre de 2026."),
+  L3("Cabinet: 18 members listed by the federal government (page dated 13 October 2026), party labels from the Bundestag's May 2025 cabinet page and the government's July 2026 announcements. Karsten Wildberger (digital affairs) has no party. CDU and CSU sit as one group and share one card. The non-attached members have no card; their place in the chart is indicative.",
+   "Gouvernement : 18 membres listés par le gouvernement fédéral (page datée du 13 octobre 2026), étiquettes de parti tirées de la page du Bundestag sur le cabinet de mai 2025 et des annonces gouvernementales de juillet 2026. Karsten Wildberger (numérique) n'a pas de parti. CDU et CSU forment un seul groupe et partagent une fiche. Les non-inscrits n'ont pas de fiche ; leur place dans le graphique est indicative.",
+   "Gabinete: 18 miembros listados por el Gobierno federal (página fechada el 13 de octubre de 2026), etiquetas de partido tomadas de la página del Bundestag sobre el gabinete de mayo de 2025 y de los anuncios del Gobierno de julio de 2026. Karsten Wildberger (asuntos digitales) no tiene partido. CDU y CSU forman un solo grupo y comparten ficha. Los no adscritos no tienen ficha; su lugar en el gráfico es indicativo.")
+ ]
+};
+// Italy: who holds power (15 Nov 2026). Parliamentary system: no presidential flag.
+POWER.italy={asOf:"2026-11-15",
+ chamber:{name:L3("Chamber of Deputies","Chambre des députés","Cámara de Diputados"),total:400,majority:201,
+  src:"https://www.camera.it/leg19/46",
+  groups:[
+   [L3("Alleanza Verdi e Sinistra (AVS)","Alleanza Verdi e Sinistra (AVS)","Alleanza Verdi e Sinistra (AVS)"),9,"avs","out"],
+   [L3("Partito Democratico (PD)","Partito Democratico (PD)","Partito Democratico (PD)"),68,"pd","out"],
+   [L3("Movimento 5 Stelle (M5S)","Movimento 5 Stelle (M5S)","Movimento 5 Stelle (M5S)"),48,"m5s","out"],
+   [L3("Mixed group: +Europa","Groupe mixte : +Europa","Grupo mixto: +Europa"),3,null,"out"],
+   [L3("Italia Viva-Casa Riformista","Italia Viva-Casa Riformista","Italia Viva-Casa Riformista"),7,"iv","out"],
+   [L3("Azione-Popolari europeisti riformatori-Renew Europe","Azione-Popolari europeisti riformatori-Renew Europe","Azione-Popolari europeisti riformatori-Renew Europe"),10,"azione","out"],
+   [L3("Mixed group: linguistic minorities","Groupe mixte : minorités linguistiques","Grupo mixto: minorías lingüísticas"),4,null,"out"],
+   [L3("Mixed group: Sud chiama Nord","Groupe mixte : Sud chiama Nord","Grupo mixto: Sud chiama Nord"),3,null,"out"],
+   [L3("Noi Moderati-MAIE-Centro Popolare","Noi Moderati-MAIE-Centro Popolare","Noi Moderati-MAIE-Centro Popolare"),8,"nm","gov"],
+   [L3("Forza Italia - Berlusconi Presidente - PPE","Forza Italia - Berlusconi Presidente - PPE","Forza Italia - Berlusconi Presidente - PPE"),52,"fi","gov"],
+   [L3("Fratelli d'Italia (FdI)","Fratelli d'Italia (FdI)","Fratelli d'Italia (FdI)"),117,"fdi","gov"],
+   [L3("Lega - Salvini Premier","Lega - Salvini Premier","Lega - Salvini Premier"),54,"lega","gov"],
+   [L3("Mixed group: Futuro Nazionale Vannacci","Groupe mixte : Futuro Nazionale Vannacci","Grupo mixto: Futuro Nazionale Vannacci"),9,null,"out"],
+   [L3("Mixed group: deputies in no component","Groupe mixte : députés sans composante","Grupo mixto: diputados sin componente"),6,null,"out"],
+   [L3("Vacant (derived)","Vacants (déduit)","Vacantes (deducido)"),2,null,"vac"]
+  ]},
+ head:L3("President of the Republic: Sergio Mattarella. Prime Minister (President of the Council of Ministers): Giorgia Meloni (FdI), since 22 October 2022.",
+  "Président de la République : Sergio Mattarella. Présidente du Conseil des ministres : Giorgia Meloni (FdI), depuis le 22 octobre 2022.",
+  "Presidente de la República: Sergio Mattarella. Presidenta del Consejo de Ministros: Giorgia Meloni (FdI), desde el 22 de octubre de 2022."),
+ govNote:L3("The Meloni government rests on a coalition of Fratelli d'Italia, Lega, Forza Italia and Noi Moderati, formed after the September 2022 election; with 231 of the 400 deputies listed, the four coalition groups hold a majority in the Chamber. Futuro Nazionale, the party Roberto Vannacci launched in 2026, sits as a component of the Mixed group and is shown here as not in government. No count of ministers by party was checked, so no cabinet chart is shown.",
+  "Le gouvernement Meloni repose sur une coalition de Fratelli d'Italia, de la Lega, de Forza Italia et de Noi Moderati, formée après les élections de septembre 2022 ; avec 231 des 400 députés recensés, les quatre groupes de la coalition détiennent la majorité à la Chambre. Futuro Nazionale, le parti lancé en 2026 par Roberto Vannacci, siège comme composante du groupe mixte et figure ici comme hors du gouvernement. La répartition des ministres par parti n'a pas été vérifiée : aucun schéma du gouvernement n'est donc affiché.",
+  "El gobierno Meloni se apoya en una coalición de Fratelli d'Italia, Lega, Forza Italia y Noi Moderati, formada tras las elecciones de septiembre de 2022; con 231 de los 400 diputados registrados, los cuatro grupos de la coalición tienen mayoría en la Cámara. Futuro Nazionale, el partido que Roberto Vannacci lanzó en 2026, figura como componente del grupo mixto y se muestra aquí como fuera del gobierno. No se comprobó el reparto de ministros por partido, por lo que no se muestra el gráfico del gabinete."),
+ notes:[
+  L3("Seats by group from the Chamber's official group composition page (XIX legislature), consulted on 15 November 2026; the page gives no update date. The groups and Mixed-group components listed add up to 398 deputies; the 2 remaining seats (400 minus 398) are shown as vacant, a figure derived by us, not read on the page.",
+   "Sièges par groupe tirés de la page officielle de la Chambre sur la composition des groupes (XIXe législature), consultée le 15 novembre 2026 ; la page ne donne pas de date de mise à jour. Les groupes et composantes du groupe mixte totalisent 398 députés ; les 2 sièges restants (400 moins 398) figurent comme vacants, un chiffre que nous avons déduit et non lu sur la page.",
+   "Escaños por grupo tomados de la página oficial de la Cámara sobre la composición de los grupos (XIX legislatura), consultada el 15 de noviembre de 2026; la página no indica fecha de actualización. Los grupos y componentes del grupo mixto suman 398 diputados; los 2 escaños restantes (400 menos 398) se muestran como vacantes, una cifra deducida por nosotros, no leída en la página."),
+  L3("Groups are ordered by the left-right positions used on the party cards. Italia Viva and Azione share the same position; the Mixed-group components (25 deputies in all) have no card, and their place in the chart is indicative. Only the Chamber is shown; the Senate (200 elected senators plus senators for life) is not.",
+   "Les groupes sont classés selon les positions gauche-droite des fiches partis. Italia Viva et Azione ont la même position ; les composantes du groupe mixte (25 députés au total) n'ont pas de fiche et leur place dans le graphique est indicative. Seule la Chambre est représentée ; le Sénat (200 sénateurs élus plus les sénateurs à vie) ne l'est pas.",
+   "Los grupos se ordenan según las posiciones izquierda-derecha de las fichas de partidos. Italia Viva y Azione comparten posición; los componentes del grupo mixto (25 diputados en total) no tienen ficha y su lugar en el gráfico es indicativo. Solo se muestra la Cámara; el Senado (200 senadores electos más los senadores vitalicios) no.")
+ ]
+};
+POWER.netherlands={asOf:"2026-11-15",
+ chamber:{name:L3("Tweede Kamer (House of Representatives)","Tweede Kamer (Chambre des représentants)","Tweede Kamer (Cámara de Representantes)"),total:150,majority:76,
+  src:"https://www.tweedekamer.nl/kamerleden/fracties",
+  // [label, seats, party card id or null, "gov"|"out"|"vac"|"sup"], left to right by the cards' pos; groups without a card placed by editorial estimate
+  groups:[
+   [L3("SP","SP","SP"),3,null,"out"],
+   [L3("Partij voor de Dieren","Partij voor de Dieren","Partij voor de Dieren"),3,null,"out"],
+   [L3("Progressief Nederland (PRO, former GroenLinks-PvdA)","Progressief Nederland (PRO, ex-GroenLinks-PvdA)","Progressief Nederland (PRO, antiguo GroenLinks-PvdA)"),20,"pro","out"],
+   [L3("DENK","DENK","DENK"),3,null,"out"],
+   [L3("Volt","Volt","Volt"),1,null,"out"],
+   [L3("D66","D66","D66"),26,"d66","gov"],
+   [L3("50PLUS","50PLUS","50PLUS"),2,null,"out"],
+   [L3("ChristenUnie","ChristenUnie","ChristenUnie"),3,null,"out"],
+   [L3("CDA","CDA","CDA"),18,"cda","gov"],
+   [L3("BBB","BBB","BBB"),3,"bbb","out"],
+   [L3("Lid Keijzer (one MP, left BBB in February 2026)","Lid Keijzer (une élue, partie du BBB en février 2026)","Lid Keijzer (una diputada, salió del BBB en febrero de 2026)"),1,null,"out"],
+   [L3("VVD","VVD","VVD"),22,"vvd","gov"],
+   [L3("SGP","SGP","SGP"),3,null,"out"],
+   [L3("JA21","JA21","JA21"),9,"ja21","out"],
+   [L3("PVV","PVV","PVV"),19,"pvv","out"],
+   [L3("Groep Markuszower (DNA)","Groupe Markuszower (DNA)","Grupo Markuszower (DNA)"),7,"dna","out"],
+   [L3("Forum voor Democratie (FVD)","Forum voor Democratie (FVD)","Forum voor Democratie (FVD)"),7,"fvd","out"]
+  ]},
+ cabinet:{name:L3("Jetten cabinet (sworn in 23 February 2026)","Gouvernement Jetten (assermenté le 23 février 2026)","Gobierno Jetten (juramento el 23 de febrero de 2026)"),total:28,
+  src:"https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-jetten",
+  // [label, members, party card id or null, "gov"|"out"]
+  parts:[
+   [L3("D66: 7 ministers, 3 state secretaries","D66 : 7 ministres, 3 secrétaires d'État","D66: 7 ministros, 3 secretarios de Estado"),10,"d66","gov"],
+   [L3("VVD: 6 ministers, 3 state secretaries","VVD : 6 ministres, 3 secrétaires d'État","VVD: 6 ministros, 3 secretarios de Estado"),9,"vvd","gov"],
+   [L3("CDA: 5 ministers, 3 state secretaries","CDA : 5 ministres, 3 secrétaires d'État","CDA: 5 ministros, 3 secretarios de Estado"),8,"cda","gov"],
+   [L3("No party: 1 state secretary (Herstel Toeslagen, benefits redress)","Sans parti : 1 secrétaire d'État (Herstel Toeslagen, réparation du scandale des allocations)","Sin partido: 1 secretaria de Estado (Herstel Toeslagen, reparación del escándalo de las ayudas)"),1,null,"out"]
+  ]},
+ head:L3("Head of state: the King, with no political power. Prime Minister: Rob Jetten (D66), since 23 February 2026.","Chef de l'État : le roi, sans pouvoir politique. Premier ministre : Rob Jetten (D66), depuis le 23 février 2026.","Jefe del Estado: el rey, sin poder político. Primer ministro: Rob Jetten (D66), desde el 23 de febrero de 2026."),
+ govNote:L3("Minority cabinet of D66, VVD and CDA: 66 of 150 seats in the Tweede Kamer and 22 of 75 in the Eerste Kamer, so every law needs opposition votes in both chambers. The coalition looks for majorities bill by bill: for the 2027 Tax Plan, talks with PRO, Volt, JA21, SGP and BBB had produced no agreement by 10 November 2026, while ChristenUnie, 50PLUS and Groep Markuszower could give a majority in the Tweede Kamer but not yet in the Eerste Kamer (Tweede Kamer).","Gouvernement minoritaire de D66, du VVD et du CDA : 66 sièges sur 150 à la Tweede Kamer et 22 sur 75 à l'Eerste Kamer, si bien que chaque loi exige des voix de l'opposition dans les deux chambres. La coalition cherche des majorités texte par texte : pour le plan fiscal 2027, les discussions avec PRO, Volt, JA21, le SGP et le BBB n'avaient abouti à aucun accord au 10 novembre 2026, tandis que ChristenUnie, 50PLUS et le groupe Markuszower pourraient donner une majorité à la Tweede Kamer, mais pas encore à l'Eerste Kamer (Tweede Kamer).","Gobierno en minoría de D66, VVD y CDA: 66 de 150 escaños en la Tweede Kamer y 22 de 75 en la Eerste Kamer, de modo que cada ley necesita votos de la oposición en ambas cámaras. La coalición busca mayorías ley por ley: para el plan fiscal de 2027, las conversaciones con PRO, Volt, JA21, SGP y BBB no habían dado acuerdo a 10 de noviembre de 2026, mientras que ChristenUnie, 50PLUS y el grupo Markuszower podrían dar una mayoría en la Tweede Kamer, pero aún no en la Eerste Kamer (Tweede Kamer)."),
+ notes:[
+  L3("Seats from the Tweede Kamer's group page, which gives no date; consulted on 15 November 2026. The 17 groups add up to 150. Groups with a party card are ordered by the left-right positions on the cards; the eight groups without a card are placed by our own estimate.","Sièges tirés de la page des groupes de la Tweede Kamer, qui n'indique pas de date ; consultée le 15 novembre 2026. Les 17 groupes totalisent 150 sièges. Les groupes dotés d'une fiche sont classés selon les positions gauche-droite des fiches ; les huit groupes sans fiche sont placés selon notre propre estimation.","Escaños tomados de la página de grupos de la Tweede Kamer, que no indica fecha; consultada el 15 de noviembre de 2026. Los 17 grupos suman 150. Los grupos con ficha se ordenan según las posiciones izquierda-derecha de las fichas; los ocho grupos sin ficha se sitúan según nuestra propia estimación."),
+  L3("Groep Markuszower is the seven MPs who left the PVV group in January 2026 (party card DNA); Lid Keijzer is Mona Keijzer, elected for BBB. Cabinet members by party from the government's page on the Jetten cabinet (last modified 23 March 2026); no later change was found.","Le groupe Markuszower réunit les sept députés partis du groupe PVV en janvier 2026 (fiche DNA) ; Lid Keijzer est Mona Keijzer, élue sur la liste du BBB. Membres du gouvernement par parti d'après la page officielle du gouvernement Jetten (modifiée le 23 mars 2026) ; aucun changement ultérieur n'a été trouvé.","El grupo Markuszower son los siete diputados que dejaron el grupo del PVV en enero de 2026 (ficha DNA); Lid Keijzer es Mona Keijzer, elegida en la lista del BBB. Miembros del gobierno por partido según la página oficial del gobierno Jetten (modificada el 23 de marzo de 2026); no se encontró ningún cambio posterior.")
+ ]
+};
+POWER.portugal={asOf:"2026-11-15",
+ chamber:{name:L3("Assembly of the Republic (XVII legislature)","Assemblée de la République (XVIIe législature)","Asamblea de la República (XVII legislatura)"),total:230,majority:116,
+  src:"https://www.noticiasaominuto.com/politica/2799019/cds-regressa-ao-andar-nobre-da-ar-e-fica-com-espaco-entre-ps-e-livre",
+  groups:[
+   [L3("PCP","PCP","PCP"),3,"pcp","out"],
+   [L3("Left Bloc (BE), one seat","Bloc de gauche (BE), un siège","Bloco de Esquerda (BE), un escaño"),1,null,"out"],
+   [L3("Livre","Livre","Livre"),6,"livre","out"],
+   [L3("PAN, one seat","PAN, un siège","PAN, un escaño"),1,null,"out"],
+   [L3("PS","PS","PS"),58,"ps","out"],
+   [L3("JPP (Madeira), one seat","JPP (Madère), un siège","JPP (Madeira), un escaño"),1,null,"out"],
+   [L3("PSD","PSD","PSD"),89,"psd","gov"],
+   [L3("CDS-PP","CDS-PP","CDS-PP"),2,"cds","gov"],
+   [L3("Iniciativa Liberal (IL)","Iniciativa Liberal (IL)","Iniciativa Liberal (IL)"),9,"il","out"],
+   [L3("Chega","Chega","Chega"),60,"chega","out"]
+  ]},
+ head:L3("President: António José Seguro, elected on 8 February 2026 with 66.8% and in office since 9 March 2026. Prime Minister: Luís Montenegro (PSD), heading the XXV Constitutional Government sworn in on 5 June 2025.","Président : António José Seguro, élu le 8 février 2026 avec 66,8 % et en fonctions depuis le 9 mars 2026. Premier ministre : Luís Montenegro (PSD), à la tête du XXVe gouvernement constitutionnel investi le 5 juin 2025.","Presidente: António José Seguro, elegido el 8 de febrero de 2026 con el 66,8 % y en el cargo desde el 9 de marzo de 2026. Primer ministro: Luís Montenegro (PSD), al frente del XXV Gobierno Constitucional, investido el 5 de junio de 2025."),
+ govNote:L3("Minority government of PSD and CDS-PP, which ran together as the Aliança Democrática (AD): 91 of 230 seats, 25 short of a majority. There is no written support agreement with any other party; bills pass with votes found case by case. The PS abstained on the 2026 budget and on the 2027 budget at first reading (28 October 2026), with PAN and JPP also abstaining on the latter; the final vote on the 2027 budget is scheduled for 24 November 2026.","Gouvernement minoritaire du PSD et du CDS-PP, qui se sont présentés ensemble sous le nom d'Aliança Democrática (AD) : 91 sièges sur 230, à 25 sièges de la majorité. Il n'existe aucun accord écrit de soutien avec un autre parti ; les textes passent avec des voix trouvées au cas par cas. Le PS s'est abstenu sur le budget 2026 et sur le budget 2027 en première lecture (28 octobre 2026), le PAN et JPP s'abstenant aussi sur ce dernier ; le vote final du budget 2027 est prévu le 24 novembre 2026.","Gobierno en minoría de PSD y CDS-PP, que concurrieron juntos como Aliança Democrática (AD): 91 de 230 escaños, a 25 de la mayoría. No hay acuerdo escrito de apoyo con ningún otro partido; las leyes salen con votos buscados caso por caso. El PS se abstuvo en el presupuesto de 2026 y en el de 2027 en la generalidad (28 de octubre de 2026), con la abstención también de PAN y JPP en este último; la votación final del presupuesto de 2027 está prevista el 24 de noviembre de 2026."),
+ notes:[
+  L3("Seats by group are the Lusa count published at the start of the legislature (June 2025), which matches the final 2025 results; the parliament's own composition page could not be opened for this update. No change of group was found up to 15 November 2026: a Chega MP who asked on 8 July 2026 to sit as non-attached withdrew the request three hours later and stayed in the group.","Les sièges par groupe sont le décompte de Lusa publié au début de la législature (juin 2025), conforme aux résultats définitifs de 2025 ; la page de composition du parlement lui-même n'a pas pu être consultée pour cette mise à jour. Aucun changement de groupe n'a été relevé jusqu'au 15 novembre 2026 : un député Chega qui avait demandé le 8 juillet 2026 à siéger comme non-inscrit a retiré sa demande trois heures plus tard et est resté dans le groupe.","Los escaños por grupo son el recuento de Lusa publicado al inicio de la legislatura (junio de 2025), que coincide con los resultados definitivos de 2025; no se pudo consultar la página de composición del propio parlamento para esta actualización. No se halló ningún cambio de grupo hasta el 15 de noviembre de 2026: un diputado de Chega que pidió el 8 de julio de 2026 pasar a no adscrito retiró la petición tres horas después y siguió en el grupo."),
+  L3("Groups are ordered by the left-right positions used on the party cards. BE, PAN and JPP have no card; their place in the chart is a judgement. No breakdown of ministers by party was checked, so no cabinet chart is shown.","Les groupes sont classés selon les positions gauche-droite des fiches partis. Le BE, le PAN et JPP n'ont pas de fiche ; leur place dans le graphique relève du jugement. La répartition des ministres par parti n'a pas été vérifiée : aucun schéma du gouvernement n'est donc affiché.","Los grupos se ordenan según las posiciones izquierda-derecha de las fichas de partidos. BE, PAN y JPP no tienen ficha; su lugar en el gráfico es una estimación propia. No se comprobó el reparto de ministros por partido, por lo que no se muestra el gráfico del gabinete.")
+ ]
+};
+// United Kingdom: who holds power (15 Nov 2026). Parliamentary system: no presidential flag.
+POWER.uk={asOf:"2026-11-15",
+ chamber:{name:L3("House of Commons","Chambre des communes","Cámara de los Comunes"),total:650,majority:326,
+  src:"https://members.parliament.uk/parties/Commons",
+  groups:[
+   [L3("Your Party","Your Party","Your Party"),1,null,"out"],
+   [L3("Green Party","Parti vert","Partido Verde"),5,"green","out"],
+   [L3("Sinn Féin (does not take its seats)","Sinn Féin (ne siège pas)","Sinn Féin (no ocupa sus escaños)"),7,"sf","out"],
+   [L3("Plaid Cymru","Plaid Cymru","Plaid Cymru"),4,"plaid","out"],
+   [L3("SNP","SNP","SNP"),7,"snp","out"],
+   [L3("SDLP","SDLP","SDLP"),2,null,"out"],
+   [L3("Labour","Labour","Laboristas"),402,"lab","gov"],
+   [L3("Liberal Democrats","Libéraux-démocrates","Liberal Demócratas"),72,"ld","out"],
+   [L3("Alliance","Alliance","Alliance"),1,null,"out"],
+   [L3("Ulster Unionist Party","Parti unioniste d'Ulster","Partido Unionista del Úlster"),1,null,"out"],
+   [L3("Conservatives","Conservateurs","Conservadores"),116,"con","out"],
+   [L3("DUP","DUP","DUP"),5,"dup","out"],
+   [L3("Reform UK","Reform UK","Reform UK"),8,"reform","out"],
+   [L3("Traditional Unionist Voice","Traditional Unionist Voice","Traditional Unionist Voice"),1,null,"out"],
+   [L3("Restore Britain","Restore Britain","Restore Britain"),1,null,"out"],
+   [L3("Independents","Indépendants","Independientes"),13,null,"out"],
+   [L3("Speaker (does not vote, except to break a tie)","Président de la Chambre (ne vote pas, sauf en cas d'égalité)","Presidente de la Cámara (no vota, salvo en caso de empate)"),1,null,"out"],
+   [L3("Vacant","Vacants","Vacantes"),3,null,"vac"]
+  ]},
+ head:L3("Head of state: King Charles III, with no political power. Prime Minister: Andy Burnham (Labour), since 20 July 2026.",
+  "Chef de l'État : le roi Charles III, sans pouvoir politique. Premier ministre : Andy Burnham (Labour), depuis le 20 juillet 2026.",
+  "Jefe del Estado: el rey Carlos III, sin poder político. Primer ministro: Andy Burnham (laborista), desde el 20 de julio de 2026."),
+ govNote:L3("Single-party Labour government: Andy Burnham succeeded Keir Starmer as party leader and Prime Minister in July 2026 without a general election. No other party holds a ministerial post, so no cabinet chart is shown.",
+  "Gouvernement travailliste homogène : Andy Burnham a succédé à Keir Starmer à la tête du parti et du gouvernement en juillet 2026, sans élections générales. Aucun autre parti n'occupe de poste ministériel : aucun schéma du gouvernement n'est donc affiché.",
+  "Gobierno laborista en solitario: Andy Burnham sucedió a Keir Starmer al frente del partido y del Gobierno en julio de 2026, sin elecciones generales. Ningún otro partido ocupa cargos ministeriales, así que no se muestra el gráfico del gabinete."),
+ notes:[
+  L3("Seats from the official House of Commons 'state of the parties' page, consulted on 15 November 2026; the page carries no date. It does not name the 13 independents or the 3 vacant seats, and this update could not identify the vacancies. The independents include MPs who lost or gave up their party whip.",
+   "Sièges tirés de la page officielle « state of the parties » de la Chambre des communes, consultée le 15 novembre 2026 ; la page n'est pas datée. Elle ne nomme ni les 13 indépendants ni les 3 sièges vacants, et cette mise à jour n'a pas pu identifier les sièges vacants. Les indépendants comprennent des députés privés de l'investiture de leur parti ou qui y ont renoncé.",
+   "Escaños tomados de la página oficial «state of the parties» de la Cámara de los Comunes, consultada el 15 de noviembre de 2026; la página no lleva fecha. No nombra a los 13 independientes ni los 3 escaños vacantes, y esta actualización no pudo identificar las vacantes. Entre los independientes hay diputados que perdieron o dejaron la disciplina de su partido."),
+  L3("Groups are ordered by the left-right positions used on the party cards; Your Party, the SDLP, Alliance, the UUP, the TUV, Restore Britain and the independents have no card, so their place in the chart is indicative. The majority shown is half of 650 plus one; in practice fewer votes suffice, because Sinn Féin's seven MPs do not sit and the Speaker and three deputy speakers do not normally vote.",
+   "Les groupes sont classés selon les positions gauche-droite des fiches partis ; Your Party, le SDLP, Alliance, l'UUP, la TUV, Restore Britain et les indépendants n'ont pas de fiche, leur place dans le graphique est donc indicative. La majorité indiquée est la moitié de 650 plus un ; en pratique, il faut moins de voix, car les sept députés du Sinn Féin ne siègent pas et le président de la Chambre et ses trois vice-présidents ne votent normalement pas.",
+   "Los grupos se ordenan según las posiciones izquierda-derecha de las fichas de partido; Your Party, el SDLP, Alliance, el UUP, la TUV, Restore Britain y los independientes no tienen ficha, así que su lugar en el gráfico es indicativo. La mayoría indicada es la mitad de 650 más uno; en la práctica bastan menos votos, porque los siete diputados del Sinn Féin no ocupan sus escaños y el presidente de la Cámara y sus tres vicepresidentes no suelen votar.")
+ ]
+};
