@@ -447,6 +447,7 @@ const RSFK=[[85,"good",L3("good","bonne","buena")],[70,"mid",L3("satisfactory","
 const HDIC=[[0.8,"good",L3("very high","très élevé","muy alto")],[0.7,"mid",L3("high","élevé","alto")],[0.55,"bad",L3("medium","moyen","medio")],[-1,"bad",L3("low","faible","bajo")]];
 const RW={good:L3("better","mieux","mejor"),mid:L3("close","proche","cerca"),bad:L3("worse","moins bien","peor")};
 function metric(k,key){
+  if(VAL[k][key]==null||(Array.isArray(VAL[k][key])&&VAL[k][key][0]==null))return{main:"—",unit:"",sub:tr(L3("no data published","aucune donnée publiée","sin datos publicados")),rate:"mid",ref:null};
   const v=VAL[k][key],o=n=>num(String(n).replace(".",",")),ref=refOf(key,k),vsr=d=>`${num(sgn(d).replace(".",","))} ${tr(L3("vs","vs","vs"))} ${ref?ref.l:""}`;
   if(key==="life"){const d=v-(ref?ref.v:81.5);return{main:o(v),unit:tr(L3("years","ans","años")),sub:vsr(d),rate:d>=1?"good":d<=-1?"bad":"mid",ref}}
   if(key==="school"){const d=v-(ref?ref.v:16.5);return{main:o(v.toFixed(1)),unit:tr(L3("years","ans","años")),sub:vsr(d),rate:d>=0.5?"good":d<=-0.5?"bad":"mid",ref}}
@@ -470,7 +471,7 @@ function ingest(k){
 window.__baroticoLoaded=k=>{ingest(k)};
 function loadCountry(k){
   if(REG.loading[k])return;REG.loading[k]=1;
-  const s=document.createElement("script");s.src=`countries/${k}.js?v=1794731694`;
+  const s=document.createElement("script");s.src=`countries/${k}.js?v=1794737579`;
   s.onload=()=>{ingest(k);render()};
   s.onerror=()=>{REG.loading[k]=0;document.getElementById("view").innerHTML=`<p class="pending" style="padding:48px 0">${t("load_err")}</p>`};
   document.head.appendChild(s);
@@ -679,7 +680,7 @@ function homeExample(){
   return `<div class="hex" id="hex"><p class="hex-who"><b>${esc(p.name)}</b> · ${esc(tr(C[k].name))}</p>
    <ol class="hex-row"><li><span class="eyebrow">${c[0]}</span><p>${esc(tr(d))}</p></li><li><span class="eyebrow">${c[1]}</span><p>${esc(tr(f))}</p></li><li class="prow ps-${st}"><span class="eyebrow">${c[2]}</span><div class="pf"><span class="ptag">${t("ptag")[st]||""}</span><a href="${u}" target="_blank" rel="noopener">${t("ex_src")} ↗</a></div></li></ol>
    <div class="hex-foot"><a class="btn" href="#${k}-${p.id}">${t("ex_more")}</a><button class="btn ghost" type="button" id="hex-other">${t("ex_other")}</button></div></div>`}
-function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1794731694`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
+function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1794737579`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
 function bindExample(){preloadSome(2);const b=document.getElementById("hex-other");if(b)b.addEventListener("click",()=>{const h=document.getElementById("hex");h.outerHTML=homeExample();pathLinks(document.getElementById("hex"));bindExample()})}
 function guideBlock(){
   const st=t("g_steps"),path=t("g_path"),pk=readyKeys().map(k=>[k,tr((C[k]||REG.meta[k]).name)]).sort((a,b)=>a[1].localeCompare(b[1],lang));

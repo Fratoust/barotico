@@ -16,8 +16,14 @@ var BAROTICO={
     ["senegal","SN","africa",L3("Senegal","Sénégal","Senegal")],["benin","BJ","africa",L3("Benin","Bénin","Benín")],["drcongo","CD","africa",L3("DR Congo","RD Congo","RD Congo")],
     ["southafrica","ZA","africa",L3("South Africa","Afrique du Sud","Sudáfrica")],
     ["china","CN","asia",L3("China","Chine","China")],
+    ["northkorea","KP","asia",L3("North Korea","Corée du Nord","Corea del Norte")],
+    ["thailand","TH","asia",L3("Thailand","Thaïlande","Tailandia")],
+    ["southkorea","KR","asia",L3("South Korea","Corée du Sud","Corea del Sur")],
+    ["vietnam","VN","asia",L3("Vietnam","Vietnam","Vietnam")],
+    ["indonesia","ID","asia",L3("Indonesia","Indonésie","Indonesia")],
+    ["singapore","SG","asia",L3("Singapore","Singapour","Singapur")],
     ["australia","AU","oceania",L3("Australia","Australie","Australia")],["newzealand","NZ","oceania",L3("New Zealand","Nouvelle-Zélande","Nueva Zelanda")]
   ],
   /* approximate position on the world tile map: [column, row] on a 16 x 8 grid */
-  pos:{us:[2,2],co:[3,5],ve:[4,5],br:[5,6],ar:[4,8],ie:[7,1],gb:[8,1],nl:[9,1],de:[10,1],ru:[12,1],fr:[8,2],be:[9,2],pt:[7,3],es:[8,3],it:[10,3],gr:[11,3],ma:[8,4],tn:[10,4],eg:[11,4],sn:[7,5],bj:[9,5],cd:[10,6],za:[10,8],cn:[14,3],au:[15,7],nz:[16,8]}
+  pos:{us:[2,2],co:[3,5],ve:[4,5],br:[5,6],ar:[4,8],ie:[7,1],gb:[8,1],nl:[9,1],de:[10,1],ru:[12,1],fr:[8,2],be:[9,2],pt:[7,3],es:[8,3],it:[10,3],gr:[11,3],ma:[8,4],tn:[10,4],eg:[11,4],sn:[7,5],bj:[9,5],cd:[10,6],za:[10,8],cn:[14,3],kp:[15,2],th:[13,4],kr:[15,3],vn:[14,4],id:[14,6],sg:[13,5],au:[15,7],nz:[16,8]}
 };
