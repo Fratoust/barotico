@@ -498,7 +498,7 @@ function ingest(k){
 window.__baroticoLoaded=k=>{ingest(k)};
 function loadCountry(k){
   if(REG.loading[k])return;REG.loading[k]=1;
-  const s=document.createElement("script");s.src=`countries/${k}.js?v=1794838259`;
+  const s=document.createElement("script");s.src=`countries/${k}.js?v=1794852050`;
   s.onload=()=>{ingest(k);render()};
   s.onerror=()=>{REG.loading[k]=0;document.getElementById("view").innerHTML=`<p class="pending" style="padding:48px 0">${t("load_err")}</p>`};
   document.head.appendChild(s);
@@ -688,12 +688,12 @@ function cmpTable(defCont){
   const filt=usedConts.length>1?`<div class="cfilter" role="group" aria-label="${t("nav_countries")}">${[...usedConts,"all"].map(ct=>`<button type="button" class="chip" data-cf="${ct}" aria-pressed="${ct===defCont}">${ct==="all"?t("all_c"):t(ct)} <small>${ct==="all"?all.length:all.filter(k=>contOf(k)===ct).length}</small></button>`).join("")}</div>`:"";
   const head=`<tr><th scope="col">${t("country")}</th>${mkeys.map(mk=>`<th scope="col" title="${esc(tr(MTX[mk].w))}"><b>${esc(tr(MTX[mk].n))}</b> ${badge(BADGE_OF[mk])}</th>`).join("")}<th scope="col">${t("next_nat")}</th></tr>`;
   const rows=all.map(k=>{const c=info(k);return `<tr data-cont="${contOf(k)}"${defCont!=="all"&&contOf(k)!==defCont?" hidden":""}><th scope="row"><a href="#${k}">${esc(tr(c.name))}</a></th>${mkeys.map(mk=>{const m=metric(k,mk);return `<td class="mc r-${m.rate}"${m.tip?` title="${esc(m.tip)}"`:m.ref?` title="${esc(t("ref_l")+": "+m.ref.full+" · "+m.ref.s)}"`:""}><span class="mv">${m.main}${m.unit?` <small>${m.unit}</small>`:""}</span><span class="ms">${m.sub}</span><span class="rw">${tr(RW[m.rate])}</span></td>`}).join("")}<td class="num">${esc(tr(c.elec.short))}</td></tr>`}).join("");
-  const table=`${legend}${filt}<p class="scroll-hint" aria-hidden="true">${t("cmp_scroll")}</p><div class="tablebox" tabindex="0" role="region" aria-label="${esc(t("cmp_h"))}"><table class="cmp cmp2"><thead>${head}</thead><tbody>${rows}</tbody></table></div>`;
+  const table=`${legend}${filt}<div class="tablewrap"><p class="scroll-hint" aria-hidden="true">${t("cmp_scroll")} <span class="sh-ico">→</span></p><div class="tablebox" tabindex="0" role="region" aria-label="${esc(t("cmp_h"))}"><table class="cmp cmp2"><thead>${head}</thead><tbody>${rows}</tbody></table></div><button type="button" class="scroll-more" aria-label="${esc(t("cmp_scroll"))}" onclick="(function(b){const s=b.parentNode.querySelector('.tablebox');s.scrollBy({left:s.clientWidth*0.7,behavior:'smooth'})})(this)">→</button></div>`;
   return table;
 }
-function setSbw(){try{document.documentElement.style.setProperty("--sbw",Math.max(0,innerWidth-document.documentElement.clientWidth)+"px")}catch(e){}}
-addEventListener("resize",setSbw);
-function comparePage(){setTimeout(setSbw,0);
+function tableScrollState(){document.querySelectorAll(".tablewrap").forEach(w=>{const s=w.querySelector(".tablebox");if(!s)return;const over=s.scrollWidth>s.clientWidth+2;w.classList.toggle("can-scroll",over);w.classList.toggle("more-right",over&&s.scrollLeft+s.clientWidth<s.scrollWidth-4);w.classList.toggle("more-left",over&&s.scrollLeft>4)})}
+addEventListener("resize",tableScrollState);document.addEventListener("scroll",e=>{if(e.target&&e.target.classList&&e.target.classList.contains("tablebox"))tableScrollState()},true);
+function comparePage(){setTimeout(tableScrollState,0);setTimeout(tableScrollState,400);
   return `<div class="chead" style="grid-template-columns:minmax(0,1fr)"><div><p class="eyebrow">${t("cmp_eye")}</p><h1 style="font-size:clamp(2rem,4.2vw,3.2rem)">${t("cmp_h")}</h1><p class="lead" style="margin-top:10px">${t("cmp_lead")}</p></div></div>
   <section class="cmp-page" style="border-top:0;padding-top:8px">${cmpTable("europe")}
     <p class="sources">${t("sources")} : ${["hdi","fh","rsfFR","ti","homFR","ilomw","medw"].map(srcLink).join(" · ")}. ${t("cmp_note")}</p></section>`;
@@ -709,7 +709,7 @@ function homeExample(){
   return `<div class="hex" id="hex"><p class="hex-who"><b>${esc(p.name)}</b> · ${esc(tr(C[k].name))}</p>
    <ol class="hex-row"><li><span class="eyebrow">${c[0]}</span><p>${esc(tr(d))}</p></li><li><span class="eyebrow">${c[1]}</span><p>${esc(tr(f))}</p></li><li class="prow ps-${st}"><span class="eyebrow">${c[2]}</span><div class="pf"><span class="ptag">${t("ptag")[st]||""}</span><a href="${u}" target="_blank" rel="noopener">${t("ex_src")} ↗</a></div></li></ol>
    <div class="hex-foot"><a class="btn" href="#${k}-${p.id}">${t("ex_more")}</a><button class="btn ghost" type="button" id="hex-other">${t("ex_other")}</button></div></div>`}
-function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1794838259`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
+function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1794852050`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
 function bindExample(){preloadSome(2);const b=document.getElementById("hex-other");if(b)b.addEventListener("click",()=>{const h=document.getElementById("hex");h.outerHTML=homeExample();pathLinks(document.getElementById("hex"));bindExample()})}
 function guideBlock(){
   const st=t("g_steps"),path=t("g_path"),pk=readyKeys().map(k=>[k,tr((C[k]||REG.meta[k]).name)]).sort((a,b)=>a[1].localeCompare(b[1],lang));
@@ -720,7 +720,7 @@ function guideBlock(){
    <p class="gpath">${path.map(x=>`<span>${x}</span>`).join('<i aria-hidden="true">→</i>')}</p>
    <ol class="gsteps">${st.map(([h,pp],i)=>`<li><span class="gn" aria-hidden="true">${i+1}</span><h3>${h}</h3><p>${pp}</p>${act[i]}</li>`).join("")}</ol></section>`}
 function bindGuide(){const bg=document.getElementById("bv-go");if(bg)bg.addEventListener("click",()=>{const sel=document.getElementById("bv-country"),v=sel.value;if(!v){sel.focus();sel.classList.add("need");return}if(PATHMODE){history.pushState(null,"",pathFor(v+"-vote"));render()}else location.hash="#"+v+"-vote"});const g=document.getElementById("g-go");if(!g)return;g.addEventListener("click",()=>{const v=document.getElementById("g-country").value;if(v){if(PATHMODE){history.pushState(null,"",pathFor(v+"-partis"));render()}else location.hash="#"+v+"-partis"}else{const sel=document.getElementById("g-country");sel.focus();sel.classList.add("need");document.getElementById("pays").scrollIntoView({behavior:"smooth"})}})}
-Object.assign(T.en,{cmp_scroll:"← Swipe the table sideways to see every column →"});Object.assign(T.fr,{cmp_scroll:"← Faites glisser le tableau pour voir toutes les colonnes →"});Object.assign(T.es,{cmp_scroll:"← Desliza la tabla para ver todas las columnas →"});
+Object.assign(T.en,{cmp_scroll:"Scroll right to see the rest of the table"});Object.assign(T.fr,{cmp_scroll:"Faites défiler vers la droite pour voir la suite du tableau"});Object.assign(T.es,{cmp_scroll:"Desplázate a la derecha para ver el resto de la tabla"});
 Object.assign(T.en,{edited:"edited"});Object.assign(T.fr,{edited:"modifiée le"});Object.assign(T.es,{edited:"editada el"});
 Object.assign(T.en,{map_h:"Click a country on the map"});Object.assign(T.fr,{map_h:"Cliquez sur un pays de la carte"});Object.assign(T.es,{map_h:"Haz clic en un país del mapa"});
 Object.assign(T.en,{cont_h:"Or choose from the list"});Object.assign(T.fr,{cont_h:"Ou choisissez dans la liste"});Object.assign(T.es,{cont_h:"O elige en la lista"});

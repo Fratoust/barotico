@@ -440,10 +440,21 @@ section.legal p{max-width:75ch}
 .cmp-page table.cmp2{font-size:.85rem}
 .cmp-page table.cmp2 th,.cmp-page table.cmp2 td{padding:8px 10px}
 .cmp-page table.cmp2 thead th{min-width:104px;font-size:.8rem}
-.cmp-page .tablebox{--bw:min(calc(100vw - 32px - var(--sbw,0px)),1800px);width:var(--bw);max-width:none;margin-left:calc((100% - var(--bw))/2);overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+.cmp-page{min-width:0;max-width:100%}
+.cmp-page .tablewrap{position:relative;min-width:0;max-width:100%;width:100%}
+.cmp-page .tablebox{width:100%;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
 .cmp-page table.cmp2{width:100%;min-width:1240px}
-.cmp-page .scroll-hint{display:none;font-size:.8rem;color:var(--muted);margin:0 0 8px}
-@media (max-width:1180px){.cmp-page .scroll-hint{display:block}}
+.cmp-page .scroll-hint{display:none;align-items:center;gap:8px;font-size:.85rem;font-weight:600;color:var(--ink);margin:0 0 10px}
+.cmp-page .scroll-hint .sh-ico{display:inline-block;animation:shnudge 1.6s ease-in-out infinite}
+@keyframes shnudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+@media (prefers-reduced-motion:reduce){.cmp-page .scroll-hint .sh-ico,.cmp-page .scroll-more{animation:none}}
+.cmp-page .tablewrap.can-scroll .scroll-hint{display:flex}
+.cmp-page .tablewrap.can-scroll{--sh-top:31px}
+.cmp-page .tablewrap::after{content:"";position:absolute;top:var(--sh-top,0);border-radius:0 10px 10px 0;right:0;bottom:0;width:56px;pointer-events:none;background:linear-gradient(to right,transparent,var(--surface));opacity:0;transition:opacity .2s}
+.cmp-page .tablewrap.more-right::after{opacity:1}
+.cmp-page .scroll-more{position:absolute;right:6px;top:64px;z-index:3;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:1.2rem;line-height:1;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.15);display:none;animation:shnudge 1.6s ease-in-out infinite}
+.cmp-page .tablewrap.more-right .scroll-more{display:block}
+.cmp-page .scroll-more:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .cmp-page .mv{font-size:.95rem}
 .cmp-page .ms{font-size:.72rem;display:block;color:var(--muted)}
 .cmp-page .rw{font-size:.72rem}
