@@ -440,6 +440,10 @@ section.legal p{max-width:75ch}
 .cmp-page table.cmp2{font-size:.85rem}
 .cmp-page table.cmp2 th,.cmp-page table.cmp2 td{padding:8px 10px}
 .cmp-page table.cmp2 thead th{min-width:104px;font-size:.8rem}
+.cmp-page .tablebox{--bw:min(calc(100vw - 32px - var(--sbw,0px)),1800px);width:var(--bw);max-width:none;margin-left:calc((100% - var(--bw))/2);overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+.cmp-page table.cmp2{width:100%;min-width:1240px}
+.cmp-page .scroll-hint{display:none;font-size:.8rem;color:var(--muted);margin:0 0 8px}
+@media (max-width:1180px){.cmp-page .scroll-hint{display:block}}
 .cmp-page .mv{font-size:.95rem}
 .cmp-page .ms{font-size:.72rem;display:block;color:var(--muted)}
 .cmp-page .rw{font-size:.72rem}

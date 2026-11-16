@@ -411,6 +411,30 @@ const RL={good:L3("Better than the reference","Mieux que la référence","Mejor 
 /* v12: registry of countries, region-aware indicators */
 const sgn=d=>(d>0?"+":d<0?"−":"±")+Math.abs(d).toFixed(1);
 const BADGE_OF={life:"mes",school:"mes",hdi:"mes",hom:"mes",rsf:"exp",fh:"exp",cpi:"per"};
+/* Wages (16 Nov 2026): ILO minimum wage with world rank, median earnings next to it. Neutral cells: no colour, no better/worse. */
+const fmtN=n=>Math.round(n).toLocaleString(lang==="en"?"en-GB":lang==="fr"?"fr-FR":"es-ES");
+const WTYPE={"Regional":L3("regional minimums","minimums régionaux","mínimos regionales"),"Occupational":L3("set by occupation","fixé par métier","fijado por oficio")};
+function wageMetric(k,key){
+  const W=(typeof WAGES!=="undefined")?WAGES:{mw:{},med:{}},U=L3("PPP $/month","$ PPA/mois","$ PPA/mes"),dash=s=>({main:"—",unit:"",sub:tr(s),rate:"na",ref:null});
+  if(key==="mw"){const e=W.mw[k],M=W.mw._meta||{};
+    if(!e)return dash(L3("no data published","aucune donnée publiée","sin datos publicados"));
+    if(e.none)return dash(k==="northkorea"?L3("no data published","aucune donnée publiée","sin datos publicados"):L3("no national statutory minimum wage","pas de salaire minimum national légal","sin salario mínimo nacional legal"));
+    if(!e.rank)return dash(L3("amount published in local currency only, not ranked","montant publié en monnaie locale seulement, non classé","importe publicado solo en moneda local, sin clasificar"));
+    const ty=WTYPE[e.type]?" · "+tr(WTYPE[e.type]):"";
+    return{main:fmtN(e.ppp),unit:tr(U),sub:`${ordinal(e.rank)} / ${M.n} · ≈ ${fmtN(e.usd)} US$ · ${M.year}${ty}`,rate:"na",ref:null,tip:"ILOSTAT · "+M.year+" · 2021 PPP $"}}
+  const e=W.med[k];
+  if(!e||e.none)return dash(L3("no comparable official figure","pas de chiffre officiel comparable","sin cifra oficial comparable"));
+  const st=e.stat==="median"?L3("median","médian","mediana"):L3("mean, no median published","moyenne, pas de médian publié","media, sin mediana publicada");
+  const tip=`${e.src||""}${e.scope?" · "+e.scope:""}`;
+  if(e.ppp)return{main:fmtN(e.ppp),unit:tr(U),sub:`${tr(st)} (${e.year}) · ${fmtN(e.v)} ${e.cur}`,rate:"na",ref:null,tip};
+  return{main:fmtN(e.v),unit:`${e.cur}/${tr(L3("month","mois","mes"))}`,sub:`${tr(st)} (${e.year})`,rate:"na",ref:null,tip}}
+Object.assign(MTX,{
+ mw:{n:L3("Minimum wage (ILO)","Salaire minimum (OIT)","Salario mínimo (OIT)"),w:L3("Statutory gross monthly minimum wage in 2024, in 2021 PPP dollars (corrected for the cost of living), and rank among the countries the ILO covers (1st = highest). US dollars at market rates below.","Salaire minimum légal brut mensuel en 2024, en dollars PPA 2021 (corrigés du coût de la vie), et rang parmi les pays couverts par l'OIT (1er = le plus élevé). En dessous, l'équivalent en dollars US au taux du marché.","Salario mínimo legal bruto mensual en 2024, en dólares PPA de 2021 (corregidos por el coste de la vida), y puesto entre los países que cubre la OIT (1.º = el más alto). Debajo, el equivalente en dólares de EE. UU. al tipo de mercado.")},
+ med:{n:L3("Median wage","Salaire médian","Salario mediano"),w:L3("Gross monthly pay of the typical employee: half earn less, half earn more. Where an office publishes only the mean, the cell says so. Not ranked: sources, years and scopes differ.","Salaire brut mensuel du salarié type : la moitié gagne moins, l'autre moitié plus. Quand un institut ne publie que la moyenne, la case le dit. Pas de classement : sources, années et champs diffèrent.","Salario bruto mensual del asalariado tipo: la mitad gana menos y la otra mitad más. Cuando un instituto solo publica la media, la casilla lo indica. Sin clasificación: fuentes, años y ámbitos difieren.")}});
+Object.assign(BADGE_OF,{mw:"mes",med:"mes"});
+SRC.ilomw={t:"ILOSTAT, Monthly minimum wage by currency (2024)",u:"https://ilostat.ilo.org/data/"};
+SRC.medw={t:"Eurostat SES 2022 + national statistics offices (median earnings)",u:"https://ec.europa.eu/eurostat/databrowser/view/earn_ses_monthly/default/table"};
+
 const REG=(typeof BAROTICO!=="undefined")?BAROTICO:{meta:{},full:{},loading:{},planned:[],pos:{}};
 function isReady(k){return !!(k&&(C[k]||REG.meta[k]||REG.full[k]))}
 function info(k){if(!C[k]&&REG.full[k])ingest(k);return C[k]||REG.meta[k]}
@@ -447,8 +471,9 @@ function refOf(mk,k){const R=(typeof BAROTICO_REF!=="undefined"&&BAROTICO_REF[mk
 const FHS={F:L3("Free","Libre","Libre"),PF:L3("Partly free","Partiellement libre","Parcialmente libre"),NF:L3("Not free","Non libre","No libre")};
 const RSFK=[[85,"good",L3("good","bonne","buena")],[70,"mid",L3("satisfactory","plutôt bonne","satisfactoria")],[55,"bad",L3("problematic","problématique","problemática")],[40,"bad",L3("difficult","difficile","difícil")],[-1,"bad",L3("very serious","très grave","muy grave")]];
 const HDIC=[[0.8,"good",L3("very high","très élevé","muy alto")],[0.7,"mid",L3("high","élevé","alto")],[0.55,"bad",L3("medium","moyen","medio")],[-1,"bad",L3("low","faible","bajo")]];
-const RW={good:L3("better","mieux","mejor"),mid:L3("close","proche","cerca"),bad:L3("worse","moins bien","peor")};
+const RW={good:L3("better","mieux","mejor"),mid:L3("close","proche","cerca"),bad:L3("worse","moins bien","peor")};RW.na=L3("","","");
 function metric(k,key){
+  if(key==="mw"||key==="med")return wageMetric(k,key);
   if(VAL[k][key]==null||(Array.isArray(VAL[k][key])&&VAL[k][key][0]==null))return{main:"—",unit:"",sub:tr(L3("no data published","aucune donnée publiée","sin datos publicados")),rate:"mid",ref:null};
   const v=VAL[k][key],o=n=>num(String(n).replace(".",",")),ref=refOf(key,k),vsr=d=>`${num(sgn(d).replace(".",","))} ${tr(L3("vs","vs","vs"))} ${ref?ref.l:""}`;
   if(key==="life"){const d=v-(ref?ref.v:81.5);return{main:o(v),unit:tr(L3("years","ans","años")),sub:vsr(d),rate:d>=1?"good":d<=-1?"bad":"mid",ref}}
@@ -473,7 +498,7 @@ function ingest(k){
 window.__baroticoLoaded=k=>{ingest(k)};
 function loadCountry(k){
   if(REG.loading[k])return;REG.loading[k]=1;
-  const s=document.createElement("script");s.src=`countries/${k}.js?v=1794749899`;
+  const s=document.createElement("script");s.src=`countries/${k}.js?v=1794838259`;
   s.onload=()=>{ingest(k);render()};
   s.onerror=()=>{REG.loading[k]=0;document.getElementById("view").innerHTML=`<p class="pending" style="padding:48px 0">${t("load_err")}</p>`};
   document.head.appendChild(s);
@@ -649,7 +674,7 @@ const BCLS={mes:"b-mes",exp:"b-exp",per:"b-per",son:"b-son"};
 const daysTo=d=>Math.ceil((new Date(d+"T00:00:00")-new Date())/864e5);
 const badge=k=>`<span class="badge ${BCLS[k]}">${t("badges")[k]}</span>`;
 const srcLink=k=>`<a href="${SRC[k].u}" target="_blank" rel="noopener">${esc(SRC[k].t)}</a>`;
-const ordinal=n=>lang==="en"?n+(n%100>=11&&n%100<=13?"th":({1:"st",2:"nd",3:"rd"}[n%10]||"th")):lang==="fr"?n+"e":n+".º";
+const ordinal=n=>lang==="en"?n+(n%100>=11&&n%100<=13?"th":({1:"st",2:"nd",3:"rd"}[n%10]||"th")):lang==="fr"?n+(n===1?"er":"e"):n+".º";
 function countdown(c){if(!c.elec||!c.elec.date)return{big:"—",unit:""};const n=daysTo(c.elec.date);if(c.elec.approx)return{big:"≈ "+Math.round(n/30.4),unit:t("months")};return{big:String(n),unit:n>1?t("days"):t("day")}}
 function fmtDate(d){if(!d)return t("date_tbd");const [y,m,dd]=d.split("-").map(Number);const s=new Date(Date.UTC(y,m-1,dd)).toLocaleDateString(lang==="en"?"en-GB":lang,{day:"numeric",month:"short",year:"numeric",timeZone:"UTC"});const n=daysTo(d);return `${s} · ${n>=0?T[lang].in_days(n):t("past")}`}
 
@@ -657,19 +682,21 @@ let picked=new Set();
 
 function cmpTable(defCont){
   const all=readyKeys(),conts=["europe","americas","africa","asia","oceania"];
-  const mkeys=["life","school","hom","rsf","fh","cpi"];
+  const mkeys=["life","school","hom","rsf","fh","cpi","mw","med"];
   const legend=`<div class="rlegend">${["good","mid","bad"].map(r=>`<span class="rdot r-${r}">${tr(RL[r])}</span>`).join("")}</div>`;
   const usedConts=conts.filter(ct=>all.some(k=>contOf(k)===ct));
   const filt=usedConts.length>1?`<div class="cfilter" role="group" aria-label="${t("nav_countries")}">${[...usedConts,"all"].map(ct=>`<button type="button" class="chip" data-cf="${ct}" aria-pressed="${ct===defCont}">${ct==="all"?t("all_c"):t(ct)} <small>${ct==="all"?all.length:all.filter(k=>contOf(k)===ct).length}</small></button>`).join("")}</div>`:"";
   const head=`<tr><th scope="col">${t("country")}</th>${mkeys.map(mk=>`<th scope="col" title="${esc(tr(MTX[mk].w))}"><b>${esc(tr(MTX[mk].n))}</b> ${badge(BADGE_OF[mk])}</th>`).join("")}<th scope="col">${t("next_nat")}</th></tr>`;
-  const rows=all.map(k=>{const c=info(k);return `<tr data-cont="${contOf(k)}"${defCont!=="all"&&contOf(k)!==defCont?" hidden":""}><th scope="row"><a href="#${k}">${esc(tr(c.name))}</a></th>${mkeys.map(mk=>{const m=metric(k,mk);return `<td class="mc r-${m.rate}"${m.ref?` title="${esc(t("ref_l")+": "+m.ref.full+" · "+m.ref.s)}"`:""}><span class="mv">${m.main}${m.unit?` <small>${m.unit}</small>`:""}</span><span class="ms">${m.sub}</span><span class="rw">${tr(RW[m.rate])}</span></td>`}).join("")}<td class="num">${esc(tr(c.elec.short))}</td></tr>`}).join("");
-  const table=`${legend}${filt}<div class="tablebox"><table class="cmp cmp2"><thead>${head}</thead><tbody>${rows}</tbody></table></div>`;
+  const rows=all.map(k=>{const c=info(k);return `<tr data-cont="${contOf(k)}"${defCont!=="all"&&contOf(k)!==defCont?" hidden":""}><th scope="row"><a href="#${k}">${esc(tr(c.name))}</a></th>${mkeys.map(mk=>{const m=metric(k,mk);return `<td class="mc r-${m.rate}"${m.tip?` title="${esc(m.tip)}"`:m.ref?` title="${esc(t("ref_l")+": "+m.ref.full+" · "+m.ref.s)}"`:""}><span class="mv">${m.main}${m.unit?` <small>${m.unit}</small>`:""}</span><span class="ms">${m.sub}</span><span class="rw">${tr(RW[m.rate])}</span></td>`}).join("")}<td class="num">${esc(tr(c.elec.short))}</td></tr>`}).join("");
+  const table=`${legend}${filt}<p class="scroll-hint" aria-hidden="true">${t("cmp_scroll")}</p><div class="tablebox" tabindex="0" role="region" aria-label="${esc(t("cmp_h"))}"><table class="cmp cmp2"><thead>${head}</thead><tbody>${rows}</tbody></table></div>`;
   return table;
 }
-function comparePage(){
+function setSbw(){try{document.documentElement.style.setProperty("--sbw",Math.max(0,innerWidth-document.documentElement.clientWidth)+"px")}catch(e){}}
+addEventListener("resize",setSbw);
+function comparePage(){setTimeout(setSbw,0);
   return `<div class="chead" style="grid-template-columns:minmax(0,1fr)"><div><p class="eyebrow">${t("cmp_eye")}</p><h1 style="font-size:clamp(2rem,4.2vw,3.2rem)">${t("cmp_h")}</h1><p class="lead" style="margin-top:10px">${t("cmp_lead")}</p></div></div>
   <section class="cmp-page" style="border-top:0;padding-top:8px">${cmpTable("europe")}
-    <p class="sources">${t("sources")} : ${["hdi","fh","rsfFR","ti","homFR"].map(srcLink).join(" · ")}. ${t("cmp_note")}</p></section>`;
+    <p class="sources">${t("sources")} : ${["hdi","fh","rsfFR","ti","homFR","ilomw","medw"].map(srcLink).join(" · ")}. ${t("cmp_note")}</p></section>`;
 }
 Object.assign(T.en,{c_hn:n=>`${n} countries, one method`});Object.assign(T.fr,{c_hn:n=>`${n} pays, une seule méthode`});Object.assign(T.es,{c_hn:n=>`${n} países, un mismo método`});
 Object.assign(T.en,{"hero_lead": "Pick a country to discover its political system, examine its parties and set their promises against their actions. Check the sources, explore your own values and make up your own mind. Barotico does not recommend any vote.", "promise_h": "Understand politics, country by country", "g_eye": "How to use Barotico", "g_path": ["Choose a country", "Understand and compare", "Make up your own mind"], "g_steps": [["Choose a country", "Discover its political system, its government and the upcoming elections.", "Choose a country"], ["Explore the parties", "Compare their programmes, promises and votes, with sources you can check.", "Compare the parties"], ["Make up your own mind", "Use the values mirror to see which leanings match the values you picked. It recommends no party and doesn't tell you who to vote for.", "Explore my values"]], "g_pick": "Pick a country…", "g_pick_l": "Country", "ex_eye": "A worked example", "ex_h": "Promise, action, verifiable result", "ex_note": "An illustration of the method, drawn at random from the available profiles. It is not a voting recommendation.", "ex_cols": ["The promise", "The vote or action", "Verifiable result"], "ex_more": "See the full profile and its sources", "ex_other": "Another example", "ex_src": "Check the source", "news_eye": "News and elections", "news_h": "The next votes", "mm_eye": "Method, sources and editorial independence"});
@@ -682,7 +709,7 @@ function homeExample(){
   return `<div class="hex" id="hex"><p class="hex-who"><b>${esc(p.name)}</b> · ${esc(tr(C[k].name))}</p>
    <ol class="hex-row"><li><span class="eyebrow">${c[0]}</span><p>${esc(tr(d))}</p></li><li><span class="eyebrow">${c[1]}</span><p>${esc(tr(f))}</p></li><li class="prow ps-${st}"><span class="eyebrow">${c[2]}</span><div class="pf"><span class="ptag">${t("ptag")[st]||""}</span><a href="${u}" target="_blank" rel="noopener">${t("ex_src")} ↗</a></div></li></ol>
    <div class="hex-foot"><a class="btn" href="#${k}-${p.id}">${t("ex_more")}</a><button class="btn ghost" type="button" id="hex-other">${t("ex_other")}</button></div></div>`}
-function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1794749899`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
+function preloadSome(n){const todo=readyKeys().filter(k=>!C[k]&&REG.full&&!REG.loading[k]&&!REG.full[k]).sort(()=>Math.random()-.5).slice(0,n);todo.forEach(k=>{REG.loading[k]=1;const sc=document.createElement("script");sc.src=`countries/${k}.js?v=1794838259`;sc.onload=()=>{if(REG.full[k])ingest(k);if(curRaw().split("-")[0]===k)render()};sc.onerror=()=>{REG.loading[k]=0};document.head.appendChild(sc)})}
 function bindExample(){preloadSome(2);const b=document.getElementById("hex-other");if(b)b.addEventListener("click",()=>{const h=document.getElementById("hex");h.outerHTML=homeExample();pathLinks(document.getElementById("hex"));bindExample()})}
 function guideBlock(){
   const st=t("g_steps"),path=t("g_path"),pk=readyKeys().map(k=>[k,tr((C[k]||REG.meta[k]).name)]).sort((a,b)=>a[1].localeCompare(b[1],lang));
@@ -693,6 +720,7 @@ function guideBlock(){
    <p class="gpath">${path.map(x=>`<span>${x}</span>`).join('<i aria-hidden="true">→</i>')}</p>
    <ol class="gsteps">${st.map(([h,pp],i)=>`<li><span class="gn" aria-hidden="true">${i+1}</span><h3>${h}</h3><p>${pp}</p>${act[i]}</li>`).join("")}</ol></section>`}
 function bindGuide(){const bg=document.getElementById("bv-go");if(bg)bg.addEventListener("click",()=>{const sel=document.getElementById("bv-country"),v=sel.value;if(!v){sel.focus();sel.classList.add("need");return}if(PATHMODE){history.pushState(null,"",pathFor(v+"-vote"));render()}else location.hash="#"+v+"-vote"});const g=document.getElementById("g-go");if(!g)return;g.addEventListener("click",()=>{const v=document.getElementById("g-country").value;if(v){if(PATHMODE){history.pushState(null,"",pathFor(v+"-partis"));render()}else location.hash="#"+v+"-partis"}else{const sel=document.getElementById("g-country");sel.focus();sel.classList.add("need");document.getElementById("pays").scrollIntoView({behavior:"smooth"})}})}
+Object.assign(T.en,{cmp_scroll:"← Swipe the table sideways to see every column →"});Object.assign(T.fr,{cmp_scroll:"← Faites glisser le tableau pour voir toutes les colonnes →"});Object.assign(T.es,{cmp_scroll:"← Desliza la tabla para ver todas las columnas →"});
 Object.assign(T.en,{edited:"edited"});Object.assign(T.fr,{edited:"modifiée le"});Object.assign(T.es,{edited:"editada el"});
 Object.assign(T.en,{map_h:"Click a country on the map"});Object.assign(T.fr,{map_h:"Cliquez sur un pays de la carte"});Object.assign(T.es,{map_h:"Haz clic en un país del mapa"});
 Object.assign(T.en,{cont_h:"Or choose from the list"});Object.assign(T.fr,{cont_h:"Ou choisissez dans la liste"});Object.assign(T.es,{cont_h:"O elige en la lista"});
