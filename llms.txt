@@ -53,6 +53,7 @@ Each party also has its own page: https://barotico.com/en/<country>/parties/<par
 ## Other pages
 - [Home](https://barotico.com/en/)
 - [Why vote](https://barotico.com/en/why-vote/)
+- [Take back control: algorithms, media and influencers](https://barotico.com/en/take-back-control/)
 - [Compare countries](https://barotico.com/en/compare/)
 - [Media](https://barotico.com/en/media/)
 - [About and method](https://barotico.com/en/about/)
