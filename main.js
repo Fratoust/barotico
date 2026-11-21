@@ -449,6 +449,8 @@ document.addEventListener("click",e=>{
   o.closest(".rq-opts").querySelectorAll(".rq-opt").forEach(b=>b.setAttribute("aria-pressed",String(cur.includes(b.dataset.v))));
   const r=document.getElementById("rq-res-"+m);if(r){r.innerHTML=algoResult(m);if(typeof pathLinks==="function")pathLinks(r)}
 },true);
+/* v8: owner options without "mostly" (several can be ticked) */
+ALGO.Q.proprio[1]=[["public",A3("Public service","Service public","Servicio público")],["prive",A3("Private groups","Groupes privés","Grupos privados")],["lecteurs",A3("Reader-funded media","Médias financés par leurs lecteurs","Medios financiados por sus lectores")],["influ",A3("Influencers","Influenceurs","Influencers")],["nsp",A3("I don’t know","Je ne sais pas","No lo sé")]];
 
 /* Barotico prototype — main script. English is the master language; FR and ES translations. */
 const LANGS=["en","fr","es"];
