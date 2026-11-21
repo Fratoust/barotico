@@ -417,6 +417,38 @@ ALGO.srcs.push(
  ["European Commission — formal proceedings against TikTok on election risks (Dec. 2024)","https://digital-strategy.ec.europa.eu/en/news/commission-opens-formal-proceedings-against-tiktok-election-risks-under-digital-services-act"],
  ["RFE/RL — declassified documents on paid influencers (Romania)","https://www.rferl.org/a/romania-election-scandal-tiktok-bogdan-peschir-georgescu/33229674.html"]
 );
+/* v7 (21/11/2026): several answers possible on "where", "medium" and "owners" */
+ALGO.multi={ou:1,ecran:1,proprio:1};
+ALGO.excl={proprio:["nsp"]};
+ALGO.multi_hint=A3("Several answers possible","Plusieurs réponses possibles","Varias respuestas posibles");
+ALGO.Q.ou[0]=A3("Where do you get your news?","Où vous informez-vous ?","¿Dónde te informas?");
+function algoQuiz(mode){
+  const ids=mode==="x"?ALGO.express:ALGO.full,st=ALGO_STATE[mode];
+  const on=(id,v)=>Array.isArray(st[id])?st[id].includes(v):st[id]===v;
+  const one=(id,i)=>{const q=ALGO.Q[id],mu=!!ALGO.multi[id];return `<fieldset class="rq-q"><legend>${i+1}. ${aT(q[0])}${mu?`<span class="rq-multi">${aT(ALGO.multi_hint)}</span>`:""}</legend><div class="rq-opts"${mu?' data-multi="1" role="group"':""}>${q[1].map(o=>`<button type="button" class="rq-opt" data-m="${mode}" data-q="${id}" data-v="${o[0]}" aria-pressed="${on(id,o[0])}">${aT(o[1])}</button>`).join("")}</div></fieldset>`};
+  let qs;if(mode==="f"&&ALGO.groups){let n=0;qs=ALGO.groups.map(g=>`<p class="rq-group">${aT(g[0])}</p>`+g[1].map(id=>one(id,n++)).join("")).join("")}else qs=ids.map((id,i)=>one(id,i)).join("");
+  return `<div class="rq" id="rq-${mode}"><p class="eyebrow">${aT(mode==="x"?ALGO.quiz_eye_x:ALGO.quiz_eye_f)}</p><h3 class="rq-h">${aT(ALGO.quiz_h)}</h3><div class="rq-qs">${qs}</div><div class="rq-res" aria-live="polite" id="rq-res-${mode}">${algoResult(mode)}</div></div>`;
+}
+/* the profile logic reads one value per question: multi answers are reduced first */
+const algoResultOne=algoResult;
+algoResult=function(mode){
+  const a=ALGO_STATE[mode],v={...a};
+  for(const k in ALGO.multi){const x=a[k];if(!Array.isArray(x))continue;
+    if(!x.length){delete v[k];continue}
+    v[k]=k==="ou"?(x.length===1&&x[0]==="reseaux"?"reseaux":x.find(y=>y!=="reseaux")):k==="proprio"&&x.includes("nsp")?"nsp":x[0]}
+  ALGO_STATE[mode]=v;try{return algoResultOne(mode)}finally{ALGO_STATE[mode]=a}
+};
+document.addEventListener("click",e=>{
+  const o=e.target.closest&&e.target.closest('.rq-opts[data-multi] .rq-opt');if(!o)return;
+  const m=o.dataset.m,st=ALGO_STATE[m];if(!st)return;
+  e.stopPropagation();
+  const q=o.dataset.q,v=o.dataset.v,ex=ALGO.excl[q]||[];
+  let cur=Array.isArray(st[q])?st[q].slice():[];
+  if(cur.includes(v))cur=cur.filter(x=>x!==v);else cur=ex.includes(v)?[v]:cur.filter(x=>!ex.includes(x)).concat(v);
+  if(cur.length)st[q]=cur;else delete st[q];
+  o.closest(".rq-opts").querySelectorAll(".rq-opt").forEach(b=>b.setAttribute("aria-pressed",String(cur.includes(b.dataset.v))));
+  const r=document.getElementById("rq-res-"+m);if(r){r.innerHTML=algoResult(m);if(typeof pathLinks==="function")pathLinks(r)}
+},true);
 
 /* Barotico prototype — main script. English is the master language; FR and ES translations. */
 const LANGS=["en","fr","es"];
