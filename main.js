@@ -316,7 +316,7 @@ function algoVfItem(i){const v=ALGO.vf[i],a=ALGO_STATE.vf[i];
 function algoVfScore(){const k=Object.keys(ALGO_STATE.vf);if(k.length<ALGO.vf.length)return `<p class="rq-count mono">${k.length}/${ALGO.vf.length}</p>`;const ok=k.filter(i=>ALGO_STATE.vf[i]===ALGO.vf[i][0]).length;return `<p class="vf-score"><span class="mono">${ok}/${ALGO.vf.length}</span> ${aT(ALGO.vf_score)} · <button type="button" class="linkbtn vf-reset">${aT(ALGO.restart)}</button></p>`}
 function algoMeca(){
   return `<section id="rmeca" class="rm-sec"><h2>${aT(ALGO.meca_h)}</h2><p class="lead">${aT(ALGO.meca_p)}</p>
-   <div class="meca">${ALGO.meca.map((m,i)=>`<details class="meca-i"${i===0?" open":""}><summary><span class="mono">${String(i+1).padStart(2,"0")}</span><b>${aT(m[0])}</b></summary><div class="meca-b"><p>${aT(m[1])}</p><p class="meca-q"><span class="eyebrow">${aT(ALGO.ask)}</span>${aT(m[2])}</p>${m[3]?`<a class="src-a" href="${m[3]}" target="_blank" rel="noopener">${esc(t("src_link"))}</a>`:""}</div></details>`).join("")}</div>
+   <div class="meca">${ALGO.meca.map((m,i)=>`<details class="meca-i"${i===0?" open":""}><summary><span class="mono">${String(i+1).padStart(2,"0")}</span><b>${aT(m[0])}</b></summary><div class="meca-b"><p>${aT(m[1])}</p><div class="meca-side"><p class="meca-q"><span class="eyebrow">${aT(ALGO.ask)}</span>${aT(m[2])}</p>${m[3]?`<a class="src-a" href="${m[3]}" target="_blank" rel="noopener">${esc(t("src_link"))}</a>`:""}</div></div></details>`).join("")}</div>
    <div class="vf" id="vf"><h3>${aT(ALGO.vf_h)}</h3><p class="rm-p">${aT(ALGO.vf_p)}</p><div class="vf-grid">${ALGO.vf.map((_,i)=>algoVfItem(i)).join("")}</div><div id="vf-score">${algoVfScore()}</div></div></section>`;
 }
 document.addEventListener("click",e=>{
@@ -379,6 +379,8 @@ ALGO.groups=[
 ];
 ALGO.nums[2][2]="https://www.rferl.org/a/romania-election-scandal-tiktok-bogdan-peschir-georgescu/33229674.html";
 ALGO.nums[2][3]=A3("RFE/RL, from declassified Romanian documents","RFE/RL, d’après les documents roumains déclassifiés","RFE/RL, según los documentos rumanos desclasificados");
+/* v5: "screen" question becomes "medium", with radio */
+ALGO.Q.ecran=[A3("On which medium?","Sur quel support ?","¿En qué soporte?"),[["tel",A3("Phone","Téléphone","Móvil")],["ordi",A3("Computer or tablet","Ordinateur ou tablette","Ordenador o tableta")],["tv",A3("Television","Télévision","Televisión")],["radio",A3("Radio","Radio","Radio")],["papier",A3("Paper","Papier","Papel")]]];
 
 /* Barotico prototype — main script. English is the master language; FR and ES translations. */
 const LANGS=["en","fr","es"];
