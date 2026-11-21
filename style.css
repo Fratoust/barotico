@@ -980,3 +980,19 @@ h1.rm-h{font-size:clamp(2.2rem,5.6vw,4rem)}
 .vf-score{font-size:1rem}.vf-score .mono{font-size:1.4rem;color:var(--dit)}
 @media (max-width:820px){.vf-grid{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:820px){.rm-hero,.rm-two{grid-template-columns:minmax(0,1fr)}.rm-steps,.rm-cases{grid-template-columns:minmax(0,1fr)}}
+
+/* v158: questionnaire on two columns; tablet header uses the menu button */
+.rm-testhead{display:grid;gap:10px;max-width:72ch}
+.rq-col{display:grid;gap:10px;align-content:start}
+#rq-f .rq-qs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:32px}
+#rq-f .rq-prof{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:32px;align-items:start}
+@media (max-width:820px){#rq-f .rq-qs,#rq-f .rq-prof{grid-template-columns:minmax(0,1fr)}}
+@media (min-width:821px) and (max-width:1179px){
+ .top .nav,.top .top-right,.top .proto{display:none}
+ .menubtn{display:inline-flex}
+ .top .wrap{flex-wrap:nowrap;padding-block:8px}
+ #lang-sw{display:flex;margin-left:auto;margin-right:8px}
+ .ddpanel{display:none!important}
+}
+#rq-f .rq-q{align-content:start}
+.rq-opts{align-items:flex-start}

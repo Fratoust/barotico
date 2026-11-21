@@ -73,6 +73,7 @@ const ALGO={
  reset_p:A3("A date at every change of season, and one month before every election.","Un rendez-vous à chaque changement de saison, et un mois avant chaque élection.","Una cita en cada cambio de estación, y un mes antes de cada elección."),
  dates:[[2,20,A3("20 March","20 mars","20 de marzo")],[5,21,A3("21 June","21 juin","21 de junio")],[8,22,A3("22 September","22 septembre","22 de septiembre")],[11,21,A3("21 December","21 décembre","21 de diciembre")]],
  jump:A3("On this page","Sur cette page","En esta página"),
+ private_p:A3("Your answers stay in your browser.","Vos réponses restent dans votre navigateur.","Tus respuestas se quedan en tu navegador."),
  res_intro:A3("Based on your answers, your profile looks like this:","D’après vos réponses, votre profil ressemble à ceci :","Según tus respuestas, tu perfil se parece a esto:"),
  hab_h:A3("Your pluralism habits","Vos habitudes de pluralisme","Tus hábitos de pluralismo"),
  hab_sum:A3((g,n)=>`${g} of ${n} habits already in place. The others are leads to explore, not criticism.`,(g,n)=>`${g} habitude${g>1?"s":""} sur ${n} déjà en place. Les autres sont des pistes, pas des reproches.`,(g,n)=>`${g} de ${n} hábitos ya en marcha. Los demás son pistas, no reproches.`),
@@ -176,7 +177,7 @@ function algoTitle(tag){const h=ALGO.h;return `<${tag} class="rm-h">${aT(h[0])}<
 function algoQuiz(mode){
   const ids=mode==="x"?ALGO.express:ALGO.full,st=ALGO_STATE[mode];
   const qs=ids.map((id,i)=>{const q=ALGO.Q[id];return `<fieldset class="rq-q"><legend>${i+1}. ${aT(q[0])}</legend><div class="rq-opts">${q[1].map(o=>`<button type="button" class="rq-opt" data-m="${mode}" data-q="${id}" data-v="${o[0]}" aria-pressed="${st[id]===o[0]}">${aT(o[1])}</button>`).join("")}</div></fieldset>`}).join("");
-  return `<div class="rq" id="rq-${mode}"><p class="eyebrow">${aT(mode==="x"?ALGO.quiz_eye_x:ALGO.quiz_eye_f)}</p><h3 class="rq-h">${aT(ALGO.quiz_h)}</h3>${qs}<div class="rq-res" aria-live="polite" id="rq-res-${mode}">${algoResult(mode)}</div></div>`;
+  return `<div class="rq" id="rq-${mode}"><p class="eyebrow">${aT(mode==="x"?ALGO.quiz_eye_x:ALGO.quiz_eye_f)}</p><h3 class="rq-h">${aT(ALGO.quiz_h)}</h3><div class="rq-qs">${qs}</div><div class="rq-res" aria-live="polite" id="rq-res-${mode}">${algoResult(mode)}</div></div>`;
 }
 function algoResult(mode){
   const ids=mode==="x"?ALGO.express:ALGO.full,a=ALGO_STATE[mode],n=ids.filter(id=>a[id]).length,done=n===ids.length;
@@ -195,13 +196,13 @@ function algoResult(mode){
   const g=good.filter(Boolean).length,P=ALGO.P[key],hs=good.map((ok,i)=>({ok:!!ok,l:ALGO.habs[i]})).sort((a,b)=>b.ok-a.ok);
   const bar=hs.map(x=>`<i class="${x.ok?"on":""}"></i>`).join("");
   const sumF=tr(ALGO.hab_sum);
-  h+=`<div class="rq-prof"><p class="rq-intro">${aT(ALGO.res_intro)}</p><p class="eyebrow" style="color:var(--dit)">${aT(ALGO.your)}</p><p class="rq-name">${aT(P[0])}</p><p>${aT(P[1])}</p>
+  h+=`<div class="rq-prof"><div class="rq-col"><p class="rq-intro">${aT(ALGO.res_intro)}</p><p class="eyebrow" style="color:var(--dit)">${aT(ALGO.your)}</p><p class="rq-name">${aT(P[0])}</p><p>${aT(P[1])}</p>
    <div class="rq-hab"><p class="rq-sub">${aT(ALGO.hab_h)}</p><div class="rq-bar" aria-hidden="true">${bar}</div><p class="rq-sum">${esc(sumF(g,good.length))}</p>
     <ul class="rq-habs">${hs.map(x=>`<li class="${x.ok?"on":"off"}"><span class="rq-dot" aria-hidden="true"></span>${aT(x.l)}<span class="sr">, ${aT(x.ok?ALGO.hab_on:ALGO.hab_off)}</span></li>`).join("")}</ul>
-    <p class="rq-leg" aria-hidden="true"><span class="on">${aT(ALGO.hab_on)}</span><span class="off">${aT(ALGO.hab_off)}</span></p></div>
-   <p class="rq-sub">${aT(ALGO.tips_h)}</p><ul class="rq-tips">${[...new Set(tips)].slice(0,3).map(k=>`<li>${aT(ALGO.tips[k])}</li>`).join("")}</ul>
+    <p class="rq-leg" aria-hidden="true"><span class="on">${aT(ALGO.hab_on)}</span><span class="off">${aT(ALGO.hab_off)}</span></p></div></div>
+   <div class="rq-col"><p class="rq-sub">${aT(ALGO.tips_h)}</p><ul class="rq-tips">${[...new Set(tips)].slice(0,3).map(k=>`<li>${aT(ALGO.tips[k])}</li>`).join("")}</ul>
    <p class="rq-info"><span class="rq-i" aria-hidden="true">i</span><span>${aT(ALGO.nojudge)}</span></p>
-   <div class="rq-acts">${mode==="x"?`<a href="#reprendre-rtest">${aT(ALGO.full_go)}</a>`:""}<button type="button" class="linkbtn rq-reset" data-m="${mode}">${aT(ALGO.restart)}</button></div></div>`;
+   <div class="rq-acts">${mode==="x"?`<a href="#reprendre-rtest">${aT(ALGO.full_go)}</a>`:""}<button type="button" class="linkbtn rq-reset" data-m="${mode}">${aT(ALGO.restart)}</button></div></div></div>`;
   return h;
 }
 function algoSteps(link){return `<div class="rm-steps">${ALGO.steps.map((s,i)=>`<a class="rm-step${i===2?" hot":""}" href="#reprendre-${s[0]==="rcheck"?"rcomprendre":s[0]}"><span class="mono">${aT(s[1])}</span><b>${aT(s[2])}</b><span>${aT(s[3])}</span></a>`).join("")}</div>`}
@@ -228,7 +229,7 @@ function algoPage(){
   const th=cols=>`<tr>${cols.map(c=>`<th scope="col">${aT(c)}</th>`).join("")}</tr>`;
   return `<div class="chead rm-head" style="grid-template-columns:minmax(0,1fr)"><div><p class="eyebrow">${aT(ALGO.eye)}</p>${algoTitle("h1")}<p class="lead" style="margin-top:12px">${aT(ALGO.lead)}</p><p class="rm-plural">${aT(ALGO.plural)}</p>
    <nav class="mjump" aria-label="${aT(ALGO.jump)}">${S.map(id=>`<a role="button" tabindex="0" data-jump="${id}">${aT(ALGO.sec[id])}</a>`).join("")}</nav></div></div>
-  <section id="rtest" class="rm-sec"><div class="rm-two"><div><h2>${aT(ALGO.sec.rtest)}</h2><p class="lead">${aT(ALGO.test_p)}</p><p class="note">${aT(ALGO.neutral)}</p></div>${algoQuiz("f")}</div></section>
+  <section id="rtest" class="rm-sec"><div class="rm-testhead"><h2>${aT(ALGO.sec.rtest)}</h2><p class="lead">${aT(ALGO.test_p)} ${aT(ALGO.private_p)}</p></div>${algoQuiz("f")}</section>
   <section id="rcomprendre" class="rm-sec"><h2>${aT(ALGO.comp_h)}</h2>${ALGO.comp_p.map(p=>`<p class="rm-p">${aT(p)}</p>`).join("")}${algoNums()}
    <h3>${aT(ALGO.steps_h)}</h3>${algoSteps()}
    <h3>${aT(ALGO.rhythm_h)}</h3><div class="levels">${ALGO.rhythm.map(r=>`<div class="level"><b>${aT(r[0])}</b><span>${aT(r[1])}</span></div>`).join("")}</div></section>
