@@ -176,7 +176,8 @@ function algoNext(){const now=new Date(),today=new Date(now.getFullYear(),now.ge
 function algoTitle(tag){const h=ALGO.h;return `<${tag} class="rm-h">${aT(h[0])}<span class="d">${aT(h[1])}</span>${aT(h[2])}<span class="f">${aT(h[3])}</span>${aT(h[4])}</${tag}>`}
 function algoQuiz(mode){
   const ids=mode==="x"?ALGO.express:ALGO.full,st=ALGO_STATE[mode];
-  const qs=ids.map((id,i)=>{const q=ALGO.Q[id];return `<fieldset class="rq-q"><legend>${i+1}. ${aT(q[0])}</legend><div class="rq-opts">${q[1].map(o=>`<button type="button" class="rq-opt" data-m="${mode}" data-q="${id}" data-v="${o[0]}" aria-pressed="${st[id]===o[0]}">${aT(o[1])}</button>`).join("")}</div></fieldset>`}).join("");
+  const one=(id,i)=>{const q=ALGO.Q[id];return `<fieldset class="rq-q"><legend>${i+1}. ${aT(q[0])}</legend><div class="rq-opts">${q[1].map(o=>`<button type="button" class="rq-opt" data-m="${mode}" data-q="${id}" data-v="${o[0]}" aria-pressed="${st[id]===o[0]}">${aT(o[1])}</button>`).join("")}</div></fieldset>`};
+  let qs;if(mode==="f"&&ALGO.groups){let n=0;qs=ALGO.groups.map(g=>`<p class="rq-group">${aT(g[0])}</p>`+g[1].map(id=>one(id,n++)).join("")).join("")}else qs=ids.map((id,i)=>one(id,i)).join("");
   return `<div class="rq" id="rq-${mode}"><p class="eyebrow">${aT(mode==="x"?ALGO.quiz_eye_x:ALGO.quiz_eye_f)}</p><h3 class="rq-h">${aT(ALGO.quiz_h)}</h3><div class="rq-qs">${qs}</div><div class="rq-res" aria-live="polite" id="rq-res-${mode}">${algoResult(mode)}</div></div>`;
 }
 function algoResult(mode){
@@ -368,6 +369,16 @@ ALGO.srcs.push(
  ["ASCI — influencer advertising guidelines (India, 2021)","https://www.ascionline.in/wp-content/uploads/2022/09/press-release-influencer-guidelines-2021.pdf"],
  ["Britannica — how public broadcasters are funded","https://www.britannica.com/technology/broadcasting/Broadcasting-systems"]
 );
+/* v4: logical question order, grouped in four steps; more reliable source for Romanian influencers */
+ALGO.full=["temps","ou","ecran","format","choix","proprio","finance","pareil","oppose","etranger","choc"];
+ALGO.groups=[
+ [A3("1 · Your habits","1 · Vos habitudes","1 · Tus hábitos"),["temps","ou","ecran","format"]],
+ [A3("2 · Who chooses, who pays","2 · Qui choisit, qui paie","2 · Quién elige, quién paga"),["choix","proprio","finance"]],
+ [A3("3 · The variety of your sources","3 · La variété de vos sources","3 · La variedad de tus fuentes"),["pareil","oppose","etranger"]],
+ [A3("4 · Your reflexes","4 · Vos réflexes","4 · Tus reflejos"),["choc"]]
+];
+ALGO.nums[2][2]="https://www.rferl.org/a/romania-election-scandal-tiktok-bogdan-peschir-georgescu/33229674.html";
+ALGO.nums[2][3]=A3("RFE/RL, from declassified Romanian documents","RFE/RL, d’après les documents roumains déclassifiés","RFE/RL, según los documentos rumanos desclasificados");
 
 /* Barotico prototype — main script. English is the master language; FR and ES translations. */
 const LANGS=["en","fr","es"];

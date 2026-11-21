@@ -996,3 +996,5 @@ h1.rm-h{font-size:clamp(2.2rem,5.6vw,4rem)}
 }
 #rq-f .rq-q{align-content:start}
 .rq-opts{align-items:flex-start}
+.rq-group{grid-column:1/-1;font-family:var(--f-mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dit);margin:18px 0 2px}
+.rq-qs>.rq-group:first-child{margin-top:4px}
