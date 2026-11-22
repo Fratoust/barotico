@@ -1846,7 +1846,7 @@ document.getElementById("lb-ok").addEventListener("click",()=>{autoLang=false;st
 /* v169 (22/11/2026): "Follow" a country — Web Push notifications (elections, profile updated, change of government)
    and an "add the election to my calendar" link. Only on barotico.com (needs the service worker and the push service). */
 const FOLLOW_T={
-  follow:L3("Follow","Suivre","Seguir"),why:L3("Why is this inactive?","Pourquoi est-ce inactif ?","¿Por qué está inactivo?"),install:L3("Install the app","Installer l'application","Instalar la app"),needapp:L3("To follow the news of this country, install the Barotico app on your phone, tablet or computer: notifications only work in the installed app. The link is also at the bottom of the page.","Pour suivre l'actualité de ce pays, installez l'application Barotico sur votre téléphone, votre tablette ou votre ordinateur : les notifications ne fonctionnent que dans l'application installée. Le lien est aussi en bas de page.","Para seguir la actualidad de este país, instala la app Barotico en tu móvil, tableta u ordenador: las notificaciones solo funcionan en la app instalada. El enlace también está al pie de la página."),save:L3("Save","Enregistrer","Guardar"),following:L3("Following","Suivi","Siguiendo"),
+  follow:L3("Follow","Suivre","Seguir"),why:L3("Why is this inactive?","Pourquoi est-ce inactif ?","¿Por qué está inactivo?"),install:L3("Install the app","Installer l'application","Instalar la app"),needapp:L3("To follow the news of this country, install the Barotico app on your phone, tablet or computer: notifications only work in the installed app. The link is also at the bottom of the page.","Pour suivre l'actualité de ce pays, installez l'application Barotico sur votre téléphone, votre tablette ou votre ordinateur : les notifications ne fonctionnent que dans l'application installée. Le lien est aussi en bas de page.","Para seguir la actualidad de este país, instala la app Barotico en tu móvil, tableta u ordenador: las notificaciones solo funcionan en la app instalada. El enlace también está al pie de la página."),save:L3("Save","Enregistrer","Guardar"),following:L3("Already followed","Déjà suivi","Ya lo sigues"),mine:L3("Countries you follow on this device:","Pays suivis sur cet appareil :","Países que sigues en este dispositivo:"),fmark:L3("Followed","Suivi","Seguido"),
   all:L3("Everything","Tout","Todo"),elec:L3("Elections","Élections","Elecciones"),fiche:L3("Profile updated","Fiche mise à jour","Ficha actualizada"),gov:L3("Change of government","Changement de gouvernement","Cambio de gobierno"),
   h:L3("Notify me about","M'alerter pour","Avisarme de"),
   stop:L3("Stop following","Ne plus suivre","Dejar de seguir"),
@@ -1872,13 +1872,16 @@ function followSlot(k){
       <p class="follow-tip" hidden>${esc(tr(FOLLOW_T.needapp))} <a href="#" class="pwa-go">${esc(tr(FOLLOW_T.install))} ↓</a>${el0?`<br><a href="#" class="follow-cal">${esc(tr(FOLLOW_T.cal))}</a>`:""}</p></div>`}
   const f=follows()[k]||[],on=f.length>0,c=info(k)||{},el=c.elec&&c.elec.date&&!c.elec.approx&&!c.elec.none&&daysTo(c.elec.date)>=0;
   const bell=`<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>`;
-  return `<details class="follow" data-k="${k}"><summary class="chip${on?" on":""}">${bell} ${esc(tr(on?FOLLOW_T.following:FOLLOW_T.follow))}</summary><div class="follow-p">
+  const chk=`<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>`;
+  const tops=on?(f.length===3?tr(FOLLOW_T.all):f.map(x=>tr(FOLLOW_T[x])).join(" · ")):"";
+  const mine=Object.keys(follows()).filter(x=>(follows()[x]||[]).length&&(info(x)||C[x]));
+  return `<details class="follow${on?" is-on":""}" data-k="${k}"><summary class="chip${on?" on":""}">${on?chk:bell} ${esc(tr(on?FOLLOW_T.following:FOLLOW_T.follow))}${on?`<span class="follow-tops">${esc(tops)}</span>`:""}</summary><div class="follow-p">
     <p class="eyebrow">${esc(tr(FOLLOW_T.h))}</p>
     <label><input type="checkbox" data-ft="all"${!on||f.length===3?" checked":""}> ${esc(tr(FOLLOW_T.all))}</label>
     ${FOLLOW_TOPICS.map(x=>`<label><input type="checkbox" data-ft="${x}"${!on||f.includes(x)?" checked":""}> ${esc(tr(FOLLOW_T[x]))}</label>`).join("")}
     <div class="follow-a"><button type="button" class="btn follow-go">${esc(tr(on?FOLLOW_T.save:FOLLOW_T.follow))}</button>${on?`<button type="button" class="btn ghost follow-stop">${esc(tr(FOLLOW_T.stop))}</button>`:""}</div>
     ${el?`<p><a href="#" class="follow-cal">${esc(tr(FOLLOW_T.cal))}</a></p>`:""}
-    <p class="follow-msg" aria-live="polite"></p><p class="follow-priv">${esc(tr(FOLLOW_T.priv))}</p></div></details>`;
+    <p class="follow-msg" aria-live="polite"></p>${mine.length?`<p class="follow-mine">${esc(tr(FOLLOW_T.mine))} ${mine.map(x=>`<a href="${pathFor(x)}">${esc(cname(x,lang))}</a>`).join(", ")}</p>`:""}<p class="follow-priv">${esc(tr(FOLLOW_T.priv))}</p></div></details>`;
 }
 function icsFor(k){const c=info(k),d=c.elec.date.replace(/-/g,""),n=new Date(c.elec.date+"T00:00:00Z");n.setUTCDate(n.getUTCDate()+1);const d2=n.toISOString().slice(0,10).replace(/-/g,"");
   const nm=tr(c.name),lb=tr(c.elec.label),url=location.origin+pathFor(k),e=s=>String(s).replace(/([,;\\])/g,"\\$1").replace(/\n/g," ");
@@ -1903,6 +1906,7 @@ async function followApply(box,stop){
   if(topics.length)f[k]=topics;else delete f[k];saveFollows(f);
   const msg=box.querySelector(".follow-msg");let res;try{res=await pushSync(f)}catch(e){res="soon"}
   const keep=box.open;box.outerHTML=followSlot(k);const nb=document.querySelector(`.follow[data-k="${k}"]`);if(nb){nb.open=keep;const m=nb.querySelector(".follow-msg");if(m)m.textContent=tr(FOLLOW_T[res]||FOLLOW_T.soon)}
+  followMarks();
 }
 document.addEventListener("change",e=>{const i=e.target.closest&&e.target.closest(".follow input[data-ft]");if(!i)return;const box=i.closest(".follow"),all=box.querySelector('[data-ft="all"]'),ts=[...box.querySelectorAll('input[data-ft]:not([data-ft="all"])')];
   if(i===all)ts.forEach(x=>x.checked=all.checked);else all.checked=ts.every(x=>x.checked)});
@@ -1912,6 +1916,9 @@ document.addEventListener("click",e=>{
   if(g.classList.contains("follow-cal")){const k=box.dataset.k,blob=new Blob([icsFor(k)],{type:"text/calendar"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`barotico-${slugOf(k)}-election.ics`;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500);return}
   followApply(box,g.classList.contains("follow-stop"));
 });
+function followMarks(){if(!PATHMODE||!appMode())return;const f=follows(),on=new Set(Object.keys(f).filter(x=>(f[x]||[]).length).map(x=>"/"+lang+"/"+slugOf(x)+"/"));
+  document.querySelectorAll("#dd-pays a[href],#sheet-pays a[href]").forEach(a=>{const p=new URL(a.href,location.href).pathname,m=a.querySelector(".fmark");
+    if(on.has(p)){if(!m){const s=document.createElement("span");s.className="fmark";s.setAttribute("aria-label",tr(FOLLOW_T.fmark));s.title=tr(FOLLOW_T.fmark);s.textContent="✓";a.appendChild(s)}}else if(m)m.remove()})}
 if(PATHMODE)fetch("/push-config.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(c=>{if(c&&c.api){PUSH_API=c.api.replace(/\/$/,"");const f=follows();saveFollows(f);
   // resync once per session, so that choices made before the service existed get activated
   if(Object.keys(f).length&&"Notification" in window&&Notification.permission==="granted"&&!sessionStorage.getItem("barotico-pushsync")){sessionStorage.setItem("barotico-pushsync","1");pushSync(f).catch(()=>{})}}}).catch(()=>{});
@@ -1922,6 +1929,8 @@ if(PATHMODE){
 /* v156: menu entry "Take back control" added at runtime on pages built before it existed */
 (function(){document.querySelectorAll('a.navlink[data-r="voter"]').forEach(v=>{const nav=v.parentElement;if(!nav||nav.querySelector('[data-r="reprendre"]'))return;const a=document.createElement("a");a.className="navlink";a.href=PATHMODE?pathFor("reprendre"):"#reprendre";a.dataset.r="reprendre";a.dataset.t="nav_algo";a.textContent=t("nav_algo");v.after(a)})})();
 render();
+try{followMarks()}catch(e){}
+if(PATHMODE){const _render0=render;render=function(){const r=_render0.apply(this,arguments);try{followMarks()}catch(e){}return r}}
 /* v170 (22/11/2026): installable app (PWA): footer block, "Install the app" in the mobile/tablet menu, platform help.
    The service worker only exists on barotico.com. */
 if(PATHMODE&&"serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("/sw.js").catch(()=>{}));
