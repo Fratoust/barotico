@@ -1846,7 +1846,7 @@ document.getElementById("lb-ok").addEventListener("click",()=>{autoLang=false;st
 /* v169 (22/11/2026): "Follow" a country — Web Push notifications (elections, profile updated, change of government)
    and an "add the election to my calendar" link. Only on barotico.com (needs the service worker and the push service). */
 const FOLLOW_T={
-  follow:L3("Follow","Suivre","Seguir"),save:L3("Save","Enregistrer","Guardar"),following:L3("Following","Suivi","Siguiendo"),
+  follow:L3("Follow","Suivre","Seguir"),why:L3("Why is this inactive?","Pourquoi est-ce inactif ?","¿Por qué está inactivo?"),install:L3("Install the app","Installer l'application","Instalar la app"),needapp:L3("To follow the news of this country, install the Barotico app on your phone, tablet or computer: notifications only work in the installed app. The link is also at the bottom of the page.","Pour suivre l'actualité de ce pays, installez l'application Barotico sur votre téléphone, votre tablette ou votre ordinateur : les notifications ne fonctionnent que dans l'application installée. Le lien est aussi en bas de page.","Para seguir la actualidad de este país, instala la app Barotico en tu móvil, tableta u ordenador: las notificaciones solo funcionan en la app instalada. El enlace también está al pie de la página."),save:L3("Save","Enregistrer","Guardar"),following:L3("Following","Suivi","Siguiendo"),
   all:L3("Everything","Tout","Todo"),elec:L3("Elections","Élections","Elecciones"),fiche:L3("Profile updated","Fiche mise à jour","Ficha actualizada"),gov:L3("Change of government","Changement de gouvernement","Cambio de gobierno"),
   h:L3("Notify me about","M'alerter pour","Avisarme de"),
   stop:L3("Stop following","Ne plus suivre","Dejar de seguir"),
@@ -1863,8 +1863,13 @@ let PUSH_API=null;
 function follows(){try{return JSON.parse(localStorage.getItem("barotico-follows")||"{}")}catch(e){return {}}}
 function saveFollows(f){try{localStorage.setItem("barotico-follows",JSON.stringify(f))}catch(e){}
   if("caches" in window)caches.open("barotico-state").then(c=>c.put("/state",new Response(JSON.stringify({follows:f,lang,api:PUSH_API})))).catch(()=>{})}
+function appMode(){return !!((window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone===true)}
 function followSlot(k){
   if(!PATHMODE)return "";
+  if(!appMode()){const c0=info(k)||{},el0=c0.elec&&c0.elec.date&&!c0.elec.approx&&!c0.elec.none&&daysTo(c0.elec.date)>=0;
+    const bell0=`<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>`;
+    return `<div class="follow follow-off" data-k="${k}"><button type="button" class="chip follow-i" aria-disabled="true" aria-expanded="false">${bell0} ${esc(tr(FOLLOW_T.follow))}</button><button type="button" class="follow-i follow-q" aria-expanded="false" aria-label="${esc(tr(FOLLOW_T.why))}">i</button>
+      <p class="follow-tip" hidden>${esc(tr(FOLLOW_T.needapp))} <a href="#" class="pwa-go">${esc(tr(FOLLOW_T.install))} ↓</a>${el0?`<br><a href="#" class="follow-cal">${esc(tr(FOLLOW_T.cal))}</a>`:""}</p></div>`}
   const f=follows()[k]||[],on=f.length>0,c=info(k)||{},el=c.elec&&c.elec.date&&!c.elec.approx&&!c.elec.none&&daysTo(c.elec.date)>=0;
   const bell=`<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>`;
   return `<details class="follow" data-k="${k}"><summary class="chip${on?" on":""}">${bell} ${esc(tr(on?FOLLOW_T.following:FOLLOW_T.follow))}</summary><div class="follow-p">
@@ -1901,6 +1906,7 @@ async function followApply(box,stop){
 }
 document.addEventListener("change",e=>{const i=e.target.closest&&e.target.closest(".follow input[data-ft]");if(!i)return;const box=i.closest(".follow"),all=box.querySelector('[data-ft="all"]'),ts=[...box.querySelectorAll('input[data-ft]:not([data-ft="all"])')];
   if(i===all)ts.forEach(x=>x.checked=all.checked);else all.checked=ts.every(x=>x.checked)});
+document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest(".follow-off .follow-i");if(!b)return;const box=b.closest(".follow"),tip=box.querySelector(".follow-tip"),open=tip.hidden;tip.hidden=!open;box.querySelectorAll(".follow-i").forEach(x=>x.setAttribute("aria-expanded",String(open)))});
 document.addEventListener("click",e=>{
   const g=e.target.closest&&e.target.closest(".follow-go,.follow-stop,.follow-cal");if(!g)return;e.preventDefault();const box=g.closest(".follow");
   if(g.classList.contains("follow-cal")){const k=box.dataset.k,blob=new Blob([icsFor(k)],{type:"text/calendar"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`barotico-${slugOf(k)}-election.ics`;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500);return}
@@ -1916,19 +1922,24 @@ if(PATHMODE){
 /* v156: menu entry "Take back control" added at runtime on pages built before it existed */
 (function(){document.querySelectorAll('a.navlink[data-r="voter"]').forEach(v=>{const nav=v.parentElement;if(!nav||nav.querySelector('[data-r="reprendre"]'))return;const a=document.createElement("a");a.className="navlink";a.href=PATHMODE?pathFor("reprendre"):"#reprendre";a.dataset.r="reprendre";a.dataset.t="nav_algo";a.textContent=t("nav_algo");v.after(a)})})();
 render();
-/* v168 (22/11/2026): installable app (PWA). The service worker only exists on barotico.com. */
+/* v170 (22/11/2026): installable app (PWA): footer block, "Install the app" in the mobile/tablet menu, platform help.
+   The service worker only exists on barotico.com. */
 if(PATHMODE&&"serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("/sw.js").catch(()=>{}));
-(function(){
-  if(!PATHMODE)return;
-  const standalone=(window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone;if(standalone)return;
-  const lab=L3("Install the Barotico app","Installer l'application Barotico","Instalar la app Barotico"),
-        ios=L3("On iPhone or iPad: tap Share, then “Add to Home Screen”.","Sur iPhone ou iPad : touchez Partager, puis « Sur l'écran d'accueil ».","En iPhone o iPad: toca Compartir y luego «Añadir a pantalla de inicio».");
-  const isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
-  let ev=null;
-  function show(){const f=document.querySelector("footer");if(!f||document.getElementById("pwa-btn"))return;const p=document.createElement("p");p.className="pwa";
-    p.innerHTML=`<button type="button" class="chip" id="pwa-btn">${esc(tr(lab))}</button> <small id="pwa-ios" hidden>${esc(tr(ios))}</small>`;f.appendChild(p);
-    document.getElementById("pwa-btn").addEventListener("click",async()=>{if(ev){ev.prompt();try{await ev.userChoice}catch(e){}ev=null;p.remove()}else document.getElementById("pwa-ios").hidden=false})}
-  addEventListener("beforeinstallprompt",e=>{e.preventDefault();ev=e;show()});
-  if(isIOS)show();
-  addEventListener("appinstalled",()=>{const b=document.querySelector(".pwa");if(b)b.remove()});
-})();
+var PWA_EV=null;
+const PWA_T={lab:L3("Install the Barotico app","Installer l'application Barotico","Instalar la app Barotico"),menu:L3("Install the app","Installer l'application","Instalar la app"),
+  ios:L3("On iPhone or iPad: tap Share, then “Add to Home Screen”, and open Barotico from the new icon.","Sur iPhone ou iPad : touchez Partager, puis « Sur l'écran d'accueil », et ouvrez Barotico depuis la nouvelle icône.","En iPhone o iPad: toca Compartir, luego «Añadir a pantalla de inicio», y abre Barotico desde el nuevo icono."),
+  android:L3("Open your browser menu (⋮) and choose “Install app” or “Add to Home screen”.","Ouvrez le menu du navigateur (⋮) et choisissez « Installer l'application » ou « Ajouter à l'écran d'accueil ».","Abre el menú del navegador (⋮) y elige «Instalar aplicación» o «Añadir a pantalla de inicio»."),
+  desktop:L3("In Chrome or Edge, click the install icon at the right of the address bar (or menu ⋮ → “Install Barotico”). Safari on Mac: File → “Add to Dock”.","Dans Chrome ou Edge, cliquez sur l'icône d'installation à droite de la barre d'adresse (ou menu ⋮ → « Installer Barotico »). Safari sur Mac : Fichier → « Ajouter au Dock ».","En Chrome o Edge, haz clic en el icono de instalación a la derecha de la barra de direcciones (o menú ⋮ → «Instalar Barotico»). Safari en Mac: Archivo → «Añadir al Dock».")};
+function pwaPlatform(){const u=navigator.userAgent;if(/iphone|ipad|ipod/i.test(u)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1))return "ios";if(/android/i.test(u))return "android";return "desktop"}
+function pwaFooter(){if(!PATHMODE||appMode())return;const f=document.querySelector("footer");if(!f||document.getElementById("pwa-box"))return;const p=document.createElement("div");p.className="pwa";p.id="pwa-box";
+  p.innerHTML=`<button type="button" class="btn pwa-go">${esc(tr(PWA_T.lab))}</button><small id="pwa-help" hidden>${esc(tr(PWA_T[pwaPlatform()]))}</small>`;f.appendChild(p)}
+function pwaMenu(){if(!PATHMODE||appMode())return;const nav=document.querySelector(".sheet-nav");if(!nav||nav.querySelector(".pwa-go"))return;const b=document.createElement("button");b.type="button";b.className="navlink pwa-go pwa-menu";b.textContent=tr(PWA_T.menu);nav.appendChild(b)}
+async function pwaInstall(){
+  const x=document.querySelector(".sheet:not([hidden]) .sheet-x");if(x)x.click();
+  if(PWA_EV){PWA_EV.prompt();try{await PWA_EV.userChoice}catch(e){}PWA_EV=null;return}
+  pwaFooter();const h=document.getElementById("pwa-help");if(h){h.hidden=false;document.getElementById("pwa-box").scrollIntoView({behavior:"smooth",block:"center"})}
+}
+document.addEventListener("click",e=>{const g=e.target.closest&&e.target.closest(".pwa-go");if(!g)return;e.preventDefault();pwaInstall()});
+addEventListener("beforeinstallprompt",e=>{e.preventDefault();PWA_EV=e});
+addEventListener("appinstalled",()=>{document.querySelectorAll(".pwa,.pwa-menu").forEach(x=>x.remove())});
+pwaFooter();pwaMenu();
