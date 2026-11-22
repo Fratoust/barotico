@@ -1848,3 +1848,19 @@ if(PATHMODE){
 /* v156: menu entry "Take back control" added at runtime on pages built before it existed */
 (function(){document.querySelectorAll('a.navlink[data-r="voter"]').forEach(v=>{const nav=v.parentElement;if(!nav||nav.querySelector('[data-r="reprendre"]'))return;const a=document.createElement("a");a.className="navlink";a.href=PATHMODE?pathFor("reprendre"):"#reprendre";a.dataset.r="reprendre";a.dataset.t="nav_algo";a.textContent=t("nav_algo");v.after(a)})})();
 render();
+/* v168 (22/11/2026): installable app (PWA). The service worker only exists on barotico.com. */
+if(PATHMODE&&"serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("/sw.js").catch(()=>{}));
+(function(){
+  if(!PATHMODE)return;
+  const standalone=(window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone;if(standalone)return;
+  const lab=L3("Install the Barotico app","Installer l'application Barotico","Instalar la app Barotico"),
+        ios=L3("On iPhone or iPad: tap Share, then “Add to Home Screen”.","Sur iPhone ou iPad : touchez Partager, puis « Sur l'écran d'accueil ».","En iPhone o iPad: toca Compartir y luego «Añadir a pantalla de inicio».");
+  const isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+  let ev=null;
+  function show(){const f=document.querySelector("footer");if(!f||document.getElementById("pwa-btn"))return;const p=document.createElement("p");p.className="pwa";
+    p.innerHTML=`<button type="button" class="chip" id="pwa-btn">${esc(tr(lab))}</button> <small id="pwa-ios" hidden>${esc(tr(ios))}</small>`;f.appendChild(p);
+    document.getElementById("pwa-btn").addEventListener("click",async()=>{if(ev){ev.prompt();try{await ev.userChoice}catch(e){}ev=null;p.remove()}else document.getElementById("pwa-ios").hidden=false})}
+  addEventListener("beforeinstallprompt",e=>{e.preventDefault();ev=e;show()});
+  if(isIOS)show();
+  addEventListener("appinstalled",()=>{const b=document.querySelector(".pwa");if(b)b.remove()});
+})();
