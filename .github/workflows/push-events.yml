@@ -1,0 +1,38 @@
+name: Push service (events)
+# After each update of the site data, detects: profile updated, change of government, election date set.
+# Queues them for the Cloudflare Worker, which sends the notifications. Also refreshes the election dates
+# the Worker uses for its reminders (30, 7, 1 and 0 days before).
+on:
+  push:
+    branches: [main]
+    paths: ["countries/**", "main.js", "power.js"]
+  workflow_dispatch:
+jobs:
+  events:
+    runs-on: ubuntu-latest
+    env:
+      CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CF_ACC: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v5
+        with: {fetch-depth: 2}
+      - uses: actions/setup-node@v5
+        with: {node-version: 22}
+      - name: Detect events
+        run: |
+          mkdir -p /tmp/old/countries
+          for f in countries/registry.js countries/meta.js power.js main.js; do git show HEAD~1:$f > /tmp/old/$f 2>/dev/null || true; done
+          node tools/push_events.js /tmp/old . /tmp/pe
+      - name: Queue events
+        run: |
+          if [ -z "$CF_TOKEN" ] || [ -z "$CF_ACC" ]; then echo "No Cloudflare secrets yet: skipping."; exit 0; fi
+          API=https://api.cloudflare.com/client/v4/accounts/$CF_ACC/storage/kv/namespaces
+          ID=$(curl -fsS -H "Authorization: Bearer $CF_TOKEN" "$API?per_page=100" | jq -r '.result[] | select(.title=="barotico-push") | .id' | head -1)
+          if [ -z "$ID" ]; then echo "Push service not deployed yet: skipping."; exit 0; fi
+          curl -fsS -X PUT -H "Authorization: Bearer $CF_TOKEN" -H "Content-Type: application/json" --data-binary @/tmp/pe/elections.json "$API/$ID/values/elections" >/dev/null
+          N=$(jq length /tmp/pe/events.json)
+          for i in $(seq 0 $((N-1))); do
+            jq -c ".[$i]" /tmp/pe/events.json > /tmp/ev.json
+            curl -fsS -X PUT -H "Authorization: Bearer $CF_TOKEN" -H "Content-Type: application/json" --data-binary @/tmp/ev.json "$API/$ID/values/q:$(date +%s%3N)-$i" >/dev/null
+          done
+          echo "$N event(s) queued"

@@ -1047,6 +1047,7 @@ const LEG={
   ["privacy",L3("Privacy policy","Politique de confidentialité","Política de privacidad"),[
    L3("Controller: the publisher named above. Contact for any data protection request: contact@barotico.com.","Responsable du traitement : l'éditeur indiqué ci-dessus. Contact pour toute demande relative aux données : contact@barotico.com.","Responsable del tratamiento: el titular indicado arriba. Contacto para cualquier solicitud sobre datos: contact@barotico.com."),
    L3("Visitors. No account, no cookies, no analytics, no advertising trackers. Your language choice is kept in your own browser (local storage) only to remember it; you can clear it at any time. The values mirror is calculated in your browser and nothing is sent. Fonts are hosted with the site, so displaying it sends no data to third parties. The host keeps technical logs, including IP addresses, for security: OVHcloud, in the European Union, under its own retention terms.","Visiteurs. Pas de compte, pas de cookies, pas de mesure d'audience, pas de traceurs publicitaires. Votre choix de langue est conservé dans votre propre navigateur (stockage local) uniquement pour s'en souvenir ; vous pouvez l'effacer à tout moment. Le miroir des valeurs se calcule dans votre navigateur et rien n'est envoyé. Les polices sont hébergées avec le site : l'afficher n'envoie aucune donnée à des tiers. L'hébergeur conserve des journaux techniques, dont l'adresse IP, pour la sécurité : OVHcloud, dans l'Union européenne, selon ses propres durées de conservation.","Visitantes. Sin cuenta, sin cookies, sin analítica, sin rastreadores publicitarios. Tu elección de idioma se guarda en tu propio navegador (almacenamiento local) solo para recordarla; puedes borrarla cuando quieras. El espejo de valores se calcula en tu navegador y no se envía nada. Las tipografías se alojan con el sitio: mostrarlo no envía datos a terceros. El proveedor de alojamiento conserva registros técnicos, incluida la IP, por seguridad: OVHcloud, en la Unión Europea, según sus propios plazos de conservación."),
+   L3("Notifications (optional, barotico.com only). If you tap “Follow” on a country and accept notifications, we store with Cloudflare, our notification provider: the anonymous delivery address created by your browser, the countries and topics you chose, your language and the date. No name, e-mail or IP address is kept. The only purpose is to send the alerts you asked for; the legal basis is your consent. You can withdraw it at any time with “Stop following” or by blocking notifications in your browser; addresses that stop working are deleted automatically. Your choices are also kept in your own browser.","Notifications (facultatif, uniquement sur barotico.com). Si vous touchez « Suivre » sur un pays et acceptez les notifications, nous conservons chez Cloudflare, notre prestataire de notifications : l'adresse d'envoi anonyme créée par votre navigateur, les pays et sujets choisis, votre langue et la date. Aucun nom, e-mail ni adresse IP n'est conservé. La seule finalité est d'envoyer les alertes demandées ; la base légale est votre consentement. Vous pouvez le retirer à tout moment avec « Ne plus suivre » ou en bloquant les notifications dans votre navigateur ; les adresses qui ne fonctionnent plus sont supprimées automatiquement. Vos choix sont aussi conservés dans votre propre navigateur.","Notificaciones (opcional, solo en barotico.com). Si tocas «Seguir» en un país y aceptas las notificaciones, guardamos en Cloudflare, nuestro proveedor de notificaciones: la dirección de envío anónima creada por tu navegador, los países y temas elegidos, tu idioma y la fecha. No se guarda ningún nombre, correo ni dirección IP. La única finalidad es enviar los avisos que pediste; la base legal es tu consentimiento. Puedes retirarlo en cualquier momento con «Dejar de seguir» o bloqueando las notificaciones en el navegador; las direcciones que dejan de funcionar se eliminan automáticamente. Tus elecciones también se guardan en tu propio navegador."),
    L3("Donations go through Buy Me a Coffee, which processes payment data under its own privacy policy; we only receive what you choose to share there.","Les dons passent par Buy Me a Coffee, qui traite les données de paiement selon sa propre politique ; nous ne recevons que ce que vous choisissez d'y partager.","Las donaciones pasan por Buy Me a Coffee, que trata los datos de pago según su propia política; solo recibimos lo que decidas compartir allí."),
    L3("People mentioned. Data: name, public role, party, public statements and votes, official acts listed in the court proceedings section. Sources: official bodies and recognised media. Purpose and legal basis: informing the public on matters of public interest (legitimate interest, article 6(1)(f) GDPR, weighed against freedom of information; article 85 GDPR for the journalistic part). Retention: as set out in the editorial charter.","Personnes citées. Données : nom, fonction publique, parti, déclarations et votes publics, actes officiels de la rubrique procédures judiciaires. Sources : organismes officiels et médias reconnus. Finalité et base légale : informer le public sur des sujets d'intérêt public (intérêt légitime, article 6.1.f du RGPD, mis en balance avec la liberté d'information ; article 85 du RGPD pour la partie journalistique). Durée : selon la charte éditoriale.","Personas mencionadas. Datos: nombre, cargo público, partido, declaraciones y votos públicos, actos oficiales de la sección de procedimientos judiciales. Fuentes: organismos oficiales y medios reconocidos. Finalidad y base jurídica: informar al público sobre asuntos de interés público (interés legítimo, artículo 6.1.f del RGPD, ponderado con la libertad de información; artículo 85 del RGPD para la parte periodística). Conservación: según la carta editorial."),
    L3("Your rights: access, rectification, erasure, objection and restriction, by writing to contact@barotico.com; answer within one month. You can also complain to the Spanish Data Protection Agency (AEPD, aepd.es).","Vos droits : accès, rectification, effacement, opposition et limitation, en écrivant à contact@barotico.com ; réponse sous un mois. Vous pouvez aussi saisir l'Agence espagnole de protection des données (AEPD, aepd.es).","Tus derechos: acceso, rectificación, supresión, oposición y limitación, escribiendo a contact@barotico.com; respuesta en un mes. También puedes reclamar ante la Agencia Española de Protección de Datos (AEPD, aepd.es).")]],
@@ -1179,6 +1180,7 @@ function cmpLegend(){return `<div class="rlegend">${[["good",L3("More favourable
 function cmpCols(box){box.querySelectorAll("[data-ci]").forEach(b=>{const on=b.getAttribute("aria-pressed")==="true";box.querySelectorAll(`[data-mk="${b.dataset.ci}"]`).forEach(c=>c.classList.toggle("colhide",!on))});tableScrollState()}
 function cmpNarrow(){if(innerWidth>=760)return;document.querySelectorAll(".cind").forEach(g=>{if(g.dataset.init)return;g.dataset.init=1;const keep=["life","hom","rsf"];g.querySelectorAll("[data-ci]").forEach(b=>b.setAttribute("aria-pressed",String(keep.includes(b.dataset.ci))));cmpCols(g.parentNode)})}
 document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("[data-ci]");if(!b)return;const g=b.closest(".cind"),on=b.getAttribute("aria-pressed")==="true";if(on&&g.querySelectorAll('[aria-pressed="true"]').length<2)return;b.setAttribute("aria-pressed",String(!on));cmpCols(g.parentNode)});
+function followSlot(){return ""} /* replaced on barotico.com by the follow widget (v169) */
 let picked=new Set();
 
 function cmpTable(defCont){
@@ -1662,7 +1664,7 @@ function countryPage(k){
   const satS=c.gov.satSrc&&SRC[c.gov.satSrc]?srcLink(c.gov.satSrc):"";
   return `
   <div class="chead">
-    <div><p class="eyebrow">${t("profile")}${c.updated?` · ${t("edited")} ${fmtDate(c.updated).split(" · ")[0]}`:""}</p><h1>${tr(c.name)}</h1><p class="sub">${esc(tr(c.sub))}</p>${ficheIntro()}</div>
+    <div><p class="eyebrow">${t("profile")}${c.updated?` · ${t("edited")} ${fmtDate(c.updated).split(" · ")[0]}`:""}</p><h1>${tr(c.name)}</h1>${followSlot(k)}<p class="sub">${esc(tr(c.sub))}</p>${ficheIntro()}</div>
     <div class="countdown"><span class="eyebrow">${c.elec.none?t("no_vote"):t("next_vote")}</span><span class="big">${d.big} <span style="font-size:1rem">${d.unit}</span></span><span class="what">${esc(tr(c.elec.label))}<br>${esc(tr(c.elec.detail))}${eSrc}</span></div>
   </div>
   ${countryGuide()}
@@ -1841,6 +1843,72 @@ document.addEventListener("click",e=>{const a=e.target.closest&&e.target.closest
 })();
 document.getElementById("lb-en").addEventListener("click",()=>setLang("en"));
 document.getElementById("lb-ok").addEventListener("click",()=>{autoLang=false;store("barotico-lang",PATHMODE?lang:(useBrowser?(LANGS.includes(lang)?lang:"browser"):"en"));document.getElementById("langbanner").hidden=true});
+/* v169 (22/11/2026): "Follow" a country — Web Push notifications (elections, profile updated, change of government)
+   and an "add the election to my calendar" link. Only on barotico.com (needs the service worker and the push service). */
+const FOLLOW_T={
+  follow:L3("Follow","Suivre","Seguir"),save:L3("Save","Enregistrer","Guardar"),following:L3("Following","Suivi","Siguiendo"),
+  all:L3("Everything","Tout","Todo"),elec:L3("Elections","Élections","Elecciones"),fiche:L3("Profile updated","Fiche mise à jour","Ficha actualizada"),gov:L3("Change of government","Changement de gouvernement","Cambio de gobierno"),
+  h:L3("Notify me about","M'alerter pour","Avisarme de"),
+  stop:L3("Stop following","Ne plus suivre","Dejar de seguir"),
+  cal:L3("Add the election to my calendar","Ajouter l'élection à mon calendrier","Añadir la elección a mi calendario"),
+  ios:L3("On iPhone or iPad, notifications work once Barotico is on your Home Screen: tap Share, then “Add to Home Screen”, and open Barotico from there.","Sur iPhone ou iPad, les notifications fonctionnent une fois Barotico sur l'écran d'accueil : touchez Partager, puis « Sur l'écran d'accueil », et ouvrez Barotico depuis l'icône.","En iPhone o iPad, las notificaciones funcionan cuando Barotico está en la pantalla de inicio: toca Compartir, luego «Añadir a pantalla de inicio», y abre Barotico desde el icono."),
+  denied:L3("Notifications are blocked for this site in your browser settings.","Les notifications sont bloquées pour ce site dans les réglages de votre navigateur.","Las notificaciones están bloqueadas para este sitio en los ajustes del navegador."),
+  nosupport:L3("This browser cannot receive notifications. You can still add the election to your calendar.","Ce navigateur ne peut pas recevoir de notifications. Vous pouvez quand même ajouter l'élection à votre calendrier.","Este navegador no puede recibir notificaciones. Aun así puedes añadir la elección a tu calendario."),
+  soon:L3("The notification service is not available yet. Your choice is saved on this device.","Le service de notifications n'est pas encore disponible. Votre choix est enregistré sur cet appareil.","El servicio de notificaciones aún no está disponible. Tu elección queda guardada en este dispositivo."),
+  ok:L3("Done: you will be notified on this device.","C'est fait : vous serez alerté sur cet appareil.","Hecho: recibirás avisos en este dispositivo."),
+  priv:L3("Only an anonymous notification address and your choices are stored. No name, no e-mail.","Seuls une adresse de notification anonyme et vos choix sont enregistrés. Ni nom ni e-mail.","Solo se guardan una dirección de notificación anónima y tus elecciones. Ni nombre ni correo.")
+};
+const FOLLOW_TOPICS=["elec","fiche","gov"];
+let PUSH_API=null;
+function follows(){try{return JSON.parse(localStorage.getItem("barotico-follows")||"{}")}catch(e){return {}}}
+function saveFollows(f){try{localStorage.setItem("barotico-follows",JSON.stringify(f))}catch(e){}
+  if("caches" in window)caches.open("barotico-state").then(c=>c.put("/state",new Response(JSON.stringify({follows:f,lang,api:PUSH_API})))).catch(()=>{})}
+function followSlot(k){
+  if(!PATHMODE)return "";
+  const f=follows()[k]||[],on=f.length>0,c=info(k)||{},el=c.elec&&c.elec.date&&!c.elec.approx&&!c.elec.none&&daysTo(c.elec.date)>=0;
+  const bell=`<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>`;
+  return `<details class="follow" data-k="${k}"><summary class="chip${on?" on":""}">${bell} ${esc(tr(on?FOLLOW_T.following:FOLLOW_T.follow))}</summary><div class="follow-p">
+    <p class="eyebrow">${esc(tr(FOLLOW_T.h))}</p>
+    <label><input type="checkbox" data-ft="all"${!on||f.length===3?" checked":""}> ${esc(tr(FOLLOW_T.all))}</label>
+    ${FOLLOW_TOPICS.map(x=>`<label><input type="checkbox" data-ft="${x}"${!on||f.includes(x)?" checked":""}> ${esc(tr(FOLLOW_T[x]))}</label>`).join("")}
+    <div class="follow-a"><button type="button" class="btn follow-go">${esc(tr(on?FOLLOW_T.save:FOLLOW_T.follow))}</button>${on?`<button type="button" class="btn ghost follow-stop">${esc(tr(FOLLOW_T.stop))}</button>`:""}</div>
+    ${el?`<p><a href="#" class="follow-cal">${esc(tr(FOLLOW_T.cal))}</a></p>`:""}
+    <p class="follow-msg" aria-live="polite"></p><p class="follow-priv">${esc(tr(FOLLOW_T.priv))}</p></div></details>`;
+}
+function icsFor(k){const c=info(k),d=c.elec.date.replace(/-/g,""),n=new Date(c.elec.date+"T00:00:00Z");n.setUTCDate(n.getUTCDate()+1);const d2=n.toISOString().slice(0,10).replace(/-/g,"");
+  const nm=tr(c.name),lb=tr(c.elec.label),url=location.origin+pathFor(k),e=s=>String(s).replace(/([,;\\])/g,"\\$1").replace(/\n/g," ");
+  return ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Barotico//Elections//EN","BEGIN:VEVENT",`UID:${k}-${d}@barotico.com`,`DTSTAMP:${new Date().toISOString().replace(/[-:]/g,"").slice(0,15)}Z`,`DTSTART;VALUE=DATE:${d}`,`DTEND;VALUE=DATE:${d2}`,`SUMMARY:${e(nm+" · "+lb)}`,`DESCRIPTION:${e(url)}`,`URL:${url}`,"BEGIN:VALARM","TRIGGER:-P7D","ACTION:DISPLAY",`DESCRIPTION:${e(nm+" · "+lb)}`,"END:VALARM","BEGIN:VALARM","TRIGGER:-P1D","ACTION:DISPLAY",`DESCRIPTION:${e(nm+" · "+lb)}`,"END:VALARM","END:VEVENT","END:VCALENDAR"].join("\r\n")}
+const b64uToU8=s=>{s=s.replace(/-/g,"+").replace(/_/g,"/");const r=atob(s+"===".slice((s.length+3)%4));return Uint8Array.from(r,c=>c.charCodeAt(0))};
+async function pushSync(f){
+  if(!PUSH_API)return "soon";
+  if(!("serviceWorker" in navigator)||!("PushManager" in window)){
+    const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);return ios?"ios":"nosupport"}
+  const reg=await navigator.serviceWorker.ready;let sub=await reg.pushManager.getSubscription();
+  if(!Object.keys(f).length){if(sub){await fetch(PUSH_API+"/unsubscribe",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({endpoint:sub.endpoint})}).catch(()=>{});await sub.unsubscribe().catch(()=>{})}return "ok"}
+  if(!sub){
+    const perm=await Notification.requestPermission();if(perm!=="granted")return "denied";
+    const cfg=await (await fetch(PUSH_API+"/config")).json();
+    sub=await reg.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:b64uToU8(cfg.vapid)});
+  }
+  const r=await fetch(PUSH_API+"/subscribe",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({subscription:sub.toJSON(),lang,follows:f})});
+  return r.ok?"ok":"soon";
+}
+async function followApply(box,stop){
+  const k=box.dataset.k,f=follows(),topics=stop?[]:[...box.querySelectorAll("input[data-ft]:checked")].map(x=>x.dataset.ft).filter(x=>x!=="all");
+  if(topics.length)f[k]=topics;else delete f[k];saveFollows(f);
+  const msg=box.querySelector(".follow-msg");let res;try{res=await pushSync(f)}catch(e){res="soon"}
+  const keep=box.open;box.outerHTML=followSlot(k);const nb=document.querySelector(`.follow[data-k="${k}"]`);if(nb){nb.open=keep;const m=nb.querySelector(".follow-msg");if(m)m.textContent=tr(FOLLOW_T[res]||FOLLOW_T.soon)}
+}
+document.addEventListener("change",e=>{const i=e.target.closest&&e.target.closest(".follow input[data-ft]");if(!i)return;const box=i.closest(".follow"),all=box.querySelector('[data-ft="all"]'),ts=[...box.querySelectorAll('input[data-ft]:not([data-ft="all"])')];
+  if(i===all)ts.forEach(x=>x.checked=all.checked);else all.checked=ts.every(x=>x.checked)});
+document.addEventListener("click",e=>{
+  const g=e.target.closest&&e.target.closest(".follow-go,.follow-stop,.follow-cal");if(!g)return;e.preventDefault();const box=g.closest(".follow");
+  if(g.classList.contains("follow-cal")){const k=box.dataset.k,blob=new Blob([icsFor(k)],{type:"text/calendar"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`barotico-${slugOf(k)}-election.ics`;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500);return}
+  followApply(box,g.classList.contains("follow-stop"));
+});
+if(PATHMODE)fetch("/push-config.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(c=>{if(c&&c.api){PUSH_API=c.api.replace(/\/$/,"");const f=follows();saveFollows(f);
+  // resync once per session, so that choices made before the service existed get activated
+  if(Object.keys(f).length&&"Notification" in window&&Notification.permission==="granted"&&!sessionStorage.getItem("barotico-pushsync")){sessionStorage.setItem("barotico-pushsync","1");pushSync(f).catch(()=>{})}}}).catch(()=>{});
 if(PATHMODE){
   document.addEventListener("click",e=>{const a=e.target.closest&&e.target.closest("a[href]");if(!a||e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey||a.target==="_blank")return;const u=new URL(a.href,location.href);if(u.origin!==location.origin||!/^\/(en|fr|es)\//.test(u.pathname))return;e.preventDefault();history.pushState(a.dataset.sec?{sec:a.dataset.sec}:null,"",u.pathname+u.hash);render()});
   window.addEventListener("popstate",render);window.addEventListener("hashchange",render);

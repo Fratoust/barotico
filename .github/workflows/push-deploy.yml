@@ -1,0 +1,69 @@
+name: Push service (deploy)
+# Deploys the Cloudflare Worker that sends notifications. Needs two repository secrets:
+#   CLOUDFLARE_API_TOKEN  (template "Edit Cloudflare Workers")   CLOUDFLARE_ACCOUNT_ID
+on:
+  push:
+    branches: [main]
+    paths: ["push/**", ".github/workflows/push-deploy.yml"]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: push-deploy
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CF_ACC: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: {node-version: 22}
+      - name: Check secrets
+        id: chk
+        run: |
+          if [ -z "$CF_TOKEN" ] || [ -z "$CF_ACC" ]; then echo "::warning::Add the CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID secrets (Settings > Secrets and variables > Actions), then run this workflow again."; echo "ok=false" >> "$GITHUB_OUTPUT"; exit 0; fi
+          curl -fsS -H "Authorization: Bearer $CF_TOKEN" https://api.cloudflare.com/client/v4/user/tokens/verify | jq -r '.result.status'
+          echo "ok=true" >> "$GITHUB_OUTPUT"
+      - name: KV namespace (find or create)
+        if: steps.chk.outputs.ok == 'true'
+        id: kv
+        run: |
+          API=https://api.cloudflare.com/client/v4/accounts/$CF_ACC/storage/kv/namespaces
+          ID=$(curl -fsS -H "Authorization: Bearer $CF_TOKEN" "$API?per_page=100" | jq -r '.result[] | select(.title=="barotico-push") | .id' | head -1)
+          if [ -z "$ID" ]; then ID=$(curl -fsS -X POST -H "Authorization: Bearer $CF_TOKEN" -H "Content-Type: application/json" -d '{"title":"barotico-push"}' "$API" | jq -r '.result.id'); fi
+          echo "KV id: $ID"; test -n "$ID" && test "$ID" != "null"
+          echo "id=$ID" >> "$GITHUB_OUTPUT"
+      - name: workers.dev subdomain (find or create)
+        if: steps.chk.outputs.ok == 'true'
+        id: sub
+        run: |
+          API=https://api.cloudflare.com/client/v4/accounts/$CF_ACC/workers/subdomain
+          SUB=$(curl -sS -H "Authorization: Bearer $CF_TOKEN" "$API" | jq -r '.result.subdomain // empty')
+          if [ -z "$SUB" ]; then
+            for TRY in barotico barotico-app barotico-$RANDOM; do
+              R=$(curl -sS -X PUT -H "Authorization: Bearer $CF_TOKEN" -H "Content-Type: application/json" -d "{\"subdomain\":\"$TRY\"}" "$API")
+              if [ "$(echo "$R" | jq -r '.success')" = "true" ]; then SUB=$TRY; break; fi
+            done
+          fi
+          echo "subdomain: $SUB"; test -n "$SUB"
+          echo "sub=$SUB" >> "$GITHUB_OUTPUT"
+      - name: Deploy
+        if: steps.chk.outputs.ok == 'true'
+        working-directory: push
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          sed -i "s/__KV_ID__/${{ steps.kv.outputs.id }}/" wrangler.toml
+          npx --yes wrangler@4 deploy
+      - name: Check and publish the service address
+        if: steps.chk.outputs.ok == 'true'
+        run: |
+          URL="https://barotico-push.${{ steps.sub.outputs.sub }}.workers.dev"
+          for i in $(seq 1 12); do if curl -fsS "$URL/config" | jq -e '.vapid' >/dev/null; then echo "Service OK: $URL"; break; fi; sleep 10; done
+          curl -fsS "$URL/config" | jq -e '.vapid' >/dev/null
+          printf '{"api":"%s"}\n' "$URL" > push-config.json
+          git config user.name "barotico-bot"; git config user.email "contact@barotico.com"
+          git add push-config.json
+          if ! git diff --cached --quiet; then git commit -m "push-config: notification service address"; git pull --rebase origin main; git push origin HEAD:main; fi

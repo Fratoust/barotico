@@ -1019,3 +1019,12 @@ h1.rm-h{font-size:clamp(2.2rem,5.6vw,4rem)}
 .cind .chip[aria-pressed="false"]{opacity:.6;text-decoration:line-through}
 table.cmp2 thead th:first-child{position:sticky;left:0;background:var(--surface);z-index:2}
 .pwa{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-self:start}.pwa small{color:var(--muted)}
+.follow{margin:10px 0 4px;position:relative}
+.follow>summary{list-style:none;display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+.follow>summary::-webkit-details-marker{display:none}
+.follow>summary.on{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.follow-p{margin-top:8px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--surface);display:grid;gap:8px;max-width:420px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.follow-p label{display:flex;gap:8px;align-items:center;font-size:.92rem}
+.follow-a{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.follow-msg:empty{display:none}.follow-msg{font-size:.85rem;color:var(--ink)}
+.follow-priv{font-size:.75rem;color:var(--muted)}
