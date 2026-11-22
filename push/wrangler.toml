@@ -4,6 +4,10 @@ main = "src/index.js"
 compatibility_date = "2026-11-01"
 workers_dev = true
 
+# Privacy: no request logs, no traces (Workers Logs off). Nothing about visitors is recorded.
+[observability]
+enabled = false
+
 [[kv_namespaces]]
 binding = "PUSH"
 id = "__KV_ID__"

@@ -1,15 +1,16 @@
 /* Barotico push service (Cloudflare Worker + KV).
    Stores, for each device that taps "Follow", an anonymous Web Push address and the countries and topics it follows.
-   No name, no e-mail, no IP address is stored. Notifications carry no payload: the app fetches the public list of
+   No name, no e-mail, no IP address is stored, and nothing is logged (observability is off in wrangler.toml).
+   Inactive devices expire after about 13 months; only the month of the last visit is kept. Notifications carry no payload: the app fetches the public list of
    recent events (/recent) and shows the ones that match what the device follows.
    KV keys:
      vapid            {pub, jwk}            generated on first use, the private key never leaves Cloudflare
-     sub:<id>         {endpoint, lang, follows:{country:[topics]}, t}
+     sub:<id>         {endpoint, lang, follows:{country:[topics]}, d:"YYYY-MM"}   expires ~13 months after the last visit
      q:<time>-<rand>  event                 written by the GitHub workflow, processed by the cron
      recent           [event...]            last 30 events, public
      elections        {country:{date,slug,name}}  snapshot written by the workflow, used for reminders
 */
-const ORIGINS=["https://barotico.com","https://www.barotico.com","http://localhost:8790"];
+const ORIGINS=["https://barotico.com","https://www.barotico.com"];
 const TOPICS=["elec","fiche","gov"];
 const b64u=buf=>btoa(String.fromCharCode(...new Uint8Array(buf))).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
 const enc=new TextEncoder();
@@ -38,7 +39,10 @@ async function sendPush(env,id,sub){
   }catch(e){return 0}
 }
 function cleanFollows(f){const out={};if(f&&typeof f==="object")for(const k of Object.keys(f).slice(0,60)){if(!/^[a-z]{2,20}$/.test(k))continue;const t=(Array.isArray(f[k])?f[k]:[]).filter(x=>TOPICS.includes(x));if(t.length)out[k]=t}return out}
-const okEndpoint=u=>{try{const x=new URL(u);return x.protocol==="https:"&&u.length<1000}catch(e){return false}};
+/* Only the browsers' own push services are accepted, so the service can never be made to call any other address. */
+const PUSH_HOSTS=[/^fcm\.googleapis\.com$/,/^android\.googleapis\.com$/,/^updates\.push\.services\.mozilla\.com$/,/^web\.push\.apple\.com$/,/(^|\.)push\.apple\.com$/,/\.notify\.windows\.com$/,/^wns2-[a-z0-9-]+\.notify\.windows\.com$/];
+const okEndpoint=u=>{try{const x=new URL(u);return x.protocol==="https:"&&u.length<1000&&!x.username&&!x.password&&PUSH_HOSTS.some(r=>r.test(x.hostname))}catch(e){return false}};
+const TTL=400*864e2; // a device that never comes back is forgotten after about 13 months
 
 async function fanout(env,events){
   if(!events.length)return;
@@ -76,14 +80,10 @@ export default{
     if(u.pathname==="/subscribe"){
       const follows=cleanFollows(b.follows);
       if(!Object.keys(follows).length){await env.PUSH.delete("sub:"+id);return json(req,{ok:true,id,following:0})}
-      await env.PUSH.put("sub:"+id,JSON.stringify({endpoint:ep,lang:["en","fr","es"].includes(b.lang)?b.lang:"en",follows,t:Date.now()}));
+      await env.PUSH.put("sub:"+id,JSON.stringify({endpoint:ep,lang:["en","fr","es"].includes(b.lang)?b.lang:"en",follows,d:new Date().toISOString().slice(0,7)}),{expirationTtl:TTL});
       return json(req,{ok:true,id,following:Object.keys(follows).length});
     }
     if(u.pathname==="/unsubscribe"){await env.PUSH.delete("sub:"+id);return json(req,{ok:true})}
-    if(u.pathname==="/test"){const sub=await env.PUSH.get("sub:"+id,"json");if(!sub)return json(req,{error:"not subscribed"},404);
-      const rec=(await env.PUSH.get("recent","json"))||[];const k=Object.keys(sub.follows)[0];
-      const ev={k,topic:"test",kind:"test",t:Date.now(),id:"test-"+id.slice(0,6)};await env.PUSH.put("recent",JSON.stringify([ev].concat(rec).slice(0,30)));
-      return json(req,{ok:true,status:await sendPush(env,id,sub)})}
     return json(req,{error:"not found"},404);
   },
   async scheduled(ev,env,ctx){ctx.waitUntil(cron(env,ev.scheduledTime))}
