@@ -1017,3 +1017,4 @@ h1.rm-h{font-size:clamp(2.2rem,5.6vw,4rem)}
 .cind{align-items:center;flex-wrap:wrap}
 .cind-l{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:4px}
 .cind .chip[aria-pressed="false"]{opacity:.6;text-decoration:line-through}
+table.cmp2 thead th:first-child{position:sticky;left:0;background:var(--surface);z-index:2}
