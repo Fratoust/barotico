@@ -521,3 +521,28 @@ POWER.uk={asOf:"2026-11-15",
    "Los grupos se ordenan según las posiciones izquierda-derecha de las fichas de partido; Your Party, el SDLP, Alliance, el UUP, la TUV, Restore Britain y los independientes no tienen ficha, así que su lugar en el gráfico es indicativo. La mayoría indicada es la mitad de 650 más uno; en la práctica bastan menos votos, porque los siete diputados del Sinn Féin no ocupan sus escaños y el presidente de la Cámara y sus tres vicepresidentes no suelen votar.")
  ]
 };
+POWER.israel={asOf:"2026-11-22",
+ chamber:{
+  name:L3("Knesset (26th)","Knesset (26e)","Knéset (26.ª)"),total:120,majority:61,
+  src:"https://en.idi.org.il/israeli-elections-and-parties/elections/2026/",
+  groups:[
+   [L3("Joint List","Liste commune","Lista Conjunta"),11,"jointlist","out"],
+   [L3("The Democrats","Les Démocrates","Los Demócratas"),8,"democrats","out"],
+   [L3("Ra'am","Ra'am","Ra'am"),8,"raam","out"],
+   [L3("Yashar!","Yashar!","Yashar!"),21,"yashar","out"],
+   [L3("Together","Ensemble","Juntos"),12,"together","out"],
+   [L3("Yisrael Beitenu","Israël Beitenou","Israel Beitenu"),7,"yisraelbeitenu","out"],
+   [L3("Likud","Likoud","Likud"),27,"likud","gov"],
+   [L3("UTJ (United Torah Judaism)","UTJ (Judaïsme unifié de la Torah)","UTJ (Judaísmo Unido de la Torá)"),7,"utj","out"],
+   [L3("Shas","Shas","Shas"),6,"shas","sup"],
+   [L3("RZP (Religious Zionist Party)","RZP (Parti sioniste religieux)","RZP (Partido Sionista Religioso)"),6,"rzp","gov"],
+   [L3("Otzma Yehudit","Otzma Yehudit","Otzma Yehudit"),7,"otzma","gov"]
+  ]
+ },
+ head:L3("President: Isaac Herzog, since July 2021. Caretaker Prime Minister: Benjamin Netanyahu (Likud), since December 2022. Gadi Eisenkot (Yashar!) has held the mandate to form a government since 8 November 2026.","Président : Isaac Herzog, depuis juillet 2021. Premier ministre sortant : Benyamin Netanyahou (Likoud), depuis décembre 2022. Gadi Eisenkot (Yashar!) détient le mandat pour former un gouvernement depuis le 8 novembre 2026.","Presidente: Isaac Herzog, desde julio de 2021. Primer ministro en funciones: Benjamín Netanyahu (Likud), desde diciembre de 2022. Gadi Eisenkot (Yashar!) tiene el encargo de formar gobierno desde el 8 de noviembre de 2026."),
+ govNote:L3("Caretaker government: its ministers come from Likud, the Religious Zionist Party and Otzma Yehudit, which hold 40 of the 120 new seats; Shas left the government in July 2025 but stayed in the coalition. No bloc has the 61 seats needed for a majority.","Gouvernement sortant : ses ministres viennent du Likoud, du Parti sioniste religieux et d'Otzma Yehudit, qui détiennent 40 des 120 nouveaux sièges ; le Shas a quitté le gouvernement en juillet 2025 mais est resté dans la coalition. Aucun bloc n'a les 61 sièges nécessaires à la majorité.","Gobierno en funciones: sus ministros proceden del Likud, del Partido Sionista Religioso y de Otzma Yehudit, que suman 40 de los 120 nuevos escaños; el Shas dejó el Gobierno en julio de 2025 pero siguió en la coalición. Ningún bloque tiene los 61 escaños necesarios para la mayoría."),
+ notes:[
+  L3("Seats from the certified results of the 27 October 2026 election, as published by the Israel Democracy Institute (consulted on 22 November 2026). Groups are ordered by the left-right positions used on the party cards.","Sièges tirés des résultats certifiés du scrutin du 27 octobre 2026, publiés par l'Israel Democracy Institute (consultés le 22 novembre 2026). Les groupes sont classés selon les positions gauche-droite des fiches.","Escaños según los resultados certificados de las elecciones del 27 de octubre de 2026, publicados por el Israel Democracy Institute (consultados el 22 de noviembre de 2026). Los grupos se ordenan según las posiciones izquierda-derecha de las fichas."),
+  L3("'In government' means the parties whose ministers sit in the outgoing caretaker government. The parties that ran as the Netanyahu bloc (Likud, Otzma Yehudit, United Torah Judaism, Shas, Religious Zionists) won 53 seats; United Torah Judaism recommended no one to the president.","« Au gouvernement » désigne les partis dont les ministres siègent dans le gouvernement sortant. Les partis du bloc Netanyahou (Likoud, Otzma Yehudit, Judaïsme unifié de la Torah, Shas, sionistes religieux) ont obtenu 53 sièges ; Judaïsme unifié de la Torah n'a recommandé personne au président.","«En el Gobierno» designa a los partidos cuyos ministros forman parte del Gobierno saliente. Los partidos del bloque de Netanyahu (Likud, Otzma Yehudit, Judaísmo Unido de la Torá, Shas, sionistas religiosos) obtuvieron 53 escaños; Judaísmo Unido de la Torá no recomendó a nadie al presidente.")
+ ]
+};

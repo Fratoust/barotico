@@ -12,6 +12,7 @@ var BAROTICO_REF = {
     mena:   [72.5, L3("Arab States average 2023 (UNDP)","moyenne États arabes 2023 (PNUD)","media Estados árabes 2023 (PNUD)"), "https://hdr.undp.org/sites/default/files/2025_HDR/HDR25_Statistical_Annex_HDI_Table.pdf", "UNDP HDR 2025"],
     eap:    [75.9, L3("East Asia and the Pacific average 2023 (UNDP)","moyenne Asie de l'Est et Pacifique 2023 (PNUD)","media Asia oriental y el Pacífico 2023 (PNUD)"), "https://hdr.undp.org/sites/default/files/2025_HDR/HDR25_Statistical_Annex_HDI_Table.pdf", "UNDP HDR 2025"],
     oce:    [80.6, L3("OECD average 2023 (no UNDP aggregate for Oceania)","moyenne OCDE 2023 (pas d'agrégat PNUD pour l'Océanie)","media OCDE 2023 (sin agregado del PNUD para Oceanía)"), "https://hdr.undp.org/sites/default/files/2025_HDR/HDR25_Statistical_Annex_HDI_Table.pdf", "UNDP HDR 2025"],
+    oecd:   [80.6, L3("OECD average 2023 (Israel is an OECD member)","moyenne OCDE 2023 (Israël est membre de l'OCDE)","media OCDE 2023 (Israel es miembro de la OCDE)"), "https://hdr.undp.org/sites/default/files/2025_HDR/HDR25_Statistical_Annex_HDI_Table.pdf", "UNDP HDR 2025"],
     world:  [73.4, L3("World average 2023 (UNDP)","moyenne mondiale 2023 (PNUD)","media mundial 2023 (PNUD)"), "https://hdr.undp.org/sites/default/files/2025_HDR/HDR25_Statistical_Annex_HDI_Table.pdf", "UNDP HDR 2025"]
   },
   school: {
@@ -24,6 +25,7 @@ var BAROTICO_REF = {
     mena:   [12.0, L3("Arab States average 2023 (UNDP)","moyenne États arabes 2023 (PNUD)","media Estados árabes 2023 (PNUD)"), "https://hdr.undp.org/sites/default/files/2025_HDR/HDR25_Statistical_Annex_HDI_Table.pdf", "UNDP HDR 2025"],
     eap:    [14.6, L3("East Asia and the Pacific average 2023 (UNDP)","moyenne Asie de l'Est et Pacifique 2023 (PNUD)","media Asia oriental y el Pacífico 2023 (PNUD)"), "https://hdr.undp.org/sites/default/files/2025_HDR/HDR25_Statistical_Annex_HDI_Table.pdf", "UNDP HDR 2025"],
     oce:    [16.5, L3("OECD average 2023 (no UNDP aggregate for Oceania)","moyenne OCDE 2023 (pas d'agrégat PNUD pour l'Océanie)","media OCDE 2023 (sin agregado del PNUD para Oceanía)"), "https://hdr.undp.org/sites/default/files/2025_HDR/HDR25_Statistical_Annex_HDI_Table.pdf", "UNDP HDR 2025"],
+    oecd:   [16.5, L3("OECD average 2023 (Israel is an OECD member)","moyenne OCDE 2023 (Israël est membre de l'OCDE)","media OCDE 2023 (Israel es miembro de la OCDE)"), "https://hdr.undp.org/sites/default/files/2025_HDR/HDR25_Statistical_Annex_HDI_Table.pdf", "UNDP HDR 2025"],
     world:  [13.0, L3("World average 2023 (UNDP)","moyenne mondiale 2023 (PNUD)","media mundial 2023 (PNUD)"), "https://hdr.undp.org/sites/default/files/2025_HDR/HDR25_Statistical_Annex_HDI_Table.pdf", "UNDP HDR 2025"]
   },
   hom: {
@@ -36,6 +38,7 @@ var BAROTICO_REF = {
     mena:   [5.3, L3("Northern Africa rate 2023 (UNODC estimate)","taux Afrique du Nord 2023 (estimation ONUDC)","tasa África septentrional 2023 (estimación UNODC)"), "https://data.un.org/_Docs/SYB/PDFs/SYB68_328_202511_Intentional%20homicides%20and%20other%20crimes.pdf", "UNODC (UN Statistical Yearbook 2025)"],
     eap:    [0.4, L3("Eastern Asia rate 2023 (UNODC estimate)","taux Asie de l'Est 2023 (estimation ONUDC)","tasa Asia oriental 2023 (estimación UNODC)"), "https://data.un.org/_Docs/SYB/PDFs/SYB68_328_202511_Intentional%20homicides%20and%20other%20crimes.pdf", "UNODC (UN Statistical Yearbook 2025)"],
     oce:    [0.9, L3("Australia and New Zealand rate 2023 (UNODC estimate)","taux Australie et Nouvelle-Zélande 2023 (estimation ONUDC)","tasa Australia y Nueva Zelanda 2023 (estimación UNODC)"), "https://data.un.org/_Docs/SYB/PDFs/SYB68_328_202511_Intentional%20homicides%20and%20other%20crimes.pdf", "UNODC (UN Statistical Yearbook 2025)"],
+    oecd:   [5.2, L3("World rate 2023 (UNODC estimate)","taux mondial 2023 (estimation ONUDC)","tasa mundial 2023 (estimación UNODC)"), "https://data.un.org/_Docs/SYB/PDFs/SYB68_328_202511_Intentional%20homicides%20and%20other%20crimes.pdf", "UNODC (UN Statistical Yearbook 2025)"],
     world:  [5.2, L3("World rate 2023 (UNODC estimate)","taux mondial 2023 (estimation ONUDC)","tasa mundial 2023 (estimación UNODC)"), "https://data.un.org/_Docs/SYB/PDFs/SYB68_328_202511_Intentional%20homicides%20and%20other%20crimes.pdf", "UNODC (UN Statistical Yearbook 2025)"]
   },
   cpi: {
@@ -48,6 +51,7 @@ var BAROTICO_REF = {
     mena:   [39, L3("Middle East & North Africa average, CPI 2025","moyenne Moyen-Orient et Afrique du Nord, IPC 2025","media Oriente Medio y Norte de África, IPC 2025"), "https://files.transparencycdn.org/images/CPI2025_Map_MENA_EN.pdf", "Transparency International"],
     eap:    [45, L3("Asia Pacific average, CPI 2025","moyenne Asie-Pacifique, IPC 2025","media Asia-Pacífico, IPC 2025"), "https://www.transparency.org/en/press/corruption-perceptions-index-2025-stalling-anti-corruption-progress-asia-pacific-public-anger-surges", "Transparency International"],
     oce:    [45, L3("Asia Pacific average, CPI 2025 (TI's region for Oceania)","moyenne Asie-Pacifique, IPC 2025 (région de TI pour l'Océanie)","media Asia-Pacífico, IPC 2025 (región de TI para Oceanía)"), "https://www.transparency.org/en/press/corruption-perceptions-index-2025-stalling-anti-corruption-progress-asia-pacific-public-anger-surges", "Transparency International"],
+    oecd:   [39, L3("Middle East & North Africa average, CPI 2025 (TI's region for Israel)","moyenne Moyen-Orient et Afrique du Nord, IPC 2025 (région de TI pour Israël)","media Oriente Medio y Norte de África, IPC 2025 (región de TI para Israel)"), "https://files.transparencycdn.org/images/CPI2025_Map_MENA_EN.pdf", "Transparency International"],
     world:  [42, L3("Global average, CPI 2025","moyenne mondiale, IPC 2025","media mundial, IPC 2025"), "https://www.transparency.org/en/news/cpi-2025-findings-insights-corruption", "Transparency International"]
   }
 };
