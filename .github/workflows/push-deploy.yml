@@ -67,5 +67,6 @@ jobs:
           curl -fsS "$URL/config" | jq -e '.vapid' >/dev/null
           printf '{"api":"%s"}\n' "$URL" > push-config.json
           git config user.name "barotico-bot"; git config user.email "contact@barotico.com"
+          git checkout -- push/wrangler.toml 2>/dev/null || true
           git add push-config.json
-          if ! git diff --cached --quiet; then git commit -m "push-config: notification service address"; git pull --rebase origin main; git push origin HEAD:main; fi
+          if ! git diff --cached --quiet; then git commit -m "push-config: notification service address"; git pull --rebase --autostash origin main; git push origin HEAD:main; fi
