@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      CF_ACC: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CF_ACC: ${{ secrets.CLOUDFLARE_ACCOUNT_ID || vars.CLOUDFLARE_ACCOUNT_ID }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
@@ -22,7 +22,9 @@ jobs:
       - name: Check secrets
         id: chk
         run: |
-          if [ -z "$CF_TOKEN" ] || [ -z "$CF_ACC" ]; then echo "::warning::Add the CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID secrets (Settings > Secrets and variables > Actions), then run this workflow again."; echo "ok=false" >> "$GITHUB_OUTPUT"; exit 0; fi
+          miss=""; [ -z "$CF_TOKEN" ] && miss="$miss CLOUDFLARE_API_TOKEN"; [ -z "$CF_ACC" ] && miss="$miss CLOUDFLARE_ACCOUNT_ID"
+          if [ -n "$miss" ]; then echo "::warning::Missing repository secret(s):$miss (Settings > Secrets and variables > Actions > Repository secrets; exact names, upper case)."; echo "ok=false" >> "$GITHUB_OUTPUT"; exit 0; fi
+          echo "::notice::Both secrets found (token ${#CF_TOKEN} chars, account ID ${#CF_ACC} chars)."
           curl -sS -H "Authorization: Bearer $CF_TOKEN" https://api.cloudflare.com/client/v4/user/tokens/verify | jq -r ".result.status // .errors" || true
           echo "ok=true" >> "$GITHUB_OUTPUT"
       - name: KV namespace (find or create)
@@ -53,7 +55,7 @@ jobs:
         working-directory: push
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID || vars.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           sed -i "s/__KV_ID__/${{ steps.kv.outputs.id }}/" wrangler.toml
           npx --yes wrangler@4 deploy
