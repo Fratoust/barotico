@@ -430,6 +430,10 @@ ALGO.xp={
  cmp_b:A3((a,b)=>`First try: you stopped on ${a} “hook” post${a>1?"s":""}. This time: ${b}. Knowing what the feed watches, you took back some control.`,(a,b)=>`Premier essai : vous vous étiez arrêté sur ${a} publication${a>1?"s":""} « accroche ». Cette fois : ${b}. En sachant ce que le fil regarde, vous l’avez repris en main.`,(a,b)=>`Primer intento: te detuviste en ${a} publicación${a>1?"es":""} «gancho». Esta vez: ${b}. Sabiendo lo que mira el feed, recuperaste parte del control.`),
  cmp_w:A3((a,b)=>`First try: you stopped on ${a} “hook” post${a>1?"s":""}. This time: ${b}. Even forewarned, it isn’t easy. That is exactly why the reset exists.`,(a,b)=>`Premier essai : vous vous étiez arrêté sur ${a} publication${a>1?"s":""} « accroche ». Cette fois : ${b}. Même averti, ce n’est pas simple. C’est pour ça que la remise à zéro existe.`,(a,b)=>`Primer intento: te detuviste en ${a} publicación${a>1?"es":""} «gancho». Esta vez: ${b}. Aun avisado, no es fácil. Para eso existe el reinicio.`),
  cmp_0:A3("Both times, you didn’t stop on any “hook” post.","Les deux fois, vous ne vous êtes arrêté sur aucune publication « accroche ».","Las dos veces, no te detuviste en ninguna publicación «gancho»."),
+ run2_eye:A3("Second try","Deuxième essai","Segundo intento"),
+ tom1:A3("Tomorrow · 1st try","Demain · 1er essai","Mañana · 1.er intento"),
+ tom2:A3("Tomorrow · 2nd try","Demain · 2e essai","Mañana · 2.º intento"),
+ cmp_h:A3((a,b)=>` Tomorrow’s feed: ${a} hooks out of 10 after the first try, ${b} now.`,(a,b)=>` Fil de demain : ${a} accroches sur 10 après le premier essai, ${b} maintenant.`,(a,b)=>` Feed de mañana: ${a} ganchos de 10 tras el primer intento, ${b} ahora.`),
  reset_go:A3("Where the reset button is","Où est le bouton de remise à zéro","Dónde está el botón de reinicio"),
  disc:A3("Simplified illustration. Real platforms combine hundreds of signals, each in its own way. This test says nothing about your real feed. Nothing was recorded.","Illustration simplifiée. Les vraies plateformes combinent des centaines de signaux, chacune à sa façon. Ce test ne dit rien de votre vrai fil. Rien n’a été enregistré.","Ilustración simplificada. Las plataformas reales combinan cientos de señales, cada una a su manera. Este test no dice nada de tu feed real. No se ha guardado nada."),
  again:A3("Try again, keeping control","Refaire en gardant la main","Repetir manteniendo el control"),
@@ -529,8 +533,10 @@ function xpView(){const X=ALGO.xp,C=X.cards;
   else if(R.path==="B"){act=`<p class="xp-act">${aT(P.act)}</p>`;link=`<a class="xp-link" role="button" tabindex="0" data-jump="rcomprendre">${aT(P.link)} →</a>`}
   else {const Q=X.res.C;act=`<p class="xp-act">${aT(Q.act)}</p>`;link=`<a class="xp-link" role="button" tabindex="0" data-jump="rreset">${aT(Q.link)} →</a>`}
   const extra=[R.nH?`${esc(tr(X.pi)(R.nH))} <a class="src-a" href="${X.pi_src}" target="_blank" rel="noopener">${esc(srcNamed(X.pi_src))}</a>`:"",XP.notime?aT(X.nt_res):""].filter(Boolean).map(s=>`<p class="xp-nu">${s}</p>`).join("");
-  const cmp=XP.run>1&&XP.h1!=null?`<p class="xp-cmp">${R.hs<XP.h1?esc(tr(X.cmp_b)(XP.h1,R.hs)):XP.h1===0&&R.hs===0?aT(X.cmp_0):esc(tr(X.cmp_w)(XP.h1,R.hs))+` <a role="button" tabindex="0" data-jump="rreset">${aT(X.reset_go)} →</a>`}</p>`:"";
+  const cmpH=XP.prev?esc(tr(X.cmp_h)(XP.prev.h,R.h)):"";
+  const cmp=XP.run>1&&XP.h1!=null?`<p class="xp-cmp">${R.hs<XP.h1?esc(tr(X.cmp_b)(XP.h1,R.hs))+cmpH:XP.h1===0&&R.hs===0?aT(X.cmp_0)+cmpH:esc(tr(X.cmp_w)(XP.h1,R.hs))+cmpH+` <a role="button" tabindex="0" data-jump="rreset">${aT(X.reset_go)} →</a>`}</p>`:"";
   return `<div class="xp-box xp-res">
+   ${cmp?`<div class="xp-run2"><p class="eyebrow">${aT(X.run2_eye)}</p>${cmp}</div>`:""}
    <p class="xp-fb"><b>${aT(X.preds.find(o=>o[0]===p)[1])}</b> — ${fb}</p>
    <h3 class="xp-focus" tabindex="-1">${aT(X.mir_h)}</h3>
    ${XP.notime?`<p class="rm-small">${aT(X.notime_mir)}</p>`:`<p class="rm-small mono">${esc(tr(X.rhythm)(xpNum(R.m),xpNum(R.thr)))}</p>`}
@@ -538,10 +544,9 @@ function xpView(){const X=ALGO.xp,C=X.cards;
    <p>${R.sS?esc(tr(X.stops)(R.sS,R.x)):aT(X.nostop)}</p>
    <p class="xp-reveal">${aT(X.reveal)}</p>
    <h3>${aT(X.dem_h)}</h3>
-   <div class="xp-strips" role="img" aria-label="${esc(srTxt)}"><span class="mono">${aT(X.today)}</span><span class="xp-strip">${today}</span><span class="mono">${aT(X.tomorrow)}</span><span class="xp-strip">${tom}</span></div>
+   <div class="xp-strips" role="img" aria-label="${esc(srTxt)}"><span class="mono">${aT(X.today)}</span><span class="xp-strip">${today}</span>${XP.run>1&&XP.prev?`<span class="mono">${aT(X.tom1)}</span><span class="xp-strip">${XP.prev.cells.map(c=>xpCell(c.k,c.hook,aT(X.th[c.k])+(c.hook?" · "+aT(X.mk.hook):""))).join("")}</span><span class="mono">${aT(X.tom2)}</span>`:`<span class="mono">${aT(X.tomorrow)}</span>`}<span class="xp-strip">${tom}</span></div>
    <p class="rm-small">${aT(X.legend)}</p>
    <details class="xp-rule"><summary>${aT(X.rule_h)}</summary><p>${aT(X.rule)}</p></details>
-   ${cmp}
    <h3 class="xp-title">${title}</h3><p>${txt}</p>${extra}${act}${link?`<p>${link}</p>`:""}
    <p class="note xp-disc">${aT(X.disc)}</p>
    <p class="xp-end"><button type="button" class="btn" data-xp="again">${aT(X.again)}</button> <a class="btn ghost" role="button" tabindex="0" data-jump="rmeca">${aT(X.how)}</a></p>
@@ -559,7 +564,7 @@ document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest
   if(a==="back"){XP.o[ci]+=xpClockStop();return xpAdvance()}
   if(a==="hide"){XP.t[ci]+=xpClockStop();XP.hid[ci]=true;XP.step="hid";return xpRender()}
   if(a==="pred"){XP.pred=b.dataset.v;XP.res=xpCalc();XP.step="res";return xpRender()}
-  if(a==="again"){XP.h1=XP.res?XP.res.hs:null;XP.run=2;xpReset(true);XP.step="int";return xpRender()}
+  if(a==="again"){XP.h1=XP.res?XP.res.hs:null;XP.prev=XP.res?{h:XP.res.h,cells:XP.res.cells}:null;XP.run=2;xpReset(true);XP.step="int";return xpRender()}
 });
 document.addEventListener("keydown",e=>{if(XP.step!=="feed"||!document.getElementById("xp"))return;if(e.target.closest&&e.target.closest("input,textarea,select"))return;
   if(e.key==="o"||e.key==="O"){const b=document.querySelector('#xp [data-xp="open"]');if(b){e.preventDefault();b.click()}}});
