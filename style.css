@@ -1042,3 +1042,52 @@ table.cmp2 thead th:first-child{position:sticky;left:0;background:var(--surface)
 .follow-mine{font-size:.82rem;color:var(--muted);margin:0}
 .follow-mine a{color:var(--ink)}
 .fmark{display:inline-block;margin-left:6px;font-size:.75rem;font-weight:700;color:var(--good)}
+/* v172: experiment « Ce que votre fil retient de vous » */
+.xp{margin-top:8px}
+.xp .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.xp-box{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;max-width:640px}
+.xp-box h3{font-family:var(--f-display);font-weight:400;font-size:1.3rem;line-height:1.3;margin:6px 0 14px}
+.xp-box h3:focus{outline:none}
+.xp-lead{font-size:1.05rem;margin:8px 0}
+.xp-go{margin:10px 0 4px}
+.xp-again{background:var(--dit-soft);border-radius:8px;padding:10px 12px;margin:8px 0}
+.xp-opts{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+.xp-opts .rq-opt{text-align:left}
+a.rq-opt{display:inline-flex;align-items:center;text-decoration:none}
+.xp-prog{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:.8rem;color:var(--muted)}
+.xp-bar{flex:1;height:3px;background:var(--line);border-radius:2px;overflow:hidden}.xp-bar>span{display:block;height:100%;background:var(--ink);transition:width .15s}
+.xp-card{position:relative;border:1px solid var(--line);border-left:6px solid var(--c,var(--line));border-radius:10px;padding:16px 16px 12px;margin-bottom:12px;min-height:170px;display:flex;flex-direction:column;animation:xpIn .15s ease-out}
+.xp-card h3{font-size:1.25rem;margin:8px 0 auto}
+.xp-card.hid{min-height:80px;justify-content:center;color:var(--muted)}
+.xp-card.open{background:var(--tint)}
+.xp-card.open h3{margin:6px 0 10px}
+.xp-swatch{display:block;height:46px;border-radius:6px;background:var(--c);opacity:.18;margin-bottom:10px}
+.xp-hide{align-self:flex-start;margin-top:14px;font-size:.85rem;color:var(--muted)}
+.xp-next,.xp-open{display:block;width:100%;min-height:48px;margin-top:8px}
+@keyframes xpIn{from{opacity:.3;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.xp-card{animation:none}.xp-bar>span{transition:none}}
+.xp-fb{background:var(--tint);border-radius:8px;padding:10px 12px;margin:0 0 12px}
+.xp-rows{list-style:none;padding:0;margin:10px 0 14px;display:grid;gap:8px}
+.xp-row{display:grid;grid-template-columns:minmax(0,1fr) 90px 52px;gap:4px 10px;align-items:center;font-size:.85rem;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.xp-rt{grid-column:1/-1}
+.xp-rb{height:8px;background:var(--tint);border-radius:4px;overflow:hidden;grid-column:1/2}
+.xp-rb>span{display:block;height:100%;background:var(--muted)}
+.xp-row.stop .xp-rb>span{background:var(--fait)}
+.xp-rs{font-size:.78rem;text-align:right}
+.xp-rm{font-size:.78rem;color:var(--fait);font-weight:600}
+.xp-tag{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);border-radius:4px;padding:1px 5px;color:var(--muted);white-space:nowrap}
+.xp-reveal{border-left:3px solid var(--fait);padding-left:12px}
+.xp-strips{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;align-items:center;margin:8px 0 4px;font-size:.75rem}
+.xp-strip{display:grid;grid-template-columns:repeat(10,1fr);gap:4px}
+.xp-cell{aspect-ratio:1;border-radius:4px;background:var(--c);opacity:.85;max-width:44px}
+.xp-cell.hook{background:repeating-linear-gradient(45deg,var(--c) 0 4px,var(--surface) 4px 7px);opacity:1;outline:1px solid var(--c);outline-offset:-1px}
+.xp-rule summary{cursor:pointer;font-size:.85rem;color:var(--dit)}
+.xp-title{margin-top:22px!important}
+.xp-act{font-weight:600}
+.xp-nu{color:var(--muted)}
+.xp-appq{font-size:.75rem;margin:12px 0 0;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.xp-cmp{background:var(--dit-soft);border-radius:8px;padding:10px 12px}
+.xp-disc{margin-top:18px}
+.xp-end{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.rm-teaser-p{display:block;font-size:.9rem;opacity:.85;margin:6px 0 10px}
+@media (max-width:520px){.xp-box{padding:16px}.xp-row{grid-template-columns:minmax(0,1fr) 46px}.xp-rm{grid-column:1/-1}}

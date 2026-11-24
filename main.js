@@ -210,14 +210,15 @@ function algoSteps(link){return `<div class="rm-steps">${ALGO.steps.map((s,i)=>`
 function algoNums(){return `<div class="bignums">${ALGO.nums.map(n=>`<div class="bn"><span class="n">${n[0]}</span><span>${aT(n[1])}</span><a href="${n[2]}" target="_blank" rel="noopener">${aT(n[3])}</a></div>`).join("")}</div>`}
 function algoBand(){const nx=algoNext();return `<div class="rm-band"><div><p class="eyebrow">${aT(ALGO.reset_eye)}</p><h3>${esc(nx.label.charAt(0).toUpperCase()+nx.label.slice(1))}${aT(ALGO.reset_h)}</h3><p>${aT(ALGO.reset_p)}</p></div><p class="rm-j mono">${lang==="fr"?"J":"D"}-${nx.days}</p></div>`}
 function algoHook(){
+  if(typeof xpSwap==="function")xpSwap();
   const nx=algoNext(),P=["explo","algo","mono","compass","sature"];
   return `<section id="reprendre-home" class="rm-home" aria-labelledby="rm-home-h">
    <div class="rm-hero">
     <div class="rm-intro"><p class="eyebrow">${aT(ALGO.eye)}</p>${algoTitle("h2").replace('class="rm-h"','class="rm-h" id="rm-home-h"')}<p class="lead">${aT(ALGO.hook_lead)}</p><p class="rm-plural">${aT(ALGO.plural)}</p></div>
     <a class="rm-teaser" href="#reprendre-rtest">
      <span class="eyebrow">${aT(ALGO.hook_eye)}</span>
-     <b class="rm-teaser-h">${aT(ALGO.hook_q)}</b>
-     <span class="rm-chips" aria-hidden="true">${P.map(k=>`<span>${aT(ALGO.P[k][0])}</span>`).join("")}</span>
+     <b class="rm-teaser-h">${aT(typeof ALGO_XP!=="undefined"&&ALGO_XP?ALGO.xp.h:ALGO.hook_q)}</b>
+     ${typeof ALGO_XP!=="undefined"&&ALGO_XP?`<span class="rm-teaser-p">${aT(ALGO.xp.p)}</span>`:`<span class="rm-chips" aria-hidden="true">${P.map(k=>`<span>${aT(ALGO.P[k][0])}</span>`).join("")}</span>`}
      <span class="btn rm-go">${aT(ALGO.cta_test)} →</span>
      <span class="rm-small">${aT(ALGO.neutral)}</span>
     </a>
@@ -226,16 +227,17 @@ function algoHook(){
   </section>`;
 }
 function algoPage(){
+  if(typeof xpSwap==="function")xpSwap();
   const S=Object.keys(ALGO.sec);
   const th=cols=>`<tr>${cols.map(c=>`<th scope="col">${aT(c)}</th>`).join("")}</tr>`;
   return `<div class="chead rm-head" style="grid-template-columns:minmax(0,1fr)"><div><p class="eyebrow">${aT(ALGO.eye)}</p>${algoTitle("h1")}<p class="lead" style="margin-top:12px">${aT(ALGO.lead)}</p><p class="rm-plural">${aT(ALGO.plural)}</p><p class="rm-stance">${aT(ALGO.stance)}</p>
    <nav class="mjump" aria-label="${aT(ALGO.jump)}">${S.map(id=>`<a role="button" tabindex="0" data-jump="${id}">${aT(ALGO.sec[id])}</a>`).join("")}</nav></div></div>
-  <section id="rtest" class="rm-sec"><div class="rm-testhead"><h2>${aT(ALGO.sec.rtest)}</h2><p class="lead">${aT(ALGO.test_p)} ${aT(ALGO.private_p)}</p></div>${algoQuiz("f")}</section>
+  <section id="rtest" class="rm-sec">${typeof ALGO_XP!=="undefined"&&ALGO_XP?algoXp():`<div class="rm-testhead"><h2>${aT(ALGO.sec.rtest)}</h2><p class="lead">${aT(ALGO.test_p)} ${aT(ALGO.private_p)}</p></div>${algoQuiz("f")}`}</section>
   <section id="rcomprendre" class="rm-sec"><h2>${aT(ALGO.comp_h)}</h2>${ALGO.comp_p.map(p=>`<p class="rm-p">${aT(p)}</p>`).join("")}${algoNums()}
    <h3>${aT(ALGO.steps_h)}</h3>${algoSteps()}
    <h3>${aT(ALGO.rhythm_h)}</h3><div class="levels">${ALGO.rhythm.map(r=>`<div class="level"><b>${aT(r[0])}</b><span>${aT(r[1])}</span></div>`).join("")}</div></section>
   <section id="rreset" class="rm-sec"><h2>${aT(ALGO.plat_h)}</h2><p class="lead">${aT(ALGO.plat_p)}</p>
-   <div class="tablebox"><table class="rm-t"><thead>${th(ALGO.plat_cols)}</thead><tbody>${ALGO.plat.map(p=>`<tr><th scope="row">${p[3]?`<a href="${p[3]}" target="_blank" rel="noopener">${p[0]}</a>`:p[0]}</th><td>${aT(p[1])}</td><td>${aT(p[2])}</td></tr>`).join("")}</tbody></table></div></section>
+   <div class="tablebox"><table class="rm-t"><thead>${th(ALGO.plat_cols)}</thead><tbody>${ALGO.plat.map(p=>`<tr id="rreset-${p[0].toLowerCase()}"><th scope="row">${p[3]?`<a href="${p[3]}" target="_blank" rel="noopener">${p[0]}</a>`:p[0]}</th><td>${aT(p[1])}</td><td>${aT(p[2])}</td></tr>`).join("")}</tbody></table></div></section>
   <section id="rqui" class="rm-sec"><h2>${aT(ALGO.sec.rqui)}</h2><p class="lead">${aT(ALGO.qui_p)}</p>
    <div class="tablebox"><table class="rm-t"><thead>${th(ALGO.types_cols)}</thead><tbody>${ALGO.types.map(r=>`<tr><th scope="row">${aT(r[0])}</th><td>${aT(r[1])}</td><td>${aT(r[2])}</td></tr>`).join("")}</tbody></table></div>
    <p><a href="#medias">${aT(ALGO.media_go)}</a></p>
@@ -327,6 +329,241 @@ document.addEventListener("click",e=>{
   const it=document.getElementById("vf-"+i);if(it)it.outerHTML=algoVfItem(i);
   const sc=document.getElementById("vf-score");if(sc)sc.innerHTML=algoVfScore();
 });
+/* v172 (24/11/2026): « Ce que votre fil retient de vous » replaces the questionnaire and the old true/false.
+   Nothing deleted: set ALGO_XP=false to bring back the questionnaire (algoQuiz), its profiles and the six old statements (ALGO.vf_old). */
+const ALGO_XP=true;
+ALGO.xp={
+ eye:A3("Experiment · 2 minutes","Expérience · 2 minutes","Experimento · 2 minutos"),
+ h:A3("What your feed learns about you","Ce que votre fil retient de vous","Lo que tu feed aprende de ti"),
+ p:A3("Ten made-up posts, no politics. Scroll as you usually would. At the end, we show you what a platform could have learned from it.","Dix publications fictives, sans politique. Faites défiler comme d’habitude. À la fin, on vous montre ce qu’une plateforme aurait pu en retenir.","Diez publicaciones inventadas, sin política. Desliza como siempre. Al final, te mostramos lo que una plataforma podría haber aprendido."),
+ small:A3("The test watches your actions on this page only. Nothing is recorded or sent.","Le test observe vos gestes sur cette page uniquement. Rien n’est enregistré ni envoyé.","El test observa tus gestos solo en esta página. Nada se guarda ni se envía."),
+ go:A3("Start","Commencer","Empezar"),
+ notime:A3("Take the test without timing","Faire le test sans mesure du temps","Hacer el test sin medir el tiempo"),
+ int_eye:A3("Before you start","Avant de commencer","Antes de empezar"),
+ int_q:A3("You open your app. You are here to…","Vous ouvrez votre appli. Vous venez pour…","Abres tu app. Vienes a…"),
+ again_line:A3("This time, you know what the feed watches. Try to keep it on your goal.","Cette fois, vous savez ce que le fil regarde. Essayez de le garder sur votre objectif.","Esta vez sabes lo que mira el feed. Intenta mantenerlo en tu objetivo."),
+ ints:[
+  ["cuisine",A3("Find a recipe for tonight","Trouver une recette pour ce soir","Encontrar una receta para esta noche")],
+  ["sport",A3("Check the sports results","Voir les résultats du sport","Ver los resultados deportivos")],
+  ["animaux",A3("Watch animals, unwind","Regarder des animaux, me détendre","Ver animales, relajarme")],
+  ["voyage",A3("Find a travel idea","Trouver une idée de voyage","Encontrar una idea de viaje")],
+  ["",A3("Nothing in particular, I’m just scrolling","Rien de précis, je fais défiler","Nada en concreto, solo deslizo")]
+ ],
+ th:{cuisine:A3("Cooking","Cuisine","Cocina"),sport:A3("Sport","Sport","Deporte"),animaux:A3("Animals","Animaux","Animales"),voyage:A3("Travel","Voyage","Viajes"),autre:A3("Other","Autres","Otros")},
+ thIn:{cuisine:A3("cooking","la cuisine","la cocina"),sport:A3("sport","le sport","el deporte"),animaux:A3("animals","les animaux","los animales"),voyage:A3("travel","le voyage","los viajes")},
+ /* [theme, hook type (0 = calm), title, text shown after "Open"] — titles kept at similar lengths so reading time does not decide the result */
+ cards:[
+  ["voyage",0,A3("Five villages less than two hours from home, away from the crowds","Cinq villages à moins de deux heures de chez vous, loin de la foule","Cinco pueblos a menos de dos horas de casa, lejos de las multitudes"),A3("Three walk ideas, train times and a picnic spot.","Trois idées de balade, les horaires des trains et un coin pique-nique.","Tres ideas de paseo, horarios de tren y un sitio para un pícnic.")],
+  ["animaux",A3("outrage","indignation","indignación"),A3("A dog abandoned at a motorway rest stop: the video that outrages","Un chien abandonné sur une aire d’autoroute : la vidéo qui indigne","Un perro abandonado en un área de autopista: el vídeo que indigna"),A3("The dog was taken in by a shelter the same day. It is fine and has been adopted.","Le chien a été recueilli le jour même par une association. Il va bien et il a été adopté.","Una protectora recogió al perro ese mismo día. Está bien y ya ha sido adoptado.")],
+  ["cuisine",0,A3("Leek tart in twenty minutes, with whatever is left in the fridge","Tarte aux poireaux en vingt minutes, avec ce qui reste dans le frigo","Tarta de puerros en veinte minutos, con lo que quede en la nevera"),A3("Leeks, shortcrust pastry, two eggs, a little cheese. Oven at 200 °C.","Poireaux, une pâte brisée, deux œufs, un peu de fromage. Four à 200 °C.","Puerros, masa quebrada, dos huevos, un poco de queso. Horno a 200 °C.")],
+  ["sport",A3("anger","colère","enfado"),A3("Fight in the stands: the video the club would rather you forgot","Bagarre en tribune : la vidéo que le club aurait préféré faire oublier","Pelea en la grada: el vídeo que el club habría preferido que olvidaras"),A3("Twenty seconds filmed on a phone. The club has announced sanctions.","Vingt secondes filmées au téléphone. Le club a annoncé des sanctions.","Veinte segundos grabados con un móvil. El club ha anunciado sanciones.")],
+  ["autre",0,A3("Weekend weather: mild and dry almost everywhere, rain Sunday night","Météo du week-end : doux et sec presque partout, pluie dimanche soir","Tiempo del fin de semana: suave y seco casi en todas partes, lluvia el domingo"),A3("14 to 18 °C in the afternoon. Umbrella only for Sunday night.","Entre 14 et 18 °C l’après-midi. Parapluie seulement pour dimanche soir.","Entre 14 y 18 °C por la tarde. Paraguas solo para el domingo por la noche.")],
+  ["cuisine",A3("worry","inquiétude","inquietud"),A3("This thing almost everyone does in the kitchen is best avoided","Ce geste que presque tout le monde fait en cuisine serait à éviter","Este gesto que casi todo el mundo hace en la cocina convendría evitarlo"),A3("The habit: rinsing raw chicken. Health authorities advise against it, because the water splashes bacteria around the sink.","Le geste : rincer le poulet cru. Les autorités sanitaires le déconseillent, car l’eau projette des bactéries autour de l’évier.","El gesto: lavar el pollo crudo. Las autoridades sanitarias lo desaconsejan, porque el agua salpica bacterias alrededor del fregadero.")],
+  ["animaux",0,A3("A puppy discovers snow for the very first time, and can’t believe it","Un chiot découvre la neige pour la première fois, et il n’en revient pas","Un cachorro descubre la nieve por primera vez y no se lo puede creer"),A3("Fifteen seconds of video, and a lot of snow on its nose.","Quinze secondes de vidéo, et beaucoup de neige sur le museau.","Quince segundos de vídeo y mucha nieve en el hocico.")],
+  ["voyage",A3("worry","inquiétude","inquietud"),A3("They finally reach their holiday hotel: it has never existed","Ils arrivent enfin à leur hôtel de vacances : il n’a jamais existé","Por fin llegan a su hotel de vacaciones: nunca ha existido"),A3("A fake rental listing. The advice: check the address and pay with a protected method.","Une fausse annonce de location. Le conseil : vérifier l’adresse et payer par un moyen protégé.","Un anuncio de alquiler falso. El consejo: comprobar la dirección y pagar con un medio protegido.")],
+  ["sport",0,A3("The weekend recap: every result and every goal in two minutes","Le récap du week-end : tous les résultats et les buts en deux minutes","El resumen del fin de semana: todos los resultados y goles en dos minutos"),A3("Scores, goals and the table, no commentary.","Les scores, les buts et le classement, sans commentaire.","Marcadores, goles y clasificación, sin comentarios.")],
+  ["autre",A3("mystery","mystère","misterio"),A3("A noise in the wall puzzled the neighbours. What they found…","Un bruit dans le mur intriguait les voisins. Ce qu’ils ont trouvé…","Un ruido en la pared intrigaba a los vecinos. Lo que encontraron…"),A3("A family of dormice. A specialist moved them without harming them.","Une famille de loirs. Un spécialiste les a déplacés sans leur faire de mal.","Una familia de lirones. Un especialista los trasladó sin hacerles daño.")]
+ ],
+ order2:[2,7,0,5,8,1,4,9,6,3],
+ sugg:A3("Suggested for you","Suggestion pour vous","Sugerido para ti"),
+ next:A3("Next","Suivant","Siguiente"),open:A3("Open","Ouvrir","Abrir"),hide:A3("Not interested","Pas intéressé","No me interesa"),
+ hidden:A3("Post hidden.","Publication masquée.","Publicación ocultada."),fict:A3("Made-up content","Contenu fictif","Contenido inventado"),back:A3("Back to the feed","Retour au fil","Volver al feed"),
+ sr_card:A3((i)=>`Post ${i} of 10.`,(i)=>`Publication ${i} sur 10.`,(i)=>`Publicación ${i} de 10.`),
+ pred_eye:A3("Before the result","Avant le résultat","Antes del resultado"),
+ pred_q:A3("In your view, what did this feed learn from you most?","D’après vous, qu’est-ce que ce fil a le plus retenu de vous ?","En tu opinión, ¿qué es lo que más ha aprendido este feed de ti?"),
+ preds:[["goal",A3("What I came for","Ce que je venais chercher","Lo que venía a buscar")],["open",A3("What I opened","Ce que j’ai ouvert","Lo que abrí")],["stop",A3("The posts where I slowed down","Les publications où j’ai ralenti","Las publicaciones en las que me detuve")],["none",A3("Not much","Pas grand-chose","No mucho")]],
+ fb:{
+  goal:A3("The feed doesn’t know your goal. It only sees what you do.","Le fil ne connaît pas votre objectif. Il ne voit que vos gestes.","El feed no conoce tu objetivo. Solo ve tus gestos."),
+  stop_stop:A3("Well spotted. It is the signal we think about least, because we don’t give it on purpose.","Bien vu. C’est le signal auquel on pense le moins, parce qu’on ne le donne pas exprès.","Bien visto. Es la señal en la que menos pensamos, porque no la damos a propósito."),
+  stop_open:A3("Slowing down counted, but here what you opened weighed more.","Vos ralentissements ont compté, mais ici, ce que vous avez ouvert a pesé davantage.","Detenerte contó, pero aquí pesó más lo que abriste."),
+  open_open:A3("Well spotted. Slowing down counted too: look at the bars.","Bien vu. Vos ralentissements ont aussi compté : regardez les barres.","Bien visto. Detenerte también contó: mira las barras."),
+  open_stop:A3("What you opened counted, but here slowing down weighed more.","Ce que vous avez ouvert a compté, mais ici, vos ralentissements ont pesé davantage.","Lo que abriste contó, pero aquí pesó más cuándo te detuviste."),
+  little:A3("In fact it learned almost nothing: you scrolled at a steady pace.","En fait, il n’a presque rien retenu : vous avez fait défiler à rythme régulier.","En realidad no aprendió casi nada: deslizaste a un ritmo constante."),
+  none_none:A3("Well spotted: you scrolled at a steady pace.","Bien vu : vous avez fait défiler à rythme régulier.","Bien visto: deslizaste a un ritmo constante."),
+  none_some:A3((s,o)=>`It learned more than you think: ${s} slowdown${s>1?"s":""} and ${o} post${o>1?"s":""} opened.`,(s,o)=>`Il a retenu plus que vous ne pensez : ${s} ralentissement${s>1?"s":""} et ${o} ouverture${o>1?"s":""}.`,(s,o)=>`Ha aprendido más de lo que crees: ${s} parada${s>1?"s":""} y ${o} apertura${o>1?"s":""}.`)
+ },
+ mir_h:A3("What you did, what the feed saw","Ce que vous avez fait, ce que le fil a vu","Lo que hiciste, lo que vio el feed"),
+ rhythm:A3((m,s)=>`Your pace here: ${m} s per post. Beyond ${s} s, we count a slowdown.`,(m,s)=>`Votre rythme ici : ${m} s par publication. Au-delà de ${s} s, on compte un ralentissement.`,(m,s)=>`Tu ritmo aquí: ${m} s por publicación. A partir de ${s} s, contamos una parada.`),
+ mk:{stop:A3("slowed down","ralenti","parada"),open:A3("opened","ouvert","abierto"),hide:A3("hidden","masqué","ocultado"),hook:A3("hook","accroche","gancho")},
+ stops:A3((s,x)=>`You slowed down on ${s} post${s>1?"s":""}${x?(x===s?`, without opening ${s>1?"them":"it"}`:`, ${x} of them without opening ${x>1?"them":"it"}`):""}. For a platform, slowing down is already a signal. It doesn’t know why you slow down: interest, surprise, irritation or just reading. It only knows that you did.`,(s,x)=>`Vous avez ralenti sur ${s} publication${s>1?"s":""}${x?(x===s?`, sans ${s>1?"les":"l’"}ouvrir`.replace("les","les "):`, dont ${x} sans l’ouvrir`):""}. Pour une plateforme, ralentir est déjà un signal. Elle ne sait pas pourquoi vous ralentissez : intérêt, surprise, agacement ou simple lecture. Elle sait seulement que vous l’avez fait.`,(s,x)=>`Te detuviste en ${s} publicación${s>1?"es":""}${x?(x===s?`, sin abrir${s>1?"las":"la"}`:`, ${x} sin abrir${x>1?"las":"la"}`):""}. Para una plataforma, detenerse ya es una señal. No sabe por qué te detienes: interés, sorpresa, enfado o simple lectura. Solo sabe que lo hiciste.`),
+ nostop:A3("You didn’t slow down anywhere more than usual.","Vous n’avez ralenti nulle part plus que d’habitude.","No te detuviste en ninguna parte más de lo habitual."),
+ reveal:A3("The posts marked “hook” were written to hold attention: outrage, anger, worry, mystery. Their content was not necessarily false: the kitchen tip is real health advice. It is the packaging that holds you.","Les publications marquées « accroche » étaient écrites pour retenir l’attention : indignation, colère, inquiétude, mystère. Leur contenu n’était pas forcément faux : le geste en cuisine est un vrai conseil sanitaire. C’est l’emballage qui retient.","Las publicaciones marcadas como «gancho» estaban escritas para retener la atención: indignación, enfado, inquietud, misterio. Su contenido no era necesariamente falso: el gesto en la cocina es un consejo sanitario real. Es el envoltorio lo que retiene."),
+ notime_mir:A3("You took the test without timing: here are your taps.","Vous avez fait le test sans mesure du temps : voici vos appuis.","Hiciste el test sin medir el tiempo: estos son tus toques."),
+ dem_h:A3("Your feed tomorrow (illustration)","Votre fil de demain (illustration)","Tu feed de mañana (ilustración)"),
+ today:A3("Today","Aujourd’hui","Hoy"),tomorrow:A3("Tomorrow","Demain","Mañana"),
+ legend:A3("One square = one post. Colour = topic. Stripes = hook.","Une case = une publication. Couleur = thème. Hachures = accroche.","Una casilla = una publicación. Color = tema. Rayas = gancho."),
+ why:{stop:A3("You slowed down here.","Vous avez ralenti ici.","Te detuviste aquí."),open:A3("You opened it.","Vous l’avez ouvert.","Lo abriste."),hide:A3("You hid it.","Vous l’avez masqué.","Lo ocultaste."),vary:A3("For variety: no signal on this topic.","Pour varier : aucun signal sur ce thème.","Para variar: ninguna señal sobre este tema.")},
+ sr:A3((c,h)=>`Today, 2 posts per topic and 5 hooks out of 10. Tomorrow, ${c}, including ${h} hooks out of 10.`,(c,h)=>`Aujourd’hui, 2 publications par thème et 5 accroches sur 10. Demain, ${c}, dont ${h} accroches sur 10.`,(c,h)=>`Hoy, 2 publicaciones por tema y 5 ganchos de 10. Mañana, ${c}, de ellas ${h} ganchos de 10.`),
+ rule_h:A3("How we calculated","Comment on a calculé","Cómo lo calculamos"),
+ rule:A3("Each slowdown is worth 1 point, each post opened 2 points, reading for more than 4 seconds 1 more point. “Not interested” removes 1 point. Tomorrow’s feed is shared out according to these points. Real platforms use far more signals, but time spent is one of them.","Chaque ralentissement vaut 1 point, chaque ouverture 2 points, une lecture de plus de 4 secondes 1 point de plus. « Pas intéressé » enlève 1 point. Le fil de demain se partage selon ces points. Les vraies plateformes utilisent bien plus de signaux, mais le temps passé en fait partie.","Cada parada vale 1 punto, cada apertura 2 puntos, leer más de 4 segundos 1 punto más. «No me interesa» resta 1 punto. El feed de mañana se reparte según estos puntos. Las plataformas reales usan muchas más señales, pero el tiempo dedicado es una de ellas."),
+ res:{
+  A:{t:A3("Your feed tomorrow looks more like where you stopped than like your goal.","Votre fil de demain ressemble plus à vos arrêts qu’à votre objectif.","Tu feed de mañana se parece más a tus paradas que a tu objetivo."),
+     t0:A3("Your feed tomorrow leans towards what made you slow down.","Votre fil de demain penche vers ce qui vous a fait ralentir.","Tu feed de mañana se inclina hacia lo que te hizo detenerte."),
+     x:A3((I,n,h)=>`You came for ${I}. Tomorrow, that topic would get ${n} square${n>1?"s":""} out of 10, and “hook” posts would get ${h}, against 5 today. You didn’t ask for anything like that. A few extra seconds here and there were enough, in this illustration, to shift the feed.`,(I,n,h)=>`Vous veniez pour ${I}. Demain, ce thème aurait ${n} case${n>1?"s":""} sur 10, et les publications « accroche » en auraient ${h}, contre 5 aujourd’hui. Vous n’avez rien demandé de tel. Quelques secondes de plus ici et là ont suffi, dans cette illustration, à déplacer le fil.`,(I,n,h)=>`Venías por ${I}. Mañana, ese tema tendría ${n} casilla${n>1?"s":""} de 10, y las publicaciones «gancho» tendrían ${h}, frente a 5 hoy. No pediste nada parecido. Unos segundos de más aquí y allá bastaron, en esta ilustración, para desplazar el feed.`),
+     x0:A3((h)=>`Tomorrow, “hook” posts would get ${h} squares out of 10, against 5 today. A few extra seconds here and there were enough, in this illustration, to shift the feed.`,(h)=>`Demain, les publications « accroche » auraient ${h} cases sur 10, contre 5 aujourd’hui. Quelques secondes de plus ici et là ont suffi, dans cette illustration, à déplacer le fil.`,(h)=>`Mañana, las publicaciones «gancho» tendrían ${h} casillas de 10, frente a 5 hoy. Unos segundos de más aquí y allá bastaron, en esta ilustración, para desplazar el feed.`),
+     cS:A3("A few extra seconds here and there were enough, in this illustration, to shift the feed.","Quelques secondes de plus ici et là ont suffi, dans cette illustration, à déplacer le fil.","Unos segundos de más aquí y allá bastaron, en esta ilustración, para desplazar el feed."),
+     cO:A3("Opening a few posts was enough, in this illustration, to shift the feed.","Quelques publications ouvertes ont suffi, dans cette illustration, à déplacer le fil.","Abrir unas pocas publicaciones bastó, en esta ilustración, para desplazar el feed."),
+     tO:A3("Your feed tomorrow looks more like what you opened than like your goal.","Votre fil de demain ressemble plus à ce que vous avez ouvert qu’à votre objectif.","Tu feed de mañana se parece más a lo que abriste que a tu objetivo."),
+     nu:A3("This is not a lack of willpower. These posts are written to make you slow down, and they manage it with almost everyone.","Ce n’est pas un manque de volonté. Ces publications sont écrites pour faire ralentir, et elles y arrivent chez presque tout le monde.","No es falta de voluntad. Estas publicaciones están escritas para hacerte detener, y lo consiguen con casi todo el mundo."),
+     act:A3("One thing to try this week: when you catch yourself on content you didn’t want to see, scroll on straight away. If your real feed is already full of it, a reset takes two minutes.","Une chose à essayer cette semaine : quand vous vous surprenez sur un contenu que vous n’aviez pas envie de voir, faites défiler tout de suite. Si votre vrai fil en est déjà plein, la remise à zéro prend deux minutes.","Algo que probar esta semana: cuando te sorprendas ante un contenido que no querías ver, desliza enseguida. Si tu feed real ya está lleno de eso, reiniciarlo lleva dos minutos.")},
+  B:{t:A3("Your feed tomorrow shifts a little, without you deciding it.","Votre fil de demain bouge un peu, sans que vous l’ayez décidé.","Tu feed de mañana se mueve un poco, sin que tú lo hayas decidido."),
+     tc:A3("Your feed tomorrow holds, but it noted where you stopped.","Votre fil de demain tient, mais il a noté vos arrêts.","Tu feed de mañana aguanta, pero ha anotado tus paradas."),
+     x:A3((I,n,h)=>`You came for ${I}, and that topic keeps ${n} square${n>1?"s":""} out of 10. But ${h} posts out of 10 would be “hooks”, against 5 today. A small gap. Except the feed is recalculated on every visit: the more it shows you something, the more chances you have to stop on it.`,(I,n,h)=>`Vous veniez pour ${I}, et ce thème garde ${n} case${n>1?"s":""} sur 10. Mais ${h} publications sur 10 seraient du type « accroche », contre 5 aujourd’hui. Un petit écart. Seulement, le fil se recalcule à chaque visite : ce qu’il vous montre davantage, vous avez davantage d’occasions de vous y arrêter.`,(I,n,h)=>`Venías por ${I}, y ese tema conserva ${n} casilla${n>1?"s":""} de 10. Pero ${h} publicaciones de 10 serían «gancho», frente a 5 hoy. Una pequeña diferencia. Solo que el feed se recalcula en cada visita: cuanto más te muestra algo, más ocasiones tienes de detenerte en ello.`),
+     x0:A3((h)=>`Tomorrow, ${h} posts out of 10 would be “hooks”, against 5 today. A small gap. Except the feed is recalculated on every visit: the more it shows you something, the more chances you have to stop on it.`,(h)=>`Demain, ${h} publications sur 10 seraient du type « accroche », contre 5 aujourd’hui. Un petit écart. Seulement, le fil se recalcule à chaque visite : ce qu’il vous montre davantage, vous avez davantage d’occasions de vous y arrêter.`,(h)=>`Mañana, ${h} publicaciones de 10 serían «gancho», frente a 5 hoy. Una pequeña diferencia. Solo que el feed se recalcula en cada visita: cuanto más te muestra algo, más ocasiones tienes de detenerte en ello.`),
+     xc:A3((n,h,k)=>`${n!=null?`Your goal keeps ${n} square${n>1?"s":""} out of 10, and the share of hooks doesn’t move (${h} out of 10). `:`The share of hooks doesn’t move (${h} out of 10). `}But you stopped on ${k} “hook” posts: here, what you opened made up for it. On a real platform, those stops would still be counted.`,(n,h,k)=>`${n!=null?`Votre objectif garde ${n} case${n>1?"s":""} sur 10, et la part d’accroche ne bouge pas (${h} sur 10). `:`La part d’accroche ne bouge pas (${h} sur 10). `}Mais vous vous êtes arrêté sur ${k} publications « accroche » : ici, ce que vous avez ouvert a compensé. Sur une vraie plateforme, ces arrêts seraient retenus quand même.`,(n,h,k)=>`${n!=null?`Tu objetivo conserva ${n} casilla${n>1?"s":""} de 10, y la proporción de ganchos no cambia (${h} de 10). `:`La proporción de ganchos no cambia (${h} de 10). `}Pero te detuviste en ${k} publicaciones «gancho»: aquí, lo que abriste lo compensó. En una plataforma real, esas paradas contarían igualmente.`),
+     act:A3("Try it for real, in 5 minutes: scroll through 20 posts in your app and count those from accounts you never chose.","Faites le test en vrai, en 5 minutes : faites défiler 20 publications de votre appli et comptez celles qui viennent de comptes que vous n’avez jamais choisis.","Haz la prueba de verdad, en 5 minutos: desliza 20 publicaciones de tu app y cuenta las que vienen de cuentas que nunca elegiste."),
+     link:A3("Understand how the feed adjusts to you","Comprendre comment le fil se cale sur vous","Entender cómo el feed se ajusta a ti")},
+  C:{t:A3("This time, your feed tomorrow follows your goal.","Cette fois, votre fil de demain suit votre objectif.","Esta vez, tu feed de mañana sigue tu objetivo."),
+     t0:A3("This time, your feed tomorrow stays balanced.","Cette fois, votre fil de demain reste équilibré.","Esta vez, tu feed de mañana sigue equilibrado."),
+     x:A3((I,n)=>`You went for what you were looking for and slowed down little elsewhere: ${I} would take ${n} square${n>1?"s":""} out of 10 tomorrow. But ten posts, knowing you are taking a test, is not a tired late evening in front of your phone.`,(I,n)=>`Vous êtes allé vers ce que vous cherchiez et vous avez peu ralenti ailleurs : ${I} prendrait ${n} case${n>1?"s":""} sur 10 demain. Mais dix publications, en sachant qu’on fait un test, ce n’est pas une fin de soirée fatiguée devant son téléphone.`,(I,n)=>`Fuiste a lo que buscabas y te detuviste poco en lo demás: ${I} ocuparía ${n} casilla${n>1?"s":""} de 10 mañana. Pero diez publicaciones, sabiendo que haces un test, no son el final de una noche cansada frente al móvil.`),
+     x0:A3("You slowed down little on the “hook” posts. But ten posts, knowing you are taking a test, is not a tired late evening in front of your phone.","Vous avez peu ralenti sur les publications « accroche ». Mais dix publications, en sachant qu’on fait un test, ce n’est pas une fin de soirée fatiguée devant son téléphone.","Te detuviste poco en las publicaciones «gancho». Pero diez publicaciones, sabiendo que haces un test, no son el final de una noche cansada frente al móvil."),
+     act:A3("In your real app, open the “…” menu of a post you didn’t choose. Most apps offer an option like “Why am I seeing this?”. Do it three times: you will see what the platform says it learned about you.","Sur votre vraie appli, ouvrez le menu « … » d’une publication que vous n’avez pas choisie. La plupart des applis proposent une option du type « Pourquoi je vois ça ? ». Faites-le trois fois : vous verrez ce que la plateforme dit avoir retenu de vous.","En tu app real, abre el menú «…» de una publicación que no elegiste. La mayoría de apps ofrecen una opción del tipo «¿Por qué veo esto?». Hazlo tres veces: verás lo que la plataforma dice haber aprendido de ti."),
+     link:A3("See what each app lets you adjust","Voir ce que chaque appli vous laisse régler","Ver lo que cada app te deja ajustar")},
+  Z:{t:A3("You scrolled through everything at the same pace. The feed learned almost nothing.","Vous avez tout fait défiler au même rythme. Le fil n’a presque rien appris.","Deslizaste todo al mismo ritmo. El feed no aprendió casi nada."),
+     x:A3("In this illustration, your feed tomorrow stays the same as today. On a real platform, that silence doesn’t last: with no signal, it offers what holds other users most.","Dans cette illustration, votre fil de demain reste celui d’aujourd’hui. Sur une vraie plateforme, ce silence ne dure pas : faute de signal, elle propose ce qui retient le plus les autres utilisateurs.","En esta ilustración, tu feed de mañana sigue igual que hoy. En una plataforma real, ese silencio no dura: sin señales, ofrece lo que más retiene a los demás usuarios.")}
+ },
+ first0:A3("You didn’t come for anything in particular. That is where the feed decides most: with no goal, what you do is almost the only signal it gets.","Vous n’étiez venu pour rien de précis. C’est là que le fil décide le plus : sans objectif, vos gestes sont presque les seuls signaux qu’il reçoit.","No venías a nada en concreto. Ahí es donde más decide el feed: sin objetivo, tus gestos son casi las únicas señales que recibe."),
+ app_q:A3("For which app?","Pour quelle appli ?","¿Para qué app?"),other:A3("Other","Autre","Otra"),
+ pi:A3((k)=>`You used “Not interested” ${k} time${k>1?"s":""}: one of the few signals we give on purpose. In reality its effect is limited: on YouTube, a Mozilla study (2022) found it prevented only 11% of unwanted recommendations.`,(k)=>`Vous avez utilisé « Pas intéressé » ${k} fois : c’est l’un des rares signaux qu’on donne exprès. Dans la réalité, son effet est limité : sur YouTube, une étude de Mozilla (2022) a mesuré qu’il évitait seulement 11 % des recommandations non désirées.`,(k)=>`Usaste «No me interesa» ${k} ${k>1?"veces":"vez"}: una de las pocas señales que damos a propósito. En la realidad su efecto es limitado: en YouTube, un estudio de Mozilla (2022) midió que solo evitaba el 11 % de las recomendaciones no deseadas.`),
+ pi_src:"https://www.mozillafoundation.org/en/youtube/user-controls/",
+ nt_res:A3("Only your taps counted here. A real platform also measures time spent.","Seuls vos appuis ont compté ici. Une vraie plateforme, elle, mesure aussi le temps passé.","Aquí solo contaron tus toques. Una plataforma real también mide el tiempo dedicado."),
+ cmp_b:A3((a,b)=>`First try: you stopped on ${a} “hook” post${a>1?"s":""}. This time: ${b}. Knowing what the feed watches, you took back some control.`,(a,b)=>`Premier essai : vous vous étiez arrêté sur ${a} publication${a>1?"s":""} « accroche ». Cette fois : ${b}. En sachant ce que le fil regarde, vous l’avez repris en main.`,(a,b)=>`Primer intento: te detuviste en ${a} publicación${a>1?"es":""} «gancho». Esta vez: ${b}. Sabiendo lo que mira el feed, recuperaste parte del control.`),
+ cmp_w:A3((a,b)=>`First try: you stopped on ${a} “hook” post${a>1?"s":""}. This time: ${b}. Even forewarned, it isn’t easy. That is exactly why the reset exists.`,(a,b)=>`Premier essai : vous vous étiez arrêté sur ${a} publication${a>1?"s":""} « accroche ». Cette fois : ${b}. Même averti, ce n’est pas simple. C’est pour ça que la remise à zéro existe.`,(a,b)=>`Primer intento: te detuviste en ${a} publicación${a>1?"es":""} «gancho». Esta vez: ${b}. Aun avisado, no es fácil. Para eso existe el reinicio.`),
+ cmp_0:A3("Both times, you didn’t stop on any “hook” post.","Les deux fois, vous ne vous êtes arrêté sur aucune publication « accroche ».","Las dos veces, no te detuviste en ninguna publicación «gancho»."),
+ reset_go:A3("Where the reset button is","Où est le bouton de remise à zéro","Dónde está el botón de reinicio"),
+ disc:A3("Simplified illustration. Real platforms combine hundreds of signals, each in its own way. This test says nothing about your real feed. Nothing was recorded.","Illustration simplifiée. Les vraies plateformes combinent des centaines de signaux, chacune à sa façon. Ce test ne dit rien de votre vrai fil. Rien n’a été enregistré.","Ilustración simplificada. Las plataformas reales combinan cientos de señales, cada una a su manera. Este test no dice nada de tu feed real. No se ha guardado nada."),
+ again:A3("Try again, keeping control","Refaire en gardant la main","Repetir manteniendo el control"),
+ how:A3("How it works","Comment ça marche","Cómo funciona")
+};
+/* Runtime swaps (old values kept beside them), run at first render so that older patches to ALGO cannot undo them */
+function xpSwap(){if(!ALGO_XP||ALGO.xp_swapped)return;ALGO.xp_swapped=true;
+ ALGO.sec_rtest_old=ALGO.sec.rtest;ALGO.sec.rtest=A3("The experiment","L’expérience","El experimento");
+ ALGO.steps_old0=ALGO.steps[0];ALGO.steps[0]=["rcheck",A3("01 · 2 min","01 · 2 min","01 · 2 min"),A3("The experiment","L’expérience","El experimento"),A3("Ten made-up posts. See what your feed learns about you.","Dix publications fictives. Découvrez ce que votre fil retient de vous.","Diez publicaciones inventadas. Descubre lo que tu feed aprende de ti.")];
+ ALGO.cta_test_old=ALGO.cta_test;ALGO.cta_test=A3("Try the experiment · 2 min","Faire l’expérience · 2 min","Hacer el experimento · 2 min");
+ ALGO.hook_eye_old=ALGO.hook_eye;ALGO.hook_eye=A3("The experiment · 10 posts · 2 min","L’expérience · 10 publications · 2 min","El experimento · 10 publicaciones · 2 min");
+ ALGO.neutral_old=ALGO.neutral;ALGO.neutral=A3("No outlet named, no side singled out, no question about your opinions. Nothing is recorded.","Aucun média cité, aucun camp désigné, aucune question sur vos opinions. Rien n’est enregistré.","Ningún medio citado, ningún bando señalado, ninguna pregunta sobre tus opiniones. No se guarda nada.");
+ ALGO.vf_p_old=ALGO.vf_p;
+ ALGO.vf_p=A3("Four common beliefs. Some are true.","Quatre idées reçues. Certaines sont vraies.","Cuatro ideas preconcebidas. Algunas son verdaderas.");
+ ALGO.vf_is_t=A3("It’s true.","C’est vrai.","Es verdad.");ALGO.vf_is_f=A3("It’s false.","C’est faux.","Es falso.");
+ /* swapped in at render time (algoPage), after the older patches to ALGO.vf have run */
+ ALGO.vf2=[
+  [true,A3("An opinion outlet can be a reliable outlet.","Un média d’opinion peut être un média fiable.","Un medio de opinión puede ser un medio fiable."),A3("An openly stated line doesn’t rule out rigour on the facts. The problem is a hidden line, or facts bent to serve it.","Une ligne assumée n’empêche pas la rigueur sur les faits. Le problème, c’est une ligne cachée, ou des faits arrangés pour la servir.","Una línea asumida no impide el rigor con los hechos. El problema es una línea oculta, o hechos amañados para servirla.")],
+  [true,A3("In many countries, an influencer must say when they are paid for a promotion.","Dans beaucoup de pays, un influenceur doit signaler quand il est payé pour une promotion.","En muchos países, un influencer debe indicar cuándo le pagan por una promoción."),A3("In more and more countries, such as India since 2021 and France since 2023 (label “Advertising” or “Commercial collaboration”).","Dans de plus en plus de pays, comme l’Inde depuis 2021 et la France depuis 2023 (mention « Publicité » ou « Collaboration commerciale »).","En cada vez más países, como India desde 2021 y Francia desde 2023 (mención «Publicidad» o «Colaboración comercial»).")],
+  [false,A3("A “citizens’” group on social media is independent of parties, otherwise it would be banned.","Un groupe « citoyen » sur les réseaux est indépendant des partis, sinon ce serait interdit.","Un grupo «ciudadano» en redes es independiente de los partidos; si no, estaría prohibido."),A3("Activists or a party can run it. That is not banned, but it should be said: check who runs it.","Des militants ou un parti peuvent l’animer. Ce n’est pas interdit, mais ça devrait être dit : regardez qui l’administre.","Militantes o un partido pueden animarlo. No está prohibido, pero debería decirse: mira quién lo administra.")],
+  [false,A3("Pressing “Not interested” is enough to make a type of content disappear.","Appuyer sur « Pas intéressé » suffit à faire disparaître un type de contenu.","Pulsar «No me interesa» basta para que desaparezca un tipo de contenido."),A3("On YouTube, a Mozilla study (2022) found this button prevented only 11% of unwanted recommendations. “Don’t recommend channel” did better (43%), without blocking everything.","Sur YouTube, une étude de Mozilla (2022) a mesuré que ce bouton n’évitait que 11 % des recommandations non désirées. « Ne pas recommander la chaîne » faisait mieux (43 %), sans tout bloquer.","En YouTube, un estudio de Mozilla (2022) midió que este botón solo evitaba el 11 % de las recomendaciones no deseadas. «No recomendar el canal» funcionaba mejor (43 %), sin bloquearlo todo."),"https://www.mozillafoundation.org/en/youtube/user-controls/"]
+ ];
+ ALGO.vf_old=ALGO.vf;ALGO.vf=ALGO.vf2;ALGO_STATE.vf={};
+}
+function algoVfItem(i){const v=ALGO.vf[i],a=ALGO_STATE.vf[i];
+  const btn=(val,lab)=>`<button type="button" class="rq-opt vf-b" data-vf="${i}" data-v="${val}" aria-pressed="${a===val}"${a!==undefined?" disabled":""}>${aT(lab)}</button>`;
+  const head=ALGO_XP?(v[0]?ALGO.vf_is_t:ALGO.vf_is_f):(a===v[0]?ALGO.vf_ok:ALGO.vf_ko);
+  const fb=a===undefined?"":`<p class="vf-fb ${a===v[0]?"ok":"ko"}"><b>${aT(head)}</b> ${aT(v[2])}${v[3]?` <a class="src-a" href="${v[3]}" target="_blank" rel="noopener">${esc(srcNamed(v[3]))}</a>`:""}</p>`;
+  return `<div class="vf-i" id="vf-${i}"><p class="vf-s">${aT(v[1])}</p><div class="rq-opts">${btn(true,ALGO.vf_t)}${btn(false,ALGO.vf_f)}</div><div aria-live="polite">${fb}</div></div>`}
+function algoVfScore(){const k=Object.keys(ALGO_STATE.vf);if(k.length<ALGO.vf.length)return `<p class="rq-count mono">${k.length}/${ALGO.vf.length}</p>`;
+  if(ALGO_XP)return `<p class="vf-score"><button type="button" class="linkbtn vf-reset">${aT(ALGO.restart)}</button></p>`;
+  const ok=k.filter(i=>ALGO_STATE.vf[i]===ALGO.vf[i][0]).length;return `<p class="vf-score"><span class="mono">${ok}/${ALGO.vf.length}</span> ${aT(ALGO.vf_score)} · <button type="button" class="linkbtn vf-reset">${aT(ALGO.restart)}</button></p>`}
+
+/* ---- the experiment ---- */
+const XP={step:"intro",notime:false,intent:null,run:1,h1:null};
+function xpReset(keep){const o=XP.run>1?ALGO.xp.order2:[0,1,2,3,4,5,6,7,8,9];
+  Object.assign(XP,{order:o,i:0,t:Array(10).fill(0),o:Array(10).fill(0),opened:Array(10).fill(false),hid:Array(10).fill(false),t0:null,acc:0,pred:null,app:null,res:null});
+  if(!keep)XP.intent=null}
+function xpClockStart(){XP.acc=0;XP.t0=document.hidden?null:performance.now()}
+function xpClockStop(){const s=(XP.acc+(XP.t0!=null?performance.now()-XP.t0:0))/1000;XP.t0=null;XP.acc=0;return Math.min(20,s)}
+document.addEventListener("visibilitychange",()=>{if(XP.step!=="feed"&&XP.step!=="open")return;if(document.hidden){if(XP.t0!=null){XP.acc+=performance.now()-XP.t0;XP.t0=null}}else XP.t0=performance.now()});
+function xpMed(a){const s=[...a].sort((x,y)=>x-y);return (s[4]+s[5])/2}
+function xpCalc(){
+  const C=ALGO.xp.cards,TH=["cuisine","sport","animaux","voyage","autre"];
+  const m=xpMed(XP.t),thr=Math.max(2.5,1.5*m);
+  const stop=XP.t.map(t=>!XP.notime&&t>=thr);
+  const w=C.map((c,i)=>(stop[i]?1:0)+(XP.opened[i]?2:0)+(XP.o[i]>=4?1:0)-(XP.hid[i]?1:0));
+  const T={};TH.forEach(k=>T[k]=Math.max(.2,1+C.reduce((s,c,i)=>s+(c[0]===k?w[i]:0),0)));
+  const A=Math.max(.2,1+C.reduce((s,c,i)=>s+(c[1]?w[i]:0),0)),Cc=Math.max(.2,1+C.reduce((s,c,i)=>s+(c[1]?0:w[i]),0));
+  const sum=TH.reduce((s,k)=>s+T[k],0),raw=TH.map(k=>10*T[k]/sum),fl=raw.map(Math.floor);let left=10-fl.reduce((a,b)=>a+b,0);
+  raw.map((r,j)=>[r-fl[j],j]).sort((a,b)=>b[0]-a[0]).slice(0,left).forEach(x=>fl[x[1]]++);
+  const slots={};TH.forEach((k,j)=>slots[k]=fl[j]);
+  const h=Math.min(9,Math.max(1,Math.round(10*A/(A+Cc))));
+  const why=i=>XP.opened[i]?"open":stop[i]?"stop":XP.hid[i]?"hide":"vary";
+  const idx=(k,hook)=>C.findIndex(c=>c[0]===k&&!!c[1]===hook);
+  let cells=[];TH.slice().sort((a,b)=>slots[b]-slots[a]).forEach(k=>{for(let j=0;j<slots[k];j++)cells.push({k})});
+  const pri=cells.map((c,j)=>[w[idx(c.k,true)]>0?0:1,j]).sort((a,b)=>a[0]-b[0]||a[1]-b[1]).slice(0,h).map(x=>x[1]);
+  cells.forEach((c,j)=>{c.hook=pri.includes(j);c.why=why(idx(c.k,c.hook))});
+  const sS=stop.filter(Boolean).length,sO=XP.opened.reduce((s,o,i)=>s+(o?2+(XP.o[i]>=4?1:0):0),0),nO=XP.opened.filter(Boolean).length,nH=XP.hid.filter(Boolean).length;
+  const dom=sS>0&&sS>=sO?"stop":sO>0?"open":"none";
+  const I=XP.intent,n=I?slots[I]:0,maxOther=I?Math.max(...TH.filter(k=>k!==I).map(k=>slots[k])):0;
+  const hs=C.filter((c,i)=>c[1]&&(stop[i]||XP.opened[i])).length;
+  let path;if(!sS&&!nO&&!nH)path="Z";else if(h>=7||(I&&n<maxOther))path="A";else if(h<=5&&hs<=1&&(!I||n>=maxOther))path="C";else path="B";
+  return {m,thr,stop,w,slots,h,cells,sS,nO,nH,dom,n,path,hs,x:stop.filter((s,i)=>s&&!XP.opened[i]).length}
+}
+const XP_COL={cuisine:"var(--dit)",sport:"var(--good)",animaux:"var(--warn)",voyage:"var(--violet)",autre:"var(--muted)"};
+function xpCell(k,hook,title){return `<span class="xp-cell${hook?" hook":""}" style="--c:${XP_COL[k]}"${title?` title="${esc(title)}"`:""}></span>`}
+function xpNum(x){return (Math.round(x*10)/10).toLocaleString(lang==="en"?"en-GB":lang==="es"?"es-ES":"fr-FR")}
+function xpView(){const X=ALGO.xp,C=X.cards;
+  if(XP.step==="intro")return `<div class="xp-box xp-intro"><p class="eyebrow">${aT(X.eye)}</p><p class="xp-lead">${aT(X.p)}</p><p class="rm-small">${aT(X.small)}</p><button type="button" class="btn xp-go" data-xp="start">${aT(X.go)} →</button><p><button type="button" class="linkbtn" data-xp="notime">${aT(X.notime)}</button></p></div>`;
+  if(XP.step==="int")return `<div class="xp-box"><p class="eyebrow">${aT(X.int_eye)}</p>${XP.run>1?`<p class="xp-again">${aT(X.again_line)}</p>`:""}<h3 class="xp-focus" tabindex="-1">${aT(X.int_q)}</h3><div class="xp-opts">${X.ints.map(o=>`<button type="button" class="rq-opt" data-xp="int" data-v="${o[0]}" aria-pressed="${XP.intent===(o[0]||null)&&XP.run>1}">${aT(o[1])}</button>`).join("")}</div></div>`;
+  if(XP.step==="feed"||XP.step==="open"||XP.step==="hid"){const ci=XP.order[XP.i],c=C[ci];
+    const top=`<div class="xp-prog"><span class="mono">${XP.i+1} / 10</span><span class="xp-bar"><span style="width:${(XP.i+1)*10}%"></span></span></div><p class="sr-only" aria-live="polite">${esc(tr(X.sr_card)(XP.i+1))}</p>`;
+    if(XP.step==="open")return `<div class="xp-box">${top}<article class="xp-card open" style="--c:${XP_COL[c[0]]}"><p class="eyebrow">${aT(X.fict)}</p><h3 class="xp-focus" tabindex="-1">${aT(c[2])}</h3><p>${aT(c[3])}</p></article><button type="button" class="btn xp-next" data-xp="back">${aT(X.back)}</button></div>`;
+    if(XP.step==="hid")return `<div class="xp-box">${top}<article class="xp-card hid"><p class="xp-focus" tabindex="-1">${aT(X.hidden)}</p></article><button type="button" class="btn xp-next" data-xp="next">${aT(X.next)} ↓</button></div>`;
+    return `<div class="xp-box">${top}<article class="xp-card" style="--c:${XP_COL[c[0]]}"><span class="xp-swatch" aria-hidden="true"></span><p class="eyebrow">${aT(X.th[c[0]])} · ${aT(X.sugg)}</p><h3 class="xp-focus" tabindex="-1">${aT(c[2])}</h3><button type="button" class="linkbtn xp-hide" data-xp="hide">${aT(X.hide)}</button></article><button type="button" class="btn ghost xp-open" data-xp="open">${aT(X.open)}</button><button type="button" class="btn xp-next" data-xp="next">${aT(X.next)} ↓</button></div>`}
+  if(XP.step==="pred")return `<div class="xp-box"><p class="eyebrow">${aT(X.pred_eye)}</p><h3 class="xp-focus" tabindex="-1">${aT(X.pred_q)}</h3><div class="xp-opts">${X.preds.map(o=>`<button type="button" class="rq-opt" data-xp="pred" data-v="${o[0]}">${aT(o[1])}</button>`).join("")}</div></div>`;
+  /* result */
+  const R=XP.res,p=XP.pred;
+  const fbk=p==="goal"?"goal":p==="none"?(R.dom==="none"?"none_none":"none_some"):R.dom==="none"?"little":p+"_"+R.dom;
+  const fb=fbk==="none_some"?esc(tr(X.fb.none_some)(R.sS,R.nO)):aT(X.fb[fbk]);
+  const mx=Math.max(...XP.t,1);
+  const rows=XP.order.map(ci=>{const c=C[ci],mk=[];if(R.stop[ci])mk.push(aT(X.mk.stop));if(XP.opened[ci])mk.push(aT(X.mk.open));if(XP.hid[ci])mk.push(aT(X.mk.hide));
+    return `<li class="xp-row${R.stop[ci]?" stop":""}"><span class="xp-rt">${aT(c[2])}${c[1]?` <span class="xp-tag">${aT(X.mk.hook)} · ${aT(c[1])}</span>`:""}</span>${XP.notime?"":`<span class="xp-rb" aria-hidden="true"><span style="width:${Math.max(3,XP.t[ci]/mx*100)}%"></span></span><span class="mono xp-rs">${xpNum(XP.t[ci])} s</span>`}<span class="xp-rm">${mk.join(" · ")}</span></li>`}).join("");
+  const TH=["cuisine","sport","animaux","voyage","autre"],I=XP.intent,IN=I?aT(X.thIn[I]):"";
+  const today=XP.order.map(ci=>xpCell(C[ci][0],!!C[ci][1],aT(X.th[C[ci][0]]))).join("");
+  const tom=R.cells.map(c=>xpCell(c.k,c.hook,`${aT(X.th[c.k])}${c.hook?" · "+aT(X.mk.hook):""} — ${aT(X.why[c.why])}`)).join("");
+  const srTxt=esc(tr(X.sr)(TH.map(k=>`${aT(X.th[k]).toLowerCase()} ${R.slots[k]}`).join(", "),R.h));
+  const P=X.res[R.path];let title,txt,act="",link="";
+  if(R.path==="Z"){title=aT(P.t);txt=aT(P.x)}
+  else if(R.path==="A"){title=R.dom==="open"&&I?aT(P.tO):aT(I?P.t:P.t0);txt=I?esc(tr(P.x)(IN,R.n,R.h)):aT(X.first0)+" "+esc(tr(P.x0)(R.h));if(R.dom==="open")txt=txt.replace(aT(P.cS),aT(P.cO))}
+  else if(R.path==="B"&&R.h<=5){title=aT(P.tc);txt=(I?"":aT(X.first0)+" ")+esc(tr(P.xc)(I?R.n:null,R.h,R.hs))}
+  else if(R.path==="B"){title=aT(P.t);txt=I?esc(tr(P.x)(IN,R.n,R.h)):aT(X.first0)+" "+esc(tr(P.x0)(R.h))}
+  else {title=aT(I?P.t:P.t0);txt=I?esc(tr(P.x)(IN,R.n)):aT(X.first0)+" "+aT(P.x0)}
+  const apps=["TikTok","Instagram","YouTube","Facebook","X"];
+  if(R.path==="A"){act=`<p class="xp-nu">${aT(P.nu)}</p><p class="xp-act">${aT(P.act)}</p><p class="xp-appq mono">${aT(X.app_q)}</p><div class="xp-opts">${apps.map(a=>`<a class="rq-opt xp-app" role="button" tabindex="0" data-jump="rreset-${a.toLowerCase()}">${a}</a>`).join("")}<a class="rq-opt xp-app" role="button" tabindex="0" data-jump="rreset">${aT(X.other)}</a></div>`}
+  else if(R.path==="B"){act=`<p class="xp-act">${aT(P.act)}</p>`;link=`<a class="xp-link" role="button" tabindex="0" data-jump="rcomprendre">${aT(P.link)} →</a>`}
+  else {const Q=X.res.C;act=`<p class="xp-act">${aT(Q.act)}</p>`;link=`<a class="xp-link" role="button" tabindex="0" data-jump="rreset">${aT(Q.link)} →</a>`}
+  const extra=[R.nH?`${esc(tr(X.pi)(R.nH))} <a class="src-a" href="${X.pi_src}" target="_blank" rel="noopener">${esc(srcNamed(X.pi_src))}</a>`:"",XP.notime?aT(X.nt_res):""].filter(Boolean).map(s=>`<p class="xp-nu">${s}</p>`).join("");
+  const cmp=XP.run>1&&XP.h1!=null?`<p class="xp-cmp">${R.hs<XP.h1?esc(tr(X.cmp_b)(XP.h1,R.hs)):XP.h1===0&&R.hs===0?aT(X.cmp_0):esc(tr(X.cmp_w)(XP.h1,R.hs))+` <a role="button" tabindex="0" data-jump="rreset">${aT(X.reset_go)} →</a>`}</p>`:"";
+  return `<div class="xp-box xp-res">
+   <p class="xp-fb"><b>${aT(X.preds.find(o=>o[0]===p)[1])}</b> — ${fb}</p>
+   <h3 class="xp-focus" tabindex="-1">${aT(X.mir_h)}</h3>
+   ${XP.notime?`<p class="rm-small">${aT(X.notime_mir)}</p>`:`<p class="rm-small mono">${esc(tr(X.rhythm)(xpNum(R.m),xpNum(R.thr)))}</p>`}
+   <ol class="xp-rows">${rows}</ol>
+   <p>${R.sS?esc(tr(X.stops)(R.sS,R.x)):aT(X.nostop)}</p>
+   <p class="xp-reveal">${aT(X.reveal)}</p>
+   <h3>${aT(X.dem_h)}</h3>
+   <div class="xp-strips" role="img" aria-label="${esc(srTxt)}"><span class="mono">${aT(X.today)}</span><span class="xp-strip">${today}</span><span class="mono">${aT(X.tomorrow)}</span><span class="xp-strip">${tom}</span></div>
+   <p class="rm-small">${aT(X.legend)}</p>
+   <details class="xp-rule"><summary>${aT(X.rule_h)}</summary><p>${aT(X.rule)}</p></details>
+   ${cmp}
+   <h3 class="xp-title">${title}</h3><p>${txt}</p>${extra}${act}${link?`<p>${link}</p>`:""}
+   <p class="note xp-disc">${aT(X.disc)}</p>
+   <p class="xp-end"><button type="button" class="btn" data-xp="again">${aT(X.again)}</button> <a class="btn ghost" role="button" tabindex="0" data-jump="rmeca">${aT(X.how)}</a></p>
+  </div>`;
+}
+function algoXp(){return `<div class="rm-testhead"><h2>${aT(ALGO.xp.h)}</h2></div><div id="xp" class="xp">${xpView()}</div>`}
+function xpRender(focus){const b=document.getElementById("xp");if(!b)return;b.innerHTML=xpView();if(focus!==false){const f=b.querySelector(".xp-focus");if(f){f.focus({preventScroll:true});const r=b.getBoundingClientRect();if(r.top<0||r.top>innerHeight*.6)b.scrollIntoView({block:"start",behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"})}}if(XP.step==="feed")xpClockStart()}
+function xpAdvance(){XP.i++;XP.step=XP.i>=10?"pred":"feed";xpRender()}
+document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("[data-xp]");if(!b)return;const a=b.dataset.xp;
+  if(a==="start"||a==="notime"){if(a==="notime")XP.notime=true;XP.run=1;XP.h1=null;xpReset();XP.step="int";return xpRender()}
+  if(a==="int"){XP.intent=b.dataset.v||null;XP.step="feed";return xpRender()}
+  const ci=XP.order?XP.order[XP.i]:0;
+  if(a==="next"){if(XP.step==="feed")XP.t[ci]+=xpClockStop();return xpAdvance()}
+  if(a==="open"){XP.t[ci]+=xpClockStop();XP.opened[ci]=true;XP.step="open";xpRender();xpClockStart();return}
+  if(a==="back"){XP.o[ci]+=xpClockStop();return xpAdvance()}
+  if(a==="hide"){XP.t[ci]+=xpClockStop();XP.hid[ci]=true;XP.step="hid";return xpRender()}
+  if(a==="pred"){XP.pred=b.dataset.v;XP.res=xpCalc();XP.step="res";return xpRender()}
+  if(a==="again"){XP.h1=XP.res?XP.res.hs:null;XP.run=2;xpReset(true);XP.step="int";return xpRender()}
+});
+document.addEventListener("keydown",e=>{if(XP.step!=="feed"||!document.getElementById("xp"))return;if(e.target.closest&&e.target.closest("input,textarea,select"))return;
+  if(e.key==="o"||e.key==="O"){const b=document.querySelector('#xp [data-xp="open"]');if(b){e.preventDefault();b.click()}}});
+
 /* v3 (21/11/2026): examples and sources from every continent, not only France/EU */
 ALGO.world=[
  [A3("Romania","Roumanie","Rumanía"),A3("16 NGOs alerted the authorities about TikTok, fact-checkers flagged misleading posts in real time, and turnout hit a record in the 2025 re-run, especially among young people.","16 ONG ont alerté les autorités sur TikTok, des vérificateurs ont signalé les contenus trompeurs en temps réel, et la participation a battu des records lors du nouveau scrutin de 2025, surtout chez les jeunes.","16 ONG alertaron a las autoridades sobre TikTok, verificadores señalaron contenidos engañosos en tiempo real y la participación batió récords en la repetición de 2025, sobre todo entre los jóvenes."),"https://www.eesc.europa.eu/bg/news-media/eesc-info/eesc-info-july-2025/articles/131197"],
