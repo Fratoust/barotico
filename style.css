@@ -1133,3 +1133,25 @@ a.rq-opt{display:inline-flex;align-items:center;text-decoration:none}
 .tabctx{font-size:var(--fs-b);line-height:1.5;margin:0 0 18px;padding:10px 14px;border-left:4px solid var(--dit);background:color-mix(in srgb,var(--dit) 6%,var(--surface));max-width:70ch}
 .kicker{font-family:var(--f-mono);font-size:var(--fs-xs);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 2px}
 .kicker+h3{margin-top:0}
+/* v177: « Reprendre la main » v2 — path, blocks, paid box */
+.rm-path{list-style:none;padding:0;margin:18px 0 10px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;counter-reset:none}
+.rm-path a{display:grid;gap:2px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface);cursor:pointer;text-decoration:none;color:inherit;height:100%}
+.rm-path a:hover{border-color:var(--dit)}
+.rm-path .mono{font-size:var(--fs-xs);color:var(--dit)}
+.rm-path b{font-size:1rem}
+.rm-path small{color:var(--muted);font-size:var(--fs-s)}
+@media (max-width:640px){.rm-path{grid-template-columns:minmax(0,1fr)}}
+.rm-why{font-size:var(--fs-s);color:var(--muted);max-width:70ch;margin:6px 0 0}
+.rm-why b{color:var(--ink)}
+.rm-block{border-top:2px solid var(--ink);margin-top:36px;padding-top:20px}
+.rmb-h h2{margin:0 0 4px}
+.rmb-h p{margin:0 0 14px;color:var(--muted);max-width:70ch}
+.rm-block>.rm-sec{margin-top:18px}
+.rm-paid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:720px){.rm-paid{grid-template-columns:minmax(0,1fr)}}
+.rm-paid .mcard{display:grid;gap:6px}
+.rm-reflex{margin-top:12px;padding:12px 14px;border-left:4px solid var(--dit);background:color-mix(in srgb,var(--dit) 6%,var(--surface));border-radius:0 10px 10px 0}
+.rm-reflex ol{margin:6px 0 0;padding-left:20px;display:grid;gap:4px;font-weight:600}
+.rm-more{margin-top:16px;border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:var(--surface)}
+.rm-more>summary{cursor:pointer;font-weight:600}
+.rm-more[open]>summary{margin-bottom:10px}

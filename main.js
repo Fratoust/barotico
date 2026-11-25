@@ -226,7 +226,8 @@ function algoHook(){
    <p class="rm-foot"><a href="#reprendre">${aT(ALGO.cta_read)} →</a><span class="mono">${aT(ALGO.reset_eye)}${lang==="fr"?" : ":": "}${esc(nx.label)} · ${lang==="fr"?"J":"D"}-${nx.days}</span></p>
   </section>`;
 }
-function algoPage(){
+function algoPage(){return ALGO_V2?algoPage2():algoPage1()}
+function algoPage1(){
   if(typeof xpSwap==="function")xpSwap();
   const S=Object.keys(ALGO.sec);
   const th=cols=>`<tr>${cols.map(c=>`<th scope="col">${aT(c)}</th>`).join("")}</tr>`;
@@ -332,6 +333,71 @@ document.addEventListener("click",e=>{
 /* v172 (24/11/2026): « Ce que votre fil retient de vous » replaces the questionnaire and the old true/false.
    Nothing deleted: set ALGO_XP=false to bring back the questionnaire (algoQuiz), its profiles and the six old statements (ALGO.vf_old). */
 const ALGO_XP=true;
+/* v177 (25/11/2026): « Reprendre la main », version 2 après les retours de testeurs.
+   Même principe que les fiches partis : trois blocs ouverts chacun par une phrase (Testez · Comprenez · Reprenez la main),
+   un fil conducteur en 3 étapes en tête, le lien avec le reste du site dit en une phrase, un encart « Qui paie pour être vu ? »
+   et le détail replié par défaut. Rien n'est supprimé : ALGO_V2=false rétablit la page précédente (algoPage1). */
+const ALGO_V2=true;
+ALGO.v2={
+ lead:A3("Your news feed is not random: it is ranked to keep you scrolling. This page shows you what your feed has learned about you, and how to take back control in a few minutes.",
+  "Votre fil d’actualité n’est pas le fruit du hasard : il est classé pour vous faire rester. Cette page vous montre ce qu’il a appris de vous, et comment reprendre la main en quelques minutes.",
+  "Tu feed no es fruto del azar: está ordenado para que sigas mirando. Esta página te muestra lo que ha aprendido de ti y cómo recuperar el control en pocos minutos."),
+ why_h:A3("Why on Barotico?","Pourquoi sur Barotico ?","¿Por qué en Barotico?"),
+ why:A3("What you see every day shapes what you think of the parties, and how you vote. The country pages compare what parties say and do; this page helps you choose what you read.",
+  "Ce que vous voyez chaque jour pèse sur ce que vous pensez des partis, et sur votre vote. Les fiches pays comparent ce que les partis disent et font ; cette page vous aide à choisir vous-même ce que vous lisez.",
+  "Lo que ves cada día pesa en lo que piensas de los partidos y en tu voto. Las fichas de país comparan lo que los partidos dicen y hacen; esta página te ayuda a elegir tú lo que lees."),
+ steps:[["b-test",A3("Test your feed","Testez votre fil","Pon a prueba tu feed"),A3("2 minutes, nothing is saved","2 minutes, rien n’est enregistré","2 minutos, no se guarda nada")],
+  ["b-comp",A3("See what hooks you","Comprenez ce qui vous accroche","Entiende qué te engancha"),A3("anger, fear, paid content","colère, peur, contenus payés","enfado, miedo, contenido pagado")],
+  ["b-act",A3("Adjust your apps","Réglez vos réseaux","Ajusta tus redes"),A3("about 5 minutes per app","environ 5 minutes par appli","unos 5 minutos por app")]],
+ blocks:{
+  "b-test":[A3("1 · Test your feed","1 · Testez votre fil","1 · Pon a prueba tu feed"),A3("Scroll through a mock feed for two minutes. At the end, you see what it kept about you. Nothing is saved or sent.","Faites défiler un faux fil pendant deux minutes. À la fin, vous voyez ce qu’il a retenu de vous. Rien n’est enregistré ni envoyé.","Desliza por un feed simulado durante dos minutos. Al final, ves lo que ha retenido de ti. No se guarda ni se envía nada.")],
+  "b-comp":[A3("2 · See what hooks you","2 · Comprenez ce qui vous accroche","2 · Entiende qué te engancha"),A3("Why some posts hold you longer than others, and who pays to be seen. Open what interests you.","Pourquoi certains contenus vous retiennent plus que d’autres, et qui paie pour être vu. Ouvrez ce qui vous intéresse.","Por qué algunos contenidos te retienen más que otros, y quién paga por ser visto. Abre lo que te interese.")],
+  "b-act":[A3("3 · Take back control","3 · Reprenez la main","3 · Recupera el control"),A3("The concrete settings, app by app, and a simple routine to vary your sources.","Les réglages concrets, appli par appli, et une routine simple pour varier vos sources.","Los ajustes concretos, app por app, y una rutina sencilla para variar tus fuentes.")]},
+ paid_h:A3("Who pays to be seen?","Qui paie pour être vu ?","¿Quién paga por ser visto?"),
+ paid:[[A3("Ads","Les publicités","La publicidad"),A3("They carry a “Sponsored” label. In the European Union, Meta (Facebook, Instagram) and Google no longer accept political ads since October 2025, in response to a new EU regulation on political advertising.","Elles portent la mention « Sponsorisé ». Dans l’Union européenne, Meta (Facebook, Instagram) et Google n’acceptent plus de publicités politiques depuis octobre 2025, en réponse à un nouveau règlement européen sur la publicité politique.","Llevan la etiqueta «Patrocinado». En la Unión Europea, Meta (Facebook, Instagram) y Google ya no aceptan publicidad política desde octubre de 2025, en respuesta a un nuevo reglamento europeo sobre publicidad política."),"https://about.fb.com/news/2025/07/ending-political-electoral-and-social-issue-advertising-in-the-eu/"],
+  [A3("Paid influencers","Les influenceurs payés","Los influencers pagados"),A3("A paid promotion must be disclosed, but it is not always done: that is what happened in Romania (see above).","Une promotion payée doit être signalée, mais ce n’est pas toujours fait : c’est ce qui s’est passé en Roumanie (voir plus haut).","Una promoción pagada debe indicarse, pero no siempre se hace: es lo que ocurrió en Rumanía (ver arriba)."),""],
+  [A3("Coordinated accounts","Les comptes coordonnés","Las cuentas coordinadas"),A3("Many accounts posting the same thing at the same time to push a topic up. A topic that suddenly appears everywhere deserves a second look.","Des dizaines de comptes qui publient la même chose au même moment pour faire monter un sujet. Un sujet qui surgit partout d’un coup mérite un second regard.","Decenas de cuentas que publican lo mismo a la vez para hacer subir un tema. Un tema que aparece de golpe en todas partes merece una segunda mirada."),""]],
+ reflex_h:A3("Three reflexes before sharing","Trois réflexes avant de partager","Tres reflejos antes de compartir"),
+ reflex:[A3("Who gains if I see this?","Qui a intérêt à ce que je voie ça ?","¿A quién le interesa que vea esto?"),A3("Is it labelled “Sponsored” or “partnership”?","Est-ce marqué « Sponsorisé » ou « partenariat » ?","¿Lleva la etiqueta «Patrocinado» o «colaboración»?"),A3("It makes me angry or afraid: why now?","Ça me met en colère ou me fait peur : pourquoi maintenant ?","Me enfada o me da miedo: ¿por qué ahora?")],
+ more_qui:A3("Who is speaking, who is paying: media types and the 7 questions to ask","Qui parle, qui paie : les types de médias et les 7 questions à se poser","Quién habla, quién paga: los tipos de medios y las 7 preguntas que hacerse"),
+ more_world:A3("Elsewhere in the world: what worked","Ailleurs dans le monde : ce qui a marché","En otros lugares del mundo: lo que funcionó"),
+ comp_more:A3("Read more: how your feed adapts to you","En savoir plus : comment votre fil s’adapte à vous","Saber más: cómo tu feed se adapta a ti"),
+ rhythm_more:A3("The 4-step guide and the recommended rhythm","Le manuel en 4 étapes et le rythme recommandé","El manual en 4 pasos y el ritmo recomendado")
+};
+function algoBlockHead(id){const [h,p]=ALGO.v2.blocks[id];return `<div class="rmb-h"><h2>${aT(h)}</h2><p>${aT(p)}</p></div>`}
+function algoPage2(){
+  if(typeof xpSwap==="function")xpSwap();
+  const V=ALGO.v2,th=cols=>`<tr>${cols.map(c=>`<th scope="col">${aT(c)}</th>`).join("")}</tr>`;
+  return `<div class="chead rm-head" style="grid-template-columns:minmax(0,1fr)"><div><p class="eyebrow">${aT(ALGO.eye)}</p>${algoTitle("h1")}<p class="lead" style="margin-top:12px">${aT(V.lead)}</p>
+   <ol class="rm-path">${V.steps.map(([id,h,s],i)=>`<li><a role="button" tabindex="0" data-jump="${id}"><span class="mono">${i+1}</span><b>${aT(h)}</b><small>${aT(s)}</small></a></li>`).join("")}</ol>
+   <p class="rm-why"><b>${aT(V.why_h)}</b> ${aT(V.why)}</p></div></div>
+  <section id="b-test" class="rm-block">${algoBlockHead("b-test")}
+   <section id="rtest" class="rm-sec">${typeof ALGO_XP!=="undefined"&&ALGO_XP?algoXp().replace("<h2","<h3").replace("</h2>","</h3>"):algoQuiz("f")}</section></section>
+  <section id="b-comp" class="rm-block">${algoBlockHead("b-comp")}
+   <section id="rcomprendre" class="rm-sec"><h3>${aT(ALGO.comp_h)}</h3><p class="lead">${aT(ALGO.lead)}</p>${algoNums()}<details class="rm-more"><summary>${aT(V.comp_more)}</summary>${ALGO.comp_p.map(p=>`<p class="rm-p">${aT(p)}</p>`).join("")}</details></section>
+   <section id="rpaid" class="rm-sec"><h3>${aT(V.paid_h)}</h3><div class="rm-paid">${V.paid.map(([h,x,u])=>`<div class="mcard"><b>${aT(h)}</b><span>${aT(x)}</span>${u?`<a class="src-a" href="${u}" target="_blank" rel="noopener">${esc(srcNamed(u))}</a>`:""}</div>`).join("")}</div>
+    <div class="rm-reflex"><p class="eyebrow">${aT(V.reflex_h)}</p><ol>${V.reflex.map(r=>`<li>${aT(r)}</li>`).join("")}</ol></div></section>
+   ${algoMeca().replace("<h2>","<h3>").replace("</h2>","</h3>")}
+   <details class="rm-more" id="rqui"><summary>${aT(V.more_qui)}</summary><p class="lead">${aT(ALGO.qui_p)}</p>
+    <div class="tablebox"><table class="rm-t"><thead>${th(ALGO.types_cols)}</thead><tbody>${ALGO.types.map(r=>`<tr><th scope="row">${aT(r[0])}</th><td>${aT(r[1])}</td><td>${aT(r[2])}</td></tr>`).join("")}</tbody></table></div>
+    <p><a href="#medias">${aT(ALGO.media_go)}</a></p>
+    <h3>${aT(ALGO.acc_h)}</h3><p class="rm-p">${aT(ALGO.acc_p)}</p>
+    <div class="tablebox"><table class="rm-t"><thead>${th(ALGO.acc_cols)}</thead><tbody>${ALGO.acc.map(r=>`<tr><th scope="row">${aT(r[0])}</th><td>${aT(r[1])}</td><td>${aT(r[2])}</td></tr>`).join("")}</tbody></table></div>
+    <p class="note">${aT(ALGO.acc_note)}</p></details></section>
+  <section id="b-act" class="rm-block">${algoBlockHead("b-act")}
+   <section id="rreset" class="rm-sec"><h3>${aT(ALGO.plat_h)}</h3><p class="lead">${aT(ALGO.plat_p)}</p>
+    <div class="tablebox"><table class="rm-t"><thead>${th(ALGO.plat_cols)}</thead><tbody>${ALGO.plat.map(p=>`<tr id="rreset-${p[0].toLowerCase()}"><th scope="row">${p[3]?`<a href="${p[3]}" target="_blank" rel="noopener">${p[0]}</a>`:p[0]}</th><td>${aT(p[1])}</td><td>${aT(p[2])}</td></tr>`).join("")}</tbody></table></div></section>
+   <details class="rm-more"><summary>${aT(V.rhythm_more)}</summary><h3>${aT(ALGO.steps_h)}</h3>${algoSteps()}
+    <h3>${aT(ALGO.rhythm_h)}</h3><div class="levels">${ALGO.rhythm.map(r=>`<div class="level"><b>${aT(r[0])}</b><span>${aT(r[1])}</span></div>`).join("")}</div></details>
+   <section id="relargir" class="rm-sec"><h3>${aT(ALGO.el_h)}</h3><p class="lead">${aT(ALGO.el_p)}</p>
+    <ol class="steps">${ALGO.el_steps.map(s=>`<li>${aT(s)}</li>`).join("")}</ol>
+    <div class="rm-cases">${ALGO.el_cases.map(c=>`<p class="fact">${aT(c)}</p>`).join("")}</div></section>
+   <details class="rm-more" id="rmonde"><summary>${aT(V.more_world)}</summary><p class="lead">${aT(ALGO.world_p)}</p>
+    <div class="mgrid">${ALGO.world.map(w=>`<div class="mcard"><b>${aT(w[0])}</b><span>${aT(w[1])}</span><a class="src-a" href="${w[2]}" target="_blank" rel="noopener">${esc(srcNamed(w[2]))}</a></div>`).join("")}</div></details>
+   ${algoBand()}
+   <p class="rm-stance">${aT(ALGO.stance)}</p></section>
+  <section class="rm-sec sources"><b>${aT(ALGO.src_h)}</b><ul>${[...ALGO.srcs,...(ALGO.srcs.some(s=>s[1]===V.paid[0][3])?[]:[["Meta, “Ending Political, Electoral and Social Issue Advertising in the EU” (2025)",V.paid[0][3]]])].map(s=>`<li><a href="${s[1]}" target="_blank" rel="noopener">${esc(s[0])}</a></li>`).join("")}</ul></section>`;
+}
 ALGO.xp={
  eye:A3("Experiment · 2 minutes","Expérience · 2 minutes","Experimento · 2 minutos"),
  h:A3("What your feed learns about you","Ce que votre fil retient de vous","Lo que tu feed aprende de ti"),
