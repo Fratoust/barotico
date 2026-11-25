@@ -1111,3 +1111,25 @@ a.rq-opt{display:inline-flex;align-items:center;text-decoration:none}
 .xp-hot p{margin:0 0 6px}
 .xp-hot ul{margin:0 0 6px;padding-left:18px;display:grid;gap:6px;font-size:.9rem}
 .xp-hot .src-a{font-size:.75rem}
+/* v176: party cards in three blocks (France + United States pilot) */
+.pcard.ux>.psec{border-top:2px solid var(--ink);padding-top:18px;margin-top:18px;display:grid;gap:16px}
+.pcard.ux .psec-h h4{font-family:var(--f-display);font-weight:400;font-size:1.3rem;margin:0 0 4px}
+.pcard.ux .psec-h p{margin:0;font-size:var(--fs-s);color:var(--muted);line-height:1.5;max-width:70ch}
+.pcard.ux .psec>.pblock,.pcard.ux .psec>details.alsoblk,.pcard.ux .psec>.demo{border-top:1px solid var(--line);padding-top:14px;margin:0}
+.lg{display:inline-flex;flex-wrap:wrap;gap:4px;vertical-align:middle;margin:2px 0}
+.lg-c{font-family:var(--f-mono);font-size:var(--fs-xs);letter-spacing:.04em;text-transform:uppercase;padding:2px 6px;border-radius:4px}
+.lg-c.ps-kept{background:color-mix(in srgb,var(--good) 16%,var(--surface));color:var(--good-t)}
+.lg-c.ps-mixed{background:color-mix(in srgb,var(--warn) 16%,var(--surface));color:var(--warn-t)}
+.lg-c.ps-consistent{background:color-mix(in srgb,var(--muted) 14%,var(--surface));color:var(--muted)}
+.lg-c.ps-gap{background:color-mix(in srgb,var(--fait) 12%,var(--surface));color:var(--fait)}
+.lg-c.ps-rights{background:color-mix(in srgb,var(--bad) 12%,var(--surface));color:var(--bad-t);font-weight:600}
+.ctx-i{cursor:pointer;display:inline-grid;place-items:center;width:18px;height:18px;padding:0;margin-left:2px;vertical-align:middle;border-radius:50%;border:1px solid var(--muted);background:none;color:var(--muted);font:italic 600 .7rem/1 var(--f-body)}
+.ctx-i[aria-expanded="true"]{background:var(--muted);color:var(--paper)}
+.ctx-p{font-size:var(--fs-s);line-height:1.5;margin:8px 0 0;padding:10px 12px;border-left:3px solid var(--muted);background:color-mix(in srgb,var(--muted) 8%,var(--surface))}
+.pcard.ux .idea{padding:14px;border-radius:10px;background:color-mix(in srgb,var(--dit) 8%,var(--surface))}
+.pcard.ux .idea p{margin:4px 0 10px;font-size:var(--fs-s)}
+.pcard.ux .idea .progs{display:flex;flex-wrap:wrap;gap:8px}
+.cmpbtn small{opacity:.75;font-weight:400}
+.tabctx{font-size:var(--fs-b);line-height:1.5;margin:0 0 18px;padding:10px 14px;border-left:4px solid var(--dit);background:color-mix(in srgb,var(--dit) 6%,var(--surface));max-width:70ch}
+.kicker{font-family:var(--f-mono);font-size:var(--fs-xs);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 2px}
+.kicker+h3{margin-top:0}
