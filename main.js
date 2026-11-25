@@ -226,7 +226,7 @@ function algoHook(){
    <p class="rm-foot"><a href="#reprendre">${aT(ALGO.cta_read)} →</a><span class="mono">${aT(ALGO.reset_eye)}${lang==="fr"?" : ":": "}${esc(nx.label)} · ${lang==="fr"?"J":"D"}-${nx.days}</span></p>
   </section>`;
 }
-function algoPage(){return ALGO_V2?algoPage2():algoPage1()}
+function algoPage(){const h=ALGO_V2?algoPage2():algoPage1();return v2on()?v2Algo(h):h}
 function algoPage1(){
   if(typeof xpSwap==="function")xpSwap();
   const S=Object.keys(ALGO.sec);
@@ -1836,7 +1836,7 @@ Object.assign(T.en,{edited:"edited"});Object.assign(T.fr,{edited:"modifiée le"}
 Object.assign(T.en,{map_h:"Click a country on the map"});Object.assign(T.fr,{map_h:"Cliquez sur un pays de la carte"});Object.assign(T.es,{map_h:"Haz clic en un país del mapa"});
 Object.assign(T.en,{cont_h:"Or choose from the list"});Object.assign(T.fr,{cont_h:"Ou choisissez dans la liste"});Object.assign(T.es,{cont_h:"O elige en la lista"});
 // "Why vote" as its own page (/<lang>/why-vote/): the home section, with the page title as h1.
-function voterPage(){txt14();const d=document.createElement("div");d.innerHTML=landing1();const s=d.querySelector("#voter");if(!s)return landing();const h=s.querySelector("h2");if(h){const h1=document.createElement("h1");h1.className="vh1";h1.textContent=tr(WHYP.h);h.replaceWith(h1);const ld=s.querySelector("p.lead");if(ld)ld.textContent=tr(WHYP.lead)}return `<div class="vpage">${s.outerHTML}</div>`}
+function voterPage(){txt14();const d=document.createElement("div");d.innerHTML=landing1();const s=d.querySelector("#voter");if(!s)return landing();const h=s.querySelector("h2");if(h){const h1=document.createElement("h1");h1.className="vh1";h1.textContent=tr(WHYP.h);h.replaceWith(h1);const ld=s.querySelector("p.lead");if(ld)ld.textContent=tr(WHYP.lead)}return `<div class="vpage">${s.outerHTML}${v2on()?v2VoteLink():""}</div>`}
 /* v180 (25/11/2026): home page proposal after the testers' feedback. Same sections, same order (François: the order works),
    but: "What would you like to do?" with three doors right under the title (replaces the "How to use Barotico" guide),
    each section opened by a plain title and one sentence, clear separators; the old eyebrow + pun title become the sub-title.
@@ -2007,7 +2007,7 @@ const QDM={france:{
 const QS={};
 function srcA(u){return `<a class="src-a" href="${u}" target="_blank" rel="noopener">${esc(typeof srcNamed==="function"?srcNamed(u):t("source"))}</a>`}
 function qdmView(k){const G=QDM[k],S=QS[k]||{i:-1};
- if(S.i<0)return `<div class="game-in"><span class="game-i">${PILI.c}</span><div><p class="eyebrow">${aT(PILT.kick.c)} · ${aT(A3("Game","Jeu","Juego"))}</p><h3>${aT(G.h)}</h3><p>${aT(G.p)}</p><button type="button" class="btn" data-qdm="start">${aT(PILT.start)} →</button></div></div>`;
+ if(S.i<0)return `<div class="game-in"><span class="game-i">${PILI.c}</span><div><p class="eyebrow">${v2on()?V2T.games:aT(PILT.kick.c)+" · "+aT(A3("Game","Jeu","Juego"))}</p><h3>${aT(G.h)}</h3><p>${aT(G.p)}</p><button type="button" class="btn" data-qdm="start">${aT(PILT.start)} →</button></div></div>`;
  if(S.i>=G.q.length)return `<div class="game-end"><p class="eyebrow">${aT(G.h)}</p><p class="game-score"><b class="mono">${S.s} / ${G.q.length}</b> ${aT(PILT.score)}</p><p>${aT(G.end)}</p><p class="rm-small">${aT(PILT.rule)}</p><p><button type="button" class="btn ghost" data-qdm="start">${aT(PILT.again)}</button></p></div>`;
  const [q,opts,ans,nu,src]=G.q[S.i],a=S.a;
  return `<div class="game-q"><p class="game-prog mono">${aT(PILT.qn)} ${S.i+1} / ${G.q.length}<span class="xp-bar"><span style="width:${(S.i+1)/G.q.length*100}%"></span></span></p><h3 class="game-focus" tabindex="-1">${aT(q)}</h3>
@@ -2039,7 +2039,7 @@ function blindDeal(k){const G=BLIND[k],[L,R]=G.sides,deck=shuf([...shuf(L).slice
  return deck.map(id=>{const same=(L.includes(id)?L:R).filter(x=>x!==id),other=L.includes(id)?R:L;return {id,o:shuf([id,shuf(same)[0],...shuf(other).slice(0,2)])}})}
 function pName(k,id){const p=(PARTIES[k]||[]).find(x=>x.id===id);return p?p.name:id}
 function blindView(k){const G=BLIND[k],S=BS[k]||{i:-1};
- if(S.i<0)return `<div class="game-in"><span class="game-i">${PILI.v}</span><div><p class="eyebrow">${aT(PILT.kick.v)} · ${aT(A3("Game","Jeu","Juego"))}</p><h3>${aT(G.h)}</h3><p>${aT(G.p)}</p><button type="button" class="btn" data-blind="start">${aT(PILT.start)} →</button></div></div>`;
+ if(S.i<0)return `<div class="game-in"><span class="game-i">${PILI.v}</span><div><p class="eyebrow">${v2on()?V2T.games:aT(PILT.kick.v)+" · "+aT(A3("Game","Jeu","Juego"))}</p><h3>${aT(G.h)}</h3><p>${aT(G.p)}</p><button type="button" class="btn" data-blind="start">${aT(PILT.start)} →</button></div></div>`;
  if(S.i>=S.d.length)return `<div class="game-end"><p class="eyebrow">${aT(G.h)}</p><p class="game-score"><b class="mono">${S.s} / ${S.d.length}</b> ${aT(PILT.score)}</p><p>${aT(G.end)}</p><p>${aT(G.tip)}</p><p class="rm-small">${aT(PILT.rule)}</p><p><button type="button" class="btn ghost" data-blind="start">${aT(PILT.again)}</button></p></div>`;
  const c=S.d[S.i],[txt,src]=G.c[c.id],a=S.a;
  return `<div class="game-q"><p class="game-prog mono">${S.i+1} / ${S.d.length}<span class="xp-bar"><span style="width:${(S.i+1)/S.d.length*100}%"></span></span></p>
@@ -2094,7 +2094,172 @@ function xpShareGo(btn){const cv=document.getElementById("xp-canvas");if(!cv)ret
  cv.toBlob(b=>{if(!b)return;const name="barotico-bulle.png";let f=null;try{f=new File([b],name,{type:"image/png"})}catch(e){}
   if(f&&navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],title:"Barotico",text:tr(XSH.c_foot)}).catch(()=>{});return}
   try{const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=name;document.body.appendChild(a);a.click();a.remove();if(msg)msg.textContent=tr(XSH.dl)}catch(e){}},"image/png")}
-function landing(){txt14();const h=landing1();return pilDoors(HOME_V2?homeV2(h):h)}
+/* ===== V2 (branch preview-v2, 25/11/2026): pilot France, in French only, after the brief « Barotico — brief d'architecture UX,
+   navigation et pilote France » and the answers of 25/11. EN and ES keep the current version. V2=false restores main. =====
+   - Home: doors « Comprendre la politique d'un pays » / « Comparer les partis » / « Sortir de ma bulle » (simulation stated),
+     order: doors, countries, example, next votes, tools and guides, method.
+   - Menu: current country named, tools grouped under « Outils et guides ».
+   - France: one navigation only, 4 parcours (Comprendre le pays · Comparer les partis · Comprendre le vote · Comprendre les médias),
+     an optional 3-step « Parcours essentiel » with a neutral progress line, short answers (question, answer, elements, limits, sources),
+     contextual links, inclusion rule for parties, compact cards, defined statuses, factual summaries, election calendar in Vote. */
+const V2=true;
+function v2on(k){return V2&&lang==="fr"&&(k===undefined||k==="france")}
+const V2I={
+ pays:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.6 8.4l-2.1 5.1-5.1 2.1 2.1-5.1z"/></svg>',
+ partis:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M5 20h14"/><path d="M4 8h16"/><path d="M6 8l-3 6h6zM18 8l-3 6h6z"/></svg>',
+ vote:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="1.5"/><path d="M8 11V5h8v6"/><path d="M10 8l1.5 1.5L14 7"/></svg>',
+ medias:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="13" height="14" rx="1.5"/><path d="M16.5 9h3a1 1 0 011 1v7.5a1.5 1.5 0 01-3 0V9"/><path d="M6.5 9h7M6.5 12.5h7M6.5 16h4"/></svg>'};
+const V2G={"t-sys":"pays","t-gov":"pays","t-fig":"pays","t-par":"partis","t-vote":"vote","t-med":"medias"},V2F={pays:"t-sys",partis:"t-par",vote:"t-vote",medias:"t-med"};
+const V2T={
+ nav:{pays:["Comprendre le pays","Le pays","Qui décide, qui gouverne, les chiffres"],partis:["Comparer les partis","Les partis","Ce qu’ils disent, ce qu’ils font"],vote:["Comprendre le vote","Le vote","Comment voter, prochaines dates"],medias:["Comprendre les médias","Les médias","Qui informe, qui possède"]},
+ sub:{"t-sys":"Système et institutions","t-gov":"Gouvernement","t-fig":"Chiffres clés"},
+ here:{pays:"Les règles du jeu, qui gouverne aujourd’hui, et les chiffres du pays.",partis:"Les partis présentés selon une règle publique, avec la même grille pour tous.",vote:"Ce qu’il faut savoir pour voter et comprendre le résultat, puis les règles détaillées.",medias:"Les principaux médias, à qui ils appartiennent, et comment s’informer de façon fiable."},
+ crumb:["Accueil","Pays"],
+ how:"Mêmes règles pour tous les partis ; chaque information renvoie à sa source, avec sa date.",how_l:"Méthode et indépendance",
+ plain:"En clair : un président élu directement par les citoyens, et un gouvernement qui doit garder la confiance de l’Assemblée nationale.",
+ cd_l:"Comprendre le vote →",
+ ess:{k:"Parcours essentiel · facultatif",h:"Première visite ? Un parcours en 3 étapes, environ 5 minutes",p:"Comprendre les règles, voir qui gouverne, apprendre à lire une fiche de parti. Vous pouvez le quitter à tout moment : toutes les rubriques restent accessibles.",go:"Commencer le parcours",
+  steps:[["t-sys","Comprendre les règles","Qui décide en France ?"],["t-gov","Comprendre qui gouverne","Qui gouverne aujourd’hui ?"],["t-par","Lire une fiche de parti","Ce qu’un parti dit, ce qu’il a fait, et les limites"]],
+  bar:(i,n)=>`Parcours essentiel · étape ${i} sur ${n}`,next:"Étape suivante →",end_b:"Terminer",quit:"Quitter le parcours",
+  done:"Parcours essentiel terminé. Les quatre parcours ci-dessus donnent accès à toutes les rubriques.",again:"Recommencer"},
+ q:{short:"Réponse en bref",el:"Voir les éléments",lim:"Nuances et limites",src:"Sources et méthode"},
+ qa:{
+  decide:["Qui décide ?","Le pouvoir est partagé entre un président élu directement par les citoyens, un Premier ministre et son gouvernement, et un Parlement à deux chambres : l’Assemblée nationale (577 députés) et le Sénat (348 sénateurs). Si les deux chambres ne s’accordent pas sur une loi, l’Assemblée a le dernier mot ; le Conseil constitutionnel peut être saisi.","Depuis les législatives de 2024, aucun groupe ni aucune coalition n’a la majorité absolue : le gouvernement cherche ses voix texte par texte.",["levels","law","hard"],"t-sys","v2-sys-detail"],
+  gov:["Qui gouverne aujourd’hui ?","Emmanuel Macron est président depuis 2017. Le Premier ministre est Sébastien Lecornu, reconduit le 10 octobre 2025. Son gouvernement est minoritaire à l’Assemblée nationale.","Quatre Premiers ministres se sont succédé depuis janvier 2024 : cette fiche donne la situation à sa date de mise à jour.",["gov","fun"],"t-gov",null],
+  fig:["Que signifient les principaux chiffres du pays ?","Les chiffres clés comparent la France à une référence, souvent la moyenne de l’Union européenne ou de l’OCDE : santé, école, sécurité, libertés, corruption, salaires, et où va l’argent public. Chaque chiffre indique son année et sa source.","Un chiffre seul ne dit pas pourquoi la situation est ainsi. Certains indicateurs sont des mesures, d’autres des évaluations d’experts ou des perceptions : l’étiquette de chaque case le précise.",[],"t-fig",null]},
+ ctx:{sys:["Qui exerce le pouvoir aujourd’hui ?","t-gov","Gouvernement"],gov:["Que proposent les partis ?","t-par","Comparer les partis"],vote:["Quelles institutions sont choisies ?","t-sys","Système et institutions"],party:["Comment les sièges sont-ils attribués ?","t-vote","Comprendre le vote"],med:["Comment les fils d’actualité sont-ils recommandés ?","#reprendre","Reprendre la main : un guide général, valable pour plusieurs plateformes"]},
+ crit_h:"Quels partis figurent ici ?",
+ crit_p:"Ceux qui forment un groupe à l’Assemblée nationale élue les 30 juin et 7 juillet 2024, et ceux qui ont obtenu au moins 3 % des suffrages exprimés à la dernière élection nationale, même sans groupe. Les alliances présentées ensemble aux législatives de 2024 sont traitées comme une seule fiche. Les cartes sont classées par nombre de sièges.",
+ crit_n:"Cette règle délimite la fiche : elle ne mesure ni l’importance ni la légitimité d’un parti. Chaque carte indique le scrutin de référence et le critère retenu.",
+ crit_k:"Pourquoi ce parti figure ici",
+ dit_k:"Deux de ses engagements, mis face à ses actes dans la fiche complète",
+ pos_k:"Position sur l’axe gauche-droite",
+ sec:{acts:["Ce que le parti dit, et ce qu’il a fait","Chaque ligne met un engagement face à un acte ou un vote documenté, avec sa source. Les libellés décrivent cette ligne, jamais le parti entier."],demo:["Démocratie et financement","Le respect des règles démocratiques selon des critères publiés, et qui finance le parti."],sum:["En résumé : ce que montrent ces éléments, et leurs limites","Une synthèse des éléments ci-dessus, sans note générale sur le parti."]},
+ lg_def:"Comment lire les libellés. « Tenu » : l’engagement est réalisé ; « À moitié » : il l’est en partie. « Cohérent » : une position ou un vote, souvent dans l’opposition, qui correspond à l’engagement annoncé. « Contradiction » : un acte ou un vote documenté qui contredit un engagement précis ; il renvoie toujours à une promesse et à une action sourcées, avec leur date. « Alerte droits » est un signal distinct, pas un état de réalisation : il signale une mesure que des sources précises jugent contraire à des droits fondamentaux, sans constituer une conclusion juridique. Les couleurs aident à lire mais ne remplacent jamais le libellé. L’absence d’une ligne ne prouve pas l’absence d’action.",
+ sum_a:"Ce que montrent les éléments présentés :",sum_b:"Ce qu’ils ne permettent pas de conclure :",
+ srcm_h:"Sources, dates et méthode",srcm:d=>`Fiche mise à jour le ${d}. Chaque élément ci-dessus renvoie à sa source, avec sa date quand elle compte.`,srcm_l:"Lire la méthode",
+ cal_h:"Prochaines échéances en France",cal_chk:d=>`Vérifié le ${d}`,
+ cal_note:"Élections nationales à venir, avec leur date et leur source.",
+ games:"Testez vos connaissances"
+};
+/* Inclusion criterion per party (reference election, date, criterion met). */
+const V2SCH="https://server.www.robert-schuman.eu/storage/fr/doc/oee/oee-6262-fr.pdf",V2EU="https://www.publicsenat.fr/actualites/politique/resultats-europeennes-2024-jordan-bardella-en-tete-valerie-hayer-en-deuxieme-position-glucksmann-troisieme";
+const V2CRIT={france:{
+ ensemble:["Groupe à l’Assemblée nationale, législatives des 30 juin et 7 juillet 2024. Alliance (Renaissance, MoDem, Horizons) présentée ensemble à ce scrutin, donc une seule fiche.",V2SCH],
+ rn:["Groupe à l’Assemblée nationale, législatives des 30 juin et 7 juillet 2024. Ses alliés UDR, présentés avec lui à ce scrutin, figurent sur la même fiche.",V2SCH],
+ lfi:["Groupe à l’Assemblée nationale, législatives des 30 juin et 7 juillet 2024.",V2SCH],
+ ps:["Groupe à l’Assemblée nationale, législatives des 30 juin et 7 juillet 2024.",V2SCH],
+ lr:["Groupe à l’Assemblée nationale, législatives des 30 juin et 7 juillet 2024.",V2SCH],
+ ecologistes:["Groupe à l’Assemblée nationale, législatives des 30 juin et 7 juillet 2024.",V2SCH],
+ pcf:["Élus à l’Assemblée nationale aux législatives des 30 juin et 7 juillet 2024, au sein du groupe GDR.",V2SCH],
+ reconquete:["5,47 % des suffrages exprimés aux élections européennes du 9 juin 2024, la dernière élection nationale où il a dépassé 3 % ; aucun élu aux législatives de 2024.",V2EU]}};
+/* Factual summaries (rewritten from the facts already on each card, nothing added). */
+const V2SUM={france:{
+ ensemble:["Trois engagements n’ont pas atteint leur objectif à la date de la fiche : le plein emploi (chômage à 8,3 %, son plus haut niveau depuis 2020), le retour du déficit sous 3 % (le Haut Conseil des finances publiques prévoit « au mieux 2031 », pour une dette de 115,6 % du PIB) et la sortie du glyphosate en trois ans. La suppression de la taxe d’habitation a été réalisée : environ 200 € par an pour les ménages concernés par l’étape de 2019, selon l’Insee.","Quelle part de ces résultats tient aux décisions du parti plutôt qu’au contexte économique, ni le bilan complet de ses années au pouvoir, que cette fiche ne couvre pas en entier."],
+ rn:["Sa proposition d’abroger la retraite à 64 ans a été rejetée par 197 voix contre 119, après avoir été vidée de ses articles en commission. Son premier texte adopté par l’Assemblée, sur l’accord franco-algérien de 1968, est une résolution sans effet obligatoire, votée à une voix près. Sur l’âge de départ, deux positions coexistent dans le parti depuis mai 2026.","Le parti n’a jamais gouverné au niveau national : ses promesses nationales n’ont donc pas pu être mises à l’épreuve du pouvoir."],
+ lfi:["Ses textes phares (abrogation de la retraite à 64 ans, SMIC à 1 600 € net, SMIC à 1 500 €, taxe Zucman) n’ont pas été adoptés par l’Assemblée. En 2024, trois députés sortants qui critiquaient sa direction n’ont pas été réinvestis : ils y ont vu une sanction, la direction n’a pas donné de motif officiel.","Le parti n’a jamais gouverné au niveau national : ses promesses nationales n’ont donc pas pu être mises à l’épreuve du pouvoir."],
+ ps:["À Paris, la maire socialiste s’était engagée à ne pas augmenter les impôts sur 2020-2026 ; le taux de taxe foncière a augmenté de 52 % en 2023 (la ville invoque l’inflation et l’État). Au niveau national, le chômage de catégorie A a augmenté de 606 000 personnes entre 2012 et 2017. En 2025, le parti a obtenu la suspension, et non l’abrogation, de la réforme des retraites. Sa loi de 2013 a ouvert le mariage aux couples de même sexe : 84 000 mariages depuis, selon l’Insee.","Ces exemples ne constituent pas un bilan complet de ses périodes au pouvoir, national ou local."],
+ lr:["Il promet moins d’immigration : en 2025, avec un ministre de l’Intérieur issu de ses rangs, les premiers titres de séjour ont augmenté de 11 % et les régularisations ont reculé de 10 %. En juillet 2024, il excluait toute coalition ; en septembre, l’un des siens devenait Premier ministre d’un gouvernement de coalition. En 2025, il a exclu six membres entrés au gouvernement suivant.","Les chiffres d’une seule année ne suffisent pas à mesurer l’effet d’une politique migratoire."],
+ ecologistes:["Sa loi sur les « polluants éternels » a interdit les PFAS dans le fart et les cosmétiques, pas dans les poêles. À Lyon, la métropole qu’il dirige a renoncé à étendre sa zone à faibles émissions et laisse rouler les voitures Crit’Air 2 jusqu’en 2028. L’encadrement des loyers, inscrit dans la loi en 2014 par sa ministre Cécile Duflot, a fait baisser les loyers parisiens d’environ 80 € par mois en moyenne (étude APUR).","Ces exemples ne couvrent qu’une partie de son action, surtout locale ; il n’a pas gouverné seul au niveau national."],
+ pcf:["Favorable au nucléaire, il a rejoint en 2022 une alliance favorable à une sortie progressive, en abandonnant son projet de référendum. Il a signé le Nouveau Front populaire avec LFI, puis exclu une nouvelle alliance avec elle. En juin 2025, sa résolution pour abroger la retraite à 64 ans a été adoptée (198 voix contre 35), sans effet législatif. Sa loi de 2020 a porté les petites retraites agricoles à 85 % du SMIC.","Ces exemples ne constituent pas un bilan complet de son action."],
+ reconquete:["Il se présente comme le parti de l’union des droites ; en 2024, le RN a décliné cette union. Son programme prévoit un ministère de la remigration, une centaine d’asiles accordés par an et, depuis 2026, l’expulsion des étrangers après un an de chômage. La Commission des comptes de campagne a retranché 200 000 € du remboursement de sa campagne de 2022, pour des passages télévisés antérieurs à la déclaration de candidature.","Le parti n’a jamais gouverné ni eu de groupe à l’Assemblée nationale : ses promesses n’ont pas pu être mises à l’épreuve du pouvoir."]}};
+let V2E=null; /* parcours essentiel: null = not started, 0..2 = step, 3 = done */
+function v2Esc(x){return esc(x)}
+function v2PosWord(x){return x<=-1.5?"gauche, à l’extrémité de l’axe":x<-0.5?"gauche":x<=0.5?"centre":x<1.5?"droite":"droite, à l’extrémité de l’axe"}
+function v2Src(k,keys){const c=C[k],S=(c&&c.srcs)||{},out=[];keys.forEach(key=>(S[key]||[]).forEach(([l,u])=>{if(u&&!out.some(o=>o[1]===u))out.push([tr(l),u])}));
+ return out.length?out.map(([l,u])=>`<a class="src-a" href="${u}" target="_blank" rel="noopener">${esc(l)}</a>`).join(" · "):""}
+function v2QA(k,key){const [q,a,lim,srcKeys,tab,anchor]=V2T.qa[key],sr=v2Src(k,srcKeys);
+ return `<article class="v2qa" id="v2qa-${key}"><h3>${esc(q)}</h3><p class="v2qa-k">${V2T.q.short}</p><p class="v2qa-a">${esc(a)}</p>
+  <p class="v2qa-go">${tab==="t-sys"&&anchor?`<a href="#${anchor}" data-v2scroll="${anchor}">${V2T.q.el} ↓</a>`:`<button type="button" class="linkbtn" data-pilgo="${tab}">${V2T.q.el} →</button>`}</p>
+  <details class="v2qa-d"><summary>${V2T.q.lim}</summary><p>${esc(lim)}</p></details>
+  ${sr?`<details class="v2qa-d"><summary>${V2T.q.src}</summary><p>${sr}</p></details>`:`<details class="v2qa-d"><summary>${V2T.q.src}</summary><p>Chaque case des chiffres clés indique sa source et son année.</p></details>`}</article>`}
+function v2Ctx(key){const [q,to,lab]=V2T.ctx[key];
+ return to.startsWith("#")?`<a class="v2ctx" href="${to}"><span class="v2ctx-q">${esc(q)}</span><span class="v2ctx-l">${esc(lab)} →</span></a>`:`<button type="button" class="v2ctx" data-pilgo="${to}"><span class="v2ctx-q">${esc(q)}</span><span class="v2ctx-l">${esc(lab)} →</span></button>`}
+function v2EssView(){const E=V2T.ess,n=E.steps.length;
+ if(V2E===null)return `<div class="v2ess"><p class="v2ess-row"><span><b>${E.h}</b> <span class="v2ess-k">· ${E.k}</span></span><button type="button" class="linkbtn" data-v2ess="start">${E.go} →</button></p><details class="v2ess-d"><summary>Voir les étapes</summary><p class="v2ess-p">${E.p}</p><ol class="v2ess-l">${E.steps.map(([,h,s])=>`<li><b>${h}</b> <span>${s}</span></li>`).join("")}</ol></details></div>`;
+ if(V2E>=n)return `<div class="v2ess on" role="status"><p>${E.done}</p><button type="button" class="linkbtn" data-v2ess="start">${E.again}</button></div>`;
+ const [id,h,s]=E.steps[V2E];
+ return `<div class="v2ess on" role="status"><p class="eyebrow">${E.bar(V2E+1,n)}</p><div class="v2ess-bar" aria-hidden="true">${E.steps.map((x,i)=>`<i class="${i<=V2E?"on":""}"></i>`).join("")}</div><p class="v2ess-h">${h} <span>· ${s}</span></p><p class="v2ess-btns"><button type="button" class="btn" data-v2ess="next">${V2E+1<n?E.next:E.end_b}</button> <button type="button" class="linkbtn" data-v2ess="quit">${E.quit}</button></p></div>`}
+function v2EssRender(){const e=document.getElementById("v2ess");if(e){e.innerHTML=v2EssView();if(typeof pathLinks==="function")pathLinks(e)}}
+function v2Sync(id){const w=document.querySelector(".v2wrap");if(!w)return;const g=V2G[id]||"pays";w.dataset.g=g;
+ w.querySelectorAll(".v2-btn").forEach(b=>{if(b.dataset.g===g)b.setAttribute("aria-current","true");else b.removeAttribute("aria-current")});
+ const cr=document.getElementById("v2crumb-p");if(cr)cr.textContent=V2T.nav[g][0]+(g==="pays"&&V2T.sub[id]?" › "+V2T.sub[id]:"")}
+function v2Country(k,h){const c=C[k],d=document.createElement("div");d.innerHTML=h;
+ /* header */
+ const head=d.querySelector(".chead > div");if(head){head.insertAdjacentHTML("afterbegin",`<nav class="v2crumb" aria-label="Fil d’Ariane"><a href="#">${V2T.crumb[0]}</a> › <a href="#pays">${V2T.crumb[1]}</a> › <span>${esc(tr(c.name))}</span> › <span id="v2crumb-p">${V2T.nav.pays[0]}</span></nav>`);
+  const sub=head.querySelector(".sub");if(sub)sub.insertAdjacentHTML("afterend",`<p class="v2plain">${V2T.plain}</p>`);
+  const fi=head.querySelector(".fintro");if(fi)fi.outerHTML=`<p class="v2how">${V2T.how} <a href="#apropos">${V2T.how_l}</a></p>`}
+ const cd=d.querySelector(".countdown .what");if(cd)cd.insertAdjacentHTML("beforeend",`<br><a class="v2cd" href="#${k}-vote">${V2T.cd_l}</a>`);
+ const cg=d.querySelector(".cguide");if(cg)cg.remove();
+ /* one navigation: 4 parcours, sub-links only inside « Comprendre le pays » */
+ const tabs=d.querySelector(".tabs");if(tabs){["t-sys","t-gov","t-fig","t-par","t-vote","t-med"].forEach(id=>{const a=tabs.querySelector("#"+id);if(a){a.dataset.g=V2G[id];if(V2T.sub[id])a.textContent=V2T.sub[id];tabs.appendChild(a)}});
+  const w=document.createElement("div");w.className="v2wrap";w.dataset.g="pays";
+  w.innerHTML=`<nav class="v2nav" aria-label="Les quatre parcours de la fiche">${["pays","partis","vote","medias"].map(g=>`<button type="button" class="v2-btn" data-g="${g}" data-pilgo="${V2F[g]}"${g==="pays"?' aria-current="true"':""}><span class="v2-i">${V2I[g]}</span><span class="v2-t"><b class="v2-l">${V2T.nav[g][0]}</b><b class="v2-s">${V2T.nav[g][1]}</b><small>${V2T.nav[g][2]}</small></span></button>`).join("")}</nav>
+   ${["pays","partis","vote","medias"].map(g=>`<p class="v2here" data-g="${g}">${V2T.here[g]}</p>`).join("")}<div id="v2ess">${v2EssView()}</div>`;
+  tabs.replaceWith(w);w.appendChild(tabs)}
+ /* Comprendre le pays: three questions first */
+ const ins=(pid,html,where)=>{const p=d.querySelector("#"+pid);if(!p)return;const anchor=p.querySelector(":scope > p.tabctx")||p.querySelector(":scope > h2.ph2");if(where==="end"){p.insertAdjacentHTML("beforeend",html);return}if(anchor)anchor.insertAdjacentHTML("afterend",html);else p.insertAdjacentHTML("afterbegin",html)};
+ const sys=d.querySelector("#p-sys");if(sys){const first=sys.querySelector(":scope > div:not(.block)")||sys.firstElementChild;
+  sys.insertAdjacentHTML("afterbegin",`<div class="v2qas">${v2QA(k,"decide")}${v2QA(k,"gov")}${v2QA(k,"fig")}</div><h3 class="v2det" id="v2-sys-detail">Le détail : institutions, trajet d’une loi, situation actuelle</h3>`);
+  if(QDM[k])sys.insertAdjacentHTML("beforeend",`<section class="game pil-c" id="qdm" data-k="${k}">${qdmView(k)}</section>`);
+  sys.insertAdjacentHTML("beforeend",v2Ctx("sys"))}
+ ins("p-gov",`<div class="v2qas one">${v2QA(k,"gov")}</div>`);ins("p-gov",v2Ctx("gov"),"end");
+ ins("p-fig",`<div class="v2qas one">${v2QA(k,"fig")}</div>`);
+ /* Comparer les partis: rule first, compact cards, blind test after the list */
+ const par=d.querySelector("#p-par");if(par){const top=par.querySelector(".par-top");const box=`<div class="v2crit"><h3>${V2T.crit_h}</h3><p>${V2T.crit_p}</p><p class="small">${V2T.crit_n}</p></div>`;if(top)top.insertAdjacentHTML("beforebegin",box);else ins("p-par",box);
+  par.querySelectorAll(".pcard").forEach(card=>{const id=card.id.replace("party-",""),p=(PARTIES[k]||[]).find(x=>x.id===id);if(!p)return;
+   const cr=(V2CRIT[k]||{})[id],ph=card.querySelector(".phead");
+   if(ph){const P2=(typeof pairsOf==="function"&&pairsOf(k,p))||[],dits=P2.length?P2.slice(0,2).map(x=>x[0]):(p.dit||[]).slice(0,2);ph.insertAdjacentHTML("beforeend",`${p.axis!=="na"&&typeof p.pos==="number"?`<p class="v2pos"><b>${V2T.pos_k} :</b> ${v2PosWord(p.pos)} <span class="small">(d’après l’enquête d’experts Chapel Hill ; détail dans « ${esc(t("par_how"))} »)</span></p>`:""}${cr?`<p class="v2why"><b>${V2T.crit_k} :</b> ${esc(cr[0])} <a class="src-a" href="${cr[1]}" target="_blank" rel="noopener">source</a></p>`:""}${dits.length?`<div class="v2dits"><b>${V2T.dit_k}</b><ul>${dits.map(x=>`<li>${esc(tr(x))}</li>`).join("")}</ul></div>`:""}`)}
+   const heads=card.querySelectorAll(".psec-h");const keys=["acts","demo","sum"];heads.forEach((hh,i)=>{const S=V2T.sec[keys[i]];if(!S)return;const h4=hh.querySelector("h4"),pp=hh.querySelector("p");if(h4)h4.textContent=S[0];if(pp&&i>0)pp.textContent=S[1];else if(pp&&i===0){const lg=pp.querySelector(".lg");pp.childNodes.forEach(n=>{if(n.nodeType===3)n.textContent=""});pp.insertAdjacentText("afterbegin",S[1]+" ")}});
+   card.querySelectorAll(".ctx-p").forEach(x=>x.textContent=V2T.lg_def);
+   const sm=(V2SUM[k]||{})[id],vd=card.querySelector(".verdict blockquote");if(sm&&vd)vd.outerHTML=`<div class="v2sum"><p><b>${V2T.sum_a}</b> ${esc(sm[0])}</p><p><b>${V2T.sum_b}</b> ${esc(sm[1].charAt(0).toLowerCase()+sm[1].slice(1))}</p></div>`;
+   const ve=card.querySelector(".verdict .eyebrow");if(ve)ve.firstChild&&(ve.firstChild.textContent="En résumé");
+   const end=card.querySelector(".ptoggle.pend");const extra=`<div class="v2srcm"><b>${V2T.srcm_h}</b><p>${V2T.srcm(fmtDate(c.updated).split(" · ")[0])} <a href="#apropos">${V2T.srcm_l}</a></p></div>${v2Ctx("party")}`;if(end)end.insertAdjacentHTML("beforebegin",extra)});
+  if(BLIND[k])par.insertAdjacentHTML("beforeend",`<section class="game pil-v" id="blind" data-k="${k}">${blindView(k)}</section>`)}
+ /* Comprendre le vote: dates first (from the old « À surveiller », elections only) */
+ const elecW=(c.watch||[]).filter(w=>w[0]&&c.elec&&w[0]===c.elec.date);
+ const calL=elecW.length?elecW.map(w=>`<li><b>${esc(fmtDate(w[0]).split(" · ")[0])}</b> · ${esc(tr(w[1]))}. <span class="small">${V2T.cal_chk(fmtDate(c.updated).split(" · ")[0])}</span> <a class="src-a" href="${w[2]}" target="_blank" rel="noopener">source</a></li>`).join(""):`<li><b>${esc(tr(c.elec.label))}</b> : ${esc(tr(c.elec.detail))}. <span class="small">${V2T.cal_chk(fmtDate(c.updated).split(" · ")[0])}</span></li>`;
+ const cal=`<div class="v2cal"><h3>${V2T.cal_h}</h3><ul>${calL}</ul><p class="small">${V2T.cal_note}</p></div>`;
+ ins("p-vote",cal);
+ const vb=d.querySelector("#p-vote .block");if(vb)vb.insertAdjacentHTML("beforeend",v2Ctx("vote"));
+ /* Comprendre les médias: link to the general guide */
+ ins("p-med",v2Ctx("med"),"end");
+ return d.innerHTML}
+document.addEventListener("click",e=>{
+ const s=e.target.closest("[data-v2scroll]");if(s){e.preventDefault();const t0=document.getElementById(s.dataset.v2scroll);if(t0)t0.scrollIntoView({block:"start",behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});return}
+ const b=e.target.closest("[data-v2ess]");if(!b)return;e.preventDefault();const a=b.dataset.v2ess,n=V2T.ess.steps.length;
+ if(a==="start")V2E=0;else if(a==="next")V2E=Math.min(n,V2E+1);else if(a==="quit")V2E=null;
+ v2EssRender();if(V2E!==null&&V2E<n){goTab(V2T.ess.steps[V2E][0]);const w=document.querySelector(".v2wrap");if(w)w.scrollIntoView({block:"start",behavior:"auto"})}});
+/* Home (French): door labels and sub-titles, order, tools grouped, example and mirror clarified. */
+function v2Home(html){if(!v2on())return html;const d=document.createElement("div");d.innerHTML=html;
+ const lis=d.querySelectorAll(".hd-list > li");
+ if(lis[1]){const b=lis[1].querySelector(":scope > b"),sp=lis[1].querySelector(":scope > span:not(.pd-top):not(.pd-end)"),en=lis[1].querySelector(".pd-end"),k1=lis[1].querySelector(".pd-k");if(b)b.textContent="Comparer les partis";if(sp)sp.textContent="Ce que chaque parti dit, et ce qu’il a fait, avec les sources.";if(en)en.textContent="Comparez des engagements et des actions documentées, avec leurs sources et leurs limites.";if(k1)k1.textContent="Comparer"}
+ if(lis[2]){const sp=lis[2].querySelector(":scope > span:not(.pd-top):not(.pd-end)"),en=lis[2].querySelector(".pd-end"),te=lis[2].querySelector(".pd-tease");if(sp)sp.textContent="Explorez comment votre fil sélectionne les contenus que vous voyez.";if(en)en.textContent="Une simulation fictive : vos gestes ne sont ni envoyés ni enregistrés, et le test ne révèle pas ce qu’une plateforme sait réellement de vous.";if(te)te.textContent="À la fin : votre résultat en une image, à partager si vous le souhaitez"}
+ if(lis[0]){const en=lis[0].querySelector(".pd-end");if(en)en.textContent="Comprenez qui décide, qui gouverne et comment une loi est votée."}
+ const ex=d.querySelector("#exemple");if(ex){const h=ex.querySelector(".hsec-h > p:last-child");if(h)h.insertAdjacentHTML("afterend",`<p class="small v2ex">Un exemple de la méthode, tiré au hasard : il ne résume pas l’ensemble du site.</p>`)}
+ const mir=d.querySelector("#miroir"),actu=d.querySelector("#actu");
+ if(mir&&actu&&mir.parentNode===actu.parentNode)mir.parentNode.insertBefore(actu,mir);
+ if(mir){mir.insertAdjacentHTML("beforebegin",`<section class="v2tools" id="outils"><div class="hsec-h"><p class="eyebrow hsec-k">Outils et guides</p><h2>Pour aller plus loin, à votre rythme</h2><p>Trois outils facultatifs, valables pour tous les pays.</p></div><ul class="v2tools-l"><li><a href="#miroir" data-jump="miroir"><b>Le miroir des valeurs</b><span>Voir vers où penchent les valeurs que vous choisissez. Aucun parti ne vous est attribué.</span></a></li><li><a href="#voter"><b>Pourquoi voter ?</b><span>Ce que change une voix, et ce que change l’abstention.</span></a></li><li><a href="#reprendre"><b>Sortir de ma bulle</b><span>Comment un fil d’actualité choisit ce que vous voyez, et comment le remettre à zéro.</span></a></li></ul></section>`);
+  const lead=mir.querySelector(".hsec-h > p:last-child")||mir.querySelector("p.lead");if(lead)lead.insertAdjacentHTML("afterend",`<p class="small v2mir">L’axe gauche-droite est une représentation simplifiée de la direction vers laquelle penchent les valeurs choisies, pas un diagnostic politique de la personne. Le miroir ne compare pas vos choix aux programmes des partis. <a href="#pays" data-jump="pays">Choisir un pays pour consulter ses partis</a></p>`)}
+ const vo=d.querySelector("#voter");if(vo)vo.insertAdjacentHTML("beforeend",v2VoteLink());
+ return d.innerHTML}
+function v2VoteLink(){return `<div class="v2ctx-wrap"><a class="v2ctx" href="#france-vote"><span class="v2ctx-q">Comment le vote fonctionne-t-il ici ?</span><span class="v2ctx-l">Comprendre le vote en France →</span></a><p class="small">Autre pays : <a href="#pays" data-jump="pays">choisir un pays</a>, puis son parcours « Comprendre le vote ».</p></div>`}
+function v2Algo(html){if(!v2on())return html;return html+`<section class="rm-block v2back"><p class="small">Les mécanismes décrits ici varient selon les plateformes et changent avec le temps.</p><div class="v2ctx-wrap"><a class="v2ctx" href="#france-media"><span class="v2ctx-q">Qui possède les médias de ce pays ?</span><span class="v2ctx-l">Comprendre les médias en France →</span></a><p class="small">Autre pays : <a href="#pays" data-jump="pays">choisir un pays</a>, puis son parcours « Comprendre les médias ».</p></div></section>`}
+/* Menu (French): current country named; tools grouped. */
+function v2Menu(){try{
+ const rb=document.getElementById("v2rib");if(rb&&window.v2RibM)rb.textContent=window.v2RibM[lang]||window.v2RibM.en;
+ document.querySelectorAll(".v2tools-dd,.v2tools-sh").forEach(x=>x.remove());document.querySelectorAll('nav.nav a.navlink[hidden],nav.sheet-nav a.navlink[hidden]').forEach(a=>a.hidden=false);
+ if(!v2on())return;
+ const raw=curRaw(),k=raw.split("-")[0],c=isReady(k)&&(C[k]||REG.meta[k]);
+ const lbl=document.querySelector("#dd-btn [data-t='nav_countries']");if(lbl)lbl.textContent=c?`Pays : ${tr(c.name)}`:"Pays";
+ const nav=document.querySelector("nav.nav");if(nav){
+  ["comparer","voter","reprendre","medias"].forEach(r=>{const a=nav.querySelector(`a.navlink[data-r="${r}"]`);if(a)a.hidden=true});
+  const dd=nav.querySelector(".dd");const html=`<details class="v2tools-dd"><summary class="navlink">Outils et guides <span aria-hidden="true">▾</span></summary><div class="v2tools-p"><a href="#voter">Pourquoi voter ?</a><a href="#reprendre">Sortir de ma bulle</a><a href="#miroir" data-jump="miroir">Le miroir des valeurs</a><a href="#comparer">Comparer les pays</a><a href="#medias">Médias du monde</a></div></details>`;
+  if(dd)dd.insertAdjacentHTML("afterend",html);if(typeof pathLinks==="function")pathLinks(nav)}
+ const sh=document.querySelector("nav.sheet-nav");if(sh){["comparer","voter","reprendre","medias"].forEach(r=>{const a=sh.querySelector(`a.navlink[data-r="${r}"]`);if(a)a.hidden=true});
+  const det=sh.querySelector("details.sheet-dd");const html=`<details class="sheet-dd v2tools-sh"><summary class="navlink">Outils et guides</summary><div class="v2tools-p"><a href="#voter">Pourquoi voter ?</a><a href="#reprendre">Sortir de ma bulle</a><a href="#miroir" data-jump="miroir">Le miroir des valeurs</a><a href="#comparer">Comparer les pays</a><a href="#medias">Médias du monde</a></div></details>`;if(det)det.insertAdjacentHTML("afterend",html);if(typeof pathLinks==="function")pathLinks(sh)}
+}catch(e){}}
+function landing(){txt14();const h=landing1();const r=pilDoors(HOME_V2?homeV2(h):h);return v2on()?v2Home(r):r}
 function landing1(){
   const all=readyKeys(),conts=["europe","americas","africa","asia","oceania"];
   const order=all.map(k=>[k,info(k)]).filter(([k,c])=>c.elec&&c.elec.date&&daysTo(c.elec.date)>=0).sort((a,b)=>daysTo(a[1].elec.date)-daysTo(b[1].elec.date)).slice(0,8);
@@ -2506,7 +2671,7 @@ Object.assign(T.es,{"dw_h": "Punto de vigilancia democrática", "dw_hp": "Puntos
 function demWarn(p){const W=p.demw;if(!W||!W.length)return "";const more=x=>(x||[]).map((v,i)=>` · <a href="${v}" target="_blank" rel="noopener" class="src-a">${i+2}</a>`).join("");
   return `<div class="demw" role="note"><p class="demw-h">⚠ ${t(W.length>1?"dw_hp":"dw_h")}</p><ul>${W.map(([pr,f,u,c,x])=>`<li><b>${esc(tr(pr))}</b><span>${esc(tr(f))}${u?` <a href="${u}" target="_blank" rel="noopener" class="src-a">${t("source")}</a>${more(x)}`:""}</span><small>${t("dw_at")} ${t("dw_crit")[c-1]||""}</small></li>`).join("")}</ul><p class="demw-note">${t("dw_note")}</p></div>`}
 function demChip(p){const W=p.demw;return W&&W.length?`<p class="demw-chip">⚠ ${W.length} ${t(W.length>1?"dw_hp":"dw_h").toLowerCase()}</p>`:""}
-function countryPage(k){if(typeof txt14==="function")txt14();return pilCountry(k,uxCountry(k,countryPage0(k)))}
+function countryPage(k){if(typeof txt14==="function")txt14();if(v2on(k))return v2Country(k,uxCountry(k,countryPage0(k)));return pilCountry(k,uxCountry(k,countryPage0(k)))}
 function countryPage0(k){
   const c=C[k],d=countdown(c),plist=(typeof PARTIES!=="undefined"&&PARTIES[k])||null;
   const sl=s=>s&&SRC[s]?`<a href="${SRC[s].u}" target="_blank" rel="noopener">${t("src_link")}</a>`:"";
@@ -2611,7 +2776,7 @@ function tabRaw(k,id){const x=TABS.find(y=>y[0]===id);return x&&x[3]?k+"-"+x[3]:
 function goTab(id){const k=curRaw().split("-")[0];selectTab(id);if(!isReady(k))return;const raw=tabRaw(k,id);
   if(PATHMODE){const u=pathFor(raw);if(location.pathname+location.hash!==u)history.pushState(null,"",u)}else history.replaceState(null,"","#"+raw);
   const sb={"t-gov":"government","t-par":"parties","t-vote":"vote","t-fig":"figures","t-watch":"watch","t-med":"media"}[id]||"";document.title=seoMeta(k,sb).title}
-function selectTab(id){document.querySelectorAll(".tab").forEach(x=>{const on=x.id===id;x.setAttribute("aria-selected",on);document.getElementById(x.getAttribute("aria-controls")).hidden=!on});if(typeof pilSync==="function")pilSync(id)}
+function selectTab(id){document.querySelectorAll(".tab").forEach(x=>{const on=x.id===id;x.setAttribute("aria-selected",on);document.getElementById(x.getAttribute("aria-controls")).hidden=!on});if(typeof pilSync==="function")pilSync(id);if(typeof v2Sync==="function")v2Sync(id)}
 function bindTabs(){document.querySelectorAll(".tab").forEach(x=>x.addEventListener("click",e=>{e.preventDefault();goTab(x.id)}))}
 function bindShare(){
   document.querySelectorAll("[data-share]").forEach(b=>b.addEventListener("click",()=>{
@@ -2650,7 +2815,7 @@ function render(){renderView();pathLinks();if(PATHMODE&&!firstRender){const raw=
 function renderView(){
   // Old links with "#" (…/#figures, …/parties/#rn, /fr/#voter): same page at its clean address, the in-page target kept in history.state.
   if(PATHMODE&&location.hash.length>1){const r=curRaw(),sc=secFor(r);history.replaceState(sc?{sec:sc}:null,"",pathFor(r))}
-  chrome();
+  chrome();if(typeof v2Menu==="function")v2Menu();
   if(PATHMODE){const r0=curRaw(),k0=r0.split("-")[0];if(hasSub(k0)){const w=pathFor(r0);if(decodeURI(location.pathname)!==w)history.replaceState(history.state,"",w)}}
   const raw=curRaw();
   const [r,party]=raw.split("-");
@@ -2822,5 +2987,5 @@ addEventListener("appinstalled",()=>{document.querySelectorAll(".pwa,.pwa-menu")
 pwaFooter();pwaMenu();
 /* V2 preview ribbon: only on the unlisted preview host, never on barotico.com. */
 (function(){try{if(!/barotico-preview|localhost|127\.0\.0\.1/.test(location.hostname))return;const b=document.createElement("div");b.className="v2-ribbon";b.setAttribute("role","note");
- const L=(document.documentElement.lang||"en").slice(0,2),M={en:"Working version V2 — not published, for review only",fr:"Version de travail V2 — non publiée, pour relecture uniquement",es:"Versión de trabajo V2 — no publicada, solo para revisión"};
- b.textContent=M[L]||M.en;document.body.prepend(b)}catch(e){}})();
+ const L=(document.documentElement.lang||"en").slice(0,2),M={en:"Working version V2 (not published): the new version exists in French only for now — this English page still shows the current version.",fr:"Version de travail V2 — non publiée, pour relecture uniquement. Le pilote porte sur l’accueil, le menu et la fiche France, en français.",es:"Versión de trabajo V2 (no publicada): la nueva versión solo existe en francés por ahora; esta página en español muestra aún la versión actual."};
+ b.id="v2rib";b.textContent=M[L]||M.en;document.body.prepend(b);window.v2RibM=M}catch(e){}})();
