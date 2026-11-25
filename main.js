@@ -2820,3 +2820,7 @@ document.addEventListener("click",e=>{const g=e.target.closest&&e.target.closest
 addEventListener("beforeinstallprompt",e=>{e.preventDefault();PWA_EV=e});
 addEventListener("appinstalled",()=>{document.querySelectorAll(".pwa,.pwa-menu").forEach(x=>x.remove())});
 pwaFooter();pwaMenu();
+/* V2 preview ribbon: only on the unlisted preview host, never on barotico.com. */
+(function(){try{if(!/barotico-preview|localhost|127\.0\.0\.1/.test(location.hostname))return;const b=document.createElement("div");b.className="v2-ribbon";b.setAttribute("role","note");
+ const L=(document.documentElement.lang||"en").slice(0,2),M={en:"Working version V2 — not published, for review only",fr:"Version de travail V2 — non publiée, pour relecture uniquement",es:"Versión de trabajo V2 — no publicada, solo para revisión"};
+ b.textContent=M[L]||M.en;document.body.prepend(b)}catch(e){}})();
