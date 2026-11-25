@@ -436,7 +436,7 @@ function algoPage2(){
     <div class="mgrid">${ALGO.world.map(w=>`<div class="mcard"><b>${aT(w[0])}</b><span>${aT(w[1])}</span><a class="src-a" href="${w[2]}" target="_blank" rel="noopener">${esc(srcNamed(w[2]))}</a></div>`).join("")}</div></details>
    ${algoBand()}
    <p class="rm-stance">${aT(ALGO.stance)}</p></section>
-  <section class="rm-sec sources"><b>${aT(ALGO.src_h)}</b><ul>${[...ALGO.srcs,...(ALGO.srcs.some(s=>s[1]===V.paid[0][3])?[]:[["Meta, “Ending Political, Electoral and Social Issue Advertising in the EU” (2025)",V.paid[0][3]]])].map(s=>`<li><a href="${s[1]}" target="_blank" rel="noopener">${esc(s[0])}</a></li>`).join("")}</ul></section>`;
+  <section class="rm-sec sources"><b>${aT(ALGO.src_h)}</b><ul>${[...ALGO.srcs,...(ALGO.srcs.some(s=>s[1]===V.paid[0][2])?[]:[["Meta, “Ending Political, Electoral and Social Issue Advertising in the EU” (2025)",V.paid[0][2]]])].map(s=>`<li><a href="${s[1]}" target="_blank" rel="noopener">${esc(s[0])}</a></li>`).join("")}</ul></section>`;
 }
 ALGO.xp={
  eye:A3("Experiment · 2 minutes","Expérience · 2 minutes","Experimento · 2 minutos"),
@@ -2129,8 +2129,8 @@ const V2T={
   fig:["Que signifient les principaux chiffres du pays ?","Les chiffres clés comparent la France à une référence, souvent la moyenne de l’Union européenne ou de l’OCDE : santé, école, sécurité, libertés, corruption, salaires, et où va l’argent public. Chaque chiffre indique son année et sa source.","Un chiffre seul ne dit pas pourquoi la situation est ainsi. Certains indicateurs sont des mesures, d’autres des évaluations d’experts ou des perceptions : l’étiquette de chaque case le précise.",[],"t-fig",null]},
  ctx:{sys:["Qui exerce le pouvoir aujourd’hui ?","t-gov","Gouvernement"],gov:["Que proposent les partis ?","t-par","Comparer les partis"],vote:["Quelles institutions sont choisies ?","t-sys","Système et institutions"],party:["Comment les sièges sont-ils attribués ?","t-vote","Comprendre le vote"],med:["Comment les fils d’actualité sont-ils recommandés ?","#reprendre","Reprendre la main : un guide général, valable pour plusieurs plateformes"]},
  crit_h:"Quels partis figurent ici ?",
- crit_p:"Ceux qui forment un groupe à l’Assemblée nationale élue les 30 juin et 7 juillet 2024, et ceux qui ont obtenu au moins 3 % des suffrages exprimés à la dernière élection nationale, même sans groupe. Les alliances présentées ensemble aux législatives de 2024 sont traitées comme une seule fiche. Les cartes sont classées par nombre de sièges.",
- crit_n:"Cette règle délimite la fiche : elle ne mesure ni l’importance ni la légitimité d’un parti. Chaque carte indique le scrutin de référence et le critère retenu.",
+ crit_p:"Deux critères, appliqués de la même façon à tous. Critère 1 : avoir un groupe à l’Assemblée nationale élue les 30 juin et 7 juillet 2024, ou en être la principale composante. Critère 2, distinct : avoir obtenu au moins 3 % des suffrages exprimés aux élections européennes du 9 juin 2024 (en France, une seule circonscription pour tout le pays), même sans groupe à l’Assemblée. Les européennes ne sont pas une élection nationale : elles servent seulement de second critère. Aucune autre liste n’a atteint 3 % à ce scrutin. Les alliances présentées ensemble aux législatives de 2024 sont traitées comme une seule fiche ; les cartes sont classées par nombre de sièges.",
+ crit_n:"Cette règle délimite la fiche : elle ne mesure ni l’importance ni la légitimité d’un parti. Chaque carte indique le critère rempli et le scrutin exact.",
  crit_k:"Pourquoi ce parti figure ici",
  dit_k:"Deux de ses engagements, mis face à ses actes dans la fiche complète",
  pos_k:"Position sur l’axe gauche-droite",
@@ -2145,14 +2145,14 @@ const V2T={
 /* Inclusion criterion per party (reference election, date, criterion met). */
 const V2SCH="https://server.www.robert-schuman.eu/storage/fr/doc/oee/oee-6262-fr.pdf",V2EU="https://www.publicsenat.fr/actualites/politique/resultats-europeennes-2024-jordan-bardella-en-tete-valerie-hayer-en-deuxieme-position-glucksmann-troisieme";
 const V2CRIT={france:{
- ensemble:["Groupe à l’Assemblée nationale, législatives des 30 juin et 7 juillet 2024. Alliance (Renaissance, MoDem, Horizons) présentée ensemble à ce scrutin, donc une seule fiche.",V2SCH],
- rn:["Groupe à l’Assemblée nationale, législatives des 30 juin et 7 juillet 2024. Ses alliés UDR, présentés avec lui à ce scrutin, figurent sur la même fiche.",V2SCH],
- lfi:["Groupe à l’Assemblée nationale, législatives des 30 juin et 7 juillet 2024.",V2SCH],
- ps:["Groupe à l’Assemblée nationale, législatives des 30 juin et 7 juillet 2024.",V2SCH],
- lr:["Groupe à l’Assemblée nationale, législatives des 30 juin et 7 juillet 2024.",V2SCH],
- ecologistes:["Groupe à l’Assemblée nationale, législatives des 30 juin et 7 juillet 2024.",V2SCH],
- pcf:["Élus à l’Assemblée nationale aux législatives des 30 juin et 7 juillet 2024, au sein du groupe GDR.",V2SCH],
- reconquete:["5,47 % des suffrages exprimés aux élections européennes du 9 juin 2024, la dernière élection nationale où il a dépassé 3 % ; aucun élu aux législatives de 2024.",V2EU]}};
+ ensemble:["Critère 1 : groupe à l’Assemblée nationale, législatives des 30 juin et 7 juillet 2024. Alliance (Renaissance, MoDem, Horizons) présentée ensemble à ce scrutin, donc une seule fiche.",V2SCH],
+ rn:["Critère 1 : groupe à l’Assemblée nationale, législatives des 30 juin et 7 juillet 2024. Ses alliés UDR, présentés avec lui à ce scrutin, figurent sur la même fiche.",V2SCH],
+ lfi:["Critère 1 : groupe à l’Assemblée nationale, législatives des 30 juin et 7 juillet 2024.",V2SCH],
+ ps:["Critère 1 : groupe à l’Assemblée nationale, législatives des 30 juin et 7 juillet 2024.",V2SCH],
+ lr:["Critère 1 : groupe à l’Assemblée nationale, législatives des 30 juin et 7 juillet 2024.",V2SCH],
+ ecologistes:["Critère 1 : groupe à l’Assemblée nationale, législatives des 30 juin et 7 juillet 2024.",V2SCH],
+ pcf:["Critère 1 : principale composante du groupe GDR (Gauche démocrate et républicaine) à l’Assemblée nationale élue les 30 juin et 7 juillet 2024.","https://datan.fr/groupes/legislature-17/gdr"],
+ reconquete:["Critère 2 : 5,47 % des suffrages exprimés aux élections européennes du 9 juin 2024 ; aucun élu aux législatives des 30 juin et 7 juillet 2024.",V2EU]}};
 /* Factual summaries (rewritten from the facts already on each card, nothing added). */
 const V2SUM={france:{
  ensemble:["Trois engagements n’ont pas atteint leur objectif à la date de la fiche : le plein emploi (chômage à 8,3 %, son plus haut niveau depuis 2020), le retour du déficit sous 3 % (le Haut Conseil des finances publiques prévoit « au mieux 2031 », pour une dette de 115,6 % du PIB) et la sortie du glyphosate en trois ans. La suppression de la taxe d’habitation a été réalisée : environ 200 € par an pour les ménages concernés par l’étape de 2019, selon l’Insee.","Quelle part de ces résultats tient aux décisions du parti plutôt qu’au contexte économique, ni le bilan complet de ses années au pouvoir, que cette fiche ne couvre pas en entier."],
@@ -2186,11 +2186,14 @@ function v2Sync(id){const w=document.querySelector(".v2wrap");if(!w)return;const
  const cr=document.getElementById("v2crumb-p");if(cr)cr.textContent=V2T.nav[g][0]+(g==="pays"&&V2T.sub[id]?" › "+V2T.sub[id]:"")}
 function v2Country(k,h){const c=C[k],d=document.createElement("div");d.innerHTML=h;
  /* header */
- const head=d.querySelector(".chead > div");if(head){head.insertAdjacentHTML("afterbegin",`<nav class="v2crumb" aria-label="Fil d’Ariane"><a href="#">${V2T.crumb[0]}</a> › <a href="#pays">${V2T.crumb[1]}</a> › <span>${esc(tr(c.name))}</span> › <span id="v2crumb-p">${V2T.nav.pays[0]}</span></nav>`);
+ const head=d.querySelector(".chead > div");if(head){head.insertAdjacentHTML("afterbegin",`<nav class="v2crumb" aria-label="Fil d’Ariane"><a href="#accueil">${V2T.crumb[0]}</a> › <a href="#pays">${V2T.crumb[1]}</a> › <span>${esc(tr(c.name))}</span> › <span id="v2crumb-p">${V2T.nav.pays[0]}</span></nav>`);
   const sub=head.querySelector(".sub");if(sub)sub.insertAdjacentHTML("afterend",`<p class="v2plain">${V2T.plain}</p>`);
   const fi=head.querySelector(".fintro");if(fi)fi.outerHTML=`<p class="v2how">${V2T.how} <a href="#apropos">${V2T.how_l}</a></p>`}
  const cd=d.querySelector(".countdown .what");if(cd)cd.insertAdjacentHTML("beforeend",`<br><a class="v2cd" href="#${k}-vote">${V2T.cd_l}</a>`);
  const cg=d.querySelector(".cguide");if(cg)cg.remove();
+ d.querySelectorAll(".follow").forEach(x=>x.remove());
+ d.querySelectorAll("#p-gov p").forEach(pp=>{if(/Rouge : alarmant/.test(pp.textContent))pp.textContent="Chaque couleur situe un indicateur par rapport aux seuils écrits sous sa barre ; le libellé en toutes lettres fait foi. Mesuré par d’autres organismes, jamais par Barotico.";else if(/rassurants ou alarmants/.test(pp.textContent))pp.textContent=pp.textContent.replace("pour être lus comme rassurants ou alarmants","pour être interprétés de la même façon")});
+ const vcard=d.querySelector("#p-vote .votecard");if(vcard)vcard.insertAdjacentHTML("beforeend",`<p class="small v2vsrc">Sources des consignes : <a class="src-a" href="https://www.service-public.fr/particuliers/vosdroits/F1367" target="_blank" rel="noopener">service-public.fr, inscription sur les listes électorales</a> · <a class="src-a" href="https://www.service-public.gouv.fr/particuliers/actualites/A18967" target="_blank" rel="noopener">service-public.fr, même date limite en mairie et en ligne depuis le 1er juillet 2026</a> · <a class="src-a" href="https://www.maprocuration.gouv.fr/" target="_blank" rel="noopener">maprocuration.gouv.fr</a></p>`);
  /* one navigation: 4 parcours, sub-links only inside « Comprendre le pays » */
  const tabs=d.querySelector(".tabs");if(tabs){["t-sys","t-gov","t-fig","t-par","t-vote","t-med"].forEach(id=>{const a=tabs.querySelector("#"+id);if(a){a.dataset.g=V2G[id];if(V2T.sub[id])a.textContent=V2T.sub[id];tabs.appendChild(a)}});
   const w=document.createElement("div");w.className="v2wrap";w.dataset.g="pays";
@@ -2213,6 +2216,7 @@ function v2Country(k,h){const c=C[k],d=document.createElement("div");d.innerHTML
    const heads=card.querySelectorAll(".psec-h");const keys=["acts","demo","sum"];heads.forEach((hh,i)=>{const S=V2T.sec[keys[i]];if(!S)return;const h4=hh.querySelector("h4"),pp=hh.querySelector("p");if(h4)h4.textContent=S[0];if(pp&&i>0)pp.textContent=S[1];else if(pp&&i===0){const lg=pp.querySelector(".lg");pp.childNodes.forEach(n=>{if(n.nodeType===3)n.textContent=""});pp.insertAdjacentText("afterbegin",S[1]+" ")}});
    card.querySelectorAll(".ctx-p").forEach(x=>x.textContent=V2T.lg_def);
    const sm=(V2SUM[k]||{})[id],vd=card.querySelector(".verdict blockquote");if(sm&&vd)vd.outerHTML=`<div class="v2sum"><p><b>${V2T.sum_a}</b> ${esc(sm[0])}</p><p><b>${V2T.sum_b}</b> ${esc(sm[1].charAt(0).toLowerCase()+sm[1].slice(1))}</p></div>`;
+   const idea=card.querySelector(".idea");if(idea){const pp=idea.querySelector("p:not(.eyebrow)");if(pp)pp.textContent="Lisez son programme, puis choisissez librement d’autres partis à comparer, sur les mêmes sujets.";idea.querySelectorAll(".cmpbtn").forEach(x=>x.remove());const pr=idea.querySelector(".progs");if(pr)pr.insertAdjacentHTML("beforeend",`<button type="button" class="progbtn" data-pilgo="t-par">Voir tous les partis</button>`)}
    const ve=card.querySelector(".verdict .eyebrow");if(ve)ve.firstChild&&(ve.firstChild.textContent="En résumé");
    const end=card.querySelector(".ptoggle.pend");const extra=`<div class="v2srcm"><b>${V2T.srcm_h}</b><p>${V2T.srcm(fmtDate(c.updated).split(" · ")[0])} <a href="#apropos">${V2T.srcm_l}</a></p></div>${v2Ctx("party")}`;if(end)end.insertAdjacentHTML("beforebegin",extra)});
   if(BLIND[k])par.insertAdjacentHTML("beforeend",`<section class="game pil-v" id="blind" data-k="${k}">${blindView(k)}</section>`)}
@@ -2237,14 +2241,43 @@ function v2Home(html){if(!v2on())return html;const d=document.createElement("div
  if(lis[2]){const sp=lis[2].querySelector(":scope > span:not(.pd-top):not(.pd-end)"),en=lis[2].querySelector(".pd-end"),te=lis[2].querySelector(".pd-tease");if(sp)sp.textContent="Explorez comment votre fil sélectionne les contenus que vous voyez.";if(en)en.textContent="Une simulation fictive : vos gestes ne sont ni envoyés ni enregistrés, et le test ne révèle pas ce qu’une plateforme sait réellement de vous.";if(te)te.textContent="À la fin : votre résultat en une image, à partager si vous le souhaitez"}
  if(lis[0]){const en=lis[0].querySelector(".pd-end");if(en)en.textContent="Comprenez qui décide, qui gouverne et comment une loi est votée."}
  const ex=d.querySelector("#exemple");if(ex){const h=ex.querySelector(".hsec-h > p:last-child");if(h)h.insertAdjacentHTML("afterend",`<p class="small v2ex">Un exemple de la méthode, tiré au hasard : il ne résume pas l’ensemble du site.</p>`)}
- const mir=d.querySelector("#miroir"),actu=d.querySelector("#actu");
- if(mir&&actu&&mir.parentNode===actu.parentNode)mir.parentNode.insertBefore(actu,mir);
- if(mir){mir.insertAdjacentHTML("beforebegin",`<section class="v2tools" id="outils"><div class="hsec-h"><p class="eyebrow hsec-k">Outils et guides</p><h2>Pour aller plus loin, à votre rythme</h2><p>Trois outils facultatifs, valables pour tous les pays.</p></div><ul class="v2tools-l"><li><a href="#miroir" data-jump="miroir"><b>Le miroir des valeurs</b><span>Voir vers où penchent les valeurs que vous choisissez. Aucun parti ne vous est attribué.</span></a></li><li><a href="#voter"><b>Pourquoi voter ?</b><span>Ce que change une voix, et ce que change l’abstention.</span></a></li><li><a href="#reprendre"><b>Sortir de ma bulle</b><span>Comment un fil d’actualité choisit ce que vous voyez, et comment le remettre à zéro.</span></a></li></ul></section>`);
-  const lead=mir.querySelector(".hsec-h > p:last-child")||mir.querySelector("p.lead");if(lead)lead.insertAdjacentHTML("afterend",`<p class="small v2mir">L’axe gauche-droite est une représentation simplifiée de la direction vers laquelle penchent les valeurs choisies, pas un diagnostic politique de la personne. Le miroir ne compare pas vos choix aux programmes des partis. <a href="#pays" data-jump="pays">Choisir un pays pour consulter ses partis</a></p>`)}
- const vo=d.querySelector("#voter");if(vo)vo.insertAdjacentHTML("beforeend",v2VoteLink());
+ ["miroir","reprendre-home","voter"].forEach(id=>{const x=d.querySelector("#"+id);if(x)x.remove()});
+ const actu=d.querySelector("#actu");if(actu){actu.querySelectorAll(".tick").forEach((x,i)=>{if(i>=4)x.remove()});const hp=actu.querySelector(".hsec-h > p:last-child");if(hp)hp.insertAdjacentHTML("afterend",`<p class="small">Les quatre prochaines élections nationales dans les pays couverts. Chaque fiche pays donne le détail.</p>`)}
+ d.querySelectorAll(".hd-more a[data-jump]").forEach(a=>{const j=a.dataset.jump;a.removeAttribute("data-jump");a.removeAttribute("role");a.removeAttribute("tabindex");a.setAttribute("href",j==="voter"?"#voter":"#miroir")});
+ const tools=`<section class="v2tools" id="outils"><div class="hsec-h"><p class="eyebrow hsec-k">Outils et guides</p><h2>Pour aller plus loin, à votre rythme</h2><p>Des outils facultatifs, valables pour tous les pays. Chacun a sa page.</p></div><ul class="v2tools-l">${V2TOOLS.map(([h,u,x,tag])=>`<li><a href="${u}"><b>${h}${tag?` <span class="v2tag">${tag}</span>`:""}</b><span>${x}</span></a></li>`).join("")}</ul></section>`;
+ if(actu)actu.querySelectorAll(".daily").forEach(x=>x.remove());
+ const meth=[...d.children].find(x=>x.tagName==="SECTION"&&!x.id&&x.querySelector(".hsec-h"))||null;
+ if(meth){meth.querySelectorAll(":scope > aside, :scope > p").forEach(x=>x.remove());meth.insertAdjacentHTML("beforeend",`<p><a href="#apropos">Lire la méthode complète, les limites et l’indépendance →</a></p>`)}
+ if(meth)meth.insertAdjacentHTML("beforebegin",tools);else d.insertAdjacentHTML("beforeend",tools);
  return d.innerHTML}
+const V2TOOLS=[["Pourquoi voter ?","#voter","Ce que change une voix, et ce que change l’abstention.",""],["Sortir de ma bulle","#reprendre","Comment un fil d’actualité choisit ce que vous voyez (simulation), et comment le remettre à zéro.",""],["Le miroir des valeurs","#miroir","Voir vers où penchent les valeurs que vous choisissez. Aucun parti ne vous est attribué.",""],["Comparer les pays","#comparer","Mettre côte à côte quelques pays et quelques indicateurs.","outil avancé"],["Médias du monde","#medias","Les principaux médias de chaque pays et leurs propriétaires.","référence"]];
 function v2VoteLink(){return `<div class="v2ctx-wrap"><a class="v2ctx" href="#france-vote"><span class="v2ctx-q">Comment le vote fonctionne-t-il ici ?</span><span class="v2ctx-l">Comprendre le vote en France →</span></a><p class="small">Autre pays : <a href="#pays" data-jump="pays">choisir un pays</a>, puis son parcours « Comprendre le vote ».</p></div>`}
-function v2Algo(html){if(!v2on())return html;return html+`<section class="rm-block v2back"><p class="small">Les mécanismes décrits ici varient selon les plateformes et changent avec le temps.</p><div class="v2ctx-wrap"><a class="v2ctx" href="#france-media"><span class="v2ctx-q">Qui possède les médias de ce pays ?</span><span class="v2ctx-l">Comprendre les médias en France →</span></a><p class="small">Autre pays : <a href="#pays" data-jump="pays">choisir un pays</a>, puis son parcours « Comprendre les médias ».</p></div></section>`}
+PAGE_SLUG.miroir="values-mirror";
+const V2MIR={lead:"Choisissez jusqu’à 7 valeurs. Chaque valeur a une position fixe sur un axe gauche-droite, de −2 à +2. La flèche montre la moyenne des positions des valeurs choisies. Les valeurs revendiquées par tous les camps sont à 0 et ne la font pas bouger.",
+ note:"Le miroir ne compare pas vos choix au programme d’un parti précis et ne vous attribue aucun parti : il calcule seulement une direction moyenne. L’axe gauche-droite est une représentation simplifiée, pas un diagnostic politique. La position de chaque valeur est un choix éditorial de Barotico, fondé sur le camp qui met le plus souvent cette valeur en avant ; la documentation détaillée de ce choix reste à publier. Le tableau ci-dessous donne la position utilisée pour chaque valeur.",
+ tab:"Voir la position de chaque valeur",tv:"Valeur",tp:"Position (−2 gauche, +2 droite)",go:"Choisir un pays pour consulter ses partis"};
+function mirrorPage(){const d=document.createElement("div");d.innerHTML=landing1();const s=d.querySelector("#miroir");if(!s)return landing();
+ const h=s.querySelector("h2");if(h){const h1=document.createElement("h1");h1.className="vh1";h1.innerHTML=h.innerHTML;h.replaceWith(h1)}
+ if(v2on()){const L=[...s.querySelectorAll("p")].find(p=>p.textContent.trim()===tr(T[lang].mir_lead||"").trim()||/aucun parti ne vous sera attribué/i.test(p.textContent));if(L)L.textContent=V2MIR.lead;
+  const N=[...s.querySelectorAll("p,small")].find(p=>/Correspondance établie/.test(p.textContent));if(N)N.textContent=V2MIR.note;else s.insertAdjacentHTML("beforeend",`<p class="small">${V2MIR.note}</p>`);
+  s.insertAdjacentHTML("beforeend",`<details class="v2mirtab"><summary>${V2MIR.tab}</summary><table class="cmp"><thead><tr><th scope="col">${V2MIR.tv}</th><th scope="col">${V2MIR.tp}</th></tr></thead><tbody>${VALUES.map(([n,w])=>`<tr><td>${esc(tr(n))}</td><td class="mono">${w>0?"+":""}${String(w).replace(".",",")}</td></tr>`).join("")}</tbody></table></details><p><a class="v2ctx" href="#pays"><span class="v2ctx-q">Voir les partis d’un pays</span><span class="v2ctx-l">${V2MIR.go} →</span></a></p>`)}
+ return `<div class="vpage mpage">${s.outerHTML}</div>`}
+function v2Cmp(html){const d=document.createElement("div");d.innerHTML=html;const sec=d.querySelector(".cmp-page");if(!sec)return html;
+ sec.querySelectorAll("tr[data-cont]").forEach(tr0=>{const a=tr0.querySelector("th a");if(a)tr0.dataset.k=(a.getAttribute("href")||"").replace("#","")});
+ sec.classList.add("v2cmp-wait");
+ const pk=readyKeys().map(k=>[k,tr(info(k).name)]).sort((a,b)=>a[1].localeCompare(b[1],"fr"));
+ sec.insertAdjacentHTML("afterbegin",`<div class="v2cmp"><p class="eyebrow">Outil avancé</p><h2>Choisissez d’abord les pays à comparer</h2><p>Sélectionnez de 2 à 5 pays, puis les indicateurs à afficher. Les mêmes sources valent pour tous les pays.</p><fieldset class="v2cmp-l"><legend class="sr">Pays</legend>${pk.map(([k,n])=>`<label><input type="checkbox" value="${k}" data-v2cmpk> ${esc(n)}</label>`).join("")}</fieldset><p class="v2cmp-b"><button type="button" class="btn" data-v2cmp="go" disabled>Afficher la comparaison</button> <span class="small" id="v2cmp-n">0 pays choisi</span> · <button type="button" class="linkbtn" data-v2cmp="all">Voir le tableau complet (${pk.length} pays)</button></p></div>`);
+ return d.innerHTML}
+function v2Media(html){const d=document.createElement("div");d.innerHTML=html;const h=d.querySelector(".chead");if(h)h.insertAdjacentHTML("afterend",`<p class="v2note">Page de référence : les principaux médias de chaque pays et leurs propriétaires. Pour un pays précis, ouvrez sa fiche, parcours « Comprendre les médias ». Les médias ne sont pas classés comme bons ou mauvais.</p>`);return d.innerHTML}
+document.addEventListener("change",e=>{const c=e.target.closest&&e.target.closest("[data-v2cmpk]");if(!c)return;const all=[...document.querySelectorAll("[data-v2cmpk]")],on=all.filter(x=>x.checked);all.forEach(x=>{if(!x.checked)x.disabled=on.length>=5});const b=document.querySelector('[data-v2cmp="go"]');if(b)b.disabled=on.length<2;const n=document.getElementById("v2cmp-n");if(n)n.textContent=on.length+(on.length>1?" pays choisis":" pays choisi")+" (5 au plus)"});
+document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("[data-v2cmp]");if(!b)return;const sec=document.querySelector(".cmp-page");if(!sec)return;const a=b.dataset.v2cmp;
+ if(a==="edit"){sec.classList.add("v2cmp-wait");return}
+ const ks=a==="all"?null:[...document.querySelectorAll("[data-v2cmpk]:checked")].map(x=>x.value);
+ sec.querySelectorAll("tr[data-k]").forEach(r=>r.hidden=ks?!ks.includes(r.dataset.k):false);
+ sec.classList.remove("v2cmp-wait");sec.classList.toggle("v2cmp-sel",!!ks);
+ if(!sec.querySelector('[data-v2cmp="edit"]')){const tw=sec.querySelector(".tablewrap");if(tw)tw.insertAdjacentHTML("beforebegin",`<p class="v2cmp-e"><button type="button" class="linkbtn" data-v2cmp="edit">Modifier la sélection de pays</button></p>`)}
+ const tw=sec.querySelector(".tablewrap");if(tw)tw.scrollIntoView({block:"start",behavior:"smooth"})});
+function v2Algo(html){if(!v2on())return html;return html+`<section class="rm-block v2back"><p class="small">Les mécanismes décrits ici varient selon les plateformes et changent avec le temps.</p><div class="v2ctx-wrap"><a class="v2ctx" href="#france-medias"><span class="v2ctx-q">Qui possède les médias de ce pays ?</span><span class="v2ctx-l">Comprendre les médias en France →</span></a><p class="small">Autre pays : <a href="#pays" data-jump="pays">choisir un pays</a>, puis son parcours « Comprendre les médias ».</p></div></section>`}
 /* Menu (French): current country named; tools grouped. */
 function v2Menu(){try{
  const rb=document.getElementById("v2rib");if(rb&&window.v2RibM)rb.textContent=window.v2RibM[lang]||window.v2RibM.en;
@@ -2254,10 +2287,10 @@ function v2Menu(){try{
  const lbl=document.querySelector("#dd-btn [data-t='nav_countries']");if(lbl)lbl.textContent=c?`Pays : ${tr(c.name)}`:"Pays";
  const nav=document.querySelector("nav.nav");if(nav){
   ["comparer","voter","reprendre","medias"].forEach(r=>{const a=nav.querySelector(`a.navlink[data-r="${r}"]`);if(a)a.hidden=true});
-  const dd=nav.querySelector(".dd");const html=`<details class="v2tools-dd"><summary class="navlink">Outils et guides <span aria-hidden="true">▾</span></summary><div class="v2tools-p"><a href="#voter">Pourquoi voter ?</a><a href="#reprendre">Sortir de ma bulle</a><a href="#miroir" data-jump="miroir">Le miroir des valeurs</a><a href="#comparer">Comparer les pays</a><a href="#medias">Médias du monde</a></div></details>`;
+  const dd=nav.querySelector(".dd");const html=`<details class="v2tools-dd"><summary class="navlink">Outils et guides <span aria-hidden="true">▾</span></summary><div class="v2tools-p">${V2TOOLS.map(([h,u,,tag])=>`<a href="${u}">${h}${tag?` <small>· ${tag}</small>`:""}</a>`).join("")}</div></details>`;
   if(dd)dd.insertAdjacentHTML("afterend",html);if(typeof pathLinks==="function")pathLinks(nav)}
  const sh=document.querySelector("nav.sheet-nav");if(sh){["comparer","voter","reprendre","medias"].forEach(r=>{const a=sh.querySelector(`a.navlink[data-r="${r}"]`);if(a)a.hidden=true});
-  const det=sh.querySelector("details.sheet-dd");const html=`<details class="sheet-dd v2tools-sh"><summary class="navlink">Outils et guides</summary><div class="v2tools-p"><a href="#voter">Pourquoi voter ?</a><a href="#reprendre">Sortir de ma bulle</a><a href="#miroir" data-jump="miroir">Le miroir des valeurs</a><a href="#comparer">Comparer les pays</a><a href="#medias">Médias du monde</a></div></details>`;if(det)det.insertAdjacentHTML("afterend",html);if(typeof pathLinks==="function")pathLinks(sh)}
+  const det=sh.querySelector("details.sheet-dd");const html=`<details class="sheet-dd v2tools-sh"><summary class="navlink">Outils et guides</summary><div class="v2tools-p">${V2TOOLS.map(([h,u,,tag])=>`<a href="${u}">${h}${tag?` <small>· ${tag}</small>`:""}</a>`).join("")}</div></details>`;if(det)det.insertAdjacentHTML("afterend",html);if(typeof pathLinks==="function")pathLinks(sh)}
 }catch(e){}}
 function landing(){txt14();const h=landing1();const r=pilDoors(HOME_V2?homeV2(h):h);return v2on()?v2Home(r):r}
 function landing1(){
@@ -2819,22 +2852,23 @@ function renderView(){
   if(PATHMODE){const r0=curRaw(),k0=r0.split("-")[0];if(hasSub(k0)){const w=pathFor(r0);if(decodeURI(location.pathname)!==w)history.replaceState(history.state,"",w)}}
   const raw=curRaw();
   const [r,party]=raw.split("-");
-  let key=r==="voter"?"voter":r==="reprendre"?"reprendre":r==="medias"?"medias":r==="apropos"?"apropos":r==="legal"?"legal":r==="comparer"?"comparer":isReady(r)?r:"accueil";
+  let key=r==="miroir"?"miroir":r==="voter"?"voter":r==="reprendre"?"reprendre":r==="medias"?"medias":r==="apropos"?"apropos":r==="legal"?"legal":r==="comparer"?"comparer":isReady(r)?r:"accueil";
   const view=document.getElementById("view");
-  if(key!=="accueil"&&key!=="voter"&&key!=="reprendre"&&key!=="medias"&&key!=="apropos"&&key!=="legal"&&key!=="comparer"&&!C[key]){
+  if(key!=="accueil"&&key!=="miroir"&&key!=="voter"&&key!=="reprendre"&&key!=="medias"&&key!=="apropos"&&key!=="legal"&&key!=="comparer"&&!C[key]){
     if(REG.full[key])ingest(key);
     else{view.innerHTML=`<p class="pending" style="padding:48px 0">${t("loading")}</p>`;loadCountry(key);return}
   }
-  view.innerHTML=key==="voter"?voterPage():key==="reprendre"?algoPage():key==="comparer"?comparePage():key==="medias"?mediaPage():key==="apropos"?aboutPage():key==="legal"?legalPage():key==="accueil"?landing():countryPage(key);
+  view.innerHTML=key==="miroir"?mirrorPage():key==="voter"?voterPage():key==="reprendre"?algoPage():key==="comparer"?(v2on()?v2Cmp(comparePage()):comparePage()):key==="medias"?(v2on()?v2Media(mediaPage()):mediaPage()):key==="apropos"?aboutPage():key==="legal"?legalPage():key==="accueil"?landing():countryPage(key);
   const cur=r==="voter"?"voter":(C[key]?"pays":key);
   document.querySelectorAll(".navlink").forEach(a=>{if(a.dataset.r===cur)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
   closeDD();
+  if(key==="miroir"){bindMirror();window.scrollTo(0,0);return}
   if(key==="comparer"){bindFilter();window.scrollTo(0,0);return}
   if(key==="voter"){bindGuide();window.scrollTo(0,0);return}
   if(key==="reprendre"){const tg=party&&document.getElementById(party);if(tg)tg.scrollIntoView({block:"start"});else window.scrollTo(0,0);return}
   if(key==="medias"||key==="apropos"||key==="legal"){const tg=key==="legal"&&party&&document.getElementById(party);if(tg)tg.scrollIntoView({block:"start"});else window.scrollTo(0,0);return}
   if(key==="accueil"){
-    bindMirror();bindFilter();bindGuide();bindExample();
+    if(document.getElementById("cnt"))bindMirror();bindFilter();bindGuide();bindExample();
     const tgt=["voter","pays","soutien","comparatif","guide","exemple","miroir","actu"].includes(r)&&document.getElementById(r);
     if(tgt)tgt.scrollIntoView({block:"start"});else window.scrollTo(0,0);
     return;
