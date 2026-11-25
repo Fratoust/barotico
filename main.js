@@ -625,11 +625,60 @@ function xpCalc(){
   return {m,thr,stop,w,slots,h,cells,sS,nO,nH,dom,n,path,hs,x:stop.filter((s,i)=>s&&!XP.opened[i]).length}
 }
 const XP_COL={cuisine:"var(--dit)",sport:"var(--good)",animaux:"var(--warn)",voyage:"var(--violet)",autre:"var(--muted)"};
+/* v178 (25/11/2026): the 10 posts scroll inside a phone mock-up, like a real feed (idea of François).
+   Time on each post = time it fills at least 60 % of the screen (IntersectionObserver), same rules as before for xpCalc.
+   "Open" shows the full post in a sheet inside the phone (reading time = XP.o), "Not interested" greys the post out.
+   XP_PHONE=false brings back the one-card-at-a-time version. */
+const XP_PHONE=true;
+Object.assign(ALGO.xp,{
+ phone_l:A3("Mock news feed","Faux fil d’actualité","Feed de noticias simulado"),
+ phone_hint:A3("Scroll as you would on your phone. Time spent on each post is measured here, in your browser; nothing is sent.","Faites défiler comme sur votre téléphone. Le temps passé sur chaque publication est mesuré ici, dans votre navigateur ; rien n’est envoyé.","Desliza como en tu móvil. El tiempo en cada publicación se mide aquí, en tu navegador; no se envía nada."),
+ phone_hint_nt:A3("Scroll as you would on your phone.","Faites défiler comme sur votre téléphone.","Desliza como en tu móvil."),
+ end_eye:A3("End of the feed","Fin du fil","Fin del feed"),
+ end_h:A3("You have seen the 10 posts.","Vous avez vu les 10 publications.","Has visto las 10 publicaciones."),
+ end_go:A3("See what your feed kept","Voir ce que votre fil a retenu","Ver lo que tu feed ha retenido"),
+ down:A3("Next post","Publication suivante","Siguiente publicación")
+});
+function xpPhoneView(){const X=ALGO.xp,C=XP.cards;
+  const posts=XP.order.map((ci,k)=>{const c=C[ci];return `<article class="xp-post" data-pci="${ci}" data-k="${k}" style="--c:${XP_COL[c[0]]}" aria-label="${esc(tr(X.sr_card)(k+1))}">
+   <header class="xp-ph"><span class="xp-av" aria-hidden="true"></span><span><b>${aT(X.th[c[0]])}</b><small>${aT(X.sugg)}</small></span></header>
+   <div class="xp-vis" aria-hidden="true"><span>${aT(X.th[c[0]])}</span></div>
+   <h3>${aT(c[2])}</h3>
+   <div class="xp-act"><button type="button" class="btn xp-pbtn" data-xp="popen" data-pci="${ci}">${aT(X.open)}</button><button type="button" class="linkbtn xp-phide" data-xp="phide" data-pci="${ci}">${aT(X.hide)}</button></div>
+  </article>`}).join("");
+  return `<div class="xp-stage"><div class="xp-phone" role="region" aria-label="${aT(X.phone_l)}"><span class="xp-notch" aria-hidden="true"></span>
+   <div class="xp-status"><span class="mono" id="xp-count">1 / 10</span><span class="xp-bar"><span id="xp-barfill" style="width:10%"></span></span></div>
+   <div class="xp-screen xp-focus" id="xp-screen" tabindex="0">${posts}<section class="xp-post xp-end" data-k="10"><p class="eyebrow">${aT(X.end_eye)}</p><h3>${aT(X.end_h)}</h3><button type="button" class="btn" data-xp="pdone">${aT(X.end_go)} →</button></section></div>
+   <div class="xp-sheet" id="xp-sheet" hidden></div>
+   <button type="button" class="xp-down" data-xp="pnext" aria-label="${aT(X.down)}">↓</button>
+  </div><p class="rm-small xp-hint">${aT(XP.notime?X.phone_hint_nt:X.phone_hint)}</p></div>`}
+function xpPhoneBind(){const sc=document.getElementById("xp-screen");if(!sc)return;XP.act=null;XP.sheet=null;
+  if(XP.io)XP.io.disconnect();
+  XP.io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&e.intersectionRatio>=.6)xpActivate(e.target)}),{root:sc,threshold:[.6]});
+  sc.querySelectorAll(".xp-post").forEach(p=>XP.io.observe(p))}
+function xpBank(){if(XP.act!=null&&XP.act<10&&XP.sheet==null){const s=xpClockStop();if(!XP.notime)XP.t[XP.order[XP.act]]+=s}}
+function xpActivate(p){const k=+p.dataset.k;if(XP.act===k)return;xpBank();XP.act=k;XP.i=Math.min(k,9);
+  const n=Math.min(k+1,10),cnt=document.getElementById("xp-count"),bar=document.getElementById("xp-barfill");
+  if(cnt)cnt.textContent=`${n} / 10`;if(bar)bar.style.width=`${n*10}%`;
+  const d=document.querySelector(".xp-down");if(d)d.hidden=k>=10;
+  if(k<10)xpClockStart()}
+document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("[data-xp]");if(!b||!XP_PHONE)return;const a=b.dataset.xp;if(a[0]!=="p"||a==="pred")return;
+  const X=ALGO.xp,sc=document.getElementById("xp-screen"),sh=document.getElementById("xp-sheet"),ci=b.dataset.pci!=null?+b.dataset.pci:null;
+  if(a==="pnext"&&sc){sc.scrollBy({top:sc.clientHeight,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});return}
+  if(a==="popen"&&sh){xpBank();XP.opened[ci]=true;XP.sheet=ci;const c=XP.cards[ci];
+    sh.innerHTML=`<p class="eyebrow">${aT(X.fict)}</p><h3 tabindex="-1">${aT(c[2])}</h3><p>${aT(c[3])}</p><button type="button" class="btn" data-xp="pback" data-pci="${ci}">${aT(X.back)}</button>`;
+    sh.hidden=false;sh.style.setProperty("--c",XP_COL[c[0]]);const h=sh.querySelector("h3");if(h)h.focus({preventScroll:true});xpClockStart();return}
+  if(a==="pback"&&sh){const s=xpClockStop();if(!XP.notime)XP.o[ci]+=s;XP.sheet=null;sh.hidden=true;sh.innerHTML="";xpClockStart();
+    const p=sc&&sc.querySelector(`.xp-post[data-pci="${ci}"] .xp-pbtn`);if(p)p.focus({preventScroll:true});return}
+  if(a==="phide"){xpBank();XP.hid[ci]=true;const p=b.closest(".xp-post");if(p){p.classList.add("xp-hid");p.querySelector("h3").textContent=tr(X.hidden);p.querySelector(".xp-act").remove()}xpClockStart();return}
+  if(a==="pdone"){xpBank();if(XP.io)XP.io.disconnect();XP.step="pred";xpRender();return}
+});
 function xpCell(k,hook,title){return `<span class="xp-cell${hook?" hook":""}" style="--c:${XP_COL[k]}"${title?` title="${esc(title)}"`:""}></span>`}
 function xpNum(x){return (Math.round(x*10)/10).toLocaleString(lang==="en"?"en-GB":lang==="es"?"es-ES":"fr-FR")}
 function xpView(){const X=ALGO.xp,C=XP.cards||[];
   if(XP.step==="intro")return `<div class="xp-box xp-intro"><p class="eyebrow">${aT(X.eye)}</p><p class="xp-lead">${aT(X.p)}</p><p class="rm-small">${aT(X.small)}</p><button type="button" class="btn xp-go" data-xp="start">${aT(X.go)} →</button><p><button type="button" class="linkbtn" data-xp="notime">${aT(X.notime)}</button></p></div>`;
   if(XP.step==="int")return `<div class="xp-box"><p class="eyebrow">${aT(X.int_eye)}</p>${XP.run>1?`<p class="xp-again">${aT(X.again_line)}</p>`:""}<h3 class="xp-focus" tabindex="-1">${aT(X.int_q)}</h3><div class="xp-opts">${X.ints.map(o=>`<button type="button" class="rq-opt" data-xp="int" data-v="${o[0]}" aria-pressed="${XP.intent===(o[0]||null)&&XP.run>1}">${aT(o[1])}</button>`).join("")}</div></div>`;
+  if(XP_PHONE&&XP.step==="feed")return xpPhoneView();
   if(XP.step==="feed"||XP.step==="open"||XP.step==="hid"){const ci=XP.order[XP.i],c=C[ci];
     const top=`<div class="xp-prog"><span class="mono">${XP.i+1} / 10</span><span class="xp-bar"><span style="width:${(XP.i+1)*10}%"></span></span></div><p class="sr-only" aria-live="polite">${esc(tr(X.sr_card)(XP.i+1))}</p>`;
     if(XP.step==="open")return `<div class="xp-box">${top}<article class="xp-card open" style="--c:${XP_COL[c[0]]}"><p class="eyebrow">${aT(X.fict)}</p><h3 class="xp-focus" tabindex="-1">${aT(c[2])}</h3><p>${aT(c[3])}</p></article><button type="button" class="btn xp-next" data-xp="back">${aT(X.back)}</button></div>`;
@@ -697,7 +746,7 @@ function xpView(){const X=ALGO.xp,C=XP.cards||[];
   </div>`;
 }
 function algoXp(){return `<div class="rm-testhead"><h2>${aT(ALGO.xp.h)}</h2></div><div id="xp" class="xp">${xpView()}</div>`}
-function xpRender(focus){const b=document.getElementById("xp");if(!b)return;b.innerHTML=xpView();if(focus!==false){const f=b.querySelector(".xp-focus");if(f){f.focus({preventScroll:true});const r=b.getBoundingClientRect();if(r.top<0||r.top>innerHeight*.6)b.scrollIntoView({block:"start",behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"})}}if(XP.step==="feed")xpClockStart()}
+function xpRender(focus){const b=document.getElementById("xp");if(!b)return;b.innerHTML=xpView();if(focus!==false){const f=b.querySelector(".xp-focus");if(f){f.focus({preventScroll:true});const r=b.getBoundingClientRect();if(r.top<0||r.top>innerHeight*.6)b.scrollIntoView({block:"start",behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"})}}if(XP.step==="feed"){if(XP_PHONE)xpPhoneBind();else xpClockStart()}}
 function xpAdvance(){XP.i++;XP.step=XP.i>=10?"pred":"feed";xpRender()}
 document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("[data-xp]");if(!b)return;const a=b.dataset.xp;
   if(a==="start"||a==="notime"){if(a==="notime")XP.notime=true;XP.run=1;XP.h1=null;xpReset();XP.step="int";return xpRender()}
