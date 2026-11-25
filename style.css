@@ -1303,3 +1303,12 @@ body:has(.pilwrap) .panel>p.tabctx{background:none;border-left:2px solid var(--l
 .carnet-n[open]{flex-basis:100%} .carnet-n[open] summary{display:none}
 @media (max-width:620px){.carnet-s li{flex-direction:row;text-align:left}}
 .hsec-h .hsec-k{margin:0 0 6px;font-size:.75rem}
+/* v185: pillars in the site's own ink (navy) instead of three new colours (François: the pastels clash).
+   The three pillars are told apart by their symbol and name. Remove this block to go back to the colours. */
+:root:root:root{--pc:var(--ink);--pv:var(--ink);--pb:var(--ink);--pc-soft:var(--tint);--pv-soft:var(--tint);--pb-soft:var(--tint)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .pil-card .btn,:root:not([data-theme="light"]) .xp-share .btn{color:#0B1124}}
+:root[data-theme="dark"] .pil-card .btn,:root[data-theme="dark"] .xp-share .btn{color:#0B1124}
+/* v186: link to the comparison under the key-figure tiles */
+.fig-cmp{display:block;margin:14px 0 30px;padding:12px 16px;border:1px solid var(--line);border-left:4px solid var(--ink);border-radius:10px;background:var(--surface);color:var(--ink);text-decoration:none}
+.fig-cmp b{display:block;font-weight:600} .fig-cmp small{display:block;color:var(--muted);margin-top:2px}
+.fig-cmp:hover b{text-decoration:underline}
