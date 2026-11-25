@@ -2310,6 +2310,25 @@ function v2Title(){if(!v2on())return;try{const raw=curRaw(),[r,rest]=splitRaw(ra
  const T0=key&&V2TITLE[key];if(T0)document.title=T0[0]}catch(e){}}
 function v2Algo(html){if(!v2on())return html;html=html.replace(/Ce que vous voyez chaque jour (?:change|pèse sur) ce que vous pensez[^.]*\./g,"Ce que vous voyez chaque jour peut influencer vos opinions et vos choix, selon les personnes et les contextes.");html=html.replace(/(<div class="chead rm-head"[^>]*><div>)<p class="eyebrow">[^<]*<\/p>/,`$1<p class="eyebrow">Sortir de ma bulle · une simulation, sans diagnostic ni consigne</p>`);return html+`<section class="rm-block v2back"><p class="small">Les mécanismes décrits ici varient selon les plateformes et changent avec le temps.</p><div class="v2ctx-wrap"><a class="v2ctx" href="#france-medias"><span class="v2ctx-q">Qui possède les médias de ce pays ?</span><span class="v2ctx-l">Comprendre les médias en France →</span></a><p class="small">Autre pays : <a href="#pays" data-jump="pays">choisir un pays</a>, puis son parcours « Comprendre les médias ».</p></div></section>`}
 /* Menu (French): current country named; tools grouped. */
+/* V2 round 5 (25/11/2026): footer rebuilt in clear blocks (support, commitments, explore, information, beta and app). French pilot only. */
+function v2Footer(){try{const f=document.querySelector("footer");if(!f||!v2on())return;if(f.dataset.v2==="1"){const pb=document.getElementById("pwa-box"),slot=document.getElementById("v2foot-app");if(pb&&slot&&pb.parentNode!==slot)slot.appendChild(pb);return}
+ const L=k=>{try{return esc(tr(k))}catch(e){return ""}};
+ const leg=[["mentions",LEG.sections[0][1]],["charter",LEG.charterLink],["privacy",LEG.sections[3][1]],["ai",LEG.sections[4][1]],["corrections",LEG.report]];
+ const cup=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h1a4 4 0 0 1 0 8h-1"></path><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path><path d="M6 2v2M10 2v2M14 2v2"></path></svg>`;
+ f.innerHTML=`<section class="v2sup" id="soutien" aria-labelledby="v2sup-h">
+  <div class="v2sup-t"><p class="eyebrow">Soutenir Barotico</p><h2 id="v2sup-h">Coopératif et indépendant</h2><p>Pas de publicité, et aucun argent venant de partis politiques. Les dons financent les mises à jour, la vérification des faits et l’ajout de nouveaux pays.</p></div>
+  <div class="v2sup-a"><a class="v2sup-btn" id="bmc" target="_blank" rel="noopener" href="${esc(BMC_URL||"")}">${cup}<span>Offrir un café</span></a><small id="bmc-note" hidden></small><small class="v2sup-n">Sur Buy Me a Coffee, site externe. Montant libre.</small></div>
+ </section>
+ <div class="v2foot-cols">
+  <section aria-labelledby="v2f1"><h2 id="v2f1">Nos engagements</h2><ul><li>Chaque chiffre renvoie à sa source.</li><li>Chaque parti reçoit le même traitement, avec les mêmes règles.</li><li>Le miroir des valeurs ne transmet ni n’enregistre vos réponses : tout se calcule dans votre navigateur.</li></ul></section>
+  <nav aria-labelledby="v2f2"><h2 id="v2f2">Explorer</h2><ul><li><a href="#accueil">Accueil</a></li><li><a href="#pays">Choisir un pays</a></li>${V2TOOLS.map(([h,u])=>`<li><a href="${u}">${esc(h)}</a></li>`).join("")}<li><a href="#apropos">À propos</a></li></ul></nav>
+  <nav aria-labelledby="v2f3"><h2 id="v2f3">Informations</h2><ul>${leg.map(([id,l])=>`<li><a href="#legal-${id}">${L(l)}</a></li>`).join("")}</ul></nav>
+ </div>
+ <div class="v2foot-bar"><p><span class="v2beta">Bêta publique</span> Le site est ouvert à tous et encore en test.</p><div id="v2foot-app"></div></div>`;
+ f.dataset.v2="1";f.classList.add("v2foot");
+ const bm=document.getElementById("bmc");if(!BMC_URL){bm.removeAttribute("href");bm.setAttribute("aria-disabled","true");const n=document.getElementById("bmc-note");n.hidden=false;n.textContent=t("sup_soon")}
+ const pb=document.getElementById("pwa-box");if(pb)document.getElementById("v2foot-app").appendChild(pb);
+}catch(e){}}
 function v2Menu(){try{
  const rb=document.getElementById("v2rib");if(rb&&window.v2RibM)rb.textContent=window.v2RibM[lang]||window.v2RibM.en;
  document.querySelectorAll(".v2tools-dd,.v2tools-sh").forEach(x=>x.remove());document.querySelectorAll('nav.nav a.navlink[hidden],nav.sheet-nav a.navlink[hidden]').forEach(a=>a.hidden=false);
@@ -2879,7 +2898,7 @@ function render(){renderView();pathLinks();if(typeof v2Title==="function")setTim
 function renderView(){
   // Old links with "#" (…/#figures, …/parties/#rn, /fr/#voter): same page at its clean address, the in-page target kept in history.state.
   if(PATHMODE&&location.hash.length>1){const r=curRaw(),sc=secFor(r);history.replaceState(sc?{sec:sc}:null,"",pathFor(r))}
-  chrome();if(typeof v2Menu==="function")v2Menu();
+  chrome();if(typeof v2Menu==="function")v2Menu();if(typeof v2Footer==="function")v2Footer();
   if(PATHMODE){const r0=curRaw(),k0=r0.split("-")[0];if(hasSub(k0)){const w=pathFor(r0);if(decodeURI(location.pathname)!==w)history.replaceState(history.state,"",w)}}
   const raw=curRaw();
   const [r,party]=raw.split("-");
@@ -3038,7 +3057,7 @@ const PWA_T={lab:L3("Install the Barotico app","Installer l'application Barotico
   android:L3("Open your browser menu (⋮) and choose “Install app” or “Add to Home screen”.","Ouvrez le menu du navigateur (⋮) et choisissez « Installer l'application » ou « Ajouter à l'écran d'accueil ».","Abre el menú del navegador (⋮) y elige «Instalar aplicación» o «Añadir a pantalla de inicio»."),
   desktop:L3("In Chrome or Edge, click the install icon at the right of the address bar (or menu ⋮ → “Install Barotico”). Safari on Mac: File → “Add to Dock”.","Dans Chrome ou Edge, cliquez sur l'icône d'installation à droite de la barre d'adresse (ou menu ⋮ → « Installer Barotico »). Safari sur Mac : Fichier → « Ajouter au Dock ».","En Chrome o Edge, haz clic en el icono de instalación a la derecha de la barra de direcciones (o menú ⋮ → «Instalar Barotico»). Safari en Mac: Archivo → «Añadir al Dock».")};
 function pwaPlatform(){const u=navigator.userAgent;if(/iphone|ipad|ipod/i.test(u)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1))return "ios";if(/android/i.test(u))return "android";return "desktop"}
-function pwaFooter(){if(!PATHMODE||appMode())return;const f=document.querySelector("footer");if(!f||document.getElementById("pwa-box"))return;const p=document.createElement("div");p.className="pwa";p.id="pwa-box";
+function pwaFooter(){if(!PATHMODE||appMode())return;const f=document.getElementById("v2foot-app")||document.querySelector("footer");if(!f||document.getElementById("pwa-box"))return;const p=document.createElement("div");p.className="pwa";p.id="pwa-box";
   p.innerHTML=`<button type="button" class="btn pwa-go">${esc(tr(PWA_T.lab))}</button><small id="pwa-help" hidden>${esc(tr(PWA_T[pwaPlatform()]))}</small>`;f.appendChild(p)}
 function pwaMenu(){if(!PATHMODE||appMode())return;const nav=document.querySelector(".sheet-nav");if(!nav||nav.querySelector(".pwa-go"))return;const b=document.createElement("button");b.type="button";b.className="navlink pwa-go pwa-menu";b.textContent=tr(PWA_T.menu);nav.appendChild(b)}
 async function pwaInstall(){
