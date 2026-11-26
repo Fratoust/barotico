@@ -234,9 +234,10 @@
 {
 "slug": "egypt",
 "key": "egypt",
-"status": "doing",
+"status": "done",
 "since": "2026-11-26T12:49Z",
-"by": "session_01K5LCGrVFZ4-2"
+"by": "session_01K5LCGrVFZ4-2",
+"done": "2026-11-26T13:00Z"
 },
 {
 "slug": "morocco",
