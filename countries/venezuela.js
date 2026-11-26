@@ -180,7 +180,7 @@ BAROTICO.add("venezuela", {
             "Inscríbete en el CNE con tu cédula y consulta tu centro de votación antes de cada elección. El voto no es obligatorio. Los venezolanos en el exterior solo votan en un consulado si están inscritos allí, lo que en la práctica exige residencia legal; la mayoría de los millones de emigrados no está inscrita.") },
 
   progNote: L3("Programme links are left empty: we could not verify a current national programme on any party's own site. Stated values come from campaigns, founding statements and official declarations quoted in the press.",
-               "Les liens vers les programmes sont laissés vides : nous n'avons pu vérifier de programme national à jour sur le site d'aucun parti. Les valeurs affichées viennent des campagnes, déclarations fondatrices et prises de position citées par la presse.",
+               "Deux liens sont donnés, tous deux publiés sur le site de Vente Venezuela : le programme de gouvernement de María Corina Machado (2024) et l'accord de principes signé en juillet 2024 par Edmundo González, María Corina Machado et les partis de la Plateforme unitaire. Aucun programme national à jour n'a été trouvé sur le site du PSUV, d'Alianza Democrática ni d'UNT. Les valeurs affichées viennent des campagnes, déclarations fondatrices et prises de position citées par la presse.",
                "Los enlaces a programas quedan vacíos: no pudimos verificar un programa nacional vigente en el sitio de ningún partido. Los valores declarados vienen de campañas, declaraciones fundacionales y posiciones citadas por la prensa."),
 
   parties: [
@@ -451,7 +451,9 @@ BAROTICO.add("venezuela", {
         n: L3("No public funding is allowed under the 1999 Constitution and we found no published accounts for the platform or its parties.",
               "La Constitution de 1999 interdit le financement public et nous n'avons trouvé aucun compte publié pour la plateforme ou ses partis.",
               "La Constitución de 1999 prohíbe el financiamiento público y no encontramos cuentas publicadas de la plataforma ni de sus partidos.") },
-      prog: [] },
+      prog: [
+        ["2024 · El espíritu del 28 de julio", "https://www.ventevenezuela.org/wp-inter/uploads/2024/07/El_espiritu_del_28_de_julio_2024.pdf"]
+      ] },
 
     { id: "vente", born: {"y": 2012, "m": 5, "gov": "never", "u": "https://eldiario.com/2026/05/28/vente-venezuela-reestructuracion/"}, name: "Vente Venezuela", full: "Vente Venezuela", leader: "María Corina Machado",
       seats: L3("No seats (boycotted the May 2025 election)", "Aucun siège (boycott du scrutin de mai 2025)", "Sin escaños (boicoteó la elección de mayo de 2025)"),
@@ -509,7 +511,9 @@ BAROTICO.add("venezuela", {
         n: L3("No public funding is allowed under the 1999 Constitution and we found no published accounts for Vente Venezuela.",
               "La Constitution de 1999 interdit le financement public et nous n'avons trouvé aucun compte publié pour Vente Venezuela.",
               "La Constitución de 1999 prohíbe el financiamiento público y no encontramos cuentas publicadas de Vente Venezuela.") },
-      prog: [] }
+      prog: [
+        ["2024", "https://www.ventevenezuela.org/wp-inter/uploads/2024/05/Government-Program-may9-2024.pdf"]
+      ] }
   ],
 
   media: {
