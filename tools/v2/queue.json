@@ -138,9 +138,10 @@
 {
 "slug": "turkey",
 "key": "turkey",
-"status": "doing",
+"status": "done",
 "since": "2026-11-26T12:36Z",
-"by": "session_01K5LCGnyQUp"
+"by": "session_01K5LCGnyQUp",
+"done": "2026-11-26T12:52Z"
 },
 {
 "slug": "brazil",
