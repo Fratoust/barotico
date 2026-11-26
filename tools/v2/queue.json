@@ -200,7 +200,10 @@
 {
 "slug": "serbia",
 "key": "serbia",
-"status": "todo"
+"status": "doing",
+"kind": "todo",
+"since": "2026-11-26T12:44Z",
+"by": "session_01K5LCGqpNUG"
 },
 {
 "slug": "belarus",
