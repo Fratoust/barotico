@@ -209,10 +209,11 @@
 {
 "slug": "serbia",
 "key": "serbia",
-"status": "doing",
+"status": "done",
 "kind": "todo",
 "since": "2026-11-26T12:44Z",
-"by": "session_01K5LCGqpNUG"
+"by": "session_01K5LCGqpNUG",
+"done": "2026-11-26T12:56Z"
 },
 {
 "slug": "belarus",
