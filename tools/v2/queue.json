@@ -54,9 +54,10 @@
 {
 "slug": "belgium",
 "key": "belgium",
-"status": "doing",
+"status": "done",
 "since": "2026-11-26T11:07Z",
-"by": "session_01K5LCGnudeB"
+"by": "session_01K5LCGnudeB",
+"done": "2026-11-26T11:14Z"
 },
 {
 "slug": "switzerland",
