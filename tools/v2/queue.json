@@ -189,9 +189,10 @@
 {
 "slug": "south-africa",
 "key": "southafrica",
-"status": "doing",
+"status": "done",
 "since": "2026-11-26T12:39Z",
-"by": "session_01K5LCGomvaR"
+"by": "session_01K5LCGomvaR",
+"done": "2026-11-26T13:20Z"
 },
 {
 "slug": "israel",
