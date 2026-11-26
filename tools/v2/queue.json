@@ -68,12 +68,14 @@
 {
 "slug": "spain",
 "key": "spain",
-"status": "todo"
+"status": "todo",
+"skip": "Élections générales le 29/11/2026, dans les 10 jours : à reprendre après les résultats officiels (passage du 26/11)."
 },
 {
 "slug": "portugal",
 "key": "portugal",
-"status": "todo"
+"status": "doing",
+"since": "2026-11-26T11:09Z"
 },
 {
 "slug": "sweden",
