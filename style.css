@@ -1587,3 +1587,4 @@ footer.v2foot .v2sup{margin:0}
 .v2prop>p.small{font-size:var(--fs-s);color:var(--muted);line-height:1.45;margin:0}
 .v2prop .src-a{white-space:normal;overflow-wrap:anywhere}
 .v2prop{min-width:0;overflow-wrap:anywhere}
+.v2prop>p.v2prop-n{margin-top:20px;padding-top:14px;border-top:1px solid var(--line)}
