@@ -248,9 +248,10 @@
 {
 "slug": "tunisia",
 "key": "tunisia",
-"status": "doing",
+"status": "done",
 "since": "2026-11-26T12:53Z",
-"by": "session_01K5LCGpF6Co-2"
+"by": "session_01K5LCGpF6Co-2",
+"done": "2026-11-26T12:58Z"
 },
 {
 "slug": "senegal",
