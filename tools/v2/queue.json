@@ -130,7 +130,9 @@
 {
 "slug": "ukraine",
 "key": "ukraine",
-"status": "todo"
+"status": "doing",
+"since": "2026-11-26T12:35Z",
+"by": "session_01K5LCGpF6Co"
 },
 {
 "slug": "turkey",
