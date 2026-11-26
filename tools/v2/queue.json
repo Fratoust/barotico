@@ -256,9 +256,10 @@
 {
 "slug": "senegal",
 "key": "senegal",
-"status": "doing",
+"status": "done",
 "since": "2026-11-26T12:54Z",
-"by": "session_01K5LCGoj7AY-2"
+"by": "session_01K5LCGoj7AY-2",
+"done": "2026-11-26T12:59Z"
 },
 {
 "slug": "benin",
