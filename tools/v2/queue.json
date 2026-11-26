@@ -114,9 +114,10 @@
 {
 "slug": "hungary",
 "key": "hungary",
-"status": "doing",
+"status": "done",
 "since": "2026-11-26T11:23Z",
-"by": "session_01K5LCGoxRcM-2"
+"by": "session_01K5LCGoxRcM-2",
+"done": "2026-11-26T11:27Z"
 },
 {
 "slug": "ireland",
