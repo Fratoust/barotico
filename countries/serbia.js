@@ -301,7 +301,7 @@ BAROTICO.add("serbia", {
              n: L3("No financial report was found. The list is a citizens' group formed in September 2026 to run in this election, so it has no annual party accounts. Its campaign finance report to the Agency for the Prevention of Corruption had not been published when this page was written.",
                    "Aucun rapport financier n'a été trouvé. La liste est un groupe de citoyens formé en septembre 2026 pour ce scrutin : elle n'a donc pas de comptes annuels de parti. Son rapport sur le financement de la campagne à l'Agence de prévention de la corruption n'était pas publié à la date de cette page.",
                    "No se encontró ningún informe financiero. La lista es un grupo de ciudadanos formado en septiembre de 2026 para estas elecciones, así que no tiene cuentas anuales de partido. Su informe de financiación de campaña a la Agencia de Prevención de la Corrupción no se había publicado al redactar esta página.") },
-      prog: [] },
+      prog: [["2026", "https://gg.studenti.org.rs/lat/program/"]] },
 
     { id: "sns", born: {"y": 2008, "m": 10, "gov": "lead", "u": "https://n1info.rs/vesti/a429889-SNS-i-put-promena-za-10-godina/"}, name: "SNS – Ujedinjena Srbija", full: "Srpska napredna stranka (list 'Aleksandar Vučić – Ujedinjena Srbija')", leader: "Miloš Vučević (party president); Aleksandar Vučić heads the list",
       seats: L3("103 seats of 250 (39.0% of votes cast, 25 October 2026; RIK final results, 5 November)","103 sièges sur 250 (39,0 % des votants, 25 octobre 2026 ; résultats définitifs de la RIK, 5 novembre)","103 escaños de 250 (39,0 % de los votantes, 25 de octubre de 2026; resultados definitivos de la RIK, 5 de noviembre)"),
