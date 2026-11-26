@@ -76,8 +76,9 @@
 {
 "slug": "portugal",
 "key": "portugal",
-"status": "doing",
-"since": "2026-11-26T11:09Z"
+"status": "done",
+"since": "2026-11-26T11:09Z",
+"date": "2026-11-26"
 },
 {
 "slug": "sweden",
