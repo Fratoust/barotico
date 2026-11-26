@@ -169,9 +169,10 @@
 {
 "slug": "colombia",
 "key": "colombia",
-"status": "doing",
+"status": "done",
 "since": "2026-11-26T12:36Z",
-"by": "session_01K5LCGoj7AY"
+"by": "session_01K5LCGoj7AY",
+"done": "2026-11-26T12:48Z"
 },
 {
 "slug": "south-korea",
