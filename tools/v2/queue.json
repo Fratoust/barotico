@@ -122,9 +122,10 @@
 {
 "slug": "ireland",
 "key": "ireland",
-"status": "doing",
+"status": "done",
 "since": "2026-11-26T11:45Z",
-"by": "session_01K5LCGq2VxG"
+"by": "session_01K5LCGq2VxG",
+"done": "2026-11-26T11:50Z"
 },
 {
 "slug": "ukraine",
