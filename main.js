@@ -2103,7 +2103,17 @@ function xpShareGo(btn){const cv=document.getElementById("xp-canvas");if(!cv)ret
      an optional 3-step « Parcours essentiel » with a neutral progress line, short answers (question, answer, elements, limits, sources),
      contextual links, inclusion rule for parties, compact cards, defined statuses, factual summaries, election calendar in Vote. */
 const V2=true;
-function v2on(k){return V2&&lang==="fr"&&(k===undefined||k==="france")}
+/* V2 rollout: "all" = every country page in French uses the V2 structure; a Set limits it to listed countries. */
+const V2_COUNTRIES="all";
+function v2on(k){return V2&&lang==="fr"&&(k===undefined||V2_COUNTRIES==="all"||(V2_COUNTRIES instanceof Set&&V2_COUNTRIES.has(k)))}
+/* Registry of hidden elements. Nothing is deleted: set a key to false, regenerate the pages, publish, and the element is back.
+   watch: « À surveiller » lists (too partisan) · follow: « Suivre » button (no follow service yet) · cguide: « Comment lire cette fiche pays » (replaced by the 4 parcours)
+   homeMirror / homeReprendre / homeVoter: blocks removed from the French home (each has its own page) · satisfaction: duplicate tile in key figures. */
+const HIDE={watch:WATCH_OFF,follow:true,cguide:true,homeMirror:true,homeReprendre:true,homeVoter:true,satisfaction:FIG2};
+/* French preposition + name, for « Qui décide en France ? », « Prochaines échéances au Brésil ». */
+const V2LOC={france:"en France",spain:"en Espagne",belgium:"en Belgique",argentina:"en Argentine",australia:"en Australie",austria:"en Autriche",azerbaijan:"en Azerbaïdjan",belarus:"en Biélorussie",benin:"au Bénin",brazil:"au Brésil",china:"en Chine",colombia:"en Colombie",czechia:"en Tchéquie",drcongo:"en RD Congo",egypt:"en Égypte",germany:"en Allemagne",greece:"en Grèce",hungary:"en Hongrie",indonesia:"en Indonésie",ireland:"en Irlande",italy:"en Italie",morocco:"au Maroc",netherlands:"aux Pays-Bas",newzealand:"en Nouvelle-Zélande",northkorea:"en Corée du Nord",poland:"en Pologne",portugal:"au Portugal",romania:"en Roumanie",russia:"en Russie",senegal:"au Sénégal",serbia:"en Serbie",singapore:"à Singapour",southafrica:"en Afrique du Sud",southkorea:"en Corée du Sud",sweden:"en Suède",switzerland:"en Suisse",thailand:"en Thaïlande",tunisia:"en Tunisie",turkey:"en Turquie",uk:"au Royaume-Uni",ukraine:"en Ukraine",usa:"aux États-Unis",venezuela:"au Venezuela",vietnam:"au Vietnam",israel:"en Israël"};
+function v2Loc(k){return V2LOC[k]||("· "+tr((C[k]||{}).name||k))}
+let V2K="france";
 const V2I={
  pays:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.6 8.4l-2.1 5.1-5.1 2.1 2.1-5.1z"/></svg>',
  partis:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M5 20h14"/><path d="M4 8h16"/><path d="M6 8l-3 6h6zM18 8l-3 6h6z"/></svg>',
@@ -2116,21 +2126,14 @@ const V2T={
  here:{pays:"Les règles du jeu, qui gouverne aujourd’hui, et les chiffres du pays.",partis:"Les partis présentés selon une règle publique, avec la même grille pour tous.",vote:"Ce qu’il faut savoir pour voter et comprendre le résultat, puis les règles détaillées.",medias:"Les principaux médias, à qui ils appartiennent, et comment s’informer de façon fiable."},
  crumb:["Accueil","Pays"],
  how:"Mêmes règles pour tous les partis ; chaque information renvoie à sa source, avec sa date.",how_l:"Méthode et indépendance",
- plain:"En clair : un président élu directement par les citoyens, et un gouvernement qui doit garder la confiance de l’Assemblée nationale.",
  cd_l:"Comprendre le vote →",
  ess:{k:"Parcours essentiel · facultatif",h:"Première visite ? Un parcours en 3 étapes, environ 5 minutes",p:"Comprendre les règles, voir qui gouverne, apprendre à lire une fiche de parti. Vous pouvez le quitter à tout moment : toutes les rubriques restent accessibles.",go:"Commencer le parcours",
-  steps:[["t-sys","Comprendre les règles","Qui décide en France ?"],["t-gov","Comprendre qui gouverne","Qui gouverne aujourd’hui ?"],["t-par","Lire une fiche de parti","Ce qu’un parti dit, ce qu’il a fait, et les limites"]],
+  steps:[["t-sys","Comprendre les règles","Qui décide ?"],["t-gov","Comprendre qui gouverne","Qui gouverne aujourd’hui ?"],["t-par","Lire une fiche de parti","Ce qu’un parti dit, ce qu’il a fait, et les limites"]],
   bar:(i,n)=>`Parcours essentiel · étape ${i} sur ${n}`,next:"Étape suivante →",end_b:"Terminer",quit:"Quitter le parcours",
   done:"Parcours essentiel terminé. Les quatre parcours ci-dessus donnent accès à toutes les rubriques.",again:"Recommencer"},
  q:{short:"Réponse en bref",el:"Voir les éléments",lim:"Nuances et limites",src:"Sources et méthode"},
- qa:{
-  decide:["Qui décide ?","Le pouvoir est partagé entre un président élu directement par les citoyens, un Premier ministre et son gouvernement, et un Parlement à deux chambres : l’Assemblée nationale (577 députés) et le Sénat (348 sénateurs). Si les deux chambres ne s’accordent pas sur une loi, l’Assemblée a le dernier mot ; le Conseil constitutionnel peut être saisi.","Depuis les législatives de 2024, aucun groupe ni aucune coalition n’a la majorité absolue : le gouvernement cherche ses voix texte par texte.",["levels","law","hard"],"t-sys","v2-sys-detail"],
-  gov:["Qui gouverne aujourd’hui ?","Emmanuel Macron est président depuis 2017. Le Premier ministre est Sébastien Lecornu, reconduit le 10 octobre 2025. Son gouvernement est minoritaire à l’Assemblée nationale.","Quatre Premiers ministres se sont succédé depuis janvier 2024 : cette fiche donne la situation à sa date de mise à jour.",["gov","fun"],"t-gov",null],
-  fig:["Que signifient les principaux chiffres du pays ?","Les chiffres clés comparent la France à une référence, souvent la moyenne de l’Union européenne ou de l’OCDE : santé, école, sécurité, libertés, corruption, salaires, et où va l’argent public. Chaque chiffre indique son année et sa source.","Un chiffre seul ne dit pas pourquoi la situation est ainsi. Certains indicateurs sont des mesures, d’autres des évaluations d’experts ou des perceptions : l’étiquette de chaque case le précise.",[],"t-fig",null]},
+
  ctx:{sys:["Qui exerce le pouvoir aujourd’hui ?","t-gov","Gouvernement"],gov:["Que proposent les partis ?","t-par","Comparer les partis"],vote:["Quelles institutions sont choisies ?","t-sys","Système et institutions"],party:["Comment les sièges sont-ils attribués ?","t-vote","Comprendre le vote"],med:["Comment les fils d’actualité sont-ils recommandés ?","#reprendre","Reprendre la main : un guide général, valable pour plusieurs plateformes"]},
- crit_h:"Quels partis figurent ici ?",
- crit_p:["Deux voies d’inclusion distinctes, appliquées de la même façon à tous :","Critère 1 : avoir un groupe à l’Assemblée nationale élue les 30 juin et 7 juillet 2024, ou en être la principale composante.","Critère 2 : avoir obtenu au moins 3 % des suffrages exprimés aux élections européennes du 9 juin 2024 (en France, une seule circonscription pour tout le pays), même sans groupe à l’Assemblée. Les européennes ne sont pas une élection nationale : elles servent seulement de second critère. Aucune autre liste n’a atteint 3 % à ce scrutin.","Les alliances présentées ensemble aux législatives de 2024 sont traitées comme une seule fiche ; les cartes sont classées par nombre de sièges."],
- crit_n:"Cette règle délimite les partis présentés dans ce pilote, sans prétendre recenser toutes les formations politiques françaises. Elle ne mesure ni l’importance ni la légitimité d’un parti. Chaque carte indique le critère rempli, le scrutin exact et une source.",
  prog_n:["Comparaison des programmes : pas encore proposée.","Pour l’activer, il faut des programmes datés et des rapprochements vérifiés thème par thème, chacun avec sa source. Ces données ne sont pas encore disponibles (accès à la base Manifesto Project en attente) : aucun classement ni rapprochement provisoire n’est affiché."],
  crit_k:"Pourquoi ce parti figure ici",
  dit_k:"Deux de ses engagements, mis face à ses actes dans la fiche complète",
@@ -2140,9 +2143,22 @@ const V2T={
  dem_p:"Le respect des règles démocratiques, selon des critères publiés : d’abord les points relevés s’il y en a, puis des indicateurs chiffrés.",fin_h:"Financement",fin_p:"D’où vient l’argent du parti, avec la source des chiffres.",
  sum_a:"Ce que montrent les éléments présentés :",sum_b:"Ce qu’ils ne permettent pas de conclure :",
  srcm_h:"Sources, dates et méthode",srcm:d=>`Fiche mise à jour le ${d}. Chaque élément ci-dessus renvoie à sa source, avec sa date quand elle compte.`,srcm_l:"Lire la méthode",
- cal_h:"Prochaines échéances en France",cal_chk:d=>`Vérifié le ${d}`,
+ cal_h:"Prochaines échéances",cal_chk:d=>`Vérifié le ${d}`,
  cal_note:"Élections nationales à venir, avec leur date et leur source.",
  games:"Testez vos connaissances"
+};
+/* ===== V2C: content specific to one country (verified, with sources). One block per country; a block that is missing simply hides the matching boxes. ===== */
+const V2C={
+france:{
+ plain:"En clair : un président élu directement par les citoyens, et un gouvernement qui doit garder la confiance de l’Assemblée nationale.",
+ qa:{
+  decide:["Qui décide ?","Le pouvoir est partagé entre un président élu directement par les citoyens, un Premier ministre et son gouvernement, et un Parlement à deux chambres : l’Assemblée nationale (577 députés) et le Sénat (348 sénateurs). Si les deux chambres ne s’accordent pas sur une loi, l’Assemblée a le dernier mot ; le Conseil constitutionnel peut être saisi.","Depuis les législatives de 2024, aucun groupe ni aucune coalition n’a la majorité absolue : le gouvernement cherche ses voix texte par texte.",["levels","law","hard"],"t-sys","v2-sys-detail"],
+  gov:["Qui gouverne aujourd’hui ?","Emmanuel Macron est président depuis 2017. Le Premier ministre est Sébastien Lecornu, reconduit le 10 octobre 2025. Son gouvernement est minoritaire à l’Assemblée nationale.","Quatre Premiers ministres se sont succédé depuis janvier 2024 : cette fiche donne la situation à sa date de mise à jour.",["gov","fun"],"t-gov",null],
+  fig:["Que signifient les principaux chiffres du pays ?","Les chiffres clés comparent la France à une référence, souvent la moyenne de l’Union européenne ou de l’OCDE : santé, école, sécurité, libertés, corruption, salaires, et où va l’argent public. Chaque chiffre indique son année et sa source.","Un chiffre seul ne dit pas pourquoi la situation est ainsi. Certains indicateurs sont des mesures, d’autres des évaluations d’experts ou des perceptions : l’étiquette de chaque case le précise.",[],"t-fig",null]},
+ crit_h:"Quels partis figurent ici ?",
+ crit_p:["Deux voies d’inclusion distinctes, appliquées de la même façon à tous :","Critère 1 : avoir un groupe à l’Assemblée nationale élue les 30 juin et 7 juillet 2024, ou en être la principale composante.","Critère 2 : avoir obtenu au moins 3 % des suffrages exprimés aux élections européennes du 9 juin 2024 (en France, une seule circonscription pour tout le pays), même sans groupe à l’Assemblée. Les européennes ne sont pas une élection nationale : elles servent seulement de second critère. Aucune autre liste n’a atteint 3 % à ce scrutin.","Les alliances présentées ensemble aux législatives de 2024 sont traitées comme une seule fiche ; les cartes sont classées par nombre de sièges."],
+ crit_n:"Cette règle délimite les partis présentés dans ce pilote, sans prétendre recenser toutes les formations politiques françaises. Elle ne mesure ni l’importance ni la légitimité d’un parti. Chaque carte indique le critère rempli, le scrutin exact et une source.",
+ vsrc:[["service-public.fr, inscription sur les listes électorales","https://www.service-public.fr/particuliers/vosdroits/F1367"],["service-public.fr, même date limite en mairie et en ligne depuis le 1er juillet 2026","https://www.service-public.gouv.fr/particuliers/actualites/A18967"],["maprocuration.gouv.fr","https://www.maprocuration.gouv.fr/"]]}
 };
 /* Inclusion criterion per party (reference election, date, criterion met). */
 const V2SCH="https://server.www.robert-schuman.eu/storage/fr/doc/oee/oee-6262-fr.pdf",V2EU="https://www.publicsenat.fr/actualites/politique/resultats-europeennes-2024-jordan-bardella-en-tete-valerie-hayer-en-deuxieme-position-glucksmann-troisieme";
@@ -2170,14 +2186,14 @@ function v2Esc(x){return esc(x)}
 function v2PosWord(x){return x<=-1.5?"gauche, à l’extrémité de l’axe":x<-0.5?"gauche":x<=0.5?"centre":x<1.5?"droite":"droite, à l’extrémité de l’axe"}
 function v2Src(k,keys){const c=C[k],S=(c&&c.srcs)||{},out=[];keys.forEach(key=>(S[key]||[]).forEach(([l,u])=>{if(u&&!out.some(o=>o[1]===u))out.push([tr(l),u])}));
  return out.length?out.map(([l,u])=>`<a class="src-a" href="${u}" target="_blank" rel="noopener">${esc(l)}</a>`).join(" · "):""}
-function v2QA(k,key){const [q,a,lim,srcKeys,tab,anchor]=V2T.qa[key],sr=v2Src(k,srcKeys);
+function v2QA(k,key){const Q=(V2C[k]||{}).qa;if(!Q||!Q[key])return "";const [q,a,lim,srcKeys,tab,anchor]=Q[key],sr=v2Src(k,srcKeys);
  return `<article class="v2qa" id="v2qa-${key}"><h3>${esc(q)}</h3><p class="v2qa-k">${V2T.q.short}</p><p class="v2qa-a">${esc(a)}</p>
   <p class="v2qa-go">${tab==="t-sys"&&anchor?`<a href="#${anchor}" data-v2scroll="${anchor}">${V2T.q.el} ↓</a>`:`<button type="button" class="linkbtn" data-pilgo="${tab}">${V2T.q.el} →</button>`}</p>
   <details class="v2qa-d"><summary>${V2T.q.lim}</summary><p>${esc(lim)}</p></details>
   ${sr?`<details class="v2qa-d"><summary>${V2T.q.src}</summary><p>${sr}</p></details>`:`<details class="v2qa-d"><summary>${V2T.q.src}</summary><p>Chaque case des chiffres clés indique sa source et son année.</p></details>`}</article>`}
 function v2Ctx(key){const [q,to,lab]=V2T.ctx[key];
  return to.startsWith("#")?`<a class="v2ctx" href="${to}"><span class="v2ctx-q">${esc(q)}</span><span class="v2ctx-l">${esc(lab)} →</span></a>`:`<button type="button" class="v2ctx" data-pilgo="${to}"><span class="v2ctx-q">${esc(q)}</span><span class="v2ctx-l">${esc(lab)} →</span></button>`}
-function v2EssView(){const E=V2T.ess,n=E.steps.length;
+function v2EssView(){const E=V2T.ess,n=E.steps.length,lc=v2Loc(V2K);E.steps[0][2]="Qui décide "+lc+" ?";
  if(V2E===null)return `<div class="v2ess"><p class="v2ess-row"><span><b>${E.h}</b> <span class="v2ess-k">· ${E.k}</span></span><button type="button" class="linkbtn" data-v2ess="start">${E.go} →</button></p><details class="v2ess-d"><summary>Voir les étapes</summary><p class="v2ess-p">${E.p}</p><ol class="v2ess-l">${E.steps.map(([,h,s])=>`<li><b>${h}</b> <span>${s}</span></li>`).join("")}</ol></details></div>`;
  if(V2E>=n)return `<div class="v2ess on" role="status"><p>${E.done}</p><button type="button" class="linkbtn" data-v2ess="start">${E.again}</button></div>`;
  const [id,h,s]=E.steps[V2E];
@@ -2186,32 +2202,34 @@ function v2EssRender(){const e=document.getElementById("v2ess");if(e){e.innerHTM
 function v2Sync(id){const w=document.querySelector(".v2wrap");if(!w)return;const g=V2G[id]||"pays";w.dataset.g=g;
  w.querySelectorAll(".v2-btn").forEach(b=>{if(b.dataset.g===g)b.setAttribute("aria-current","true");else b.removeAttribute("aria-current")});
  const cr=document.getElementById("v2crumb-p");if(cr)cr.textContent=V2T.nav[g][0]+(g==="pays"&&V2T.sub[id]?" › "+V2T.sub[id]:"")}
-function v2Country(k,h){const c=C[k],d=document.createElement("div");d.innerHTML=h;
+function v2Country(k,h){const c=C[k],X=V2C[k]||{},d=document.createElement("div");d.innerHTML=h;V2K=k;
  /* header */
  const head=d.querySelector(".chead > div");if(head){head.insertAdjacentHTML("afterbegin",`<nav class="v2crumb" aria-label="Fil d’Ariane"><a href="#accueil">${V2T.crumb[0]}</a> › <a href="#pays">${V2T.crumb[1]}</a> › <span>${esc(tr(c.name))}</span> › <span id="v2crumb-p">${V2T.nav.pays[0]}</span></nav>`);
-  const sub=head.querySelector(".sub");if(sub)sub.insertAdjacentHTML("afterend",`<p class="v2plain">${V2T.plain}</p>`);
+  const sub=head.querySelector(".sub");if(sub&&X.plain)sub.insertAdjacentHTML("afterend",`<p class="v2plain">${X.plain}</p>`);
   const fi=head.querySelector(".fintro");if(fi)fi.outerHTML=`<p class="v2how">${V2T.how} <a href="#apropos">${V2T.how_l}</a></p>`}
  const cd=d.querySelector(".countdown .what");if(cd)cd.insertAdjacentHTML("beforeend",`<br><a class="v2cd" href="#${k}-vote">${V2T.cd_l}</a>`);
- const cg=d.querySelector(".cguide");if(cg)cg.remove();
- d.querySelectorAll(".follow").forEach(x=>x.remove());
+ const cg=d.querySelector(".cguide");if(cg&&HIDE.cguide)cg.remove();
+ if(HIDE.follow)d.querySelectorAll(".follow").forEach(x=>x.remove());
  d.querySelectorAll("#p-gov p").forEach(pp=>{if(/Rouge : alarmant/.test(pp.textContent))pp.textContent="Chaque couleur situe un indicateur par rapport aux seuils écrits sous sa barre ; le libellé en toutes lettres fait foi. Mesuré par d’autres organismes, jamais par Barotico.";else if(/rassurants ou alarmants/.test(pp.textContent))pp.textContent=pp.textContent.replace("pour être lus comme rassurants ou alarmants","pour être interprétés de la même façon")});
- const vcard=d.querySelector("#p-vote .votecard");if(vcard)vcard.insertAdjacentHTML("beforeend",`<p class="small v2vsrc">Sources des consignes : <a class="src-a" href="https://www.service-public.fr/particuliers/vosdroits/F1367" target="_blank" rel="noopener">service-public.fr, inscription sur les listes électorales</a> · <a class="src-a" href="https://www.service-public.gouv.fr/particuliers/actualites/A18967" target="_blank" rel="noopener">service-public.fr, même date limite en mairie et en ligne depuis le 1er juillet 2026</a> · <a class="src-a" href="https://www.maprocuration.gouv.fr/" target="_blank" rel="noopener">maprocuration.gouv.fr</a></p>`);
+ const vcard=d.querySelector("#p-vote .votecard");if(vcard&&X.vsrc)vcard.insertAdjacentHTML("beforeend",`<p class="small v2vsrc">Sources des consignes : ${X.vsrc.map(([l,u])=>`<a class="src-a" href="${u}" target="_blank" rel="noopener">${esc(l)}</a>`).join(" · ")}</p>`);
  /* one navigation: 4 parcours, sub-links only inside « Comprendre le pays » */
  const tabs=d.querySelector(".tabs");if(tabs){["t-sys","t-gov","t-fig","t-par","t-vote","t-med"].forEach(id=>{const a=tabs.querySelector("#"+id);if(a){a.dataset.g=V2G[id];if(V2T.sub[id])a.textContent=V2T.sub[id];tabs.appendChild(a)}});
   const w=document.createElement("div");w.className="v2wrap";w.dataset.g="pays";
-  w.innerHTML=`<nav class="v2nav" aria-label="Les quatre parcours de la fiche">${["pays","partis","vote","medias"].map(g=>`<button type="button" class="v2-btn" data-g="${g}" data-pilgo="${V2F[g]}"${g==="pays"?' aria-current="true"':""}><span class="v2-i">${V2I[g]}</span><span class="v2-t"><b class="v2-l">${V2T.nav[g][0]}</b><b class="v2-s">${V2T.nav[g][1]}</b><small>${V2T.nav[g][2]}</small></span></button>`).join("")}</nav>
-   ${["pays","partis","vote","medias"].map(g=>`<p class="v2here" data-g="${g}">${V2T.here[g]}</p>`).join("")}<div id="v2ess">${v2EssView()}</div>`;
+  const GG=["pays","partis","vote","medias"].filter(g=>tabs.querySelector("#"+V2F[g]));w.style.setProperty("--v2n",GG.length);
+  const essOK=["t-sys","t-gov","t-par"].every(id=>tabs.querySelector("#"+id));
+  w.innerHTML=`<nav class="v2nav" aria-label="Les parcours de la fiche">${GG.map(g=>`<button type="button" class="v2-btn" data-g="${g}" data-pilgo="${V2F[g]}"${g==="pays"?' aria-current="true"':""}><span class="v2-i">${V2I[g]}</span><span class="v2-t"><b class="v2-l">${V2T.nav[g][0]}</b><b class="v2-s">${V2T.nav[g][1]}</b><small>${V2T.nav[g][2]}</small></span></button>`).join("")}</nav>
+   ${GG.map(g=>`<p class="v2here" data-g="${g}">${V2T.here[g]}</p>`).join("")}${essOK?`<div id="v2ess">${v2EssView()}</div>`:""}`;
   tabs.replaceWith(w);w.appendChild(tabs)}
  /* Comprendre le pays: three questions first */
  const ins=(pid,html,where)=>{const p=d.querySelector("#"+pid);if(!p)return;const anchor=p.querySelector(":scope > p.tabctx")||p.querySelector(":scope > h2.ph2");if(where==="end"){p.insertAdjacentHTML("beforeend",html);return}if(anchor)anchor.insertAdjacentHTML("afterend",html);else p.insertAdjacentHTML("afterbegin",html)};
  const sys=d.querySelector("#p-sys");if(sys){const first=sys.querySelector(":scope > div:not(.block)")||sys.firstElementChild;
-  sys.insertAdjacentHTML("afterbegin",`<div class="v2qas">${v2QA(k,"decide")}${v2QA(k,"gov")}${v2QA(k,"fig")}</div><h3 class="v2det" id="v2-sys-detail">Le détail : institutions, trajet d’une loi, situation actuelle</h3>`);
+  if(X.qa)sys.insertAdjacentHTML("afterbegin",`<div class="v2qas">${v2QA(k,"decide")}${v2QA(k,"gov")}${v2QA(k,"fig")}</div><h3 class="v2det" id="v2-sys-detail">Le détail : institutions, trajet d’une loi, situation actuelle</h3>`);
   if(QDM[k])sys.insertAdjacentHTML("beforeend",`<section class="game pil-c" id="qdm" data-k="${k}">${qdmView(k)}</section>`);
   sys.insertAdjacentHTML("beforeend",v2Ctx("sys"))}
- ins("p-gov",`<div class="v2qas one">${v2QA(k,"gov")}</div>`);ins("p-gov",v2Ctx("gov"),"end");
- ins("p-fig",`<div class="v2qas one">${v2QA(k,"fig")}</div>`);
+ if(X.qa&&X.qa.gov)ins("p-gov",`<div class="v2qas one">${v2QA(k,"gov")}</div>`);ins("p-gov",v2Ctx("gov"),"end");
+ if(X.qa&&X.qa.fig)ins("p-fig",`<div class="v2qas one">${v2QA(k,"fig")}</div>`);
  /* Comparer les partis: rule first, compact cards, blind test after the list */
- const par=d.querySelector("#p-par");if(par){const top=par.querySelector(".par-top");const box=`<div class="v2crit"><h3>${V2T.crit_h}</h3><p>${V2T.crit_p[0]}</p><ul>${V2T.crit_p.slice(1,3).map(x=>{const [a,b]=x.split(" : ");return `<li><b>${a} :</b> ${x.slice(a.length+3)}</li>`}).join("")}</ul><p>${V2T.crit_p[3]}</p><p class="small">${V2T.crit_n}</p></div>`;if(top)top.insertAdjacentHTML("beforebegin",box);else ins("p-par",box);
+ const par=d.querySelector("#p-par");if(par){const top=par.querySelector(".par-top");const box=X.crit_h?`<div class="v2crit"><h3>${X.crit_h}</h3><p>${X.crit_p[0]}</p><ul>${X.crit_p.slice(1,-1).map(x=>{const [a]=x.split(" : ");return `<li><b>${a} :</b> ${x.slice(a.length+3)}</li>`}).join("")}</ul><p>${X.crit_p[X.crit_p.length-1]}</p><p class="small">${X.crit_n}</p></div>`:"";if(box){if(top)top.insertAdjacentHTML("beforebegin",box);else ins("p-par",box)}
   {const pi=top&&top.querySelector(".par-intro"),sp=top&&top.querySelector(".par-spec"),hw=par.querySelector("details.howto");if(top&&pi){const ld=pi.querySelector(".lead");if(ld)ld.textContent="Chaque fiche suit la même grille : ses promesses face à ses actes, la vigilance démocratique, le financement, et un court résumé.";if(sp)pi.appendChild(sp);if(hw){hw.open=true;top.appendChild(hw)}top.classList.add("v2pt")}}
   par.querySelectorAll(".pcard").forEach(card=>{const id=card.id.replace("party-",""),p=(PARTIES[k]||[]).find(x=>x.id===id);if(!p)return;
    const cr=(V2CRIT[k]||{})[id],ph=card.querySelector(".phead");
@@ -2226,10 +2244,9 @@ function v2Country(k,h){const c=C[k],d=document.createElement("div");d.innerHTML
   par.insertAdjacentHTML("beforeend",`<div class="v2note"><p><b>${V2T.prog_n[0]}</b> ${V2T.prog_n[1]}</p></div>`);
   if(BLIND[k])par.insertAdjacentHTML("beforeend",`<section class="game pil-v" id="blind" data-k="${k}">${blindView(k)}</section>`)}
  /* Comprendre le vote: dates first (from the old « À surveiller », elections only) */
- const elecW=(c.watch||[]).filter(w=>w[0]&&c.elec&&w[0]===c.elec.date);
- const calL=elecW.length?elecW.map(w=>`<li><b>${esc(fmtDate(w[0]).split(" · ")[0])}</b> · ${esc(tr(w[1]))}. <span class="small">${V2T.cal_chk(fmtDate(c.updated).split(" · ")[0])}</span> <a class="src-a" href="${w[2]}" target="_blank" rel="noopener">source</a></li>`).join(""):`<li><b>${esc(tr(c.elec.label))}</b> : ${esc(tr(c.elec.detail))}. <span class="small">${V2T.cal_chk(fmtDate(c.updated).split(" · ")[0])}</span></li>`;
- const cal=`<div class="v2cal"><h3>${V2T.cal_h}</h3><ul>${calL}</ul><p class="small">${V2T.cal_note}</p></div>`;
- ins("p-vote",cal);
+ const elecW=(c.watch||[]).filter(w=>w&&w[0]&&c.elec&&w[0]===c.elec.date);
+ const calL=elecW.length?elecW.map(w=>`<li><b>${esc(fmtDate(w[0]).split(" · ")[0])}</b> · ${esc(tr(w[1]))}. <span class="small">${V2T.cal_chk(fmtDate(c.updated).split(" · ")[0])}</span> <a class="src-a" href="${w[2]}" target="_blank" rel="noopener">source</a></li>`).join(""):c.elec&&c.elec.label?`<li><b>${esc(tr(c.elec.label))}</b> : ${esc(tr(c.elec.detail||""))}. <span class="small">${V2T.cal_chk(fmtDate(c.updated).split(" · ")[0])}</span></li>`:"";
+ if(calL)ins("p-vote",`<div class="v2cal"><h3>${V2T.cal_h} ${v2Loc(k)}</h3><ul>${calL}</ul><p class="small">${V2T.cal_note}</p></div>`);
  const vb=d.querySelector("#p-vote .block");if(vb)vb.insertAdjacentHTML("beforeend",v2Ctx("vote"));
  /* Comprendre les médias: link to the general guide */
  ins("p-med",v2Ctx("med"),"end");
@@ -2246,7 +2263,7 @@ function v2Home(html){if(!v2on())return html;const d=document.createElement("div
  if(lis[2]){const sp=lis[2].querySelector(":scope > span:not(.pd-top):not(.pd-end)"),en=lis[2].querySelector(".pd-end"),te=lis[2].querySelector(".pd-tease");if(sp)sp.textContent="Explorez comment votre fil sélectionne les contenus que vous voyez.";if(en)en.textContent="Une simulation fictive : vos gestes ne sont ni envoyés ni enregistrés, et le test ne révèle pas ce qu’une plateforme sait réellement de vous.";if(te)te.textContent="À la fin : votre résultat en une image, à partager si vous le souhaitez"}
  if(lis[0]){const en=lis[0].querySelector(".pd-end");if(en)en.textContent="Comprenez qui décide, qui gouverne et comment une loi est votée."}
  const ex=d.querySelector("#exemple");if(ex){const h=ex.querySelector(".hsec-h > p:last-child");[...ex.querySelectorAll("p")].filter(p=>p!==h&&/tiré au hasard parmi les fiches/.test(p.textContent)).forEach(p=>p.remove());if(h){h.textContent=h.textContent.replace(/\s*Voici un exemple tiré au hasard\.?\s*$/,"");h.insertAdjacentHTML("afterend",`<p class="small v2ex">Exemple tiré au hasard parmi les fiches ; ce n’est pas un conseil de vote.</p>`)}ex.querySelectorAll("a").forEach(a=>{const n=[...a.childNodes].pop();if(n&&n.nodeType===3)n.textContent=n.textContent.replace(/\s*↗\s*$/,"")})}
- ["miroir","reprendre-home","voter"].forEach(id=>{const x=d.querySelector("#"+id);if(x)x.remove()});
+ [["miroir",HIDE.homeMirror],["reprendre-home",HIDE.homeReprendre],["voter",HIDE.homeVoter]].forEach(([id,on])=>{const x=on&&d.querySelector("#"+id);if(x)x.remove()});
  const actu=d.querySelector("#actu");if(actu){actu.querySelectorAll(".tick").forEach((x,i)=>{if(i>=4)x.remove()});const hp=actu.querySelector(".hsec-h > p:last-child");if(hp)hp.insertAdjacentHTML("afterend",`<p class="small">Les quatre prochaines élections nationales dans les pays couverts. Chaque fiche pays donne le détail.</p>`)}
  d.querySelectorAll(".hd-more a[data-jump]").forEach(a=>{const j=a.dataset.jump;a.removeAttribute("data-jump");a.removeAttribute("role");a.removeAttribute("tabindex");a.setAttribute("href",j==="voter"?"#voter":"#miroir")});
  const tools=`<section class="v2tools" id="outils"><div class="hsec-h"><p class="eyebrow hsec-k">Outils et guides</p><h2>Pour aller plus loin, à votre rythme</h2><p>Des outils facultatifs, valables pour tous les pays. Chacun a sa page.</p></div><ul class="v2tools-l">${V2TOOLS.map(([h,u,x,tag])=>`<li><a href="${u}"><b>${h}${tag?` <span class="v2tag">${tag}</span>`:""}</b><span>${x}</span></a></li>`).join("")}</ul></section>`;
