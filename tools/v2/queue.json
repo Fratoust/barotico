@@ -199,8 +199,9 @@
 {
 "slug": "israel",
 "key": "israel",
-"status": "doing",
-"since": "2026-11-26T12:36Z"
+"status": "done",
+"since": "2026-11-26T12:36Z",
+"done": "2026-11-26T12:48Z"
 },
 {
 "slug": "serbia",
