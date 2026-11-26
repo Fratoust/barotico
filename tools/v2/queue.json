@@ -145,9 +145,10 @@
 {
 "slug": "brazil",
 "key": "brazil",
-"status": "doing",
+"status": "done",
 "since": "2026-11-26T12:37Z",
-"by": "session_01K5LCGsACNG"
+"by": "session_01K5LCGsACNG",
+"done": "2026-11-26T12:49Z"
 },
 {
 "slug": "indonesia",
