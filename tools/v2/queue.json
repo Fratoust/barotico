@@ -303,7 +303,10 @@
 {
 "slug": "vietnam",
 "key": "vietnam",
-"status": "todo"
+"status": "doing",
+"kind": "todo",
+"since": "2026-11-26T13:45Z",
+"by": "session_01K5LCGqzkoF"
 },
 {
 "slug": "venezuela",
