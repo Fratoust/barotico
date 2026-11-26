@@ -63,9 +63,10 @@
 {
 "slug": "switzerland",
 "key": "switzerland",
-"status": "doing",
+"status": "done",
 "since": "2026-11-26T11:10Z",
-"by": "session_01K5LCGoxRcM"
+"by": "session_01K5LCGoxRcM",
+"done": "2026-11-26T11:18Z"
 },
 {
 "slug": "spain",
