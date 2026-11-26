@@ -1,5 +1,5 @@
 {
-"note": "Phase 2 V2: one country per run (10 runs per weekday, hourly). A run claims the first country with status \"todo\" (sets \"doing\" and pushes at once), works on preview-v2 only, then sets \"done\" and the date. A \"doing\" older than 3 hours can be taken again.",
+"note": "Phase 2 V2: one country per run (10 runs per weekday, hourly). A run claims the first country with status \"todo\" (sets \"doing\" and pushes at once), works on preview-v2 only, then sets \"done\" and the date. A \"doing\" older than 3 hours can be taken again. Entries with status \"prog\" are countries already published that only need their party programme links filled (step 4b); a run takes them like \"todo\" entries, in queue order, and sets \"done\" afterwards.",
 "queue": [
 {
 "slug": "russia",
@@ -317,6 +317,76 @@
 "slug": "north-korea",
 "key": "northkorea",
 "status": "todo"
+},
+{
+"slug": "russia",
+"key": "russia",
+"status": "prog"
+},
+{
+"slug": "china",
+"key": "china",
+"status": "prog"
+},
+{
+"slug": "germany",
+"key": "germany",
+"status": "prog"
+},
+{
+"slug": "italy",
+"key": "italy",
+"status": "prog"
+},
+{
+"slug": "poland",
+"key": "poland",
+"status": "prog"
+},
+{
+"slug": "netherlands",
+"key": "netherlands",
+"status": "prog"
+},
+{
+"slug": "switzerland",
+"key": "switzerland",
+"status": "prog"
+},
+{
+"slug": "portugal",
+"key": "portugal",
+"status": "prog"
+},
+{
+"slug": "austria",
+"key": "austria",
+"status": "prog"
+},
+{
+"slug": "greece",
+"key": "greece",
+"status": "prog"
+},
+{
+"slug": "czechia",
+"key": "czechia",
+"status": "prog"
+},
+{
+"slug": "romania",
+"key": "romania",
+"status": "prog"
+},
+{
+"slug": "hungary",
+"key": "hungary",
+"status": "prog"
+},
+{
+"slug": "ireland",
+"key": "ireland",
+"status": "prog"
 }
 ]
 }
