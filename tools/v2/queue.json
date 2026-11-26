@@ -22,8 +22,9 @@
 {
 "slug": "germany",
 "key": "germany",
-"status": "doing",
-"since": "2026-11-26T10:55Z"
+"status": "done",
+"since": "2026-11-26T10:55Z",
+"date": "2026-11-26"
 },
 {
 "slug": "united-kingdom",
