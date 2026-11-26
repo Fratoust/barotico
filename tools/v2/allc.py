@@ -1,8 +1,9 @@
 import asyncio,json,sys
 from playwright.async_api import async_playwright
-B=sys.argv[1] if len(sys.argv)>1 else "http://127.0.0.2:8766"
+B="http://127.0.0.2:8766"
 K="argentina australia austria azerbaijan belarus belgium benin brazil china colombia czechia dr-congo egypt france germany greece hungary indonesia ireland israel italy morocco netherlands new-zealand north-korea poland portugal romania russia senegal serbia singapore south-africa south-korea spain sweden switzerland thailand tunisia turkey ukraine united-kingdom united-states venezuela vietnam".split()
 SUB=["","government/","figures/","parties/","vote/","media/"]
+if len(sys.argv)>1: K=[k for k in K if k in sys.argv[1:]]
 async def main():
   async with async_playwright() as p:
     b=await p.chromium.launch();pg=await b.new_page(viewport={"width":1366,"height":900});errs=[];bad=[]

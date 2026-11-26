@@ -7,7 +7,7 @@ Variable `BAROTICO_ROOT` = racine du dépôt (par défaut `/home/claude/barotico
    La France et les pages outils : `prer2.render([...], True)` sur leurs chemins.
 2. `python3 static_all.py` : menu sans JavaScript, « Pays : <nom> », pied de page V2 et balises head, sur toutes les pages en français. Idempotent.
 3. Contrôles :
-   - `allc.py` : toutes les pages pays en français sur l'hôte 127.0.0.2 (structure V2 présente, aucune erreur, aucun « undefined », aucun débordement) ;
+   - `allc.py [slug ...]` : les pages pays en français (toutes, ou seulement les slugs donnés) sur l'hôte 127.0.0.2 (structure V2 présente, aucune erreur, aucun « undefined », aucun débordement) ;
    - `v2t4.py` : 11 pages × 4 largeurs × clair/sombre ;
    - `links.py` : liens internes ;
    - `prod.py` : hôte de production simulé (pas de bandeau d'aperçu).
