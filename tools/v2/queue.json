@@ -312,7 +312,10 @@
 {
 "slug": "venezuela",
 "key": "venezuela",
-"status": "todo"
+"status": "doing",
+"kind": "todo",
+"since": "2026-11-26T14:45Z",
+"by": "session_01K5LCGnixi5"
 },
 {
 "slug": "north-korea",
