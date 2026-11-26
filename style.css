@@ -1545,3 +1545,31 @@ footer.v2foot .v2sup{margin:0}
 @media (max-width:700px){#view:has(.v2wrap){--b-gap:24px;--b-gap-lg:40px}#view:has(.v2wrap) .bv .cg-body{padding:6px 16px 20px}}
 .v2wrap .v2nav{grid-template-columns:repeat(var(--v2n,4),minmax(0,1fr))}
 @media (min-width:821px) and (max-width:1100px){.v2wrap .v2nav{grid-template-columns:repeat(min(var(--v2n,4),2),minmax(0,1fr))}}
+
+/* V2 page « On vous consulte. Et après ? » */
+.v2ap h2{margin-top:44px}
+.v2ap-steps{list-style:none;padding:0;margin:14px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.v2ap-steps li{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:16px}
+.v2ap-steps p{margin:4px 0 0;font-size:.92rem;line-height:1.5;color:var(--muted)}
+.v2ap-n{flex:0 0 auto;display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--paper);font:600 .9rem var(--f-body)}
+.v2ap-kinds{list-style:none;padding:0;margin:14px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.v2ap-kinds li{border-left:4px solid var(--ink);background:var(--tint);border-radius:0 12px 12px 0;padding:14px 16px}
+.v2ap-kinds p{margin:8px 0 0;font-size:.92rem;line-height:1.5}
+.v2ap-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:14px}
+.v2apc{border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:18px 20px;display:grid;gap:8px;align-content:start}
+.v2apc p{margin:0;line-height:1.5}
+.v2apc-h{font-size:1.02rem}
+.v2apc-m{font-weight:600;font-size:.95rem}
+.v2apc-t{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.v2apr{display:inline-block;font:600 .72rem/1.3 var(--f-body);text-transform:uppercase;letter-spacing:.05em;border-radius:999px;padding:2px 9px;border:1px solid currentColor;white-space:nowrap}
+.v2apr-ok{color:var(--ink)}
+.v2apr-mid{color:var(--muted)}
+.v2apr-ko{color:var(--muted);border-style:dashed}
+.v2ap-learn{margin-top:40px;border-left:4px solid var(--ink);background:var(--tint);border-radius:0 12px 12px 0;padding:18px 22px}
+.v2ap-learn h2{margin:0 0 10px}
+.v2ap-learn ul{margin:0;padding-left:20px;display:grid;gap:8px}
+.v2ap-note{margin-top:20px}
+.v2page .v2ap .lead{max-width:none}
+@media (max-width:1000px){.v2ap-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:700px){.v2ap-steps,.v2ap-kinds,.v2ap-grid{grid-template-columns:1fr}}
+.v2ap .v2kind{white-space:normal;text-align:left}.v2apc,.v2ap-steps li,.v2ap-kinds li{min-width:0;overflow-wrap:anywhere}

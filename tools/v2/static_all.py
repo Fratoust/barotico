@@ -2,7 +2,7 @@ import re,glob,html
 R=__import__("os").environ.get("BAROTICO_ROOT","/home/claude/barotico-v2")+"/"
 pages_pilot=["fr/index.html","fr/why-vote/index.html","fr/take-back-control/index.html","fr/values-mirror/index.html","fr/compare/index.html","fr/media/index.html"]+sorted(p.replace(R,"") for p in glob.glob(R+"fr/france/**/index.html",recursive=True) if "/watch/" not in p)
 pages=sorted(p.replace(R,'') for p in glob.glob(R+'fr/**/index.html',recursive=True) if '/watch/' not in p)
-TOOLS=[("Pourquoi voter ?","/fr/why-vote/",""),("Sortir de ma bulle","/fr/take-back-control/",""),("Le miroir des valeurs","/fr/values-mirror/",""),("Comparer les pays","/fr/compare/","outil avancé"),("Médias du monde","/fr/media/","référence")]
+TOOLS=[("Pourquoi voter ?","/fr/why-vote/",""),("On vous consulte. Et après ?","/fr/after-the-vote/",""),("Sortir de ma bulle","/fr/take-back-control/",""),("Le miroir des valeurs","/fr/values-mirror/",""),("Comparer les pays","/fr/compare/","outil avancé"),("Médias du monde","/fr/media/","référence")]
 links="".join(f'<a href="{u}">{h}{f" <small>· {t}</small>" if t else ""}</a>' for h,u,t in TOOLS)
 DD=f'<noscript><a class="navlink" href="/fr/#pays">Choisir un pays</a></noscript><details class="v2tools-dd"><summary class="navlink">Outils et guides <span aria-hidden="true">▾</span></summary><div class="v2tools-p">{links}</div></details>'
 SH=f'<details class="sheet-dd v2tools-sh"><summary class="navlink">Outils et guides</summary><div class="v2tools-p">{links}</div></details>'
