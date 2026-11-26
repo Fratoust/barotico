@@ -1,0 +1,32 @@
+name: CHES sync
+# Party positions from the Chapel Hill Expert Survey (free download, no account). Yearly on 3 February, and on demand.
+# Optional input: the CSV address, if chesdata.eu changes its page.
+on:
+  schedule:
+    - cron: "41 5 3 2 *"
+  workflow_dispatch:
+    inputs:
+      csv_url:
+        description: "CHES Europe CSV address (optional)"
+        required: false
+permissions:
+  contents: write
+concurrency: ches-sync
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Sync
+        env:
+          CHES_CSV_URL: ${{ inputs.csv_url }}
+        run: node tools/ches_sync.js
+      - name: Save
+        run: |
+          git config user.name "barotico-bot"; git config user.email "contact@barotico.com"
+          git add data/ches 2>/dev/null || true
+          if ! git diff --cached --quiet; then git commit -m "data: CHES sync"; git pull --rebase --autostash origin main; git push origin HEAD:main; fi

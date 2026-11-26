@@ -1,0 +1,18 @@
+{"note":"Phase 2 V2: one country per run, in this order. A run takes the first country with done=false, works on preview-v2 only, then sets done=true and the date.",
+"queue":[
+{"slug":"belgium","key":"belgium","done":false},{"slug":"switzerland","key":"switzerland","done":false},{"slug":"spain","key":"spain","done":false},
+{"slug":"germany","key":"germany","done":false},{"slug":"italy","key":"italy","done":false},{"slug":"united-kingdom","key":"uk","done":false},
+{"slug":"portugal","key":"portugal","done":false},{"slug":"netherlands","key":"netherlands","done":false},{"slug":"united-states","key":"usa","done":false},
+{"slug":"argentina","key":"argentina","done":false},{"slug":"brazil","key":"brazil","done":false},{"slug":"colombia","key":"colombia","done":false},
+{"slug":"austria","key":"austria","done":false},{"slug":"ireland","key":"ireland","done":false},{"slug":"sweden","key":"sweden","done":false},
+{"slug":"poland","key":"poland","done":false},{"slug":"czechia","key":"czechia","done":false},{"slug":"greece","key":"greece","done":false},
+{"slug":"romania","key":"romania","done":false},{"slug":"hungary","key":"hungary","done":false},{"slug":"australia","key":"australia","done":false},
+{"slug":"new-zealand","key":"newzealand","done":false},{"slug":"south-korea","key":"southkorea","done":false},{"slug":"south-africa","key":"southafrica","done":false},
+{"slug":"senegal","key":"senegal","done":false},{"slug":"morocco","key":"morocco","done":false},{"slug":"tunisia","key":"tunisia","done":false},
+{"slug":"benin","key":"benin","done":false},{"slug":"indonesia","key":"indonesia","done":false},{"slug":"israel","key":"israel","done":false},
+{"slug":"ukraine","key":"ukraine","done":false},{"slug":"serbia","key":"serbia","done":false},{"slug":"turkey","key":"turkey","done":false},
+{"slug":"singapore","key":"singapore","done":false},{"slug":"thailand","key":"thailand","done":false},{"slug":"venezuela","key":"venezuela","done":false},
+{"slug":"egypt","key":"egypt","done":false},{"slug":"azerbaijan","key":"azerbaijan","done":false},{"slug":"belarus","key":"belarus","done":false},
+{"slug":"russia","key":"russia","done":false},{"slug":"china","key":"china","done":false},{"slug":"vietnam","key":"vietnam","done":false},
+{"slug":"north-korea","key":"northkorea","done":false},{"slug":"dr-congo","key":"drcongo","done":false}
+]}
