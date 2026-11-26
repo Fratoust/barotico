@@ -47,9 +47,10 @@
 {
 "slug": "netherlands",
 "key": "netherlands",
-"status": "doing",
+"status": "done",
 "since": "2026-11-26T11:06Z",
-"by": "session_01K5LCGpJGCq"
+"by": "session_01K5LCGpJGCq",
+"done": "2026-11-26"
 },
 {
 "slug": "belgium",
