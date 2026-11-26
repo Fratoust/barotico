@@ -165,7 +165,7 @@
 "status": "done",
 "since": "2026-11-26T12:36Z",
 "by": "session_01K5LCGocjBQ",
-"done": "2026-11-26T13:20Z"
+"done": "2026-11-26T12:50Z"
 },
 {
 "slug": "colombia",
@@ -197,7 +197,7 @@
 "status": "done",
 "since": "2026-11-26T12:39Z",
 "by": "session_01K5LCGomvaR",
-"done": "2026-11-26T13:20Z"
+"done": "2026-11-26T12:50Z"
 },
 {
 "slug": "israel",
@@ -265,7 +265,9 @@
 {
 "slug": "dr-congo",
 "key": "drcongo",
-"status": "todo"
+"status": "doing",
+"since": "2026-11-26T12:54Z",
+"by": "session_01K5LCGocjBQ"
 },
 {
 "slug": "new-zealand",
