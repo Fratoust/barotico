@@ -288,7 +288,9 @@
 {
 "slug": "thailand",
 "key": "thailand",
-"status": "todo"
+"status": "doing",
+"since": "2026-11-26T13:00Z",
+"by": "session_01K5LCGnyQUp-2"
 },
 {
 "slug": "vietnam",
