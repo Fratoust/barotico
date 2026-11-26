@@ -1,397 +1,400 @@
 {
-"note": "Phase 2 V2: one country per run (10 runs per weekday, hourly). A run claims the first country with status \"todo\" (sets \"doing\" and pushes at once), works on preview-v2 only, then sets \"done\" and the date. A \"doing\" older than 3 hours can be taken again. Entries with status \"prog\" are countries already published that only need their party programme links filled (step 4b); a run takes them like \"todo\" entries, in queue order, and sets \"done\" afterwards.",
-"queue": [
-{
-"slug": "russia",
-"key": "russia",
-"status": "done",
-"done": "2026-11-26T10:58Z"
-},
-{
-"slug": "china",
-"key": "china",
-"status": "done",
-"done": "2026-11-26T11:03Z"
-},
-{
-"slug": "united-states",
-"key": "usa",
-"status": "done",
-"done": "2026-11-26T11:05Z"
-},
-{
-"slug": "germany",
-"key": "germany",
-"status": "done",
-"since": "2026-11-26T10:55Z",
-"date": "2026-11-26"
-},
-{
-"slug": "united-kingdom",
-"key": "uk",
-"status": "done",
-"done": "2026-11-26T11:06Z"
-},
-{
-"slug": "italy",
-"key": "italy",
-"status": "done",
-"done": "2026-11-26"
-},
-{
-"slug": "poland",
-"key": "poland",
-"status": "done",
-"done": "2026-11-26T11:08Z"
-},
-{
-"slug": "netherlands",
-"key": "netherlands",
-"status": "done",
-"since": "2026-11-26T11:06Z",
-"by": "session_01K5LCGpJGCq",
-"done": "2026-11-26"
-},
-{
-"slug": "belgium",
-"key": "belgium",
-"status": "done",
-"since": "2026-11-26T11:07Z",
-"by": "session_01K5LCGnudeB",
-"done": "2026-11-26T11:14Z"
-},
-{
-"slug": "switzerland",
-"key": "switzerland",
-"status": "done",
-"since": "2026-11-26T11:10Z",
-"by": "session_01K5LCGoxRcM",
-"done": "2026-11-26T11:18Z"
-},
-{
-"slug": "spain",
-"key": "spain",
-"status": "todo",
-"skip": "Élections générales le 29/11/2026, dans les 10 jours : à reprendre après les résultats officiels (passage du 26/11)."
-},
-{
-"slug": "portugal",
-"key": "portugal",
-"status": "done",
-"since": "2026-11-26T11:09Z",
-"date": "2026-11-26"
-},
-{
-"slug": "sweden",
-"key": "sweden",
-"status": "done",
-"done": "2026-11-26T11:15Z"
-},
-{
-"slug": "austria",
-"key": "austria",
-"status": "done",
-"done": "2026-11-26T11:20Z"
-},
-{
-"slug": "greece",
-"key": "greece",
-"status": "done",
-"done": "2026-11-26T11:23Z"
-},
-{
-"slug": "czechia",
-"key": "czechia",
-"status": "done",
-"done": "2026-11-26T11:22Z"
-},
-{
-"slug": "romania",
-"key": "romania",
-"status": "done",
-"done": "2026-11-26"
-},
-{
-"slug": "hungary",
-"key": "hungary",
-"status": "done",
-"since": "2026-11-26T11:23Z",
-"by": "session_01K5LCGoxRcM-2",
-"done": "2026-11-26T11:27Z"
-},
-{
-"slug": "ireland",
-"key": "ireland",
-"status": "done",
-"since": "2026-11-26T11:45Z",
-"by": "session_01K5LCGq2VxG",
-"done": "2026-11-26T11:50Z"
-},
-{
-"slug": "ukraine",
-"key": "ukraine",
-"status": "done",
-"since": "2026-11-26T12:35Z",
-"by": "session_01K5LCGpF6Co",
-"done": "2026-11-26T12:48Z"
-},
-{
-"slug": "turkey",
-"key": "turkey",
-"status": "done",
-"since": "2026-11-26T12:36Z",
-"by": "session_01K5LCGnyQUp",
-"done": "2026-11-26T12:52Z"
-},
-{
-"slug": "brazil",
-"key": "brazil",
-"status": "done",
-"since": "2026-11-26T12:37Z",
-"by": "session_01K5LCGsACNG",
-"done": "2026-11-26T12:49Z"
-},
-{
-"slug": "indonesia",
-"key": "indonesia",
-"status": "done",
-"since": "2026-11-26T12:38Z",
-"by": "session_01K5LCGpShFY",
-"done": "2026-11-26T13:05Z"
-},
-{
-"slug": "argentina",
-"key": "argentina",
-"status": "done",
-"since": "2026-11-26T12:36Z",
-"by": "session_01K5LCGocjBQ",
-"done": "2026-11-26T12:50Z"
-},
-{
-"slug": "colombia",
-"key": "colombia",
-"status": "done",
-"since": "2026-11-26T12:36Z",
-"by": "session_01K5LCGoj7AY",
-"done": "2026-11-26T12:48Z"
-},
-{
-"slug": "south-korea",
-"key": "southkorea",
-"status": "done",
-"since": "2026-11-26T12:36Z",
-"by": "session_01K5LCGrVFZ4",
-"done": "2026-11-26T12:46Z"
-},
-{
-"slug": "australia",
-"key": "australia",
-"status": "done",
-"done": "2026-11-26T12:47Z",
-"since": "2026-11-26T12:36Z",
-"by": "session_01K5LCGpfGkX"
-},
-{
-"slug": "south-africa",
-"key": "southafrica",
-"status": "done",
-"since": "2026-11-26T12:39Z",
-"by": "session_01K5LCGomvaR",
-"done": "2026-11-26T12:50Z"
-},
-{
-"slug": "israel",
-"key": "israel",
-"status": "done",
-"since": "2026-11-26T12:36Z",
-"done": "2026-11-26T12:48Z"
-},
-{
-"slug": "serbia",
-"key": "serbia",
-"status": "done",
-"kind": "todo",
-"since": "2026-11-26T12:44Z",
-"by": "session_01K5LCGqpNUG",
-"done": "2026-11-26T12:56Z"
-},
-{
-"slug": "belarus",
-"key": "belarus",
-"status": "done",
-"since": "2026-11-26T12:46Z",
-"by": "session_01K5LCGpShFY-2",
-"done": "2026-11-26T12:54Z"
-},
-{
-"slug": "azerbaijan",
-"key": "azerbaijan",
-"status": "done",
-"since": "2026-11-26T12:49Z",
-"by": "session_01K5LCGpfGkX",
-"done": "2026-11-26T12:58Z"
-},
-{
-"slug": "egypt",
-"key": "egypt",
-"status": "done",
-"since": "2026-11-26T12:49Z",
-"by": "session_01K5LCGrVFZ4-2",
-"done": "2026-11-26T13:00Z"
-},
-{
-"slug": "morocco",
-"key": "morocco",
-"status": "done",
-"since": "2026-11-26T12:52Z",
-"by": "session_01K5LCGsACNG-2",
-"done": "2026-11-26T13:04Z"
-},
-{
-"slug": "tunisia",
-"key": "tunisia",
-"status": "done",
-"since": "2026-11-26T12:53Z",
-"by": "session_01K5LCGpF6Co-2",
-"done": "2026-11-26T12:58Z"
-},
-{
-"slug": "senegal",
-"key": "senegal",
-"status": "done",
-"since": "2026-11-26T12:54Z",
-"by": "session_01K5LCGoj7AY-2",
-"done": "2026-11-26T12:59Z"
-},
-{
-"slug": "benin",
-"key": "benin",
-"status": "done",
-"since": "2026-11-26T12:54Z",
-"done": "2026-11-26T13:03Z"
-},
-{
-"slug": "dr-congo",
-"key": "drcongo",
-"status": "done",
-"since": "2026-11-26T12:54Z",
-"by": "session_01K5LCGocjBQ",
-"done": "2026-11-26T13:07Z"
-},
-{
-"slug": "new-zealand",
-"key": "newzealand",
-"status": "todo",
-"skip": "Élections générales du 7/11/2026 : résultats officiels attendus le 27/11 (votes spéciaux, sièges de liste encore susceptibles de changer) et gouvernement pas encore formé ; à reprendre après les résultats officiels (passage du 26/11)."
-},
-{
-"slug": "singapore",
-"key": "singapore",
-"status": "done",
-"since": "2026-11-26T12:55Z",
-"by": "session_01K5LCGomvaR-2",
-"done": "2026-11-26T13:05Z"
-},
-{
-"slug": "thailand",
-"key": "thailand",
-"status": "done",
-"since": "2026-11-26T13:00Z",
-"by": "session_01K5LCGnyQUp-2",
-"done": "2026-11-26T13:10Z"
-},
-{
-"slug": "vietnam",
-"key": "vietnam",
-"status": "done",
-"kind": "todo",
-"since": "2026-11-26T13:45Z",
-"by": "session_01K5LCGqzkoF",
-"done": "2026-11-26T14:10Z"
-},
-{
-"slug": "venezuela",
-"key": "venezuela",
-"status": "done",
-"kind": "todo",
-"since": "2026-11-26T14:45Z",
-"by": "session_01K5LCGnixi5",
-"done": "2026-11-26T14:59Z"
-},
-{
-"slug": "north-korea",
-"key": "northkorea",
-"status": "todo"
-},
-{
-"slug": "russia",
-"key": "russia",
-"status": "prog"
-},
-{
-"slug": "china",
-"key": "china",
-"status": "prog"
-},
-{
-"slug": "germany",
-"key": "germany",
-"status": "prog"
-},
-{
-"slug": "italy",
-"key": "italy",
-"status": "prog"
-},
-{
-"slug": "poland",
-"key": "poland",
-"status": "prog"
-},
-{
-"slug": "netherlands",
-"key": "netherlands",
-"status": "prog"
-},
-{
-"slug": "switzerland",
-"key": "switzerland",
-"status": "prog"
-},
-{
-"slug": "portugal",
-"key": "portugal",
-"status": "prog"
-},
-{
-"slug": "austria",
-"key": "austria",
-"status": "prog"
-},
-{
-"slug": "greece",
-"key": "greece",
-"status": "prog"
-},
-{
-"slug": "czechia",
-"key": "czechia",
-"status": "prog"
-},
-{
-"slug": "romania",
-"key": "romania",
-"status": "prog"
-},
-{
-"slug": "hungary",
-"key": "hungary",
-"status": "prog"
-},
-{
-"slug": "ireland",
-"key": "ireland",
-"status": "prog"
-}
-]
+ "note": "Phase 2 V2: one country per run (10 runs per weekday, hourly). A run claims the first country with status \"todo\" (sets \"doing\" and pushes at once), works on preview-v2 only, then sets \"done\" and the date. A \"doing\" older than 3 hours can be taken again. Entries with status \"prog\" are countries already published that only need their party programme links filled (step 4b); a run takes them like \"todo\" entries, in queue order, and sets \"done\" afterwards.",
+ "queue": [
+  {
+   "slug": "russia",
+   "key": "russia",
+   "status": "done",
+   "done": "2026-11-26T10:58Z"
+  },
+  {
+   "slug": "china",
+   "key": "china",
+   "status": "done",
+   "done": "2026-11-26T11:03Z"
+  },
+  {
+   "slug": "united-states",
+   "key": "usa",
+   "status": "done",
+   "done": "2026-11-26T11:05Z"
+  },
+  {
+   "slug": "germany",
+   "key": "germany",
+   "status": "done",
+   "since": "2026-11-26T10:55Z",
+   "date": "2026-11-26"
+  },
+  {
+   "slug": "united-kingdom",
+   "key": "uk",
+   "status": "done",
+   "done": "2026-11-26T11:06Z"
+  },
+  {
+   "slug": "italy",
+   "key": "italy",
+   "status": "done",
+   "done": "2026-11-26"
+  },
+  {
+   "slug": "poland",
+   "key": "poland",
+   "status": "done",
+   "done": "2026-11-26T11:08Z"
+  },
+  {
+   "slug": "netherlands",
+   "key": "netherlands",
+   "status": "done",
+   "since": "2026-11-26T11:06Z",
+   "by": "session_01K5LCGpJGCq",
+   "done": "2026-11-26"
+  },
+  {
+   "slug": "belgium",
+   "key": "belgium",
+   "status": "done",
+   "since": "2026-11-26T11:07Z",
+   "by": "session_01K5LCGnudeB",
+   "done": "2026-11-26T11:14Z"
+  },
+  {
+   "slug": "switzerland",
+   "key": "switzerland",
+   "status": "done",
+   "since": "2026-11-26T11:10Z",
+   "by": "session_01K5LCGoxRcM",
+   "done": "2026-11-26T11:18Z"
+  },
+  {
+   "slug": "spain",
+   "key": "spain",
+   "status": "todo",
+   "skip": "Élections générales le 29/11/2026, dans les 10 jours : à reprendre après les résultats officiels (passage du 26/11)."
+  },
+  {
+   "slug": "portugal",
+   "key": "portugal",
+   "status": "done",
+   "since": "2026-11-26T11:09Z",
+   "date": "2026-11-26"
+  },
+  {
+   "slug": "sweden",
+   "key": "sweden",
+   "status": "done",
+   "done": "2026-11-26T11:15Z"
+  },
+  {
+   "slug": "austria",
+   "key": "austria",
+   "status": "done",
+   "done": "2026-11-26T11:20Z"
+  },
+  {
+   "slug": "greece",
+   "key": "greece",
+   "status": "done",
+   "done": "2026-11-26T11:23Z"
+  },
+  {
+   "slug": "czechia",
+   "key": "czechia",
+   "status": "done",
+   "done": "2026-11-26T11:22Z"
+  },
+  {
+   "slug": "romania",
+   "key": "romania",
+   "status": "done",
+   "done": "2026-11-26"
+  },
+  {
+   "slug": "hungary",
+   "key": "hungary",
+   "status": "done",
+   "since": "2026-11-26T11:23Z",
+   "by": "session_01K5LCGoxRcM-2",
+   "done": "2026-11-26T11:27Z"
+  },
+  {
+   "slug": "ireland",
+   "key": "ireland",
+   "status": "done",
+   "since": "2026-11-26T11:45Z",
+   "by": "session_01K5LCGq2VxG",
+   "done": "2026-11-26T11:50Z"
+  },
+  {
+   "slug": "ukraine",
+   "key": "ukraine",
+   "status": "done",
+   "since": "2026-11-26T12:35Z",
+   "by": "session_01K5LCGpF6Co",
+   "done": "2026-11-26T12:48Z"
+  },
+  {
+   "slug": "turkey",
+   "key": "turkey",
+   "status": "done",
+   "since": "2026-11-26T12:36Z",
+   "by": "session_01K5LCGnyQUp",
+   "done": "2026-11-26T12:52Z"
+  },
+  {
+   "slug": "brazil",
+   "key": "brazil",
+   "status": "done",
+   "since": "2026-11-26T12:37Z",
+   "by": "session_01K5LCGsACNG",
+   "done": "2026-11-26T12:49Z"
+  },
+  {
+   "slug": "indonesia",
+   "key": "indonesia",
+   "status": "done",
+   "since": "2026-11-26T12:38Z",
+   "by": "session_01K5LCGpShFY",
+   "done": "2026-11-26T13:05Z"
+  },
+  {
+   "slug": "argentina",
+   "key": "argentina",
+   "status": "done",
+   "since": "2026-11-26T12:36Z",
+   "by": "session_01K5LCGocjBQ",
+   "done": "2026-11-26T12:50Z"
+  },
+  {
+   "slug": "colombia",
+   "key": "colombia",
+   "status": "done",
+   "since": "2026-11-26T12:36Z",
+   "by": "session_01K5LCGoj7AY",
+   "done": "2026-11-26T12:48Z"
+  },
+  {
+   "slug": "south-korea",
+   "key": "southkorea",
+   "status": "done",
+   "since": "2026-11-26T12:36Z",
+   "by": "session_01K5LCGrVFZ4",
+   "done": "2026-11-26T12:46Z"
+  },
+  {
+   "slug": "australia",
+   "key": "australia",
+   "status": "done",
+   "done": "2026-11-26T12:47Z",
+   "since": "2026-11-26T12:36Z",
+   "by": "session_01K5LCGpfGkX"
+  },
+  {
+   "slug": "south-africa",
+   "key": "southafrica",
+   "status": "done",
+   "since": "2026-11-26T12:39Z",
+   "by": "session_01K5LCGomvaR",
+   "done": "2026-11-26T12:50Z"
+  },
+  {
+   "slug": "israel",
+   "key": "israel",
+   "status": "done",
+   "since": "2026-11-26T12:36Z",
+   "done": "2026-11-26T12:48Z"
+  },
+  {
+   "slug": "serbia",
+   "key": "serbia",
+   "status": "done",
+   "kind": "todo",
+   "since": "2026-11-26T12:44Z",
+   "by": "session_01K5LCGqpNUG",
+   "done": "2026-11-26T12:56Z"
+  },
+  {
+   "slug": "belarus",
+   "key": "belarus",
+   "status": "done",
+   "since": "2026-11-26T12:46Z",
+   "by": "session_01K5LCGpShFY-2",
+   "done": "2026-11-26T12:54Z"
+  },
+  {
+   "slug": "azerbaijan",
+   "key": "azerbaijan",
+   "status": "done",
+   "since": "2026-11-26T12:49Z",
+   "by": "session_01K5LCGpfGkX",
+   "done": "2026-11-26T12:58Z"
+  },
+  {
+   "slug": "egypt",
+   "key": "egypt",
+   "status": "done",
+   "since": "2026-11-26T12:49Z",
+   "by": "session_01K5LCGrVFZ4-2",
+   "done": "2026-11-26T13:00Z"
+  },
+  {
+   "slug": "morocco",
+   "key": "morocco",
+   "status": "done",
+   "since": "2026-11-26T12:52Z",
+   "by": "session_01K5LCGsACNG-2",
+   "done": "2026-11-26T13:04Z"
+  },
+  {
+   "slug": "tunisia",
+   "key": "tunisia",
+   "status": "done",
+   "since": "2026-11-26T12:53Z",
+   "by": "session_01K5LCGpF6Co-2",
+   "done": "2026-11-26T12:58Z"
+  },
+  {
+   "slug": "senegal",
+   "key": "senegal",
+   "status": "done",
+   "since": "2026-11-26T12:54Z",
+   "by": "session_01K5LCGoj7AY-2",
+   "done": "2026-11-26T12:59Z"
+  },
+  {
+   "slug": "benin",
+   "key": "benin",
+   "status": "done",
+   "since": "2026-11-26T12:54Z",
+   "done": "2026-11-26T13:03Z"
+  },
+  {
+   "slug": "dr-congo",
+   "key": "drcongo",
+   "status": "done",
+   "since": "2026-11-26T12:54Z",
+   "by": "session_01K5LCGocjBQ",
+   "done": "2026-11-26T13:07Z"
+  },
+  {
+   "slug": "new-zealand",
+   "key": "newzealand",
+   "status": "todo",
+   "skip": "Élections générales du 7/11/2026 : résultats officiels attendus le 27/11 (votes spéciaux, sièges de liste encore susceptibles de changer) et gouvernement pas encore formé ; à reprendre après les résultats officiels (passage du 26/11)."
+  },
+  {
+   "slug": "singapore",
+   "key": "singapore",
+   "status": "done",
+   "since": "2026-11-26T12:55Z",
+   "by": "session_01K5LCGomvaR-2",
+   "done": "2026-11-26T13:05Z"
+  },
+  {
+   "slug": "thailand",
+   "key": "thailand",
+   "status": "done",
+   "since": "2026-11-26T13:00Z",
+   "by": "session_01K5LCGnyQUp-2",
+   "done": "2026-11-26T13:10Z"
+  },
+  {
+   "slug": "vietnam",
+   "key": "vietnam",
+   "status": "done",
+   "kind": "todo",
+   "since": "2026-11-26T13:45Z",
+   "by": "session_01K5LCGqzkoF",
+   "done": "2026-11-26T14:10Z"
+  },
+  {
+   "slug": "venezuela",
+   "key": "venezuela",
+   "status": "done",
+   "kind": "todo",
+   "since": "2026-11-26T14:45Z",
+   "by": "session_01K5LCGnixi5",
+   "done": "2026-11-26T14:59Z"
+  },
+  {
+   "slug": "north-korea",
+   "key": "northkorea",
+   "status": "doing",
+   "kind": "todo",
+   "since": "2026-11-26T15:46Z",
+   "by": "session_01K5LCGp4vH7"
+  },
+  {
+   "slug": "russia",
+   "key": "russia",
+   "status": "prog"
+  },
+  {
+   "slug": "china",
+   "key": "china",
+   "status": "prog"
+  },
+  {
+   "slug": "germany",
+   "key": "germany",
+   "status": "prog"
+  },
+  {
+   "slug": "italy",
+   "key": "italy",
+   "status": "prog"
+  },
+  {
+   "slug": "poland",
+   "key": "poland",
+   "status": "prog"
+  },
+  {
+   "slug": "netherlands",
+   "key": "netherlands",
+   "status": "prog"
+  },
+  {
+   "slug": "switzerland",
+   "key": "switzerland",
+   "status": "prog"
+  },
+  {
+   "slug": "portugal",
+   "key": "portugal",
+   "status": "prog"
+  },
+  {
+   "slug": "austria",
+   "key": "austria",
+   "status": "prog"
+  },
+  {
+   "slug": "greece",
+   "key": "greece",
+   "status": "prog"
+  },
+  {
+   "slug": "czechia",
+   "key": "czechia",
+   "status": "prog"
+  },
+  {
+   "slug": "romania",
+   "key": "romania",
+   "status": "prog"
+  },
+  {
+   "slug": "hungary",
+   "key": "hungary",
+   "status": "prog"
+  },
+  {
+   "slug": "ireland",
+   "key": "ireland",
+   "status": "prog"
+  }
+ ]
 }
