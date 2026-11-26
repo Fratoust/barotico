@@ -273,14 +273,15 @@
 {
 "slug": "new-zealand",
 "key": "newzealand",
-"status": "doing",
-"since": "2026-11-26T12:55Z",
-"by": "session_01K5LCGomvaR-2"
+"status": "todo",
+"skip": "Élections générales du 7/11/2026 : résultats officiels attendus le 27/11 (votes spéciaux, sièges de liste encore susceptibles de changer) et gouvernement pas encore formé ; à reprendre après les résultats officiels (passage du 26/11)."
 },
 {
 "slug": "singapore",
 "key": "singapore",
-"status": "todo"
+"status": "doing",
+"since": "2026-11-26T12:55Z",
+"by": "session_01K5LCGomvaR-2"
 },
 {
 "slug": "thailand",
