@@ -160,9 +160,10 @@
 {
 "slug": "argentina",
 "key": "argentina",
-"status": "doing",
+"status": "done",
 "since": "2026-11-26T12:36Z",
-"by": "session_01K5LCGocjBQ"
+"by": "session_01K5LCGocjBQ",
+"done": "2026-11-26T13:20Z"
 },
 {
 "slug": "colombia",
