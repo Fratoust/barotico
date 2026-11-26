@@ -1447,7 +1447,7 @@ body:has(.pilwrap) .panel>p.tabctx{background:none;border-left:2px solid var(--l
 /* V2 round 4: visual review */
 #view:has(.v2wrap) .chead{align-items:start}
 #view:has(.v2wrap) .chead .countdown{align-self:start;height:auto}
-#view:has(.v2wrap) .panel :is(p,li):not(.v2nav *):not(.v2-btn *),#view:has(.v2wrap) .sources{max-width:75ch}
+#view:has(.v2wrap) .panel :is(p,li):not(.v2nav *):not(.v2-btn *):not(.tabctx),#view:has(.v2wrap) .sources{max-width:75ch}
 #view:has(.v2wrap) .sources ul{display:block;columns:2 24rem;column-gap:28px}
 #view:has(.v2wrap) .sources li{break-inside:avoid;margin-bottom:3px}
 .v2page .ccard>span:first-child{min-width:0}
@@ -1489,3 +1489,57 @@ body:has(.v2wrap) footer.v2foot{padding-bottom:96px}
 .v2sup>div{min-width:0}
 .v2foot-cols>section>h2,.v2foot-cols>nav>h2{margin-top:0;padding:0;border:0}
 footer.v2foot .v2sup{margin:0}
+
+/* V2 round 6 (26/11/2026): one block system for the France pilot.
+   Rhythm: 32px between blocks, 56px before a section title, 12px after it.
+   Three block families, always full column width:
+   - note (tabctx, v2note, why, v2crit): tinted, 4px navy accent on the left;
+   - card (v2qa, par-spec, howto, votecard, v2cal, cguide, game, v2ctx, pcard): surface, 1px line, 12px radius;
+   - alert (demw): red, unchanged.
+   Text inside blocks stays at about 75 characters per line. */
+#view:has(.v2wrap){--b-gap:32px;--b-gap-lg:56px;--b-rad:12px}
+#view:has(.v2wrap) .panel>*{margin-block:0!important}
+#view:has(.v2wrap) .panel>*+*{margin-top:var(--b-gap)!important}
+#view:has(.v2wrap) .panel>:is(.ph2,.v2det){margin-top:var(--b-gap-lg)!important}
+#view:has(.v2wrap) .panel>:first-child{margin-top:0!important}
+#view:has(.v2wrap) .panel>:is(.ph2,.v2det)+*{margin-top:12px!important}
+#view:has(.v2wrap) .panel>.tabctx+.v2qas{margin-top:16px!important}
+#view:has(.v2wrap) :is(.tabctx,.v2note,.why,.v2crit){max-width:none!important;box-sizing:border-box;padding:16px 20px;border:0;border-left:4px solid var(--ink);border-radius:0 var(--b-rad) var(--b-rad) 0;background:var(--tint);font-size:var(--fs-b);line-height:1.55}
+#view:has(.v2wrap) :is(.v2note,.why,.v2crit)>*{max-width:75ch}
+#view:has(.v2wrap) .v2note p{margin:0}
+#view:has(.v2wrap) :is(.v2qa,.par-spec,.howto,.votecard,.v2cal,.cguide,.game,.v2ctx){box-sizing:border-box;max-width:none;border:1px solid var(--line);border-radius:var(--b-rad);background:var(--surface)}
+#view:has(.v2wrap) :is(.v2qa,.par-spec,.howto,.votecard,.v2cal,.game){padding:20px 22px}
+#view:has(.v2wrap) :is(.game,.v2ctx){border-left:4px solid var(--ink)}
+#view:has(.v2wrap) .v2ctx{padding:14px 20px}
+#view:has(.v2wrap) .block{gap:10px}
+#view:has(.v2wrap) .v2qas{gap:16px}
+/* Parties: explanation and positions on the left, how to read on the right */
+#view:has(.v2wrap) .par-top.v2pt{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:24px;align-items:stretch}
+#view:has(.v2wrap) .v2pt .par-intro{display:grid;gap:16px;align-content:start}
+#view:has(.v2wrap) .v2pt .par-intro .lead{margin:0}
+#view:has(.v2wrap) .v2pt .howto{margin:0!important;font-size:.92rem}
+#view:has(.v2wrap) .v2pt .howto summary{font-family:var(--f-display);font-weight:400;font-size:1.1rem;list-style:none;cursor:default;pointer-events:none}
+#view:has(.v2wrap) .v2pt .howto summary::-webkit-details-marker{display:none}
+#view:has(.v2wrap) .v2pt .howto p{margin:10px 0 0;max-width:none}
+@media (max-width:860px){#view:has(.v2wrap) .par-top.v2pt{grid-template-columns:1fr}}
+/* Party card: four clearly separated parts */
+#view:has(.v2wrap) .pcard>.psec{padding:0;gap:18px}
+#view:has(.v2wrap) .pcard>.psec>*{margin:0}
+#view:has(.v2wrap) .pcard>.psec+.psec{margin-top:30px;padding-top:28px;border-top:1px solid var(--line)}
+#view:has(.v2wrap) .pcard>.psec>:is(.pblock,.demo,.verdict){border-top:0;padding-top:0}
+#view:has(.v2wrap) .pcard>.psec>.pblock+.pblock{border-top:1px dashed var(--line);padding-top:16px}
+#view:has(.v2wrap) .pcard>.ptoggle.pend{margin-top:32px}
+/* Vote: each idea gets air, groups are separated */
+#view:has(.v2wrap) .bv .cg-body{gap:0;padding:6px 24px 26px}
+#view:has(.v2wrap) .bv .cg-body>*+*{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+#view:has(.v2wrap) .bv .cg-body>.bv-lead{font-size:var(--fs-b);max-width:75ch}
+#view:has(.v2wrap) .bv .eyebrow{margin:0 0 12px}
+#view:has(.v2wrap) .bv-ul{gap:12px}
+#view:has(.v2wrap) .bv-two{gap:28px}
+#view:has(.v2wrap) .bv-nums{gap:16px}
+#view:has(.v2wrap) .bv-think ul{display:grid;gap:12px}
+#view:has(.v2wrap) .bv .sources,#view:has(.v2wrap) .bv-status,#view:has(.v2wrap) .bv-note{margin-top:14px}
+#view:has(.v2wrap) .votecard{gap:12px}
+#view:has(.v2wrap) .bv-else{display:grid;gap:12px}
+#view:has(.v2wrap) .pcard .pblock>:last-child,#view:has(.v2wrap) .pcard .demo>:last-child{margin-bottom:0}
+@media (max-width:700px){#view:has(.v2wrap){--b-gap:24px;--b-gap-lg:40px}#view:has(.v2wrap) .bv .cg-body{padding:6px 16px 20px}}
