@@ -286,9 +286,10 @@
 {
 "slug": "singapore",
 "key": "singapore",
-"status": "doing",
+"status": "done",
 "since": "2026-11-26T12:55Z",
-"by": "session_01K5LCGomvaR-2"
+"by": "session_01K5LCGomvaR-2",
+"done": "2026-11-26T13:05Z"
 },
 {
 "slug": "thailand",
