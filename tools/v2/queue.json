@@ -72,7 +72,7 @@
 "slug": "spain",
 "key": "spain",
 "status": "todo",
-"skip": "Élections générales le 29/11/2026, dans les 10 jours : à reprendre après les résultats officiels (passage du 26/11)."
+"skip": "Élections générales le 29/11/2026, dans les 10 jours : à reprendre après les résultats officiels (passages du 26/11 et du 27/11)."
 },
 {
 "slug": "portugal",
@@ -333,7 +333,10 @@
 {
 "slug": "russia",
 "key": "russia",
-"status": "prog"
+"status": "doing",
+"kind": "prog",
+"since": "2026-11-27T07:45Z",
+"by": "session_01K5LCGoDUC3"
 },
 {
 "slug": "china",
