@@ -75,7 +75,7 @@
    "slug": "spain",
    "key": "spain",
    "status": "todo",
-   "skip": "Élections générales le 29/11/2026, dans les 10 jours : à reprendre après les résultats officiels (passages du 26/11 et du 27/11, dernier contrôle 27/11 13:45Z)."
+   "skip": "Élections générales le 29/11/2026, dans les 10 jours : à reprendre après les résultats officiels (passages du 26/11 et du 27/11, dernier contrôle 27/11 14:50Z)."
   },
   {
    "slug": "portugal",
@@ -482,9 +482,12 @@
   {
    "slug": "russia",
    "key": "russia",
-   "status": "prog",
+   "status": "doing",
    "note": "repasse « nouveau modèle » : 10 propositions clés (étape 4c), liens de programme déjà faits",
-   "skip": "27/11 13:50Z : étape 4c impossible, aucune source lisible. Les lectures de programmes (np.er.ru, kprf.ru, ldpr.ru, newpeople.ru, spravedlivo.ru) ont été refusées par l'autorisation de lecture web (demande sans réponse dans une tâche sans surveillance). À reprendre quand la lecture web est autorisée."
+   "kind": "prog",
+   "since": "2026-11-27T14:50Z",
+   "by": "session_01K5LCGpdTBC",
+   "prev_skip": "27/11 13:50Z : lectures refusées (autorisation web)"
   },
   {
    "slug": "china",
