@@ -492,11 +492,12 @@
   {
    "slug": "china",
    "key": "china",
-   "status": "doing",
+   "status": "done",
    "note": "repasse « nouveau modèle » : 10 propositions clés (étape 4c), liens de programme déjà faits",
    "kind": "prog",
    "since": "2026-11-27T15:46Z",
-   "by": "session_01K5LCGpuZyX"
+   "by": "session_01K5LCGpuZyX",
+   "done": "2026-11-27T16:10Z"
   },
   {
    "slug": "germany",
