@@ -270,7 +270,7 @@ BAROTICO.add("newzealand", {
         n: L3("Declared donations of $6.28m in 2025, the most of any party; largest single gift $210,000. Returns cover donations only; no breakdown of total income by source is published.",
               "Dons déclarés de 6,28 M$ en 2025, le plus élevé de tous les partis ; plus gros don : 210 000 $. Les déclarations ne portent que sur les dons ; aucune répartition des recettes totales par source n'est publiée.",
               "Donaciones declaradas de 6,28 M$ en 2025, la mayor cifra de todos los partidos; mayor donación: 210.000 $. Las declaraciones solo cubren donaciones; no se publica un desglose de los ingresos totales por fuente.") },
-      prog: [] },
+      prog: [["2026", "https://www.national.org.nz/plan"]] },
 
     { id: "labour", born: {"y": 1916, "m": 7, "gov": "lead", "u": "https://www.1news.co.nz/2023/07/07/how-old-are-new-zealands-parliamentary-political-parties/"}, name: "Labour", full: "New Zealand Labour Party", leader: "Chris Hipkins",
       seats: L3("36 of 131 seats (preliminary count, 7 Nov. 2026: 29.4% of the party vote, narrowly ahead of National; official result 27 Nov.)", "36 sièges sur 131 (décompte préliminaire du 7 nov. 2026 : 29,4 % du vote de parti, juste devant National ; résultat officiel le 27 nov.)", "36 de 131 escaños (recuento preliminar del 7 nov. 2026: 29,4 % del voto de partido, justo por delante de National; resultado oficial el 27 nov.)"),
@@ -371,7 +371,7 @@ BAROTICO.add("newzealand", {
         n: L3("Declared donations of $2.40m in 2025, slightly behind ACT; largest single gift $125,000 (Mills Family Trust). Returns cover donations only; no breakdown of total income by source is published.",
               "Dons déclarés de 2,40 M$ en 2025, un peu derrière ACT ; plus gros don : 125 000 $ (Mills Family Trust). Les déclarations ne portent que sur les dons ; aucune répartition des recettes totales n'est publiée.",
               "Donaciones declaradas de 2,40 M$ en 2025, algo por detrás de ACT; mayor donación: 125.000 $ (Mills Family Trust). Las declaraciones solo cubren donaciones; no se publica desglose de los ingresos totales.") },
-      prog: [] },
+      prog: [["2026", "https://www.labour.org.nz/policies"]] },
 
     { id: "greens", born: {"y": 1990, "m": 5, "gov": "partner", "u": "https://teara.govt.nz/mi/political-parties/print"}, name: "Greens", full: "Green Party of Aotearoa New Zealand", leader: "Chlöe Swarbrick and Marama Davidson",
       seats: L3("16 of 131 seats (preliminary count, 7 Nov. 2026: 13.3% of the party vote; official result 27 Nov.)", "16 sièges sur 131 (décompte préliminaire du 7 nov. 2026 : 13,3 % du vote de parti ; résultat officiel le 27 nov.)", "16 de 131 escaños (recuento preliminar del 7 nov. 2026: 13,3 % del voto de partido; resultado oficial el 27 nov.)"),
@@ -453,7 +453,7 @@ BAROTICO.add("newzealand", {
         n: L3("Declared donations of $1.85m in 2025; largest single gift $132,000. Returns cover donations only; no breakdown of total income by source is published.",
               "Dons déclarés de 1,85 M$ en 2025 ; plus gros don : 132 000 $. Les déclarations ne portent que sur les dons ; aucune répartition des recettes totales n'est publiée.",
               "Donaciones declaradas de 1,85 M$ en 2025; mayor donación: 132.000 $. Las declaraciones solo cubren donaciones; no se publica desglose de los ingresos totales.") },
-      prog: [] },
+      prog: [["2026", "https://www.greens.org.nz/manifesto_2026"]] },
 
     { id: "act", born: {"y": 1994, "gov": "partner", "u": "https://teara.govt.nz/mi/political-parties/print"}, name: "ACT", full: "ACT New Zealand", leader: "David Seymour",
       seats: L3("13 of 131 seats (preliminary count, 7 Nov. 2026: 10.9% of the party vote; official result 27 Nov.). In the caretaker government", "13 sièges sur 131 (décompte préliminaire du 7 nov. 2026 : 10,9 % du vote de parti ; résultat officiel le 27 nov.). Membre du gouvernement en affaires courantes", "13 de 131 escaños (recuento preliminar del 7 nov. 2026: 10,9 % del voto de partido; resultado oficial el 27 nov.). En el Gobierno en funciones"),
@@ -542,7 +542,7 @@ BAROTICO.add("newzealand", {
         n: L3("Declared donations of $2.45m in 2025, overtaking Labour; largest single gift $200,000. Returns cover donations only; no breakdown of total income by source is published.",
               "Dons déclarés de 2,45 M$ en 2025, devant le Labour ; plus gros don : 200 000 $. Les déclarations ne portent que sur les dons ; aucune répartition des recettes totales n'est publiée.",
               "Donaciones declaradas de 2,45 M$ en 2025, por delante del laborismo; mayor donación: 200.000 $. Las declaraciones solo cubren donaciones; no se publica desglose de los ingresos totales.") },
-      prog: [] },
+      prog: [["2026", "https://www.interest.co.nz/sites/default/files/2026-10/ACT%27s_Plan_to_Unlock_New_Zealand%27s_Potential.pdf"]] },
 
     { id: "nzfirst", born: {"y": 1993, "m": 7, "gov": "partner", "u": "https://www.1news.co.nz/2018/07/21/john-armstrong-will-25-years-of-winston-peters-mischief-mishaps-and-mayhem-as-nz-first-leader-have-a-swansong-beyond-2020/"}, name: "NZ First", full: "New Zealand First", leader: "Winston Peters",
       seats: L3("12 of 131 seats (preliminary count, 7 Nov. 2026: 9.8% of the party vote; official result 27 Nov.). In the caretaker government", "12 sièges sur 131 (décompte préliminaire du 7 nov. 2026 : 9,8 % du vote de parti ; résultat officiel le 27 nov.). Membre du gouvernement en affaires courantes", "12 de 131 escaños (recuento preliminar del 7 nov. 2026: 9,8 % del voto de partido; resultado oficial el 27 nov.). En el Gobierno en funciones"),
