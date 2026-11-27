@@ -604,7 +604,7 @@ BAROTICO.add("austria", {
              n: L3("Public party funding 2024 (federal and Länder): €35.2 million, up 14.1%. Net assets end-2024: €1.2 million, liabilities €139,000 (ORF). No published breakdown of total income found.",
                    "Financement public 2024 (fédéral et Länder) : 35,2 millions d'euros, +14,1 %. Actif net fin 2024 : 1,2 million, dettes 139 000 € (ORF). Aucune ventilation publiée du total des recettes trouvée.",
                    "Financiación pública 2024 (federal y Länder): 35,2 millones de euros, +14,1 %. Patrimonio neto a finales de 2024: 1,2 millones, deudas de 139 000 € (ORF). No se ha encontrado un desglose publicado del total de ingresos.") },
-      prog: [] }
+      prog: [["2024", "https://gruene.at/nrwprogramm24/"]] }
   ],
 
   media: {

@@ -406,10 +406,11 @@
   {
    "slug": "austria",
    "key": "austria",
-   "status": "doing",
+   "status": "done",
    "kind": "prog",
    "since": "2026-11-27T12:29Z",
-   "by": "session_01K5LCGnWVrW"
+   "by": "session_01K5LCGnWVrW",
+   "done": "2026-11-27T13:15Z"
   },
   {
    "slug": "greece",
