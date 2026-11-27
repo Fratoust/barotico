@@ -389,7 +389,10 @@
   {
    "slug": "switzerland",
    "key": "switzerland",
-   "status": "prog"
+   "status": "doing",
+   "kind": "prog",
+   "since": "2026-11-27T12:30Z",
+   "by": "session_01K5LCGoJWCq"
   },
   {
    "slug": "portugal",
