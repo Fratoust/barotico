@@ -383,7 +383,7 @@ BAROTICO.add("portugal", {
              n: L3("Deficit of about €695,000 in 2025, mainly because its state subsidy fell after the 2025 election; donations €391,000; spending €11.3 million. No percentage breakdown published in the reports found.",
                    "Déficit d'environ 695 000 € en 2025, surtout parce que sa subvention publique a baissé après les législatives de 2025 ; dons de 391 000 € ; dépenses de 11,3 millions. Pas de ventilation en pourcentage dans les sources trouvées.",
                    "Déficit de unos 695.000 € en 2025, sobre todo por la caída de su subvención pública tras las elecciones de 2025; donaciones de 391.000 €; gasto de 11,3 millones. Sin desglose porcentual en las fuentes halladas.") },
-      prog: [] },
+      prog: [["2025", "https://ps.pt/wp-content/uploads/2025/04/programa-eleitoral.pdf"]] },
 
     { id: "il", born: {"y": 2017, "m": 12, "gov": "never", "u": "https://www.rtp.pt/noticias/politica/iniciativa-liberal-ficha-do-partido_n1630854"}, name: "IL", full: "Iniciativa Liberal", leader: "Mariana Leitão",
       seats: L3("9 seats of 230 (2025)", "9 sièges sur 230 (2025)", "9 escaños de 230 (2025)"),
@@ -509,7 +509,7 @@ BAROTICO.add("portugal", {
              n: L3("Surplus of €265,900 in 2025 (€57,800 in 2024). No revenue breakdown published in the reports found.",
                    "Excédent de 265 900 € en 2025 (57 800 € en 2024). Pas de ventilation des recettes dans les sources trouvées.",
                    "Superávit de 265.900 € en 2025 (57.800 € en 2024). Sin desglose de ingresos en las fuentes halladas.") },
-      prog: [] },
+      prog: [["2025", "https://partidolivre.pt/wp-content/uploads/2019/04/ProgramaV1.pdf"]] },
 
     { id: "pcp", born: {"y": 1921, "m": 3, "gov": "partner", "u": "https://www.dnoticias.pt/2021/3/6/253171-costa-felicita-pcp-e-congratula-se-com-respostas-comuns/"}, name: "PCP (CDU)", full: "Partido Comunista Português", leader: "Paulo Raimundo",
       seats: L3("3 seats of 230 (2025, CDU list)", "3 sièges sur 230 (2025, liste CDU)", "3 escaños de 230 (2025, lista CDU)"),
