@@ -305,7 +305,7 @@ BAROTICO.add("switzerland", {
              n: L3("Declared income 2025: CHF 3.8 million (parties' declarations to the Federal Audit Office, as reported by Keystone-SDA). The EFK also publishes the breakdown and donations above CHF 15,000; they were not checked against a validated source here.",
                    "Recettes déclarées 2025 : 3,8 millions de francs (déclarations des partis au Contrôle fédéral des finances, selon Keystone-SDA). Le CDF publie aussi la ventilation et les dons de plus de 15 000 francs ; ils n'ont pas été vérifiés ici auprès d'une source validée.",
                    "Ingresos declarados en 2025: 3,8 millones de francos (declaraciones de los partidos al Control Federal de Finanzas, según Keystone-SDA). El CDF publica también el desglose y las donaciones de más de 15 000 francos; no se han verificado aquí con una fuente validada.") },
-      prog: [] },
+      prog: [["2023-2027", "https://www.svp.ch/wp-content/uploads/230523_Parteiprogramm.pdf"]] },
 
     { id: "sp", born: {"y": 1888, "gov": "partner", "u": "https://www.swissinfo.ch/eng/swiss-politics/political-parties-in-switzerland/29288918"}, name: "SP/PS", full: "Sozialdemokratische Partei der Schweiz / Parti socialiste suisse", leader: "Mattea Meyer, Cédric Wermuth",
       seats: L3("41 seats of 200 (2023) · 18.3% of the vote · 2 Federal Councillors", "41 sièges sur 200 (2023) · 18,3 % des voix · 2 conseillers fédéraux", "41 escaños de 200 (2023) · 18,3 % de los votos · 2 consejeros federales"),
@@ -366,7 +366,7 @@ BAROTICO.add("switzerland", {
              n: L3("Declared income 2025: CHF 7.9 million, the highest of all parties (parties' declarations to the Federal Audit Office, as reported by Keystone-SDA). The EFK also publishes the breakdown and donations above CHF 15,000; they were not checked against a validated source here.",
                    "Recettes déclarées 2025 : 7,9 millions de francs, les plus élevées de tous les partis (déclarations des partis au Contrôle fédéral des finances, selon Keystone-SDA). Le CDF publie aussi la ventilation et les dons de plus de 15 000 francs ; ils n'ont pas été vérifiés ici auprès d'une source validée.",
                    "Ingresos declarados en 2025: 7,9 millones de francos, los más altos de todos los partidos (declaraciones de los partidos al Control Federal de Finanzas, según Keystone-SDA). El CDF publica también el desglose y las donaciones de más de 15 000 francos; no se han verificado aquí con una fuente validada.") },
-      prog: [] },
+      prog: [["2023 · Wahlplattform", "https://staging2.sp-ps.ch/wp-content/uploads/2022/10/Wahlplattform_Broschure_A5_D.pdf"]] },
 
     { id: "mitte", born: {"y": 2021, "m": 1, "gov": "partner", "u": "https://www.swissinfo.ch/eng/swiss-politics/political-parties-in-switzerland/29288918"}, name: "Die Mitte/Le Centre", full: "Die Mitte / Le Centre / Alleanza del Centro", leader: "Philipp Matthias Bregy",
       seats: L3("29 seats of 200 (2023) · 14.1% of the vote · 1 Federal Councillor", "29 sièges sur 200 (2023) · 14,1 % des voix · 1 conseiller fédéral", "29 escaños de 200 (2023) · 14,1 % de los votos · 1 consejero federal"),
@@ -483,7 +483,7 @@ BAROTICO.add("switzerland", {
              n: L3("Declared income 2025: CHF 4.8 million, second after the SP (parties' declarations to the Federal Audit Office, as reported by Keystone-SDA). The EFK also publishes the breakdown and donations above CHF 15,000; they were not checked against a validated source here.",
                    "Recettes déclarées 2025 : 4,8 millions de francs, deuxièmes après le PS (déclarations des partis au Contrôle fédéral des finances, selon Keystone-SDA). Le CDF publie aussi la ventilation et les dons de plus de 15 000 francs ; ils n'ont pas été vérifiés ici auprès d'une source validée.",
                    "Ingresos declarados en 2025: 4,8 millones de francos, segundos tras el SP (declaraciones de los partidos al Control Federal de Finanzas, según Keystone-SDA). El CDF publica también el desglose y las donaciones de más de 15 000 francos; no se han verificado aquí con una fuente validada.") },
-      prog: [] },
+      prog: [["2023 · Prioritäten", "https://www.fdp.ch/fileadmin/documents/fdp.ch/pdf/DE/Dokumente/20230506_Wahlkampfprogramm_d.pdf"]] },
 
     { id: "gruene", born: {"y": 1983, "gov": "never", "u": "https://www.swissinfo.ch/eng/swiss-politics/political-parties-in-switzerland/29288918"}, name: "Grüne/Les Vert-e-s", full: "Grüne Partei der Schweiz / Les Vert-e-s suisses", leader: "Lisa Mazzone",
       seats: L3("23 seats of 200 (2023) · 9.8% of the vote · no Federal Councillor", "23 sièges sur 200 (2023) · 9,8 % des voix · aucun conseiller fédéral", "23 escaños de 200 (2023) · 9,8 % de los votos · ningún consejero federal"),
@@ -544,7 +544,7 @@ BAROTICO.add("switzerland", {
              n: L3("Declared income 2025: CHF 1.8 million (parties' declarations to the Federal Audit Office, as reported by Keystone-SDA). The EFK also publishes the breakdown and donations above CHF 15,000; they were not checked against a validated source here.",
                    "Recettes déclarées 2025 : 1,8 million de francs (déclarations des partis au Contrôle fédéral des finances, selon Keystone-SDA). Le CDF publie aussi la ventilation et les dons de plus de 15 000 francs ; ils n'ont pas été vérifiés ici auprès d'une source validée.",
                    "Ingresos declarados en 2025: 1,8 millones de francos (declaraciones de los partidos al Control Federal de Finanzas, según Keystone-SDA). El CDF publica también el desglose y las donaciones de más de 15 000 francos; no se han verificado aquí con una fuente validada.") },
-      prog: [] },
+      prog: [["2023-2027 · Agenda", "https://verts.ch/wp-content/uploads/2023/05/Agenda-2023_Version_4.1_d.pdf"]] },
 
     { id: "glp", born: {"y": 2007, "gov": "never", "u": "https://www.swissinfo.ch/eng/swiss-politics/political-parties-in-switzerland/29288918"}, name: "GLP/PVL", full: "Grünliberale Partei / Parti vert'libéral", leader: "Jürg Grossen",
       seats: L3("10 seats of 200 (2023) · 7.6% of the vote · no Federal Councillor", "10 sièges sur 200 (2023) · 7,6 % des voix · aucun conseiller fédéral", "10 escaños de 200 (2023) · 7,6 % de los votos · ningún consejero federal"),
