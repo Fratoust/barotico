@@ -453,8 +453,11 @@
   {
    "slug": "united-states",
    "key": "usa",
-   "status": "prog",
-   "note": "repasse « nouveau modèle » : 10 propositions clés (étape 4c), liens de programme déjà faits"
+   "status": "doing",
+   "note": "repasse « nouveau modèle » : 10 propositions clés (étape 4c), liens de programme déjà faits",
+   "kind": "prog",
+   "since": "2026-11-27T12:29Z",
+   "by": "session_01K5LCGpDkLp"
   },
   {
    "slug": "united-kingdom",
