@@ -656,7 +656,7 @@ BAROTICO.add("poland", {
           "La PKW publie le rapport annuel contrôlé de chaque parti ; nous n'avons pas pu ouvrir les rapports 2025 des partis membres de la KO, d'où l'absence de ventilation.",
           "La PKW publica el informe anual auditado de cada partido; no pudimos abrir los informes de 2025 de los partidos miembros de la KO, así que no se muestra desglose.")
       },
-      prog: []
+      prog: [["2023 · 100 konkretów", "https://100konkretow.pl/wszystkie-konkrety/"]]
     },
     {
       id: "pis",
@@ -870,7 +870,7 @@ BAROTICO.add("poland", {
           "Recettes 2025 : 32,3 millions de zł, dont subvention de l'État 13,4 millions et dotation budgétaire 4,5 millions, dons 11,3 millions, cotisations 2,5 millions. Le rapport ne distingue pas les versements des élus.",
           "Ingresos 2025: 32,3 millones de zł, de ellos subvención estatal 13,4 millones y asignación presupuestaria 4,5 millones, donaciones 11,3 millones, cuotas 2,5 millones. El informe no separa las aportaciones de los cargos electos.")
       },
-      prog: []
+      prog: [["2023", "https://pis.org.pl/wp-content/uploads/2023/09/Program-PiS-Bezpieczna-Przyszlosc-Polakow.pdf"]]
     },
     {
       id: "rozwoj",
@@ -1133,7 +1133,7 @@ BAROTICO.add("poland", {
           "Recettes 2025 : 12,1 millions de zł, dont subvention de l'État 7,5 millions et dotation budgétaire 0,4 million, dons 3,9 millions, cotisations 0,1 million. Rapport accepté avec des manquements relevés sur les registres de dons et de contrats.",
           "Ingresos 2025: 12,1 millones de zł, de ellos subvención estatal 7,5 millones y asignación presupuestaria 0,4 millones, donaciones 3,9 millones, cuotas 0,1 millones. Informe aceptado con incumplimientos señalados en los registros de donaciones y contratos.")
       },
-      prog: []
+      prog: [["2023 · Trzecia Droga (PSL + Polska 2050)", "https://www.psl.pl/wp-content/uploads/2023/10/12-gwarancji-1.pdf"]]
     },
     {
       id: "lewica",
@@ -1275,7 +1275,7 @@ BAROTICO.add("poland", {
           "Nous n'avons pas pu ouvrir la résolution de la PKW sur le rapport 2025 de Nowa Lewica, d'où l'absence de ventilation.",
           "No pudimos abrir la resolución de la PKW sobre el informe de 2025 de Nowa Lewica, así que no se muestra desglose.")
       },
-      prog: []
+      prog: [["2025 · Nowa Lewica, program do 2030", "https://lewica.org.pl/program-i-polityka/program-glowny/"]]
     },
     {
       id: "konf",
@@ -1422,7 +1422,7 @@ BAROTICO.add("poland", {
           "Sa subvention 2025 a été fixée à environ 8 millions de zł après la réduction décidée par la PKW ; nous n'avons pas pu ouvrir son rapport financier annuel, d'où l'absence de ventilation.",
           "Su subvención de 2025 quedó en unos 8 millones de zł tras el recorte de la PKW; no pudimos abrir su informe financiero anual, así que no se muestra desglose.")
       },
-      prog: []
+      prog: [["2023", "https://konfederacja.pl/app/uploads/Konfederacja_WiN_Program_2023.pdf"]]
     },
     {
       id: "centrum",
@@ -1677,7 +1677,7 @@ BAROTICO.add("poland", {
           "Nous n'avons pas pu ouvrir la résolution de la PKW sur le rapport 2025 de Polska 2050, d'où l'absence de ventilation.",
           "No pudimos abrir la resolución de la PKW sobre el informe de 2025 de Polska 2050, así que no se muestra desglose.")
       },
-      prog: []
+      prog: [["2023 · Trzecia Droga (PSL + Polska 2050)", "https://www.psl.pl/wp-content/uploads/2023/10/12-gwarancji-1.pdf"]]
     },
     {
       id: "razem",
@@ -1800,7 +1800,7 @@ BAROTICO.add("poland", {
           "Nous n'avons pas pu ouvrir la résolution de la PKW sur le rapport 2025 de Razem, d'où l'absence de ventilation.",
           "No pudimos abrir la resolución de la PKW sobre el informe de 2025 de Razem, así que no se muestra desglose.")
       },
-      prog: []
+      prog: [["2025 · Deklaracja programowa", "https://partiarazem.pl/deklaracja-programowa"]]
     }
   ],
   media: {

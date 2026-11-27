@@ -41,8 +41,8 @@
 {
 "slug": "poland",
 "key": "poland",
-"status": "doing",
-"done": "2026-11-26T11:08Z",
+"status": "done",
+"done": "2026-11-27T11:50Z",
 "kind": "prog",
 "since": "2026-11-27T11:45Z",
 "by": "session_01K5LCGqu1Xr"
@@ -372,10 +372,11 @@
 {
 "slug": "poland",
 "key": "poland",
-"status": "doing",
+"status": "done",
 "kind": "prog",
 "since": "2026-11-27T11:45Z",
-"by": "session_01K5LCGqu1Xr"
+"by": "session_01K5LCGqu1Xr",
+"done": "2026-11-27T11:50Z"
 },
 {
 "slug": "netherlands",
