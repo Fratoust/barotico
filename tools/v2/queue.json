@@ -450,10 +450,11 @@
   {
    "slug": "ireland",
    "key": "ireland",
-   "status": "doing",
+   "status": "done",
    "kind": "prog",
    "since": "2026-11-27T12:29Z",
-   "by": "session_01K5LCGnfZZt"
+   "by": "session_01K5LCGnfZZt",
+   "done": "2026-11-27T12:43Z"
   },
   {
    "slug": "united-states",
