@@ -397,7 +397,10 @@
   {
    "slug": "portugal",
    "key": "portugal",
-   "status": "prog"
+   "status": "doing",
+   "kind": "prog",
+   "since": "2026-11-27T12:31Z",
+   "by": "session_01K5LCGrv6Hr"
   },
   {
    "slug": "austria",
