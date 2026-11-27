@@ -422,10 +422,11 @@
   {
    "slug": "czechia",
    "key": "czechia",
-   "status": "doing",
+   "status": "done",
    "kind": "prog",
    "since": "2026-11-27T12:29Z",
-   "by": "session_01K5LCGrwFqD"
+   "by": "session_01K5LCGrwFqD",
+   "done": "2026-11-27T12:39Z"
   },
   {
    "slug": "romania",
