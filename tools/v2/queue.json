@@ -472,11 +472,12 @@
   {
    "slug": "united-kingdom",
    "key": "uk",
-   "status": "doing",
+   "status": "done",
    "note": "repasse « nouveau modèle » : 10 propositions clés (étape 4c), liens de programme déjà faits",
    "kind": "prog",
    "since": "2026-11-27T12:45Z",
-   "by": "session_01K5LCGoWm1c"
+   "by": "session_01K5LCGoWm1c",
+   "done": "2026-11-27T13:30Z"
   },
   {
    "slug": "russia",
