@@ -342,10 +342,11 @@
 {
 "slug": "china",
 "key": "china",
-"status": "doing",
+"status": "done",
 "kind": "prog",
 "since": "2026-11-27T08:45Z",
-"by": "session_01K5LCGqETn3"
+"by": "session_01K5LCGqETn3",
+"done": "2026-11-27T08:48Z"
 },
 {
 "slug": "germany",

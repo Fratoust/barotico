@@ -396,7 +396,7 @@ BAROTICO.add("china", {
         n: L3("None of the eight parties publishes audited accounts or an income breakdown that we could find; the official white paper gives their membership (from about 3,300 for the Taiwan League to about 330,000 for the Democratic League) but nothing on their funding.",
               "Aucun des huit partis ne publie de comptes audités ni de répartition de ses recettes que nous ayons trouvés ; le livre blanc officiel donne leurs effectifs (d'environ 3 300 pour la Ligue de Taïwan à environ 330 000 pour la Ligue démocratique) mais rien sur leur financement.",
               "Ninguno de los ocho partidos publica cuentas auditadas ni un desglose de ingresos que hayamos encontrado; el libro blanco oficial da su número de miembros (de unos 3.300 de la Liga de Taiwán a unos 330.000 de la Liga Democrática) pero nada sobre su financiación.") },
-      prog: [] }
+      prog: [["Zhi Gong 2022", "https://www.zg.org.cn/zgdjj/zgzgdzc/202301/W020230129561741902417.pdf"], ["Jiusan 2022", "https://www.93.gov.cn/bsjs-jszc/"], ["Taimeng 2022", "https://www.taimeng.org.cn/tmly/tmzc/202301/t20230113_340716.html"]] }
   ],
 
   media: {
