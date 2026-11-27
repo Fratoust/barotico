@@ -367,7 +367,7 @@ BAROTICO.add("romania", {
              n: L3("Shares calculated from EFOR's figures for declared income of about 79 million lei: subsidy recognised as income 62.9 million, membership dues nearly 11 million, individual donations about 0.9 million, and the rest other income. PSD also carried about 83 million lei in loans, the most of any party, which are not counted as income.",
                    "Parts calculées à partir des chiffres d'EFOR pour des recettes déclarées d'environ 79 millions de lei : subvention comptabilisée 62,9 millions, cotisations près de 11 millions, dons de particuliers environ 0,9 million, le reste en autres recettes. Le PSD portait aussi environ 83 millions de lei de prêts, le montant le plus élevé de tous les partis, non comptés comme recettes.",
                    "Porcentajes calculados con las cifras de EFOR sobre unos ingresos declarados de 79 millones de lei: subvención contabilizada 62,9 millones, cuotas casi 11 millones, donaciones de particulares unos 0,9 millones y el resto otros ingresos. El PSD tenía además unos 83 millones de lei en préstamos, la cifra más alta de todos los partidos, que no cuentan como ingresos.") },
-      prog: [] },
+      prog: [["2024 · Program de guvernare 2025-2028", "https://www.guvernarepsd.ro/angajamente/program-de-guvernare-2025-2028/"]] },
 
     { id: "aur", born: {"y": 2019, "m": 9, "gov": "never", "u": "https://spotmedia.ro/stiri/alegeri-parlamentare-2020/alegeri-parlamentare-2020-partide-nou-infiintate-la-alegerile-legislative-din-6-decembrie-2020"}, name: "AUR", full: "Alianța pentru Unirea Românilor", leader: "George Simion",
       seats: L3("64 deputies of 331 and 28 senators of 134 (2024)","64 députés sur 331 et 28 sénateurs sur 134 (2024)","64 diputados de 331 y 28 senadores de 134 (2024)"),
@@ -439,7 +439,7 @@ BAROTICO.add("romania", {
              n: L3("Declared income of about 90.8 million lei, the highest of any party: subsidy recognised as income 40.0 million (44%), membership dues about 9 million, and 50.8 million of other income whose donation share is not reported separately. Loans: about 25.8 million lei.",
                    "Recettes déclarées d'environ 90,8 millions de lei, les plus élevées de tous les partis : subvention comptabilisée 40,0 millions (44 %), cotisations environ 9 millions, et 50,8 millions d'autres recettes dont la part des dons n'est pas publiée séparément. Prêts : environ 25,8 millions de lei.",
                    "Ingresos declarados de unos 90,8 millones de lei, los más altos de todos los partidos: subvención contabilizada 40,0 millones (44 %), cuotas unos 9 millones y 50,8 millones de otros ingresos cuya parte de donaciones no se publica por separado. Préstamos: unos 25,8 millones de lei.") },
-      prog: [] },
+      prog: [["2024 · Planul Simion, programul de guvernare al AUR", "https://georgesimion.ro/wp-content/uploads/2024/11/Planul-Simion-Reconstruim-Romania.pdf"]] },
 
     { id: "pnl", born: {"y": 1990, "m": 1, "gov": "lead", "u": "https://observatornews.ro/politic/radu-campeanu-a-murit-inchis-de-comunisti-la-25-de-ani-emigreaza-in-franta-la-51-de-ani-si-revine-in-tara-la-67-de-ani-pentru-a-reinfiinta-pnl-188387.html"}, name: "PNL", full: "Partidul Național Liberal", leader: "Ilie Bolojan",
       seats: L3("50 deputies of 331 and 22 senators of 134 (2024)","50 députés sur 331 et 22 sénateurs sur 134 (2024)","50 diputados de 331 y 22 senadores de 134 (2024)"),
@@ -521,7 +521,7 @@ BAROTICO.add("romania", {
              n: L3("Shares calculated from EFOR's figures for declared income of about 69 million lei: subsidy recognised as income 41.1 million, membership dues nearly 11 million, donations about 3.4 million (individuals and companies), and the rest other income. Loans: about 30,000 lei.",
                    "Parts calculées à partir des chiffres d'EFOR pour des recettes déclarées d'environ 69 millions de lei : subvention comptabilisée 41,1 millions, cotisations près de 11 millions, dons environ 3,4 millions (particuliers et entreprises), le reste en autres recettes. Prêts : environ 30 000 lei.",
                    "Porcentajes calculados con las cifras de EFOR sobre unos ingresos declarados de 69 millones de lei: subvención contabilizada 41,1 millones, cuotas casi 11 millones, donaciones unos 3,4 millones (particulares y empresas) y el resto otros ingresos. Préstamos: unos 30.000 lei.") },
-      prog: [] },
+      prog: [["2024 · Programul de guvernare 2025-2028", "https://campanii.pnl.ro/2024/_assets/PROGRAM-2024-2028.pdf"]] },
 
     { id: "usr", born: {"y": 2016, "m": 6, "gov": "partner", "u": "https://www.g4media.ro/care-a-fost-traseul-aliantei-dintre-usr-plus-fuziune-aprobata-definitiv-de-curtea-de-apel-bucuresti.html"}, name: "USR", full: "Uniunea Salvați România", leader: "Dominic Fritz",
       seats: L3("40 deputies of 331 and 19 senators of 134 (2024)","40 députés sur 331 et 19 sénateurs sur 134 (2024)","40 diputados de 331 y 19 senadores de 134 (2024)"),
@@ -589,7 +589,7 @@ BAROTICO.add("romania", {
              n: L3("Shares calculated from EFOR's figures for declared income of about 65.7 million lei: subsidy recognised as income 38.6 million, membership dues about 2.9 million, donations about 1.4 million, and the rest other income that EFOR does not break down. Loans: about 0.97 million lei.",
                    "Parts calculées à partir des chiffres d'EFOR pour des recettes déclarées d'environ 65,7 millions de lei : subvention comptabilisée 38,6 millions, cotisations environ 2,9 millions, dons environ 1,4 million, le reste en autres recettes qu'EFOR ne détaille pas. Prêts : environ 0,97 million de lei.",
                    "Porcentajes calculados con las cifras de EFOR sobre unos ingresos declarados de 65,7 millones de lei: subvención contabilizada 38,6 millones, cuotas unos 2,9 millones, donaciones unos 1,4 millones y el resto otros ingresos que EFOR no desglosa. Préstamos: unos 0,97 millones de lei.") },
-      prog: [] },
+      prog: [["2024 · Program de guvernare", "https://usr.ro/wp-content/uploads/2017/04/Program-de-guvernare-USR-2024.pdf"]] },
 
     { id: "sos", born: {"y": 2021, "m": 11, "gov": "never", "u": "https://www.osw.waw.pl/en/publikacje/osw-commentary/2024-04-29/a-shift-further-to-right-radical-parties-are-gaining"}, name: "SOS România", full: "S.O.S. România", leader: "Diana Șoșoacă",
       seats: L3("27 deputies of 331 and 11 senators of 134 (2024); 15 deputies remain in 2026, no Senate group","27 députés sur 331 et 11 sénateurs sur 134 (2024) ; 15 députés restants en 2026, plus de groupe au Sénat","27 diputados de 331 y 11 senadores de 134 (2024); quedan 15 diputados en 2026, sin grupo en el Senado"),
@@ -706,7 +706,7 @@ BAROTICO.add("romania", {
              n: L3("No income breakdown is published. UDMR received no party subsidy in 2025 and chose the funding for minority organisations instead. EFOR describes its private income as limited (about 17,000 lei of company donations) and its income as mostly public money.",
                    "Aucune ventilation des recettes publiée. L'UDMR n'a reçu aucune subvention de parti en 2025 et a choisi le financement des organisations de minorités. EFOR décrit des recettes privées limitées (environ 17 000 lei de dons d'entreprises) et des recettes surtout publiques.",
                    "No se publica desglose de ingresos. La UDMR no recibió subvención de partido en 2025 y optó por la financiación de las organizaciones de minorías. EFOR describe unos ingresos privados limitados (unos 17.000 lei de donaciones de empresas) y unos ingresos sobre todo públicos.") },
-      prog: [] },
+      prog: [["2025 · Documentul celui de-al 17-lea Congres UDMR", "https://www.rmdsz.ro/upload/dokumetumok/Kongresszus%202025/Document_Congres_17UDMR_2025.pdf"]] },
 
     { id: "pot", born: {"y": 2023, "gov": "never", "u": "https://www.antena3.ro/politica/piticii-de-pe-buletinul-de-vot-cine-sunt-pot-si-sens-dar-si-cele-doua-clone-ale-psd-729329.html"}, name: "POT", full: "Partidul Oamenilor Tineri", leader: "Anamaria Gavrilă",
       seats: L3("23 deputies of 331 and 7 senators of 134 (2024); no parliamentary group since May 2026","23 députés sur 331 et 7 sénateurs sur 134 (2024) ; plus de groupe parlementaire depuis mai 2026","23 diputados de 331 y 7 senadores de 134 (2024); sin grupo parlamentario desde mayo de 2026"),
