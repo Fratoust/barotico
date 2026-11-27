@@ -234,9 +234,9 @@ BAROTICO.add("russia", {
             "Les citoyens votent dès 18 ans au bureau de leur adresse enregistrée, avec leur passeport. On peut demander à l'avance à voter ailleurs, via le portail Gosouslougui ou un centre de services publics ; le vote en ligne (DEG) exige aussi une inscription préalable sur Gosouslougui. Les Russes de l'étranger votent dans les ambassades et consulats.",
             "Los ciudadanos votan desde los 18 años en el colegio de su domicilio registrado, con su pasaporte. Se puede pedir con antelación votar en otro lugar, por el portal Gosuslugi o un centro de servicios públicos; el voto en línea (DEG) también exige registro previo en Gosuslugi. Los rusos en el extranjero votan en embajadas y consulados.") },
 
-  progNote: L3("Programme links are left empty: we did not open the parties' own programme pages. Stated values and promises come from party congresses and programmes as reported by the Russian press (state and independent). Positions on the left-right axis are editorial estimates (see each card).",
-               "Les liens vers les programmes sont laissés vides : nous n'avons pas ouvert les pages de programme des partis. Les valeurs et promesses affichées viennent des congrès et programmes tels que rapportés par la presse russe (d'État et indépendante). Les positions sur l'axe gauche-droite sont des estimations de la rédaction (voir chaque fiche).",
-               "Los enlaces a programas quedan vacíos: no abrimos las páginas de programa de los partidos. Los valores y promesas vienen de congresos y programas según la prensa rusa (estatal e independiente). Las posiciones en el eje izquierda-derecha son estimaciones de la redacción (ver cada ficha)."),
+  progNote: L3("Programme links go to each party's own publication for the September 2026 Duma election; for the CPRF, the 'Victory Programme' as published by its Central Committee before the congress adopted it. Stated values and promises come from party congresses and programmes as reported by the Russian press (state and independent). Positions on the left-right axis are editorial estimates (see each card).",
+               "Les liens vers les programmes renvoient à la publication de chaque parti pour les élections à la Douma de septembre 2026 ; pour le KPRF, le « Programme de la victoire » tel que publié par son Comité central avant son adoption par le congrès. Les valeurs et promesses affichées viennent des congrès et programmes tels que rapportés par la presse russe (d'État et indépendante). Les positions sur l'axe gauche-droite sont des estimations de la rédaction (voir chaque fiche).",
+               "Los enlaces a programas llevan a la publicación de cada partido para las elecciones a la Duma de septiembre de 2026; para el PCFR, el «Programa de la Victoria» tal como lo publicó su Comité Central antes de que el congreso lo aprobara. Los valores y promesas vienen de congresos y programas según la prensa rusa (estatal e independiente). Las posiciones en el eje izquierda-derecha son estimaciones de la redacción (ver cada ficha)."),
 
   parties: [
     { id: "er", born: {"y": 2001, "m": 12, "old": "Unity and Fatherland – United Russia", "re": 2003, "gov": "lead", "u": "https://bigenc.ru/c/edinaia-rossiia-b7486d"}, name: "United Russia", full: "Единая Россия (Yedinaya Rossiya)", leader: "Dmitry Medvedev (chairman)",
@@ -313,7 +313,7 @@ BAROTICO.add("russia", {
         n: L3("About 10.9 billion roubles: 4.3 billion of state funding, 5.8 billion of donations, 331 million of dues; it also borrowed 190 million. Contributions from elected officials are not shown separately.",
               "Environ 10,9 milliards de roubles : 4,3 milliards de financement public, 5,8 milliards de dons, 331 millions de cotisations ; il a aussi emprunté 190 millions. Les contributions des élus ne sont pas détaillées.",
               "Unos 10.900 millones de rublos: 4.300 millones de financiación pública, 5.800 millones en donaciones, 331 millones en cuotas; además pidió prestados 190 millones. Las aportaciones de cargos electos no se desglosan.") },
-      prog: [] },
+      prog: [["2026", "https://np.er.ru/narodnaya-programma-2026.pdf"]] },
 
     { id: "kprf", born: {"y": 1993, "m": 2, "gov": "never", "u": "https://www.kommersant.ru/doc/2943753"}, name: "CPRF", full: "Коммунистическая партия Российской Федерации (Communist Party of the Russian Federation)", leader: "Gennady Zyuganov",
       seats: L3("37 of 450 seats (2026): 32 list seats and 5 districts; 13.5% of list votes", "37 sièges sur 450 (2026) : 32 de liste et 5 circonscriptions ; 13,5 % des voix de liste", "37 de 450 escaños (2026): 32 de lista y 5 distritos; 13,5 % del voto de lista"),
@@ -378,7 +378,7 @@ BAROTICO.add("russia", {
         n: L3("About 2 billion roubles, of which 1.6 billion of state funding, 116 million of dues and about 50 million of donations.",
               "Environ 2 milliards de roubles, dont 1,6 milliard de financement public, 116 millions de cotisations et environ 50 millions de dons.",
               "Unos 2.000 millones de rublos, de ellos 1.600 millones de financiación pública, 116 millones en cuotas y unos 50 millones en donaciones.") },
-      prog: [] },
+      prog: [["2026", "https://kprf.ru/party-live/cknews/244153.html"]] },
 
     { id: "ldpr", born: {"y": 1989, "m": 12, "old": "Liberal Democratic Party of the Soviet Union", "re": 1992, "gov": "never", "u": "https://www.pnp.ru/politics/ldpr-razmenyala-chetvyortyy-desyatok.html"}, name: "LDPR", full: "Либерально-демократическая партия России (Liberal Democratic Party of Russia)", leader: "Leonid Slutsky",
       seats: L3("23 of 450 seats (2026): 21 list seats and 2 districts; 8.9% of list votes", "23 sièges sur 450 (2026) : 21 de liste et 2 circonscriptions ; 8,9 % des voix de liste", "23 de 450 escaños (2026): 21 de lista y 2 distritos; 8,9 % del voto de lista"),
@@ -434,7 +434,7 @@ BAROTICO.add("russia", {
         n: L3("About 777 million roubles: 646 million of state funding, 18 million of donations (mainly from companies); dues are not shown separately and are included in 'other'.",
               "Environ 777 millions de roubles : 646 millions de financement public, 18 millions de dons (surtout d'entreprises) ; les cotisations ne sont pas détaillées et sont comprises dans « autres ».",
               "Unos 777 millones de rublos: 646 millones de financiación pública, 18 millones en donaciones (sobre todo de empresas); las cuotas no se desglosan y van en «otros».") },
-      prog: [] },
+      prog: [["2026", "https://ldpr.ru/programma-100-dney-preobrazovaniya-rossii/"]] },
 
     { id: "np", born: {"y": 2020, "gov": "never", "u": "https://rg.ru/2020/08/10/u-nas-mozhet-poiavitsia-eshche-odna-politicheskaia-partiia.html"}, name: "New People", full: "Новые люди (Novye Lyudi)", leader: "Alexei Nechaev",
       seats: L3("19 of 450 seats (2026), all from the list; 7.8% of list votes", "19 sièges sur 450 (2026), tous de liste ; 7,8 % des voix de liste", "19 de 450 escaños (2026), todos de lista; 7,8 % del voto de lista"),
@@ -489,7 +489,7 @@ BAROTICO.add("russia", {
         n: L3("About 747 million roubles: 456 million of state funding and 223 million of donations; dues are not shown separately.",
               "Environ 747 millions de roubles : 456 millions de financement public et 223 millions de dons ; les cotisations ne sont pas détaillées.",
               "Unos 747 millones de rublos: 456 millones de financiación pública y 223 millones en donaciones; las cuotas no se desglosan.") },
-      prog: [] },
+      prog: [["2026", "https://lp.newpeople.ru/files/docs/manifesto_newpeople.pdf"]] },
 
     { id: "sr", born: {"y": 2006, "m": 10, "old": "A Just Russia", "re": 2021, "gov": "never", "u": "https://asafov.ru/news/spravedlivaia-rossiia-otmetila-20-letie-i-obieiavila-vserossiiskii-priem-grazdan"}, name: "A Just Russia – For Truth", full: "Справедливая Россия – За правду (Spravedlivaya Rossiya – Za Pravdu)", leader: "Sergei Mironov",
       seats: L3("17 of 450 seats (2026): 13 list seats and 4 districts; 5.3% of list votes", "17 sièges sur 450 (2026) : 13 de liste et 4 circonscriptions ; 5,3 % des voix de liste", "17 de 450 escaños (2026): 13 de lista y 4 distritos; 5,3 % del voto de lista"),
@@ -549,7 +549,7 @@ BAROTICO.add("russia", {
         n: L3("Just over 1 billion roubles: 639 million of state funding and 339 million of donations, of which 83 million had to be returned; dues are not shown separately.",
               "Un peu plus d'un milliard de roubles : 639 millions de financement public et 339 millions de dons, dont 83 millions ont dû être rendus ; les cotisations ne sont pas détaillées.",
               "Algo más de 1.000 millones de rublos: 639 millones de financiación pública y 339 millones en donaciones, de las que 83 millones tuvieron que devolverse; las cuotas no se desglosan.") },
-      prog: [] }
+      prog: [["2026", "https://spravedlivo.ru/program"]] }
   ],
 
   media: {

@@ -333,10 +333,11 @@
 {
 "slug": "russia",
 "key": "russia",
-"status": "doing",
+"status": "done",
 "kind": "prog",
 "since": "2026-11-27T07:45Z",
-"by": "session_01K5LCGoDUC3"
+"by": "session_01K5LCGoDUC3",
+"done": "2026-11-27T07:55Z"
 },
 {
 "slug": "china",
