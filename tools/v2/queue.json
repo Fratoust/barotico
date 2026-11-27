@@ -351,10 +351,11 @@
 {
 "slug": "germany",
 "key": "germany",
-"status": "doing",
+"status": "done",
 "kind": "prog",
 "since": "2026-11-27T09:45Z",
-"by": "session_01K5LCGraChy"
+"by": "session_01K5LCGraChy",
+"done": "2026-11-27T09:50Z"
 },
 {
 "slug": "italy",
