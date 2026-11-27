@@ -433,10 +433,11 @@
   {
    "slug": "romania",
    "key": "romania",
-   "status": "doing",
+   "status": "done",
    "kind": "prog",
    "since": "2026-11-27T12:32Z",
-   "by": "session_01K5LCGrakhh"
+   "by": "session_01K5LCGrakhh",
+   "done": "2026-11-27T12:45Z"
   },
   {
    "slug": "hungary",
