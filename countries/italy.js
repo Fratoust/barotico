@@ -450,7 +450,7 @@ BAROTICO.add("italy", {
              n: L3("No income breakdown found. Audited accounts are filed with Parliament's commission on party accounts. Taxpayers allocated €1.14 million to the Lega through the 2x1000 in 2025.",
                    "Aucune ventilation des recettes trouvée. Les comptes certifiés sont déposés auprès de la commission parlementaire. Les contribuables ont attribué 1,14 million d'euros à la Lega via le 2 pour mille en 2025.",
                    "No se encontró desglose de ingresos. Las cuentas auditadas se presentan a la comisión parlamentaria. Los contribuyentes asignaron 1,14 millones de euros a la Lega mediante el 2 por mil en 2025.") },
-      prog: [] },
+      prog: [["2022", "https://static.legaonline.it/files/Programma_Lega_2022.pdf"]] },
 
     { id: "fi", born: {"y": 2009, "m": 3, "old": "Popolo della Libertà", "re": 2013, "gov": "lead", "u": "https://st.ilsole24ore.com/art/notizie/2013-11-16/berlusconi-oggi-torna-forza-italia-ma-pdl-resta-nome-coalizione--111155.shtml"}, name: "Forza Italia", full: "Forza Italia - Berlusconi Presidente", leader: "Antonio Tajani",
       seats: L3("52 of 400 deputies (Chamber group, November 2026); 45 deputies and 18 senators of 200 elected in 2022",
@@ -600,7 +600,7 @@ BAROTICO.add("italy", {
              n: L3("No income breakdown found. Audited accounts are filed with Parliament's commission on party accounts. Taxpayers allocated over €3 million to the M5S through the 2x1000 in 2025.",
                    "Aucune ventilation des recettes trouvée. Les comptes certifiés sont déposés auprès de la commission parlementaire. Les contribuables ont attribué plus de 3 millions d'euros au M5S via le 2 pour mille en 2025.",
                    "No se encontró desglose de ingresos. Las cuentas auditadas se presentan a la comisión parlamentaria. Los contribuyentes asignaron más de 3 millones de euros al M5S mediante el 2 por mil en 2025.") },
-      prog: [] },
+      prog: [["2022", "https://www.movimento5stelle.eu/wp-content/uploads/2022/09/Programma-M5S-completo-2022-09-12.pdf"]] },
 
     { id: "azione", born: {"y": 2019, "m": 11, "gov": "never", "u": "https://pagellapolitica.it/articoli/il-fact-checking-del-manifesto-di-azione-il-nuovo-partito-di-calenda"}, name: "Azione", full: "Azione", leader: "Carlo Calenda",
       seats: L3("10 of 400 deputies (Chamber group, November 2026); elected in 2022 on the joint Azione-Italia Viva list (21 deputies and 9 senators in total), separate groups since 2023",
@@ -664,7 +664,7 @@ BAROTICO.add("italy", {
              n: L3("No income breakdown found for 2025. Audited accounts are filed with Parliament's commission on party accounts. Taxpayers allocated about €1.5 million to Azione through the 2x1000 in 2025.",
                    "Aucune ventilation des recettes trouvée pour 2025. Les comptes certifiés sont déposés auprès de la commission parlementaire. Les contribuables ont attribué environ 1,5 million d'euros à Azione via le 2 pour mille en 2025.",
                    "No se encontró desglose de ingresos de 2025. Las cuentas auditadas se presentan a la comisión parlamentaria. Los contribuyentes asignaron unos 1,5 millones de euros a Azione mediante el 2 por mil en 2025.") },
-      prog: [] },
+      prog: [["2022 (Azione–Italia Viva)", "https://www.azione.it/programma-elettorale-2022/"]] },
 
     { id: "avs", born: {"y": 2022, "m": 7, "gov": "never", "u": "https://pagellapolitica.it/articoli/europa-verde-sinistra-italiana-programma-elezioni-2022"}, name: "AVS", full: "Alleanza Verdi e Sinistra", leader: "Angelo Bonelli, Nicola Fratoianni",
       seats: L3("9 of 400 deputies (Chamber group, November 2026); 12 deputies and 4 senators of 200 elected in 2022",
@@ -794,7 +794,7 @@ BAROTICO.add("italy", {
              n: L3("Income €539,728. 'Public' = 2x1000 (€220,730). Donations = individuals (€36,250) plus companies (€83,900). 'Other' = contributions from associations and parties (€64,500) plus financial income. Contributions from elected officials are not shown separately.",
                    "Recettes : 539 728 €. « Public » = 2 pour mille (220 730 €). Dons = particuliers (36 250 €) et entreprises (83 900 €). « Autres » = contributions d'associations et de partis (64 500 €) et produits financiers. Les contributions des élus ne sont pas isolées.",
                    "Ingresos: 539.728 €. «Público» = 2 por mil (220.730 €). Donaciones = particulares (36.250 €) y empresas (83.900 €). «Otros» = aportaciones de asociaciones y partidos (64.500 €) e ingresos financieros. Las aportaciones de cargos electos no se desglosan.") },
-      prog: [] },
+      prog: [["2022", "https://www.noimoderati.it/assets/NoiModerati_Programma2022.pdf"]] },
 
     { id: "iv", born: {"y": 2019, "m": 9, "gov": "partner", "u": "https://tg24.sky.it/politica/2019/09/17/partito-renzi-pd"}, name: "Italia Viva", full: "Italia Viva", leader: "Matteo Renzi",
       seats: L3("7 of 400 deputies (group 'Italia Viva-Casa Riformista', November 2026); elected in 2022 on the joint Azione-Italia Viva list (21 deputies and 9 senators in total)",
@@ -863,7 +863,7 @@ BAROTICO.add("italy", {
              n: L3("No income breakdown found. Audited accounts are filed with Parliament's commission on party accounts. Taxpayers allocated about €1.1 million to Italia Viva through the 2x1000 in 2025.",
                    "Aucune ventilation des recettes trouvée. Les comptes certifiés sont déposés auprès de la commission parlementaire. Les contribuables ont attribué environ 1,1 million d'euros à Italia Viva via le 2 pour mille en 2025.",
                    "No se encontró desglose de ingresos. Las cuentas auditadas se presentan a la comisión parlamentaria. Los contribuyentes asignaron unos 1,1 millones de euros a Italia Viva mediante el 2 por mil en 2025.") },
-      prog: [] }
+      prog: [["2022 (Azione–Italia Viva)", "https://www.azione.it/programma-elettorale-2022/"]] }
   ],
 
   media: {
