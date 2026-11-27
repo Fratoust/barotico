@@ -414,10 +414,11 @@
   {
    "slug": "greece",
    "key": "greece",
-   "status": "doing",
+   "status": "done",
    "kind": "prog",
    "since": "2026-11-27T12:29Z",
-   "by": "session_01K5LCGovjQD"
+   "by": "session_01K5LCGovjQD",
+   "done": "2026-11-27T12:42Z"
   },
   {
    "slug": "czechia",
