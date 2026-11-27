@@ -482,11 +482,9 @@
   {
    "slug": "russia",
    "key": "russia",
-   "status": "doing",
+   "status": "prog",
    "note": "repasse « nouveau modèle » : 10 propositions clés (étape 4c), liens de programme déjà faits",
-   "kind": "prog",
-   "since": "2026-11-27T13:45Z",
-   "by": "session_01K5LCGno8UbiBWAa59o2DGW"
+   "skip": "27/11 13:50Z : étape 4c impossible, aucune source lisible. Les lectures de programmes (np.er.ru, kprf.ru, ldpr.ru, newpeople.ru, spravedlivo.ru) ont été refusées par l'autorisation de lecture web (demande sans réponse dans une tâche sans surveillance). À reprendre quand la lecture web est autorisée."
   },
   {
    "slug": "china",
