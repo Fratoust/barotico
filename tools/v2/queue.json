@@ -75,7 +75,7 @@
    "slug": "spain",
    "key": "spain",
    "status": "todo",
-   "skip": "Élections générales le 29/11/2026, dans les 10 jours : à reprendre après les résultats officiels (passages du 26/11 et du 27/11, dernier contrôle 27/11 14:50Z)."
+   "skip": "Élections générales le 29/11/2026, dans les 10 jours : à reprendre après les résultats officiels (passages du 26/11 et du 27/11, dernier contrôle 27/11 15:46Z)."
   },
   {
    "slug": "portugal",
@@ -492,8 +492,11 @@
   {
    "slug": "china",
    "key": "china",
-   "status": "prog",
-   "note": "repasse « nouveau modèle » : 10 propositions clés (étape 4c), liens de programme déjà faits"
+   "status": "doing",
+   "note": "repasse « nouveau modèle » : 10 propositions clés (étape 4c), liens de programme déjà faits",
+   "kind": "prog",
+   "since": "2026-11-27T15:46Z",
+   "by": "session_01K5LCGpuZyX"
   },
   {
    "slug": "germany",
