@@ -482,12 +482,12 @@
   {
    "slug": "russia",
    "key": "russia",
-   "status": "doing",
-   "note": "repasse « nouveau modèle » : 10 propositions clés (étape 4c), liens de programme déjà faits",
+   "status": "done",
+   "note": "10 propositions clés : 5 partis sur 5 (lectures rendues possibles en faisant d’abord apparaître les adresses officielles dans une recherche web)",
    "kind": "prog",
    "since": "2026-11-27T14:50Z",
-   "by": "session_01K5LCGpdTBC",
-   "prev_skip": "27/11 13:50Z : lectures refusées (autorisation web)"
+   "by": "tâche planifiée (passage de 14:45Z)",
+   "done": "2026-11-27T15:25Z"
   },
   {
    "slug": "china",
