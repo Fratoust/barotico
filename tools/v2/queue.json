@@ -360,7 +360,10 @@
 {
 "slug": "italy",
 "key": "italy",
-"status": "prog"
+"status": "doing",
+"kind": "prog",
+"since": "2026-11-27T10:45Z",
+"by": "session_01K5LCGnZd82"
 },
 {
 "slug": "poland",
